@@ -5,18 +5,19 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{biblatex} % Add this line for bibliography support
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
 \newtheorem{theo}{Theorem}
 \newtheorem{prop}{Proposition}
 \newtheorem{defi}{Definition}
 \newtheorem{coro}{Corollary}
 \newtheorem{lemm}{Lemma}
-\newtheorem{exam}{Example}
+\newtheorem{example}{Example}
 \newtheorem{rema}{Remark}
 
 % Title and Author
 \title{PhD Studies}
 \author{Abraham Rojas Vega}
-\addbibresource{references.bib} % Specify the path to your bibliography file
+\addbibresource{basicos.bib} % Specify the path to your bibliography file
 
 
 \begin{document}
@@ -27,10 +28,12 @@
 \part*{Topics of Algebraic Topology}
 % Chapters
 
-
-
-
 \chapter{Simplical sets and complexes}
+
+Simplicial complexes are more intuitive, and are the foundation of algebraic topology. Simplicial sets were also called simplicial schemes and semi-simplicial complexes. 
+
+\section{Simplical complexes}
+
 
 
 \section{Simplical sets}
@@ -55,6 +58,20 @@ A simplicial set is a contravariant functor $X: \Delta^{o p} \rightarrow$ Sets, 
 
 
 
+\section{CW-complexes}
+
+\section{Homotopy theory}
+
+
+
+
+
+\chapter{K-theory constructions} 
+\section{Volodin's K-theory}
+
+Let $G$ be a group and $\left\{G_i\right\}{ }_{i \varepsilon I}$ a family of subgroups. Define $V\left(G,\left\{G_i\right\}\right)$ to be the simplicial scheme, alias simplicial complex, (and also its geometric realization, i.e., $\operatorname{RV}\left(G,\left\{G_i\right\}\right)$ in the notation of, Ch. V, Prop. 7.16), whose vertices are the elements of $G$, where $g_0, \ldots, g_p\left(g_i \neq g_j\right)$ form a $p$-simplex if for some $G_i$ all the elements $g_j g_k^{-1}$ lie in $G_i$. We'11 often shorten the notation to $V(G)$. If $H$ is another group with a family of subgroups $\left\{H_j\right\}$ and $\phi: G \rightarrow H$ is a homomorphism sending each $G_i$ into some $H_j$, then $\phi$ induces a simplicial map $V(\phi): V(G) \rightarrow V(H)$.
+
+In many situations the space $V(G)$ is not convenient from a technical point of view and it is more convenient to use simplicial sets ([8], Ch. II) instead of simplicial schemes: Denote by $W\left(G,\left\{G_i\right\}\right)$ the geometric realization ([8], Ch. III §3) of the (semi)simplicial set whose p-simplices are the sequences $\left(g_0, \ldots, g_p\right)$ of elements of $G$ (not necessarily distinct) such that for some $G_i$ al1 $g_j g_k^{-1}$ lie in $G_i$, the $r$-th face (resp. degeneracy) of this simplex being obtained by omitting $g_r$ (resp., repeating $g_r$ ). Associating with any p-simplex $\left(g_0, \ldots, g_p\right)$ the linear singular simplex of the space $V(G)$ which sends the $i$-th vertex of the standard simplex to $g_j$, we obtain a map of simplicial sets from $W(G)$ to the simplicial set of singular simplices of $V(G)$ and hence a cellular map (linear on any simplex) from $W(G)$ to $V(G)$. This map is a homotopy equivalence as one sees from the following lemmas.
 
 
 
@@ -63,17 +80,17 @@ A simplicial set is a contravariant functor $X: \Delta^{o p} \rightarrow$ Sets, 
 
 
 
-
-
-
-
-
-\section{Simplical complexes}
-\chapter{}
-
-\section{Section 2.1}
-\section{Section 2.2}
+\section{Milnor's K-theory}
 % Add more chapters and sections as neededed
+
+
+\section{Whitehead's K-theory}
+
+\section{Quillen's K-theory}
+
+
+
+\chapter{Homological stability}
 
 
 \printbibliography % Add this line to print the bibliography section

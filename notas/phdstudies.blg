@@ -1,9 +1,9 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'phdstudies.blg'
-[33] biber-darwin:340> INFO - === Thu Jun 20, 2024, 04:27:55
+[36] biber-darwin:340> INFO - === Thu Jun 20, 2024, 17:06:50
 [46] Biber.pm:419> INFO - Reading 'phdstudies.bcf'
-[88] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
-[99] bbl.pm:660> INFO - Writing 'phdstudies.bbl' with encoding 'UTF-8'
-[99] bbl.pm:763> INFO - Output to phdstudies.bbl
-[99] Biber.pm:131> WARN - The file 'phdstudies.bcf' does not contain any citations!
-[100] Biber.pm:133> INFO - WARNINGS: 1
+[87] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[95] bbl.pm:660> INFO - Writing 'phdstudies.bbl' with encoding 'UTF-8'
+[95] bbl.pm:763> INFO - Output to phdstudies.bbl
+[95] Biber.pm:131> WARN - The file 'phdstudies.bcf' does not contain any citations!
+[95] Biber.pm:133> INFO - WARNINGS: 1
