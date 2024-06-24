@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber phdstudies"] 1718989744 "phdstudies.bcf" "phdstudies.bbl" "phdstudies" 1718989748 0
+["biber phdstudies"] 1718989744 "phdstudies.bcf" "phdstudies.bbl" "phdstudies" 1719026572 0
   "./basicos.bib" 1718913945 11662 56ad7cfef67aab249d53fc98afc5a9e1 ""
-  "phdstudies.bcf" 1718989748 107348 8d6d1cbe657167a3d82fdb41620d41e6 "pdflatex"
+  "phdstudies.bcf" 1719026572 107348 8d6d1cbe657167a3d82fdb41620d41e6 "pdflatex"
   (generated)
   "phdstudies.bbl"
   "phdstudies.blg"
   (rewritten before read)
-["pdflatex"] 1718989748 "phdstudies.tex" "phdstudies.pdf" "phdstudies" 1718989748 0
+["pdflatex"] 1719026571 "phdstudies.tex" "phdstudies.pdf" "phdstudies" 1719026572 0
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbi1000.tfm" 1136768653 3072 e6fe53b666f9cbd66cb135c6fdea66d3 ""
@@ -115,6 +115,9 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/blx-dm.def" 1643926307 32455 8d3e554836db11aab80a8e11be62e1b1 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx" 1678141846 4629 cda468e8a0b1cfa0f61872e171037a4b ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/english.lbx" 1643926307 39965 48ce9ce3350aba9457f1020b1deba5cf ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/csquotes/csquotes.cfg" 1429144587 7068 06f8d141725d114847527a66439066b6 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/csquotes/csquotes.def" 1663185836 21994 2bc2a882df92d97dbce35c06bb1d3541 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/csquotes/csquotes.sty" 1663185836 62761 3c92d495a9e03d7254b9a3266aa17164 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty" 1654720880 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty" 1655478651 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
@@ -129,11 +132,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1700760616 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1700760409 7883460 d9ebd28e699e043bbca7bafd69dfe2b3 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "phdstudies.aux" 1718989748 2040 be4db65f98f365f30b8fe75e2985f868 "pdflatex"
+  "phdstudies.aux" 1719026572 2040 be4db65f98f365f30b8fe75e2985f868 "pdflatex"
   "phdstudies.bbl" 1718989747 466 ee04f40f768daeed26442158e95aba61 "biber phdstudies"
-  "phdstudies.run.xml" 1718989748 2344 09392b2d8727bdf767ea2dafb435a8aa "pdflatex"
-  "phdstudies.tex" 1718988823 20782 388cb2aae56eb07faf1cb5a01409cde3 ""
-  "phdstudies.toc" 1718989748 968 443bdbefbe48adfcc9b6660b678b615e "pdflatex"
+  "phdstudies.run.xml" 1719026572 2344 09392b2d8727bdf767ea2dafb435a8aa "pdflatex"
+  "phdstudies.tex" 1719026571 20793 a1f584adb89b7679020bcd8ac577d226 ""
+  "phdstudies.toc" 1719026572 968 443bdbefbe48adfcc9b6660b678b615e "pdflatex"
   (generated)
   "phdstudies.aux"
   "phdstudies.bcf"
