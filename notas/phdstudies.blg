@@ -1,17 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'phdstudies.blg'
-[38] biber-darwin:340> INFO - === Thu Jun 27, 2024, 15:20:03
-[48] Biber.pm:419> INFO - Reading 'phdstudies.bcf'
-[91] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
-[99] Biber.pm:4419> INFO - Processing section 0
-[104] Biber.pm:4610> INFO - Looking for bibtex file 'basicos.bib' for section 0
-[105] bibtex.pm:1713> INFO - LaTeX decoding ...
-[116] bibtex.pm:1519> INFO - Found BibTeX data source 'basicos.bib'
-[146] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[146] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[146] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[146] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[150] bbl.pm:660> INFO - Writing 'phdstudies.bbl' with encoding 'UTF-8'
-[151] bbl.pm:763> INFO - Output to phdstudies.bbl
-[151] Biber.pm:131> WARN - ISBN '978-0-521-43500-0 978-0-521-55987-4 978-1-139-64413-6' in entry 'weibelIntroductionHomologicalAlgebra1994' is invalid - run biber with '--validate_datamodel' for details.
-[151] Biber.pm:133> INFO - WARNINGS: 1
+[39] biber-darwin:340> INFO - === Thu Jun 27, 2024, 15:22:01
+[49] Biber.pm:419> INFO - Reading 'phdstudies.bcf'
+[93] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
+[102] Biber.pm:4419> INFO - Processing section 0
+[110] Biber.pm:4610> INFO - Looking for bibtex file 'basicos.bib' for section 0
+[111] bibtex.pm:1713> INFO - LaTeX decoding ...
+[122] bibtex.pm:1519> INFO - Found BibTeX data source 'basicos.bib'
+[153] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[153] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[153] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[153] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[157] bbl.pm:660> INFO - Writing 'phdstudies.bbl' with encoding 'UTF-8'
+[158] bbl.pm:763> INFO - Output to phdstudies.bbl
+[158] Biber.pm:131> WARN - ISBN '978-0-521-43500-0 978-0-521-55987-4 978-1-139-64413-6' in entry 'weibelIntroductionHomologicalAlgebra1994' is invalid - run biber with '--validate_datamodel' for details.
+[158] Biber.pm:133> INFO - WARNINGS: 1
