@@ -16,5 +16,57 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{weibelIntroductionHomologicalAlgebra1994}{book}{}
+      \name{author}{1}{}{%
+        {{hash=748c93da38984ed20cedc796d519b7ad}{%
+           family={Weibel},
+           familyi={W\bibinitperiod},
+           given={Charles\bibnamedelima A.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{fullhash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{bibnamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authorbibnamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authornamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authorfullhash}{748c93da38984ed20cedc796d519b7ad}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The landscape of homological algebra has evolved over the last half-century into a fundamental tool for the working mathematician. This book provides a unified account of homological algebra as it exists today. The historical connection with topology, regular local rings, and semi-simple Lie algebras are also described. This book is suitable for second or third year graduate students. The first half of the book takes as its subject the canonical topics in homological algebra: derived functors, Tor and Ext, projective dimensions and spectral sequences. Homology of group and Lie algebras illustrate these topics. Intermingled are less canonical topics, such as the derived inverse limit functor lim1, local cohomology, Galois cohomology, and affine Lie algebras. The last part of the book covers less traditional topics that are a vital part of the modern homological toolkit: simplicial methods, Hochschild and cyclic homology, derived categories and total derived functors. By making these tools more accessible, the book helps to break down the technological barrier between experts and casual users of homological algebra.}
+      \field{edition}{1}
+      \field{isbn}{978-0-521-43500-0 978-0-521-55987-4 978-1-139-64413-6}
+      \field{month}{4}
+      \field{title}{An {Introduction} to {Homological} {Algebra}}
+      \field{urlday}{2}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{1994}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1017/CBO9781139644136
+      \endverb
+      \verb{file}
+      \verb Weibel - 1994 - An Introduction to Homological Algebra.pdf:/Users/abrahamrojasvega/Zotero/storage/RGTTJ9AE/Weibel - 1994 - An Introduction to Homological Algebra.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.cambridge.org/core/product/identifier/9781139644136/type/book
+      \endverb
+      \verb{url}
+      \verb https://www.cambridge.org/core/product/identifier/9781139644136/type/book
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
