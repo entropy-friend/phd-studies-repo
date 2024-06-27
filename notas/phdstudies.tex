@@ -3,11 +3,14 @@
 % Packages
 
 \usepackage[english]{babel}
+\usepackage{Alegreya}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{biblatex} % Add this line for bibliography support
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
 \usepackage{csquotes}
+\usepackage[margin=2cm]{geometry}
+\usepackage{hyperref}
 \newtheorem{theo}{Theorem}
 \newtheorem{prop}{Proposition}
 \newtheorem{defi}{Definition}
@@ -44,12 +47,52 @@
 \chapter{Group (Cohomology) Theory} 
 
 
+\section{An spectral sequence for group cohomology}
+
+Suppose that $X$ is a simplicial set and $x_i$ are simplicial subsets such that $X=U X_i$. Then, setting $X_{i j}=X_i \cap X_j$ (etc.) we'11 obviously have for the realisations: $|x|=U\left|x_i\right|,\left|x_i\right| \cap\left|x_j\right|=\left|x_{i j}\right|, \ldots$ Let's suppose that the set of indices is linearly ordered. Consider the following bicomplex:
+$$ K = \longrightarrow \underset{i<j<k}{\oplus} C_*\left(x_{i j k}\right) \longrightarrow \underset{i<j}{\oplus} C_*\left(x_{i j}\right)\longrightarrow \underset{i}{\oplus} C_*\left(x_{i}\right) $$
+
+
+Here by a bicomplex we understand a bicomplex in the sense of Grothendieck [9] i.e. the differentials $d_1$ and $d_2$ commute. (The sign in this approach appears in the definition of the total differentials). The vertical arrows of the bicomplex map $C_*\left(x_i \cdots_i\right)$ into $\underset{k=0}{q} C_*\left(x_{i_0} \ldots \hat{i}_k \ldots i_q\right)$, the mapping into the kth summand differing $k=0$ by a sign $(-1)^k \quad$ from the natural embedding.
+
+The first spectral sequence of this bicomplex degenerates and yields an isomorphism $H_{\star}(K) \cong H_{\star}(X)$. (Moreover this isomorphism is induced by the canonical map $K \rightarrow C_*(X)$). The second spectral sequence gives us a functorial spectral sequence of the first quadrant, whose limit equals $H_*(X)$, while its differential $d r$ has bidegree $(r-1,-r)$ and its $E^1$-term looks as follows: $$E_{p q q}^1=\underset{i_0<\ldots<i_q}{\otimes} H_p\left(x_{i_0} \ldots i_q\right)$$
+
+Suppose $G$ is a group. Let $X_G$ denote the simplicial set (and its geometric realisation), whose p-simplices are sequences $\left(g_0, \ldots, g_p\right)$ of elements of $G$, with the usual faces and degeneracies. This space $X_G$ is contractible by (1.2). The group $G$ acts from the right on $X_G$ and this action is obviously free, hence $B G=X_G / G$ is a classifying space of $G$. The complex $C_*(B G)=C_*(G)$ coincides with the usual complex associated with $G$. Moreover $C_*(G)=C_*\left(X_G\right) \otimes_G Z$.
+
+If $H$ is a subgroup of $G$, then $X_G / H$ is a classifying space for $H$ and hence $B H=X_H / H \rightarrow X_G / H$ is a homotopy equivalence. In particular $C_*(H)+C_*\left(X_G\right) \otimes_H \mathbb{Z}=C_*\left(X_G\right) \otimes_G Z|G / H|$ is a homotopy equivalence.
+
+(2.3) The spectral sequence associated with a family of subgroups.
+
+Suppose $G$ is a group and $G_1, \ldots, G_n$ are subgroups. Then $B G_i$ may be viewed as a simplicial subset of $B G$ and $B G_i \cap B G_j=B\left(G_i \cap G_j\right)$.. Denote $U B G_i$ by $X$ and consider the spectral sequence of the covering $X=U B G_i$. Along with the bicomplex $K$ introduced in (2.1) we also consider the following bicomplex:
+
+$$K' = \underset{i<j<k}{\oplus} C_*\left(X_G\right) \otimes_G Z\left[G / G_{i j k}\right] \longrightarrow \underset{i<j}{\oplus} C_*\left(X_G\right) \otimes_G Z\left[G / G_{i j}\right] \longrightarrow \underset{i<j}{\oplus} C_*\left(X_G\right) \otimes_G Z\left[G / G_{i}\right] $$
+
+There is a natural mapping of bicomplexes $K+K^{\prime}$ and because of (2.2) this mapping induces an isomorphism of second spectral sequences so that $H_{\star}(X)=H_{\star}(K)=H_*\left(K^{\prime}\right)$. The first spectral sequence of $K^{\prime}$ looks as follows: $E_{*, q}^1=C_*\left(X_G\right) \otimes_G H_q(L)$, where $L$ is the following complex of left G-modules:
+$$
+\oplus \mathbb{Z}\left[G / G_i\right]+\oplus \mathbb{Z}\left[G / G_{i j}\right]+\oplus \mathbb{Z}\left[G / G_{i j k}\right]+\ldots
+$$
+
+
+\begin{prop}
+If $G_1, \ldots, G_n$ are subgroups of $G$, there exists a fuctorial spectral sequence of the first quadrart, the $E^2$ term of which looks like: $E_{p q}^2=H_p\left(G, H_q(L)\right)$, where $L$ is the complex defined above. It converges to $H_{\star}\left(U B G_j\right)$ and the differential $d^r$ has bidegree $(-r, r-1)$.   
+\end{prop}
+
+(2.5) In the notations of (2.3), let $Z(G,\{G\})$ be the simplicial set whose non-degenerate p-simplices are sequences $\left(\bar{g}_0, \ldots, \bar{g}_p\right)$, where $\bar{g}_i \varepsilon G / G_{k_i}, k_0<\ldots<k_p$, and the $\bar{g}_i$ are such that there is $g \in G$ with $\vec{g}_i=g \bmod G_{k_i}$ for all i. (If one covers $G$ by the right cosets of the $G_i$, then $Z\left(G_g\left\{G_i\right\}\right)$ is the nerve of this covering.) It is easy to see that the geometric realization of this simplicial set is an ordered simplicial space and that the complex $L=L\left(G,\left\{G_i\right\}\right)$ equals the (ordered) simplicial complex [7] of this simplicial space, or in other words, the complex $L$ equals the normalised complex of the simplicial set $Z\left(G,\left\{G_i\right\}\right)$. In particular, $H_*(L)=H_*\left(Z\left(G,\left\{G_i\right\}\right)\right)$.
+
+(2.6) Remark. It may be shown easily that the space $Z\left(G,\left\{G_i\right\}\right)$, is homotopy equivalent to Volodin's space $V\left(G,\left\{G_i\right\}\right)$, but we will not need this fact.
+
+
+
+
+
 
 
 
 \chapter{(General) Module Theory}
 
 \section{Linear Algebra}
+
+
 
 
 
@@ -316,7 +359,7 @@ For any $s \in S_{n+1}$ the embeddings $u_n$ and $u_n^s$ are homotopic.
 \end{lemm}
 
 
-For any simplicial set $X$ we'11 denote by $C_*(X)$ its chain complex, i.e., the complex of abelian groups with $C_p(x)$ equal to the free abelian group generated by the p-simplices of $X$ and each differential equal to an alternating sum of homomorphisms induced by taking faces. It is well known that $C_*(X)$ is homotopy equivalent to the singular complex of the geometric realization of $X$. In view of (1.5) the maps of complexes $C_*\left(u_n\right), C_*\left(u_n(n, n+1)\right): C_*\left(\bar{W}_n(R)\right)+C_*\left(\bar{W}_{n+1}(R)\right)$ are homotopic. Looking through the proof of (1.5) one sees that the corresponding homotopy operator $\phi_{n+1}^k: C_p\left(\bar{W}_n(R)\right)+C_{p+1}\left(\bar{W}_{n+1}(R)\right)$ may be taken in the following form: (We denote $x_{k, n+1}(1)$ by $x_k$ and
+For any simplicial set $X$ we'll denote by $C_*(X)$ its chain complex, i.e., the complex of abelian groups with $C_p(x)$ equal to the free abelian group generated by the p-simplices of $X$ and each differential equal to an alternating sum of homomorphisms induced by taking faces. It is well known that $C_*(X)$ is homotopy equivalent to the singular complex of the geometric realization of $X$. In view of (1.5) the maps of complexes $C_*\left(u_n\right), C_*\left(u_n(n, n+1)\right): C_*\left(\bar{W}_n(R)\right)+C_*\left(\bar{W}_{n+1}(R)\right)$ are homotopic. Looking through the proof of (1.5) one sees that the corresponding homotopy operator $\phi_{n+1}^k: C_p\left(\bar{W}_n(R)\right)+C_{p+1}\left(\bar{W}_{n+1}(R)\right)$ may be taken in the following form: (We denote $x_{k, n+1}(1)$ by $x_k$ and
 $$
 \begin{aligned}
 & \left.x_{n+1, k}(-1) \text { by } y_k\right) \\
@@ -351,6 +394,38 @@ Suppose $c \in C_p\left(\bar{W}_{n-q}(R)\right)$, dc $\& C_{p-1}\left(\bar{W}_{n
     &
     \end{aligned}$$
 \end{lemm}
+
+
+\subsection{The Aciclicity Theorem}
+
+If $X$ is an arbitrary set, we'll denote by $F_m(X)$ the partially ordered set of functions defined on non-empty subsets of $\{1, \ldots, m\}$ and taking values in $X$. The partial ordering is defined as follows:
+$$
+f \leq g \Leftrightarrow \operatorname{dom} f \subset \operatorname{dom} g,\left.g\right|_{\text {dom }} f=f .
+$$
+(Here dom $f$ is the subset of $\{1, \ldots, m\}$ where $f$ is defined). Following van der Kallen [11] we'll say that $F \subset F_m(X)$ satisfies the chain condition if $F$ contains with any function all its restrictions (to non-empty subsets of its domain). It is clear that $f$ and $g$ have a common restriction if and only if there exists i $\varepsilon\{1, \ldots, m\}$ such that $f$ and $g$ are defined at $i$ and equal at $i$. In this case there obviously exists a maximal common restriction inf( $f, g)$.
+
+If $F \subset F_m(X)$ satisfies the chain condition, then by $F_*$ we'11 denote the geometric realization of the semi-simplicial set, whose non-degenerate p-simplices are the functions $f \varepsilon F$ with $\mid$ dom $f \mid=p+1$, and whose faces are defined by the formulas $d_j(f)=\left.f\right|_{\left\{i_0, \ldots, \hat{i}_j, \ldots, i_p\right\}}$ where $\left\{i_0, \ldots, i_p\right\}=\operatorname{dom} f,\left(i_0<\ldots<i_p\right)$. If $f \varepsilon F,|\operatorname{dom} f|=p+1$, then by $|f|$ we'll denote the corresponding p-simplex of $F_*$. It is clear that $|f| \cap|g|$ is either empty or else equals $|\inf (f, g)|$. In particular, $F_*$ is a simplicial space [7].
+
+Let $R$ be a ring (associative with identity), $R^{\infty}$ the free left $R$-module on the basis $e_1, \ldots, e_n, \ldots$, and $R^n$ its submodule generated by $e_1, \ldots, e_n$. If $X$ is any subset of $R^{\infty}$, then by $U_m(X)$ we' 11 denote the subset of $F_m(X)$ consisting of those functions $f$ for which $f\left(i_0\right), \ldots, f\left(i_p\right)$ is a unimodular frame (i.e., a basis of a free direct summand of $R^{\infty}$ ), where $\left\{i_0, \ldots, i_p\right\}=\operatorname{dom}(f)$.
+
+\begin{theo}
+Suppose $R$ is a ring, $r=$ s.r.R and $m, n$ are natural numbers. Then $U_m\left(R^n\right)$ is $\min (m-2, n-r-1)$-acyclic.
+\end{theo}
+
+
+\begin{coro}
+    $U_n\left(R^n\right) \quad \text { is }(n-r-1)-\operatorname{acyc} 1 \text { ic. }$
+\end{coro}
+
+\begin{coro}
+Consider in $\mathrm{St}_{n+1}(\Lambda)$ the following subgroups: $A^i=\left\{\alpha: e_i \cdot \pi(\alpha)=e_i\right\}(i=1, \ldots, n+1)$ and consider the simplicial set $Z^{\prime}\left(S t_{n+1}(R), A^i\right)$ constructed as in (2.5), but using left cosets instead of right cosets. This simplicial set is $(n-r)$-acyclic.  
+\end{coro}
+
+
+
+
+
+
 
 
 

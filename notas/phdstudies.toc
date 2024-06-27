@@ -1,23 +1,25 @@
 \babel@toc {english}{}\relax 
-\contentsline {part}{I\hspace {1em}Topics of Algebra}{5}{}%
-\contentsline {chapter}{\numberline {1}Category Theory}{7}{}%
-\contentsline {chapter}{\numberline {2}Homological Algebra}{9}{}%
-\contentsline {section}{\numberline {2.1}Spectral Sequences}{9}{}%
-\contentsline {chapter}{\numberline {3}Group (Cohomology) Theory}{11}{}%
-\contentsline {chapter}{\numberline {4}(General) Module Theory}{13}{}%
-\contentsline {section}{\numberline {4.1}Linear Algebra}{13}{}%
-\contentsline {part}{II\hspace {1em}Topics of Algebraic Topology}{15}{}%
-\contentsline {chapter}{\numberline {5}Simplical sets and complexes}{17}{}%
-\contentsline {section}{\numberline {5.1}(Abstract) simplical complexes}{17}{}%
-\contentsline {section}{\numberline {5.2}Simplical sets}{18}{}%
-\contentsline {section}{\numberline {5.3}CW-complexes}{20}{}%
-\contentsline {chapter}{\numberline {6}Homotopy theory}{23}{}%
-\contentsline {part}{III\hspace {1em}Topics of Geometry}{25}{}%
-\contentsline {part}{IV\hspace {1em}K-theory}{27}{}%
-\contentsline {chapter}{\numberline {7}K-theory constructions}{29}{}%
-\contentsline {section}{\numberline {7.1}Volodin's K-theory}{29}{}%
-\contentsline {section}{\numberline {7.2}Milnor's K-theory}{30}{}%
-\contentsline {section}{\numberline {7.3}Whitehead's K-theory}{30}{}%
-\contentsline {section}{\numberline {7.4}Quillen's K-theory}{30}{}%
-\contentsline {chapter}{\numberline {8}Homological stability}{31}{}%
-\contentsline {section}{\numberline {8.1}Motivation}{31}{}%
+\contentsline {part}{I\hspace {1em}Topics of Algebra}{5}{part.1}%
+\contentsline {chapter}{\numberline {1}Category Theory}{7}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Homological Algebra}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Spectral Sequences}{9}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Group (Cohomology) Theory}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}An spectral sequence for group cohomology}{11}{section.3.1}%
+\contentsline {chapter}{\numberline {4}(General) Module Theory}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Linear Algebra}{13}{section.4.1}%
+\contentsline {part}{II\hspace {1em}Topics of Algebraic Topology}{15}{part.2}%
+\contentsline {chapter}{\numberline {5}Simplical sets and complexes}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}(Abstract) simplical complexes}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Simplical sets}{18}{section.5.2}%
+\contentsline {section}{\numberline {5.3}CW-complexes}{19}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Homotopy theory}{21}{chapter.6}%
+\contentsline {part}{III\hspace {1em}Topics of Geometry}{23}{part.3}%
+\contentsline {part}{IV\hspace {1em}K-theory}{25}{part.4}%
+\contentsline {chapter}{\numberline {7}K-theory constructions}{27}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Milnor's K-theory}{27}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Volodin's K-theory}{27}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}The Aciclicity Theorem}{29}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}Whitehead's K-theory}{29}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Quillen's K-theory}{29}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Homological stability}{31}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Motivation}{31}{section.8.1}%
