@@ -1,7 +1,5 @@
 \documentclass{book}
-
 % Packages
-
 \usepackage[english]{babel}
 \usepackage{fouriernc}
 \usepackage[T1]{fontenc}
@@ -10,6 +8,7 @@
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
 \usepackage{extarrows}
 \usepackage{csquotes}
+\usepackage{tikz-cd}
 \usepackage[margin=2cm]{geometry}
 \usepackage{hyperref}
 \newtheorem{theo}{Theorem}
@@ -19,11 +18,15 @@
 \newtheorem{lemm}{Lemma}
 \newtheorem{example}{Example}
 \newtheorem{rema}{Remark}
+\newcommand{\ca}{$\mathcal{A}$}
+\newcommand{\cb}{$\mathcal{B}$}
+\newcommand{\cc}{$\mathcal{C}$}
+\newcommand{\cd}{$\mathcal{D}$}
 
 % Title and Author
 \title{PhD Studies}
 \author{Abraham Rojas Vega}
-\addbibresource{basicos.bib} % Specify the path to your bibliography file
+\addbibresource{notas.bib} % Specify the path to your bibliography file
 
 
 \begin{document}
@@ -36,6 +39,131 @@
 
 
 \chapter{Category Theory}
+
+\section*{Basic concepts}
+
+\begin{enumerate}
+    \item For a topological spaces, the category of open sets with inclusions as morphisms. The opposite of this category, denoted by $\mathfrak{U}$, is used in sheaf theory.
+    \item If \ca and \cb are preordered sets, then functors between them are monotone maps.
+\end{enumerate}
+
+% A functor $F: \mathcal{A} \rightarrow \mathcal{B}$ is called an \textbf{isomorphism} provided that there is a functor $G: \mathbf{B} \rightarrow \mathbf{A}$ such that $G \circ F=i d_{\mathbf{A}}$ and $F \circ G=i d_{\mathbf{B}}$. The categories $\mathbf{A}$ and $\mathbf{B}$ are said to be \textbf{isomorphic}. \\
+% Note that $G$ is uniquely determined by $F$. It will be denoted by $F^{-1}$ and called the \textbf{inverse} of $F$.\\
+
+\noindent Let $F: \mathcal{A} \rightarrow \mathcal{B}$ be a functor.
+\begin{enumerate}
+    \item $F$ is \textbf{faithful} provided that all the \textbf{hom-set restrictions}
+    $$
+    F: \operatorname{hom}_{\mathcal{A}}\left(A, A^{\prime}\right) \rightarrow \operatorname{hom}_{\mathcal{B}}\left(F A, F A^{\prime}\right)
+    $$
+    are injective.
+    \item $F$ is \textbf{full} if all hom-set restrictions are surjective.
+    \item $F$ is an \textbf{embedding} if and it is faithful and injective on the class of objects.
+    \item $F$ is \textbf{essentially surjective} if for every object $B$ of \cb, there is an object $A$ of \ca such that $F A$ is isomorphic to $B$. 
+    \item If $F$ is essentially surjective and fully faithful, it is called an \textbf{equivalence of categories}, and \ca and \cb are said to be \textbf{equivalent}.
+\end{enumerate}
+
+
+\section{Natural transformations}
+Let $F, G: \mathbf{A} \rightarrow \mathbf{B}$ be functors. A natural transformation $\tau$ from $F$ to $G$ (denoted by $\tau: F \rightarrow G$ or $F \xrightarrow{\tau} G$ ) is a function that assigns to each $\mathbf{A}$-object $A$ a $\mathbf{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following naturality condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
+$
+\begin{tikzcd}
+FA \arrow[r, "\tau_A"] \arrow[d, "Ff"'] & GA \arrow[d, "Gf"] \\
+FA' \arrow[r, "\tau_{A'}"'] & GA'
+\end{tikzcd}
+$ commutes.\\
+A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$. $F$ and $G$ are said to be \textbf{naturally isomorphic}, and we write $F \cong G$.
+
+
+\begin{example}
+    \begin{enumerate}
+        \item Let $U: \operatorname{Grp} \rightarrow$ Set be the forgetful functor, and let $S: \operatorname{Grp} \rightarrow$ Set be the "squaring-functor", defined by $S(G \xrightarrow{f} H)=G^2 \xrightarrow{f^2} H^2$. For each group $G$, its multiplication is a function $\tau_G: G^2 \rightarrow G$. The family $\tau=\left(\tau_G\right)$ is a natural transformation from $S$ to $U$. The naturality condition simply means that $f(x \cdot y)=f(x) \cdot f(y)$ for any group homomorphism $G \xrightarrow{f} H$ and any $x, y \in G$. Thus "multiplication" in groups can be regarded as a natural transformation. Similar for other structures.
+        \item Let $(\hat{\imath}):$ Vec $\rightarrow$ Vec be the second-dual functor for vector spaces, then $\tau_V: V \rightarrow \hat{\hat{V}}$, defined by $\left(\tau_V(x)\right)(f)=f(x)$, yield a natural transformation $i d{ }_{\mathrm{Vec}} \xrightarrow{\tau}(\hat{\wedge})$. It becomes a natural isomorphism when restricted to finite-dimensional vector spaces.
+        \item The assignment of the Hurewicz homomorphism $\pi_n(X) \rightarrow H_n(X)$ to each topological space $X$ is a natural transformation from the $n$-th homotopy functor $\pi_n:$ Top $\rightarrow$ Grp to the $n$-th homology functor $H_n:$ Top $\rightarrow$ Grp.
+        \item If $B \xrightarrow{f} C$ is an $\mathbf{A}$-morphism, then
+        $
+        \operatorname{hom}_{\mathbf{A}}(C,-) \xrightarrow{\tau_f} \operatorname{hom}_{\mathbf{A}}(B,-),
+        $
+        defined by $\tau_f(g)=g \circ f$, and
+        $
+        \operatorname{hom}_{\mathbf{A}}(-, B) \xrightarrow{\sigma_f} \operatorname{hom}_{\mathbf{A}}(-, C) \text {, }
+        $
+        defined by $\sigma_f(g)=f \circ g$, are natural transformations.
+        \item (Good definitions of extension) Let $F:$ Set $\rightarrow$ Vec be a functor that assigns to each set $X$ a vector space $F X$ with basis $X$, and to each function $X \xrightarrow{f} Y$ the unique linear extension $F X \xrightarrow{F f} F Y$ of $f$. This actually is not a correct definition of a functor, since there are many different vector spaces with the same basis. However, the definition is "correct up to natural isomorphism". Whenever we choose, for each set $X$, a specific vector space $F X$ with basis $X$, we do obtain a functor $F:$ Set $\rightarrow$ Vec (since the above condition determines the action of $F$ on functions uniquely). Furthermore, any two functors that are obtained in this way are naturally isomorphic.
+        \item For any 2-element set $A$, hom $(A,-)$ is naturally isomorphic to the squaring functor $S^2[3.20(10)]$ and hom $(-, A)$ is naturally isomorphic to the contravariant power-set functor $\mathcal{Q}[3.20(9)]$. If $B$ is isomorphic to $A$, then hom $(A,-)$ and hom $(B,-)$ are naturally isomorphic with those functors, the converse is true.
+    \end{enumerate}
+\end{example}
+
+\begin{prop}
+    A functor $\mathbf{A} \xrightarrow{F} \mathbf{B}$ is an equivalence if and only if there exists a functor $\mathbf{B} \xrightarrow{G} \mathbf{A}$ such that $i d_{\mathbf{A}} \cong G \circ F$ and $F \circ G \cong i d_{\mathbf{B}}$.
+\end{prop}
+
+
+\section{Limits and colimits}
+
+
+
+
+
+
+
+\section{Adjoint functors}
+
+
+
+
+
+
+
+\section{Concrete categories}
+
+It is a way to talk about \textit{low level structures} present on the objects of a category. Often it is easier to work with less structures, and there results like Yoneda's lemma that show us that it is possible to restrict our study to them.\\
+
+Let \cc be a category. A \textbf{concrete category} over \cc is a category $\mathbf{A}$ together wih a faithful functor $U: \mathbf{A} \rightarrow \mathcal{C}$, called the \textbf{forgetful} (or underlying) functor of the concrete category. $\mathcal{C}$ is called the \textbf{base category}. A concrete category over Set is called a \textbf{construct}.\\
+The category of groups (or topological spaces, rings, etc.), with the forgetful functor to Set, is a construct.\\
+
+A functor $F: \mathbf{A} \rightarrow$ Set is called representable (by an $\mathbf{A}$-object $A$ ) provided that $F$ is naturally isomorphic to the hom-functor $\operatorname{hom}(A,-): \mathbf{A} \rightarrow$ Set. Note that objects that represents the same functor are isomorphic.\\
+
+\begin{example}
+    \begin{enumerate}
+        \item Forgetful functors are often representable. For example,
+        (a) Vec $\rightarrow$ Set is represented by the vector space $\mathbb{R}$,
+        (b) $\operatorname{Grp} \rightarrow$ Set is represented by the group of integers $\mathbb{Z}$,
+        (c) Top $\rightarrow$ Set is represented by any one-point topological space.
+        \item The underlying functor $U$ for the construct Ban [5.2(3)] is not representable (see Exercise 10J). However, the faithful unit ball functor $O: \operatorname{Ban} \rightarrow$ Set is represented in the complex case by the Banach space $\mathbb{C}$ of complex numbers.
+    \end{enumerate}
+\end{example}
+
+\begin{prop}[Representative of Constructs]
+    For constructs $(\mathbf{A}, U)$ the forgetful functor is represented by an object $A$ if and only if $A$ is a free object over a singleton set [see Definition 8.22(2)]. This provides many additional examples of representations.
+\end{prop}
+
+For small categories $\mathbf{A}$ and $\mathbf{B}$ the \textbf{functor category} $[\mathbf{A}, \mathbf{B}]$ has as objects all functors from $\mathbf{A}$ to $\mathbf{B}$, as morphisms from $F$ to $G$ all natural transformations from $F$ to $G$, as identities the identity natural transformations, and as composition the (horizontal) composition of natural transformations.
+
+\begin{theo}[uniqueness of representations]
+    For any functor $F: \mathbf{A} \rightarrow$ Set, any $\mathbf{A}$-object $A$ and any element $a \in F(A)$, there exists a unique natural transformation $\tau: \operatorname{hom}(A,-) \rightarrow F$ with $\tau_A\left(i d_A\right)=a$.
+\end{theo}
+
+\begin{coro}[Yoneda Lemma]
+    If $F: \mathbf{A} \rightarrow$ Set is a functor and $A$ is an $\mathbf{A}$-object, then the following function
+    $$
+    Y:[\operatorname{hom}(A,-), F] \rightarrow F(A) \text { defined by } Y(\sigma)=\sigma_A\left(i d_A\right),
+    $$
+    is a bijection (where $[\operatorname{hom}(A,-), F]$ is the set of all natural transformations from hom $(A,-)$ to $F$ ).
+    
+\end{coro}
+
+\begin{coro}[Yoneda Embedding]
+    For any category $\mathbf{A}$, the functor $E: \mathbf{A} \rightarrow\left[\mathbf{A}^{\mathrm{op}} Set \right]$, defined by
+$$
+E(A \xrightarrow{f} B)=\operatorname{hom}(-, A) \xrightarrow{\sigma_f} \operatorname{hom}(-, B) \text {, }
+$$
+where $\sigma_f(g)=f \circ g$, is a full embedding.
+\end{coro}
+
+
+
+
 
 \chapter{Homological Algebra}
 
@@ -50,10 +178,17 @@ $$
 is acyclic, so that $H_n(T F)=0$ for $n>0$ and $H_0(T F)=T M$. Thus we can regard the groups $H_n(T F)$ in the general case as a measure of the failure of $T$ to be exact.
 
 
+
 \section{Spectral Sequences}
 
 
 
+
+\section{Abelian categories}
+
+\section{Derived functors}
+
+\section{Derived categories}
 
 
 
@@ -62,9 +197,9 @@ is acyclic, so that $H_n(T F)=0$ for $n>0$ and $H_0(T F)=T M$. Thus we can regar
 \chapter{Group (Cohomology) Theory} 
 
 
+\section{Actions}
 
-
-
+\section{Representations}
 
 
 \paragraph*{Group Ring}
@@ -160,7 +295,6 @@ If $G_1, \ldots, G_n$ are subgroups of $G$, there exists a fuctorial spectral se
 
 
 \chapter{Simplical sets and complexes}
-\cite{weibelIntroductionHomologicalAlgebra1994}
 Simplicial complexes are more intuitive, and are the foundation of algebraic topology. Simplicial complexes were also called \textit{simplicial schemes} and simplicial sets, \textit{semi-simplicial} complexes. 
 
 \section{(Abstract) simplical complexes}
@@ -445,7 +579,6 @@ It is evident that this sum is well-defined on homotopy classes. Since only the 
 \section{Covering spaces}
 %estamos solo usando estos resultados... deberiamos dar mejores definiciones
 
-The reader who has studied covering spaces has, of course, seen many examples of free $G$-complexes. Indeed, suppose $p: Y \rightarrow Y$ is a regular covering map with $G$ as group of deck transformations. (See the appendix to this chapter for a review of regular covers.) If $Y$ is a $C W$-complex, then it is an elementary fact that $\boldsymbol{Y}$ inherits a $C W$-structure such that the $G$-action permutes the cells, cf. Schubert [1968], III.6.9. Explicitly, the open cells of $\boldsymbol{Y}$ lying over an open cell $\sigma$ of $Y$ are simply the connected components of $p^{-1} \sigma$; these cells are permuted freely and transitively by $G$, and each is mapped homeomorphically onto $\sigma$ under $p$. Thus $\tilde{Y}$ is a free $G$-complex and $C_* \tilde{Y}$ is a complex of free $\mathbb{Z G}$-modules with one basis element for each cell of $Y$.
 
 In view of 4.1, it is natural now to consider $C W$-complexes $Y$ satisfying the following three conditions:
 \begin{enumerate}
@@ -462,6 +595,16 @@ In view of 4.1, it is natural now to consider $C W$-complexes $Y$ satisfying the
 
 
 \part{Topics of Geometry}
+
+\chapter{Smooth and complex manifolds}
+
+\chapter{Symplectic manifolds}
+
+\chapter{Sheaf theory}
+
+\chapter{Algebraic geometry}
+
+% \chapter{Toric varieties}
 
 
 
@@ -619,7 +762,7 @@ Consider in $\mathrm{St}_{n+1}(\Lambda)$ the following subgroups: $A^i=\left\{\a
 \chapter{Motivation}
 
 
-\cite{kupersHomstabPdf2021}
+\cite{kupersHomologicalStabilityMinicourse2021}
 
 The symmetric group $\Sigma_n$ is the group of bijections of the finite set $\underline{n}=\{1, \ldots, n\}$, under composition. The classifying space $B G$ of a discrete group $G$, such as $\Sigma_n$, is the connected space determined uniquely up to weak homotopy equivalence by the property
 $$
