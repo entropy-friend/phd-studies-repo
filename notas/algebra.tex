@@ -2,6 +2,8 @@
 
 \chapter{Category Theory}
 
+Referencia \cite{adamekAbstractConcreteCategories}
+
 \section*{Basic concepts}
 
 \begin{enumerate}
@@ -184,9 +186,70 @@ is acyclic, so that $H_n(T F)=0$ for $n>0$ and $H_0(T F)=T M$. Thus we can regar
 
 
 
+
+\chapter{Categorías Aditivas}
+
+
+Una \textbf{categoria pre-aditiva} es uma categoria tal que os $\operatorname{Hom}(A,B)$ possuem estrutura de grupo abeliano, e composição de morfismos é bilinear. Em particular, existem morfismos nulos.\\
+Um funtor entra categorias preaditivas é \textbf{aditivo} se os mapas $F:\operatorname{Hom}(A,B)\rightarrow \operatorname{Hom}(F(A),F(B))$ são homomorfismos de grupos. 
+
+\begin{prop}
+	Numa categoria pre-aditiva, tudo produto finito é um coproduto, e vice-versa (chamado de \textbf{biproduto}). 
+\end{prop}
+
+Uma \textbf{categoria aditiva} é uma categoria pre-aditiva que admite biprodutos finitos. Em particular, os biprodutos vazios são objetos zero.\\
+
+Uma \textbf{categoria abeliana} é uma categoria aditiva tal que:
+\begin{enumerate}
+	\item Todo morfismo possui núcleo e conúcelo,
+	\item todo monomorfismo (resp. epimorfismo) é o kernel (resp. cokernel) de um morfismo.
+\end{enumerate}
+
+
+Um \textbf{complexo} numa categoria aditiva $\mathcal{C}$ é uma sequência de objetos $\{X_j\}$
+
+\section{Objetos projetivos e injetivos}
+
+Um objeto $Q$ numa categoria é \textbf{injetivo} se para todo monomorfismo $f:X\rightarrow Y$ e todo morfismo $g:X \rightarrow Q$ existe um morfismo $h: Y\rightarrow Q$ tal que $h\circ f =g$.\\
+Uma categoria \textbf{tem suficientes injetivos} se para todo objeto $X$ existe um monomorfismo $X\rightarrow Q$, com $Q$ injetivo.
+
+
+Um objeto $P$ numa categoria é \textbf{injetivo} se para todo epimorfismo $e:E\rightarrow X$ e todo morfismo $f:P \rightarrow X$ existe um morfismo $h: P\rightarrow E$ tal que $e\circ h =f$.\\
+Uma categoria \textbf{tem suficientes projetivos} se para todo objeto $A$ existe um epimorfismo $P\rightarrow A$, com $P$ projetivo.
+
+\begin{prop}
+	Numa categoria abeliana, 
+	\begin{itemize}
+		\item um objeto é injetivo se e somente se $\operatorname{Hom}(\cdot , Q)$ é exato
+		\item um objeto é projetivo se e somente se $\operatorname{Hom}(\cdot , Q)$ é exato.
+	\end{itemize}
+\end{prop}
+
+
+
+\subsection{Resoluciones}
+
+
+\section{Categoría Trianguladas}
+
+
+
+\subsection{La categoría homotópica}
+
+
+
+
+
+\section{Categorías derivadas}
+
+
+
+
+
+
+
+
 \section{Spectral Sequences}
-
-
 
 
 \section{Abelian categories}
