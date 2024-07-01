@@ -100,10 +100,46 @@ A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are 
 
 
 \section{Limits and colimits}
+Let $A \stackrel{\text { f }}{\underset{g}{\rightrightarrows}} B$ be a pair of morphisms. A morphism $E \xrightarrow{e} A$ is called an equalizer of $f$ and $g$ provided that the following conditions hold:
+(1) $f \circ e=g \circ e$,
+(2) for any morphism $e^{\prime}: E^{\prime} \rightarrow A$ with $f \circ e^{\prime}=g \circ e^{\prime}$, there exists a unique morphism $\bar{e}: E^{\prime} \rightarrow E$ such that $e^{\prime}=e \circ \bar{e}$, i.e., such that the triangle
+\begin{tikzcd}
+    E' \arrow[d, "\overline{e}"'] \arrow[dr, "e'"] & \\
+    E \arrow[r, "e"'] & A \arrow[r, shift left, "f"] \arrow[r, shift right, "g"'] & B
+    \end{tikzcd} commutes.
+    
 
+A \textbf{source} is a pair $\left(A,\left(f_i\right)_{i \in I}\right)$ consisting of an object $A$ and a family of morphisms $f_i: A \rightarrow A_i$ with domain $A$, indexed by some class $I$.
 
+%A source $\mathcal{P}=\left(P \xrightarrow{p_i} A_i\right)_I$ is called a product provided that for every source $\mathcal{S}=$ $\left(A \xrightarrow{f_i} A_i\right)_I$ with the same codomain as $\mathcal{P}$ there exists a unique morphism $A \xrightarrow{f} P$ with $\mathcal{S}=\mathcal{P} \circ f$. A product with codomain $\left(A_i\right)_I$ is called a product of the family $\left(A_i\right)_I$.
 
+\begin{prop}
+    A category has finite products if and only if it has terminal objects and products of pairs of objects.
+    A category that has products for all class-indexed families must be thin.
+A small category has products if and only if it is equivalent to a complete lattice.
+\end{prop}
 
+A \textbf{diagram} in a category $\mathbf{A}$ is a functor $D: \mathbf{I} \rightarrow \mathbf{A}$ with codomain $\mathbf{A}$. The domain, $\mathbf{I}$, is called the \textbf{scheme} of the diagram. A diagram with a small (or finite) scheme is said to be \textbf{small} (or finite).
+
+\begin{enumerate}
+    \item An A-source $\left(A \xrightarrow{f_i} D_i\right)_{i \in O b(\mathrm{I})}$ is said to be natural for $D$ provided that for each I-morphism $i \xrightarrow{d} j$, the triangle 
+\begin{tikzcd}
+    A \arrow[d, "f_i"'] \arrow[dr, "f_j"] & \\
+    D_i \arrow[r, "Dd"'] & D_j 
+\end{tikzcd} commutes.
+    \item A \textbf{limit} of $D$ is a natural source $\left(L \xrightarrow{\ell_i} D_i\right)$ for $D$ with the \textbf{universal property} that for each natural source $\left(A \xrightarrow{f_i} D_i\right)$ there exists a unique morphism $f: A \rightarrow L$ with $f_i=$ $\ell_i \circ f$ for each $i \in O b(\mathbf{I})$.
+    %corregir
+
+    \item For a diagram with discrete scheme, every source is natural. A source is a limit of if it is a product . Expressed briefly: products are limits of diagrams with discrete schemes. In particular, an object, considered as an empty source, is a limit of the empty diagram (i.e., the one with empty scheme) if and only if it is a terminal object.
+
+    For a pair of A-morphisms $A \underset{g}{\stackrel{f}{\rightrightarrows}} B$, considered as a diagram $D$ with scheme $\bullet \Rightarrow \bullet$, a source $(A \stackrel{e}{\longleftarrow} C \xrightarrow{h} B)$ is natural provided that $g \circ e=h=f \circ e$. Observe that in this case $h$ is determined by $e$. Hence, $C \xrightarrow{e} A$ is an equalizer of $A \xrightarrow[g]{\stackrel{f}{\longrightarrow}} B$ if and only if the source $(A \stackrel{e}{\leftarrow} C \xrightarrow{f \circ e} B)$ is a limit of $D$. Thus we may say (imprecisely) that equalizers are limits of diagrams with scheme $\bullet \Rightarrow \bullet$. If, in the above scheme, the two arrows are replaced by an arbitrary set of arrows, then limits of diagrams with such schemes are called multiple equalizers.
+    If $\mathbf{I}$ is a down-directed ${ }^{57}$ poset (considered as a category), then limits of diagrams with scheme $\mathbf{I}$ are called projective (or inverse) limits. If, e.g., $\mathbf{I}=\mathbb{N}^{o p}$ is the poset of all non-negative integers with the opposite of the usual ordering, a diagram $D: \mathbf{I} \rightarrow \mathbf{A}$ with this scheme is essentially a sequence
+    $$
+    \ldots \xrightarrow{d_2} D_2 \xrightarrow{d_1} D_1 \xrightarrow{d_0} D_0
+    $$
+    of A-morphisms (where $D(n+1 \rightarrow n)=D_{n+1} \xrightarrow{d_n} D_n, D(n+2 \rightarrow n)=d_n \circ d_{n+1}$, etc.). A natural source for $D$ is a source $\left(A \xrightarrow{f_n} D_n\right)_{n \in \mathbb{N}}$ with $f_n=d_n \circ f_{n+1}$ for each $n$. In Set a projective limit of a diagram $D$ with scheme $\mathbb{N}^{\text {op }}$ is a source $\left(L \xrightarrow{\ell_n} D_n\right)_{n \in \mathbb{N}}$, where $L$ is the set of all sequences $\left(x_n\right)_{n \in \mathbb{N}}$ with $x_n \in D_n$ and $d_n\left(x_{n+1}\right)=x_n$ for each $n \in \mathbb{N}$; and where each $\ell_m$ is a restriction of the $m$ th projection $\pi_m: \prod_{n \in \mathbb{N}} D_n \rightarrow D_m$
+    If $D: \mathbf{A} \rightarrow \mathbf{A}$ is the identity functor, then a source $\mathcal{L}=\left(L \xrightarrow{\ell_A} A\right)_{A \in O b \mathbf{A}}$ is a limit of $D$ if and only if $L$ is an initial object of $\mathbf{A}$. The sufficiency is obvious. For the necessity let $\mathcal{L}$ be a limit of $D$ and let $L \xrightarrow{f} A$ be a morphism. By the naturality of $\mathcal{L}$ for $D$ we obtain $f \circ \ell_L=\ell_A$. Application of this to $f=\ell_A$ yields $\ell_A \circ \ell_L=\ell_A=\ell_A \circ i d_L$ for each object $A$. Hence, by the uniqueness requirement
+\end{enumerate}
 
 
 
@@ -117,7 +153,7 @@ A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are 
 
 \section{Concrete categories}
 
-It is a way to talk about \textit{low level structures} present on the objects of a category. Often it is easier to work with less structures, and there results like Yoneda's lemma that show us that it is possible to restrict our study to them.\\
+A way to talk of \textit{low level structures} present on the objects of a category. Often it is easier to work with less structures, and there results like Yoneda's lemma that show us that it is possible to restrict our study to them.\\
 
 Let \cc be a category. A \textbf{concrete category} over \cc is a category $\mathbf{A}$ together wih a faithful functor $U: \mathbf{A} \rightarrow \mathcal{C}$, called the \textbf{forgetful} (or underlying) functor of the concrete category. $\mathcal{C}$ is called the \textbf{base category}. A concrete category over Set is called a \textbf{construct}.\\
 The category of groups (or topological spaces, rings, etc.), with the forgetful functor to Set, is a construct.\\
@@ -160,6 +196,13 @@ E(A \xrightarrow{f} B)=\operatorname{hom}(-, A) \xrightarrow{\sigma_f} \operator
 $$
 where $\sigma_f(g)=f \circ g$, is a full embedding.
 \end{coro}
+
+
+
+
+
+
+
 
 
 
