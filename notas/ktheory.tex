@@ -1,0 +1,148 @@
+
+\part{K-theory}
+\chapter{K-theory constructions} 
+
+\section{Milnor's K-theory}
+% Add more chapters and sections as neededed
+
+For $n \geq 3$ the \textbf{Steinberg group} $\operatorname{St}_n(R)$ of a ring $R$ is the group defined by generators $x_{i j}(r)$, with $i, j$ a pair of distinct integers between 1 and $n$ and $r \in R$, subject to the following "Steinberg relations":
+$$
+\begin{gathered}
+x_{i j}(r) x_{i j}(s)=x_{i j}(r+s), \\
+{\left[x_{i j}(r), x_{k \ell}(s)\right]= \begin{cases}1 & \text { if } j \neq k \text { and } i \neq \ell, \\
+x_{i \ell}(r s) & \text { if } j=k \text { and } i \neq \ell, \\
+x_{k j}(-s r) & \text { if } j \neq k \text { and } i=\ell .\end{cases} }
+\end{gathered}
+$$
+
+As observed in (1.3.1), the Steinberg relations are also satisfied by the elementary matrices $e_{i j}(r)$ which generate the subgroup $E_n(R)$ of $G L_n(R)$. Hence there is a canonical group surjection $\phi_n: S t_n(R) \rightarrow E_n(R)$ sending $x_{i j}(r)$ to $e_{i j}(r)$.
+
+The Steinberg relations for $n+1$ include the Steinberg relations for $n$, so there is an obvious map $S t_n(R) \rightarrow S t_{n+1}(R)$. We write $S t(R)$ for $\lim _{\longrightarrow} S t_n(R)$ and observe that by stabilizing, the $\phi_n$ induce a surjection $\phi: S t(R) \rightarrow E(R)$.
+
+
+The group $K_2(R)$ is the kernel of $\phi: S t(R) \rightarrow E(R)$. Thus there is an exact sequence of groups
+$$
+1 \rightarrow K_2(R) \rightarrow S t(R) \xrightarrow{\phi} G L(R) \rightarrow K_1(R) \rightarrow 1 .
+$$
+
+It will follow from Theorem 5.2.1 below that $K_2(R)$ is an abelian group. Moreover, it is clear that $S t$ and $K_2$ are both covariant functors from rings to groups, just as $G L$ and $K_1$ are.
+
+\begin{theo}
+$K_2(R)$ is an abelian group. In fact it is precisely the center of $\operatorname{St}(R)$.
+\end{theo}
+
+We'll define right actions of the symmetric group $S_n$ on ${ }_{G L}(R)$ and on $S t_n(R)$ by setting
+$$
+\left(\alpha^s\right)_{k, \ell}=\alpha_s(k), s(\ell) ; \quad x_{k \ell}(a)^s=x_s^{-1}(k), s^{-1}(\ell)(a) .
+$$
+
+These actions are compatible with the projections $S t_n(R) \rightarrow E_n(R)$ and with the homomorphisms $S t_n(R)+S t_{n+1}(R)$ and $G L_n(R)+G L_{n+1}(R)$. In particular, they induce an action on $\overline{S t}_n(R)$.
+
+\begin{lemm}
+    For any $s \in S_{n+1}$ the embeddings $u_n$ and $u_n^s$ are homotopic.
+\end{lemm} 
+
+
+
+\section{Volodin's K-theory}
+
+Let $G$ be a group and $\left\{G_i\right\}{ }_{i \varepsilon I}$ a family of subgroups. Define $V\left(G,\left\{G_i\right\}\right)$, or just $V(G)$ to be the simplicial complex, whose vertices are the elements of $G$, where $g_0, \ldots, g_p\left(g_i \neq g_j\right)$ form a $p$-simplex if for some $G_i$ all the elements $g_j g_k^{-1}$ lie in $G_i$. If $H$ is another group with a family of subgroups $\left\{H_j\right\}$ and $\phi: G \rightarrow H$ is a homomorphism sending each $G_i$ into some $H_j$, then $\phi$ induces a simplicial map $V(\phi): V(G) \rightarrow V(H)$.
+
+In many situations it is more convenient to use simplicial sets instead of simplicial complexes: Denote by $W\left(G,\left\{G_i\right\}\right)$ the geometric realization of the simplicial set whose p-simplices are the sequences $\left(g_0, \ldots, g_p\right)$ of elements of $G$ (not necessarily distinct) such that for some $G_i$ al1 $g_j g_k^{-1}$ lie in $G_i$, the $r$-th face (resp. degeneracy) of this simplex being obtained by omitting $g_r$ (resp., repeating $g_r$ ). Associating with any p-simplex $\left(g_0, \ldots, g_p\right)$ the linear singular simplex of the space $V(G)$ which sends the $i$-th vertex of the standard simplex to $g_j$, we obtain a map of simplicial sets from $W(G)$ to the simplicial set of singular simplices of $V(G)$ and hence a cellular map (linear on any simplex) from $W(G)$ to $V(G)$. This map is a homotopy equivalence .... %put in simplicial sets
+
+Suppose that $R$ is a ring, $n$ a natural number and $\sigma$ a partial ordering of $\{1, \ldots, n\}$. Define $T_n^\sigma(R)$ to be the subgroup of $G L_n(R)$ consisting of the $\alpha$ with $\alpha_{i j}=1$ and $\alpha_{i j}=0$ if $i \& j$. Subgroups of this form will be called triangular subgroups of $G L_n(R)$. The space $V\left(G L_n(R),\left\{T_n^\sigma(R)\right\}\right)$ will be denoted by $V_n(R)$. Since any partial ordering may be extended to a linear ordering, it suffices to consider linear orderings when defining $V_n(R)$. The natural embedding $G L_n \hookrightarrow G L_{n+1}(R)$ defines an embedding $V_n(R) \longleftrightarrow V_{n+1}(R)$ and we'l1 define $V_{\infty}(R)$ as $\underset{\rightarrow}{\lim _n} V_n(R)$. \\
+Finally for $i \geq 1$, put $$k_{i, n}(R)=\pi_{i-1}\left(V_n(R)\right)$$ and $k_i(R)=k_{i, \infty}(R)=\lim _{\rightarrow} k_{i, n}(R)$ (compare [26], [27]). Evidently $K_{1, n}(R)=G L_n(R) / E_n(R)$ and $K_{i, n}(R)$ is a group if $i \geq 2$, and this group is abelian if $i \geq 3$. Moreover the $K_i(R)$ are abelian groups for all $i \geq 1$ (see [26], [27]). The connected component of $V_n(R)$ passing through $T_n$ equals $V\left(E_n(R),\left\{T_n^\sigma(R)\right\}\right)$. It is easy to show that the universal covering space of $V_n\left(E_n(R),\left\{T_n^\sigma(R)\right\}\right)$ equals $V\left(S t(R),\left\{T_n^\sigma(R)\right\}\right)$, where $T_n^\sigma$ is identified with the subgroup of $S t_n(R)$ generated by the $x_{i j}(a)$ with a $\varepsilon R, i \stackrel{\sigma}{<} j(n \geq 3)$. Hence
+
+\begin{lemm}
+    $K_{2, n}(R)=\operatorname{ker}\left(S t_n(R)+E_n(R)\right)$, and $K_{i, n}(R)=\pi_{i-1}\left(V\left(S t_n(R)\right)\right)=\pi_{i-1}\left(W\left(S t_n(R)\right)\right) \quad$ if $\quad i \geq 3 \quad(n \geq 3)$.
+\end{lemm}    
+
+Let's define $\overline{S t}_n(R)$ to be the inverse image of $G L_n(R)$ under the projection $S t(R) \rightarrow E(R)$. There is a canonical homomorphism $S t_n(R) \rightarrow \overline{s t}_n(R)$ and stability for $K_1, k_2$ ([10], [20], [22]) shows that this homomorphism is surjective if $n \geq s . r . R+1$ and bijective if $n \geq s . r . R+2$. The spaces $W\left(S t_n(R)\right)$ and $W\left(\overline{S t}_n(R)\right)$ will play an essential role in the sequel. We'll denote them by $W_n(R), \bar{W}_n(R)$, resp. (So $W_n(R)=\bar{W}_n(R)$ if $n \geq$ s.r. $R+2$. )
+
+\begin{lemm}
+Denote the canonical embedding $\bar{W}_n(R) \longleftrightarrow \bar{W}_{n+1}(R)$ by $u_n$. If $n \geq s \cdot r . R$ and $x \in \overline{S t}_{n+1}(R)$, then $u_n$ and $u_n \cdot x$ are homotopic. (Here $\left.\left(u_n \cdot x\right)(g)=\left(u_n(g)\right) \cdot x \cdot\right)$)
+\end{lemm}
+
+\begin{lemm}
+For any $s \in S_{n+1}$ the embeddings $u_n$ and $u_n^s$ are homotopic.   
+\end{lemm}
+
+
+For any simplicial set $X$ we'll denote by $C_*(X)$ its chain complex, i.e., the complex of abelian groups with $C_p(x)$ equal to the free abelian group generated by the p-simplices of $X$ and each differential equal to an alternating sum of homomorphisms induced by taking faces. It is well known that $C_*(X)$ is homotopy equivalent to the singular complex of the geometric realization of $X$. In view of (1.5) the maps of complexes $C_*\left(u_n\right), C_*\left(u_n(n, n+1)\right): C_*\left(\bar{W}_n(R)\right)+C_*\left(\bar{W}_{n+1}(R)\right)$ are homotopic. Looking through the proof of (1.5) one sees that the corresponding homotopy operator $\phi_{n+1}^k: C_p\left(\bar{W}_n(R)\right)+C_{p+1}\left(\bar{W}_{n+1}(R)\right)$ may be taken in the following form: (We denote $x_{k, n+1}(1)$ by $x_k$ and
+$$
+\begin{aligned}
+& \left.x_{n+1, k}(-1) \text { by } y_k\right) \\
+& \phi_{n+1}^k\left(\alpha_0, \ldots, \alpha_p\right)=\sum_{i=0}^p(-1)^{i+1}\left[\left(\alpha_0^{x_k y_k}, \ldots, \alpha_i x_k y_k, \alpha_i^{(k, n+1)}, \ldots, \alpha_p^{(k, n+1)}\right)\right. \\
+& \quad-\left(\alpha_0^{x_k y_k}, \ldots, \alpha_i{ }^x y_k, \alpha_i x_k y_k, \ldots, \alpha_p^{x_k y_k}\right) \\
+& \quad+\left(\alpha_0^{x_k} \cdot y_k, \ldots, \alpha_i^{x_k} \cdot y_k, \alpha_i{ }^{x_k y_k}, \ldots, \alpha_p{ }_k y_k\right)-\left(\alpha_0 y_k, \ldots, \alpha_i y_k, \alpha_i, \ldots, \alpha_p\right) \\
+& \left.\quad+\left(\alpha_0 y_k, \ldots, \alpha_i y_k, \alpha_i^{x_k} \cdot y_k, \ldots, \alpha_p^{x_k} \cdot y_k\right)-\left(\alpha_0 y_k, \ldots, \alpha_i y_k, \alpha_i y_k, \ldots, \alpha_p y_k\right)\right]
+\end{aligned}
+$$
+
+
+\begin{lemm}
+The homotopy operators $\phi_{n+1}^k$ have the following properties:
+    \begin{enumerate}
+        \item $(\partial - \alpha(k, n+1))=d \phi_{n+1}^k(\alpha)+\phi_{n+1}^k(d \alpha)$, where $\alpha=\left(\alpha_0, \ldots, \alpha_p\right)$ is a $p$-simplex of $\bar{W}_n(R)$.
+        \item $\phi_{n+1}^n \mid C_*\left(\bar{W}_{n-1}(R)\right)=0$.
+        \item For any $s \in S_n$ the following formula is valid:
+        $$
+        \phi_{n+1}^k\left(\alpha^s\right)=\left[\phi_{n+1}^s(k)(\alpha)\right]^s
+        $$
+        \item $\phi_{n+1}^k \mid C_*\left(\bar{W}_{n-1}(R)\right)=\left(\phi_n^k\right)(n+1, n)$   
+    \end{enumerate}
+\end{lemm}
+
+\begin{lemm}
+Suppose $c \in C_p\left(\bar{W}_{n-q}(R)\right)$, dc $\& C_{p-1}\left(\bar{W}_{n-q-1}(R)\right)$. Set
+    $$
+    \begin{aligned}
+    & c_0=c, c_1=\phi_{n-q+1}^{n-q}\left(c_0\right) \& c_{p+1}\left(\bar{W}_{n-q+1}(R)\right), \ldots, c_k \\
+    & =\phi_{n-q+k}^{n-q+k-1}\left(c_{k-1}\right) \varepsilon c_{p+k}\left(\bar{w}_{n-q+k}(R)\right) \text {. Then, if } k \geq 1 \text {, we have: } \\
+    & d c_k=c_{k-1}-c_{k-1}^{(n-q+k, n-q+k-1)}+\ldots+(-1)^k c_{k-1}^{(n-q+k, \ldots, n-q)} . \\
+    &
+    \end{aligned}$$
+\end{lemm}
+
+
+\subsection{The Aciclicity Theorem}
+
+If $X$ is an arbitrary set, we'll denote by $F_m(X)$ the partially ordered set of functions defined on non-empty subsets of $\{1, \ldots, m\}$ and taking values in $X$. The partial ordering is defined as follows:
+$$
+f \leq g \Leftrightarrow \operatorname{dom} f \subset \operatorname{dom} g,\left.g\right|_{\text {dom }} f=f .
+$$
+(Here dom $f$ is the subset of $\{1, \ldots, m\}$ where $f$ is defined). Following van der Kallen [11] we'll say that $F \subset F_m(X)$ satisfies the chain condition if $F$ contains with any function all its restrictions (to non-empty subsets of its domain). It is clear that $f$ and $g$ have a common restriction if and only if there exists i $\varepsilon\{1, \ldots, m\}$ such that $f$ and $g$ are defined at $i$ and equal at $i$. In this case there obviously exists a maximal common restriction inf( $f, g)$.
+
+If $F \subset F_m(X)$ satisfies the chain condition, then by $F_*$ we'11 denote the geometric realization of the semi-simplicial set, whose non-degenerate p-simplices are the functions $f \varepsilon F$ with $\mid$ dom $f \mid=p+1$, and whose faces are defined by the formulas $d_j(f)=\left.f\right|_{\left\{i_0, \ldots, \hat{i}_j, \ldots, i_p\right\}}$ where $\left\{i_0, \ldots, i_p\right\}=\operatorname{dom} f,\left(i_0<\ldots<i_p\right)$. If $f \varepsilon F,|\operatorname{dom} f|=p+1$, then by $|f|$ we'll denote the corresponding p-simplex of $F_*$. It is clear that $|f| \cap|g|$ is either empty or else equals $|\inf (f, g)|$. In particular, $F_*$ is a simplicial space [7].
+
+Let $R$ be a ring (associative with identity), $R^{\infty}$ the free left $R$-module on the basis $e_1, \ldots, e_n, \ldots$, and $R^n$ its submodule generated by $e_1, \ldots, e_n$. If $X$ is any subset of $R^{\infty}$, then by $U_m(X)$ we' 11 denote the subset of $F_m(X)$ consisting of those functions $f$ for which $f\left(i_0\right), \ldots, f\left(i_p\right)$ is a unimodular frame (i.e., a basis of a free direct summand of $R^{\infty}$ ), where $\left\{i_0, \ldots, i_p\right\}=\operatorname{dom}(f)$.
+
+\begin{theo}
+Suppose $R$ is a ring, $r=$ s.r.R and $m, n$ are natural numbers. Then $U_m\left(R^n\right)$ is $\min (m-2, n-r-1)$-acyclic.
+\end{theo}
+
+
+\begin{coro}
+    $U_n\left(R^n\right) \quad \text { is }(n-r-1)-\operatorname{acyc} 1 \text { ic. }$
+\end{coro}
+
+\begin{coro}
+Consider in $\mathrm{St}_{n+1}(\Lambda)$ the following subgroups: $A^i=\left\{\alpha: e_i \cdot \pi(\alpha)=e_i\right\}(i=1, \ldots, n+1)$ and consider the simplicial set $Z^{\prime}\left(S t_{n+1}(R), A^i\right)$ constructed as in (2.5), but using left cosets instead of right cosets. This simplicial set is $(n-r)$-acyclic.  
+\end{coro}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Whitehead's K-theory}
+
+\section{Quillen's K-theory}

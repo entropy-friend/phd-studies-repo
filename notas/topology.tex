@@ -1,0 +1,298 @@
+
+\part{Topics of Algebraic Topology}
+
+
+
+\chapter{Simplical sets and complexes}
+Simplicial complexes are more intuitive, and are the foundation of algebraic topology. Simplicial complexes were also called \textit{simplicial schemes} and simplicial sets, \textit{semi-simplicial} complexes. 
+
+\section{(Abstract) simplical complexes}
+
+A set (of \textbf{vertices}) together with a  family of finite subsets (\textbf{simplexes}) such that every subset of every simplex is a simplex and every subset consisting of a single vertex is a simplex.  
+
+\begin{example}
+    \begin{enumerate}
+        \item The \textbf{standard n-simplex} $\Delta^n$ is the set of all $(n+1)$-tuples $(t_0, \ldots, t_n)$ of non-negative real numbers such that $t_0 + \cdots + t_n = 1$. The standard 0-simplex is a point, the standard 1-simplex is a line segment, the standard 2-simplex is a triangle, and so on.
+
+        \item The \textbf{boundary} of the standard n-simplex $\Delta^n$ is the set of all $(n+1)$-tuples $(t_0, \ldots, t_n)$ of non-negative real numbers such that $t_0 + \cdots + t_n = 1$ and at least one of the $t_i$ is zero. The boundary of the standard 0-simplex is empty, the boundary of the standard 1-simplex is the set of its two endpoints, the boundary of the standard 2-simplex is the set of its three edges, and so on.
+
+        \item (\textbf{Concrete simplicial complexes}) It is subset of $\mathbb{R}^n$ that is a union of standard simplices, that satisfies the previous conditions.
+
+        \item If Y is a subset of the vertex set of a simplicial scheme $S$, then we can introduce on it the induced simplicial scheme structure $ Y \cap S$, by defining the simplexes as the subsets of $ Y $ that are simplexes of $S$.  
+
+        \item Let $X$ be a set and let $\{p(y): y \in Y\}$ be a covering of $X$. Then we can consider two simplicial complexes. 
+        \begin{enumerate}
+            \item The nerve $\operatorname{Nerv}(p)$ of the covering is the simplicial scheme with the vertex set $Y$, and a subset $Z$ of $Y$ is counted as a simplex if the intersection $\underset{Z}{\cap} p(y)$ is non-empty. 
+            \item The simplicial complex $V(p)$ is the simplicial scheme with the vertex set $X$, and a subset $Z$ of $X$ is counted as a simplex if $Z$ is contained in some $p(y)$.
+        \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+\subsection*{Geometric realization}
+
+The construction goes as follows. First, define $|K|$ as a subset of $[0,1]^S$ consisting of functions $t: S \rightarrow[0,1]$ satisfying the two conditions: $\square$
+$$
+\begin{aligned}
+& \left\{s \in S: t_s>0\right\} \in K \\
+& \sum_{s \in S} t_s=1
+\end{aligned}
+$$
+
+Now think of the set of elements of $[0,1]^S$ with finite support as the direct limit of $[0,1]^A$ where $A$ ranges over finite subsets of $S$, and give that direct limit the induced topology. Now give $|K|$ the subspace topology. \textit{It is always Hausdorff}. We will identify an abstract simplicial complex with its geometric realization.
+
+
+
+
+
+\section{Simplical sets}
+
+
+
+Let $\mathbf{\Delta}$ be the category of finite ordinal numbers, with order-preserving maps between them. More precisely, the objects for $\Delta$ consist of elements $\mathbf{n}, n \geq 0$, where $\mathbf{n}$ is a string of relations
+$$
+0 \rightarrow 1 \rightarrow 2 \rightarrow \cdots \rightarrow n
+$$
+(in other words $\mathbf{n}$ is a totally ordered set with $n+1$ elements). A morphism $\theta: \mathbf{m} \rightarrow \mathbf{n}$ is an order-preserving set function, or alternatively a functor. We usually commit the abuse of saying that $\mathbf{\Delta}$ is the ordinal number category.
+
+A simplicial set is a contravariant functor $X: \Delta^{o p} \rightarrow$ Sets, where Sets is the category of sets.
+
+\begin{rema}
+    The standard covariant functor: $\mathbf{n} \mapsto |\Delta^n| $ from $\Delta$ to \textbf{Top}. The singular set $S(T)$ is the simplicial set given by
+    $$
+    \mathbf{n} \mapsto \operatorname{hom}\left(\left|\Delta^n\right|, T\right) .
+    $$
+    
+    This is the object that gives the singular homology of the space $T$.\\
+
+    The standard $n$-simplex, simplicial $\Delta^n$ in the simplicial set category $\mathbf{S}$ is defined by
+$$
+\Delta^n=\operatorname{hom}_{\Delta}(, \mathbf{n}) .
+$$
+
+In other words, $\Delta^n$ is the contravariant functor on $\Delta$ which is represented by n.
+\end{rema}
+
+A map $f: X \rightarrow Y$ of simplicial sets (or, more simply, a simplicial map) is a natural transformation of contravariant set-valued functors defined on $\boldsymbol{\Delta}$. We shall use $\mathbf{S}$ to denote the resulting category of simplicial sets and simplicial maps.\\
+
+From a simplicial set $Y$, one may construct a simplicial abelian group $\mathbb{Z} Y$ (ie. a contravariant functor $\boldsymbol{\Delta}^{o p} \rightarrow \mathbf{A b}$ ), with $\mathbb{Z} Y_n$ set equal to the free abelian group on $Y_n$. The simplicial abelian group $\mathbb{Z} Y$ has associated to it a chain complex, called its Moore complex and also written $\mathbb{Z} Y$, with
+$$
+\begin{gathered}
+\mathbb{Z} Y_0 \stackrel{\partial}{\leftarrow} \mathbb{Z} Y_1 \stackrel{\partial}{\leftarrow} \mathbb{Z} Y_2 \leftarrow \ldots \quad \text { and } \\
+\partial=\sum_{i=0}^n(-1)^i d_i
+\end{gathered}
+$$
+in degree $n$. Recall that the integral singular homology groups $H_*(X ; \mathbb{Z})$ of the space $X$ are defined to be the homology groups of the chain complex $\mathbb{Z} S X$. The homology groups $H_n(Y, A)$ of a simplicial set $Y$ with coefficients in an abelian group $A$ are defined to be the homology groups $H_n(\mathbb{Z} Y \otimes A)$ of the chain complex $\mathbb{Z} Y \otimes A$.
+
+
+
+\subsection*{Geometric realization}
+
+\textbf{The simplex category:} $\Delta \downarrow X$ of a simplicial set $X$. The objects of $\Delta \downarrow X$ are the maps $\sigma: \Delta^n \rightarrow X$, or simplices of $X$. An arrow of $\Delta \downarrow X$ is a commutative diagram of simplicial maps .....
+
+Observe that $\theta$ is induced by a unique ordinal number $\operatorname{map} \theta: \mathbf{m} \rightarrow \mathbf{n}$.
+\begin{lemm} There is an isomorphism
+$$
+\begin{aligned}
+& X \cong \underset{\Delta^n \longrightarrow X}{\lim _{\longrightarrow}} \Delta^n . \\
+& \text { in } \Delta \downarrow X \\
+&
+\end{aligned}
+$$
+\end{lemm}
+
+The realization $|X|$ of a simplicial set $X$ is defined by the colimit
+$$
+\begin{aligned}
+|X|= & \xrightarrow{\lim }\left|\Delta^n\right| . \\
+& \Delta^n \rightarrow X \\
+& \text { in } \Delta \downarrow X
+\end{aligned}
+$$
+in the category of topological spaces. The construction $X \mapsto|X|$ is seen to be functorial in simplicial sets $X$, by using the fact that any simplicial map $f: X \rightarrow Y$ induces a functor $f_*: \Delta \downarrow X \rightarrow \Delta \downarrow Y$ by composition with $f$.
+
+\begin{prop}
+    The realization functor is left adjoint to the singular functor in the sense that there is an isomorphism
+$$
+\operatorname{hom}_{\text {Top }}(|X|, Y) \cong \operatorname{hom}_{\mathbf{S}}(X, S Y)
+$$
+which is natural in simplicial sets $X$ and topological spaces $Y$. In particular, since $\mathbf{S}$ has all colimits and the realization functor, || preserves them.
+\end{prop} 
+
+\begin{prop}
+    $|X|$ is a $C W$-complex for each simplicial set $X$. In particular it is a compactly generated Hausdorff space.
+\end{prop}
+
+\section{Semi-simplicial sets}
+
+It will suffice for our purposes to keep track of less structure, and replace $\Delta$ by its subcategory $\Delta_{\text {inj }}$ with the same objects but morphisms only injective order-preserving maps. A semi-simplicial set is a functor $\Delta_{\mathrm{inj}}^{\mathrm{op}} \rightarrow$ Set and a semi-simplicial space is a functor $\Delta_{\mathrm{inj}}^{\mathrm{op}} \rightarrow$ Top. That, it is the analogue of a simplicial space which only face maps and no degeneracy maps. We can restrict $\Delta^{\bullet}$ to $\Delta_{\text {inj }}$ and once more take the coend to get a geometric realisation
+$$
+\left\|X_{\bullet}\right\|:=\Delta^{\bullet} \otimes_{\Delta_{\text {inj }}} X_{\bullet}=\left(\bigsqcup_{p \geq 0} \Delta^p \times X_p\right) / \sim
+$$
+with $\sim$ the equivalence relation generated by $\left(\delta_i t, x\right) \sim\left(t, d_i x\right)$. A reference for semisimplicial spaces and their properties is [ERW19].
+
+We now define the semi-simpicial set with $\Sigma_n$-action which will replace $*$. Let FI be the category whose objects are finite sets and whose morphisms are injections.
+
+$W_n(1) \bullet$ is the \textbf{semi-simplicial set with $p$-simplices} given by
+$$
+W_n(\underline{1}) \bullet=\operatorname{Hom}_{\mathrm{FI}}([p], \underline{n})
+$$
+and face maps $d_i$ given by precomposition with $\delta_i:[p-1] \rightarrow[p]$.
+That is, $W_n(1)_p$ has as $p$-simplices the ordered words $\left(m_0 m_1 \cdots m_p\right)$ of elements of $\underline{n}$ and no letter duplicated. The $i$ th face map forgets the $i$ th letter $m_i$. This explains why we call this the semi-simplicial set of injective words. The notation is rather complicated, but will become clear in the next lecture.
+
+The group $\Sigma_n$ acts on $W_n(1)$. by post-composition, and hence on the geometric realisation. We have that:
+
+\begin{prop}
+    \begin{enumerate}
+        \item $\left\|W_n(\mathbf{1}) \cdot\right\|$ is homologically $\frac{n-1}{2}$-connected.
+    \end{enumerate}
+\end{prop}
+(ii) $W_n(\underline{1})_p$ is a transitive $\Sigma_n$-set, and the stabiliser of $x \in W_n(1)_p$ is the group of permutations of $\underline{n} \backslash \operatorname{im}(x)$.
+
+%por demostrar mas tarde
+
+A filtration $F_0 X \subset F_1 X \subset \ldots$ on a space $X$ makes the singular chains $C_*(X)$ into a filtered chain complex by setting $F_r C_*(X):=\operatorname{im}\left(C_*\left(F_r X\right) \rightarrow C_*(X)\right)$. Assuming that $F_{r-1} X \rightarrow F_r X$ is a cofibration and $F_r X / F_{r-1} X$ is at least $(r-1)$-connected, this gives a strongly-convergent first-quadrant spectral sequence
+$$
+E_{p, q}^1=\widetilde{H}_{p+q}\left(F_p X / F_{p-1} X ; \mathbb{Z}\right) \Longrightarrow H_{p+q}(X ; \mathbb{Z})
+$$
+with differentials given by $d^r: E_{p, q}^r \rightarrow E_{p-r, q+r-1}^r$.
+Remark 2.3.1. If you are unfamiliar with these notions, I recommend you look at [McC01, Hat]. Roughly, a spectral sequence is an algebraic object that conveniently packages all long exact sequences in homology for the pairs $\left(F_s X, F_r X\right)$ with $s \geq r$ with the goal of compute the homology of $X$.
+We can in particular apply this to the geometric realisation $\left\|X_{\bullet}\right\|$. This has a filtration
+$$
+F_r\left\|X_{\bullet}\right\|:=\left(\bigsqcup_{0 \leq p \leq r} \Delta^p \times X_p\right) / \sim
+$$
+with equivalence relation $\sim$ as before, all of whose maps are cofibrations under a mild condition on $X_{\bullet}$ that will be satisfied in examples in these notes. The associated graded is given by
+$$
+\frac{F_r\left\|X_{\bullet}\right\|}{F_{r-1}\left\|X_{\bullet}\right\|}=\frac{\Delta^r}{\partial \Delta^r} \wedge\left(X_r\right)_{+}
+$$
+so is at least $(r-1)$-connected. Thus we get [Seg68] (see also [ERW19, Section 1.4]):
+
+\begin{theo}
+    There is a strongly convergent first quadrant spectral sequence
+    $$
+    E_{p, q}^1=H_q\left(X_p ; \mathbb{Z}\right) \Longrightarrow H_{p+q}\left(\left\|X_{\bullet}\right\| ; \mathbb{Z}\right)
+    $$
+    with differentials given by $d^r: E_{p, q}^r \rightarrow E_{p-r, q+r-1}^r$. Moreover $d^1: E_{p, q}^1 \rightarrow E_{p-1, q}^1$ is given by $\sum_{i=0}^p(-1)^i\left(d_i\right)_*$, and the edge homomorphism $E_{0, q}^1 \rightarrow E_{0, q}^{\infty} \rightarrow H_q(X ; \mathbb{Z})$ is equal to the map induced on homology by the inclusion $X_0 \rightarrow\left\|X_{\bullet}\right\|$.   
+\end{theo}
+
+
+
+
+
+
+
+\section{CW-complexes}
+
+They can be defined in an inductive way:
+
+\begin{enumerate}
+    \item Start with a discrete set $X^0$, whose points are regarded as 0 -cells.
+    \item Inductively, form the $\boldsymbol{n}$-skeleton $X^n$ from $X^{n-1}$ by attaching $n$-cells $e_\alpha^n$ via maps $\varphi_\alpha: S^{n-1} \rightarrow X^{n-1}$. This means that $X^n$ is the quotient space of the disjoint union $X^{n-1} \amalg_\alpha D_\alpha^n$ of $X^{n-1}$ with a collection of $n$-disks $D_\alpha^n$ under the identifications $x \sim \varphi_\alpha(x)$ for $x \in \partial D_\alpha^n$. Thus as a set, $X^n=X^{n-1} \amalg_\alpha e_\alpha^n$ where each $e_\alpha^n$ is an open $n$-disk.
+    \item One can either stop this inductive process at a finite stage, setting $X=X^n$ for some $n<\infty$, or one can continue indefinitely, setting $X=\cup_n X^n$. In the latter case $X$ is given the weak topology: A set $A \subset X$ is open (or closed) iff $A \cap X^n$ is open (or closed) in $X^n$ for each $n$.
+    
+\end{enumerate}
+
+\begin{example}
+    \begin{enumerate}
+        \item A 1-dimensional cell complex $X=X^1$ is what is called a graph in algebraic topology. It consists of vertices (the 0 -cells) to which edges (the 1-cells) are attached. The two ends of an edge can be attached to the same vertex.
+        \item The sphere $S^n$ has the structure of a cell complex with just two cells, $e^0$ and $e^n$, the $n$-cell being attached by the constant map $S^{n-1} \rightarrow e^0$. This is equivalent to regarding $S^n$ as the quotient space $D^n / \partial D^n$.
+        \item \textbf{Real projective $\boldsymbol{n}$-space $\mathbb{R} \mathrm{P}^n$.} It is equivalent to the quotient space of a hemisphere $D^n$ with antipodal points of $\partial D^n$ identified. Since $\partial D^n$ with antipodal points identified is just $\mathbb{R P} \mathrm{P}^{n-1}$, we see that $\mathbb{R} \mathrm{P}^n$ is obtained from $\mathbb{R} \mathrm{P}^{n-1}$ by attaching an $n$-cell, with the quotient projection $S^{n-1} \rightarrow \mathbb{R} P^{n-1}$ as the attaching map. It follows by induction on $n$ that $\mathbb{R P}^n$ has a cell complex structure $e^0 \cup e^1 \cup \cdots \cup e^n$ with one cell $e^i$ in each dimension $i \leq n$.\\
+        The infinite union $\mathbb{R} P^{\infty}=U_n \mathbb{R} P^n$ becomes a cell complex with one cell in each dimension. We can view $\mathbb{R} P^{\infty}$ as the space of lines through the origin in $\mathbb{R}^{\infty}=\bigcup_n \mathbb{R}^n$.
+        
+        \item \textbf{Complex projective space $\mathbb{C} P^n$.} It is equivalent to the quotient of the unit sphere $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with $v \sim \lambda v$ for $|\lambda|=1$. \\
+        It is also possible to obtain $\mathbb{C P}^n$ as a quotient space of the disk $D^{2 n}$ under the identifications $v \sim \lambda v$ for $v \in \partial D^{2 n}$, in the following way. The vectors in $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with last coordinate real and nonnegative are precisely the vectors of the form $\left(w, \sqrt{1-|w|^2}\right) \in \mathbb{C}^n \times \mathbb{C}$ with $|w| \leq 1$. Such vectors form the graph of the function $w \mapsto \sqrt{1-|w|^2}$. This is a disk $D_{+}^{2 n}$ bounded by the sphere $S^{2 n-1} \subset S^{2 n+1}$ consisting of vectors $(w, 0) \in \mathbb{C}^n \times \mathbb{C}$ with $|w|=1$. Each vector in $S^{2 n+1}$ is equivalent under the identifications $v \sim \lambda v$ to a vector in $D_{+}^{2 n}$, and the latter vector is unique if its last coordinate is nonzero. If the last coordinate is zero, we have just the identifications $v \sim \lambda v$ for $v \in S^{2 n-1}$.\\
+        It follows that $\mathbb{P}^n$ is obtained from $\mathbb{C} \mathrm{P}^{n-1}$ by attaching a cell $e^{2 n}$ via the quotient map $S^{2 n-1} \rightarrow \mathbb{C P}^{n-1}$. So by induction on $n$ we obtain a cell structure $\mathbb{C P}^n=e^0 \cup e^2 \cup \cdots \cup e^{2 n}$ with cells only in even dimensions. Similarly, $\mathbb{C P}^{\infty}$ has a cell structure with one cell in each even dimension.
+    \end{enumerate}
+\end{example}
+
+Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $\Phi_\alpha: D_\alpha^n \rightarrow X$ which extends the attaching map $\varphi_\alpha$ and is a homeomorphism from the interior of $D_\alpha^n$ onto $e_\alpha^n$. Namely, we can take $\Phi_\alpha$ to be the composition $D_\alpha^n \hookrightarrow X^{n-1} \coprod_\alpha D_\alpha^n \rightarrow X^n \hookrightarrow X$ where the middle map is the quotient map defining $X^n$. 
+
+
+
+
+
+
+
+
+
+\chapter{Geometric Group Theory}
+
+By a \textbf{$G$-complex} we will mean a $C W$-complex $X$ together with an action of $G$ on $X$ which permutes the cells. Thus we have for each $g \in G$ a homeomorphism $x \mapsto g x$ of $X$ such that the image go of any cell $\sigma$ of $X$ is again a cell. For example, if $X$ is a simplicial complex on which $G$ acts simplicially, then $X$ is a $G$-complex.
+
+If $X$ is a $G$-complex then the action of $G$ on $X$ induces an action of $G$ on the cellular chain complex $C_*(X)$, which thereby becomes a chain complex of $G$-modules. Moreover, the canonical augmentation $\varepsilon: C_0(X) \rightarrow \mathbb{Z}$ (defined by $\varepsilon(v)=1$ for every 0 -cell $v$ of $X$ ) is a map of $G$-modules.
+
+We will say that $X$ is a free $G$-complex if the action of $G$ freely permutes the cells of $X$ (i.e., $g \sigma \neq \sigma$ for all $\sigma$ if $g \neq 1$ ). In this case each chain module $C_n(X)$ has a $\mathbb{Z}$-basis which is freely permuted by $G$, hence by $3.1 C_n(X)$ is a free $\mathbb{Z} G$-module with one basis element for every $G$-orbit of cells. (Note that to obtain a specific basis we must choose a representative cell from each orbit and we must choose an orientation of each such representative.)
+
+Finally, if $X$ is contractible, then $H_*(X) \approx H_*$ (pt.); in other words, the sequence
+$$
+\cdots \rightarrow C_n(X) \stackrel{\partial}{\rightarrow} C_{n-1}(X) \rightarrow \cdots \rightarrow C_0(X) \stackrel{\varepsilon}{\rightarrow} \mathbb{Z} \rightarrow 0
+$$
+is exact. We have, therefore:
+
+\begin{prop}
+    
+    Let $X$ be a contractible free $G$-complex. Then the augmented cellular chain complex of $X$ is a free resolution of $\mathbb{Z}$ over $\mathbb{Z} G$.
+\end{prop}
+
+
+
+
+\section{Classifying space}
+
+Suppose that $\mathcal{C}$ is a (small) category. The classifying space (or nerve ) $B \mathcal{C}$ of $\mathcal{C}$ is the simplicial set with
+$$
+B \mathcal{C}_n=\operatorname{hom}_{\text {cat }}(\mathbf{n}, \mathcal{C}),
+$$
+$n$-simplex is a string
+$$
+a_0 \xrightarrow{\alpha_1} a_1 \xrightarrow{\alpha_2} \ldots \xrightarrow{\alpha_n} a_n
+$$
+of composeable arrows of length $n$ in $\mathcal{C}$.\\
+
+If $G$ is a group, then $G$ can be identified with a category (or groupoid) with one object $*$ and one morphism $g: * \rightarrow *$ for each element $g$ of $G$, and so the classifying space $B G$ of $G$ is defined. Moreover $|B G|$ is an Eilenberg-Mac Lane space of the form $K(G, 1)$, as the notation suggests; this is now the standard construction.
+
+
+Recall that we constructed $B G$ as the geometric realisation of the nerve of a category * // $G$. As the notation suggests, this can be interpreted as a quotient, or more precisely a homotopy quotient. One can construct the homotopy quotient $X / / G$ of any space $X$ with $G$-action by a group $G$, and here we just take $X=*$. By abuse of notation * // $G=|N(* / / G)|{ }^2$ A reference for its construction and properties is [Rie14], but we will only need the following facts:
+
+\begin{enumerate}
+    \item Homotopy quotients are natural. If $X \rightarrow Y$ is an equivariant map between $G$-spaces then there is an induced map $X / / G \rightarrow Y / / G$.
+    \item Homotopy quotients preserve homological connectivity. If $X \rightarrow Y$ is an equivariant map between $G$-spaces which is homologically $d$-connected then $X / / G \rightarrow Y / / G$ is also homologically $d$-connected. (Recall that a map is homologically $d$-connected if it is an isomorphism on $H_i$ for $i<d$ and surjection on $H_d$.)
+    \item Homotopy quotients commute with geometric realisation. If $X_{\bullet}$ is a semi-simplicial $G$-space, then $\left\|X_{\bullet}\right\| / / G \simeq\left\|X_{\bullet} / / G\right\|$. (We will explain the terminology and notation later.)
+    \item Homotopy quotients of transitive $G$-sets. If $S$ is a transitive $G$-set, then $S / / G \simeq$ $B \operatorname{Stab}_G(s)$ for any $s \in S$.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\chapter{Homotopy theory}
+
+Let $I^n$ be the $n$-dimensional unit cube, the product of $n$ copies of the interval $[0,1]$. The boundary $\partial I^n$ of $I^n$ is the subspace consisting of points with at least one coordinate equal to 0 or 1 . For a space $X$ with basepoint $x_0 \in X$, define $\pi_n\left(X, x_0\right)$ to be the set of homotopy classes of maps $f:\left(I^n, \partial I^n\right) \rightarrow\left(X, x_0\right)$, where homotopies $f_t$ are required to satisfy $f_t\left(\partial I^n\right)=x_0$ for all $t$. The definition extends to the case $n=0$ by taking $I^0$ to be a point and $\partial I^0$ to be empty, so $\pi_0\left(X, x_0\right)$ is just the set of path-components of $X$.
+
+When $n \geq 2$, a sum operation in $\pi_n\left(X, x_0\right)$, generalizing the composition operation in $\pi_1$, is defined by
+$$
+(f+g)\left(s_1, s_2, \cdots, s_n\right)= \begin{cases}f\left(2 s_1, s_2, \cdots, s_n\right), & s_1 \in[0,1 / 2] \\ g\left(2 s_1-1, s_2, \cdots, s_n\right), & s_1 \in[1 / 2,1]\end{cases}
+$$
+
+It is evident that this sum is well-defined on homotopy classes. Since only the first coordinate is involved in the sum operation, the same arguments as for $\pi_1$ show that $\pi_n\left(X, x_0\right)$ is a group, with identity element the constant map sending $I^n$ to $x_0$ and with inverses given by $-f\left(s_1, s_2, \cdots, s_n\right)=f\left(1-s_1, s_2, \cdots, s_n\right)$.
+
+
+\begin{prop}
+    If $n \geq 2$, then $\pi_n\left(X, x_0\right)$ is abelian.
+\end{prop}
+
+
+\section{Covering spaces}
+%estamos solo usando estos resultados... deberiamos dar mejores definiciones
+
+
+In view of 4.1, it is natural now to consider $C W$-complexes $Y$ satisfying the following three conditions:
+\begin{enumerate}
+    \item $Y$ is connected.
+    \item $\pi_1(Y)$ is isomorphic to $G$.
+    \item The universal covering space $X$ of $Y$ is contractible.
+\end{enumerate}
+

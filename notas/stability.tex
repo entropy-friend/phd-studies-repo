@@ -1,0 +1,187 @@
+
+\part{Homological stability}
+\chapter{Motivation}
+
+
+\cite{kupersHomologicalStabilityMinicourse2021}
+
+The symmetric group $\Sigma_n$ is the group of bijections of the finite set $\underline{n}=\{1, \ldots, n\}$, under composition. The classifying space $B G$ of a discrete group $G$, such as $\Sigma_n$, is the connected space determined uniquely up to weak homotopy equivalence by the property
+$$
+\pi_*(B G)= \begin{cases}G & \text { if } *=1, \\ 0 & \text { otherwise }\end{cases}
+$$
+
+It can be constructed by extracting from $G$ the groupoid $* / / G$ given by:
+- a single object *,
+- morphisms given by $* \xrightarrow{g} *$ for $g \in G$, and
+- composition given by multiplication.
+
+We then take its nerve to obtain a simplicial set, and take the geometric realisation to get a topological space $|N(* / / G)|$; this is a model for $B G$. Exercise 1.3.1 proves it indeed has the desired property.
+
+
+\begin{prop}
+    $H_*\left(B \Sigma_n ; \mathbb{Z}\right)$  is the same as computing the group homology of $\Sigma_n$ with coefficients in $\mathbb{Z}$.
+\end{prop}
+Let us compute these groups and the homology of their classifying spaces for the first few values of $n$.
+
+\begin{example}
+    \begin{enumerate}
+        \item For $n=0,1$, the group $\Sigma_n$ is trivial so its classifying space is weakly contractible and hence has trivial homology.
+        \item Example 1.1.4. For $n=2, \Sigma_2$ is isomorphic to the cyclic abelian group $\mathbb{Z} / 2$. Then $B \mathbb{Z} / 2$, as constructed above, is homotopy equivalent to $\mathbb{R} P^{\infty}$. We conclude that
+        $$
+        H_*(B \mathbb{Z} / 2 ; \mathbb{Z})=H_*\left(\mathbb{R} P^{\infty} ; \mathbb{Z}\right)= \begin{cases}\mathbb{Z} & \text { if } *=0 \\ \mathbb{Z} / 2 & \text { if } *>0 \text { is odd, } \\ 0 & \text { if } *>0 \text { is even. }\end{cases}
+        $$
+    \item
+        Example 1.1.5. For $n=3$, the group $\Sigma_3$ is the dihedral group $D_3$ with 6 elements (i.e. the symmetries of a triangle). A more complicated computation given in Exercise 1.3.5 yields the homology of $D_3$ :
+$$
+H_*\left(B D_3 ; \mathbb{Z}\right)=\left\{\begin{array}{lll}
+\mathbb{Z} & \text { if } *=0 \\
+\mathbb{Z} / 2 & \text { if } *>0 \text { and } * \equiv 1 \quad(\bmod 4) \\
+\mathbb{Z} / 6 & \text { if } *>0 \text { and } * \equiv 3 \quad(\bmod 4), \\
+0 & \text { otherwise }
+\end{array}\right.
+$$
+    \end{enumerate}
+\end{example}
+
+\paragraph*{Conjectures}
+
+\begin{enumerate}
+    \item $\text { Each reduced homology group } \widetilde{H}_d\left(B \Sigma_n ; \mathbb{Z}\right) \text { is finite and has small exponent. }$
+    \item The homology in fixed degree $*=d$ becomes independent of $n$ as $n \rightarrow \infty$.
+    \item Before becoming independent of $n$, the homology only increases in size.
+    \item The $p$-power torsion only changes when $p \mid n$.
+\end{enumerate}
+
+
+If we want to attempt to prove (2)-(4), we need a better way to compare the homology groups for different $n$ than just as abstract abelian groups. This is done by observing that the inclusion $\underline{n} \hookrightarrow \underline{n+1}$ of finite sets gives a homomorphism
+$$
+\sigma: \Sigma_n \longrightarrow \Sigma_{n+1},
+$$
+by extending a permutation of $\underline{n}$ by the identity on $n+1 \in \underline{n+1}$ to a permutation of $n+1$. Our construction of $B G$ is natural in groups and homomorphisms, so this homomorphism induces a map
+$$
+\sigma: B \Sigma_n \longrightarrow B \Sigma_{n+1},
+$$
+which in turn induces a map $\sigma_*: H_*\left(B \Sigma_n ; \mathbb{Z}\right) \rightarrow H_*\left(B \Sigma_{n+1} ; \mathbb{Z}\right)$ on homology. We can then give sharper formulations of (2)-(4) in terms of these stabilisation maps:
+(2') The maps $\sigma_*$ are isomorphisms in a range increasing with $n$.\\
+(3') The maps $\sigma_*$ are injective.\\
+(4') The maps $\sigma_*$ are isomorphisms on $p$-power torsion unless $p \mid n+1$.\\
+Property (1) holds for all finite groups, and the result which proves it also implies (4'):
+
+\begin{prop}
+For a finite group $G, \widetilde{H}_*(B G ; \mathbb{Z}[1 /|G|])=0$. More generally, for $H \subset G$ the map $\iota_*: H_*(B H ; \mathbb{Z}[1 /[G: H]]) \rightarrow H_*(B G ; \mathbb{Z}[1 /[G: H]])$ admits a right inverse $\tau$ (i.e. $\iota_* \circ \tau=\mathrm{id}$ ).
+\end{prop}
+
+To deduce (4') from Proposition 1.1.6, note that $\left[\Sigma_{n+1}: \Sigma_n\right]=n+1$ so by the long exact sequence on homology groups so that $H_*\left(B \Sigma_n ; \mathbb{Z}\right) \rightarrow H_*\left(B \Sigma_{n+1} ; \mathbb{Z}\right)$ is surjective after inverting $n+1$. Now set $n+1$ equal to $p$ and invoke (3').
+It is phenomenon indicated by (2') that is the subject of this minicourse:
+
+A sequence $X_0 \xrightarrow{\sigma} X_1 \xrightarrow{\sigma} X_2 \xrightarrow{\sigma} \cdots$ exhibits \textbf{homological stability} if the maps $\sigma_*: H_*\left(X_n ; \mathbb{Z}\right) \rightarrow H_*\left(X_{n+1} ; \mathbb{Z}\right)$ are isomorphisms in a range of degrees * increasing with $n$.
+
+In the next two lectures we will prove the following result, due to Nakaoka [Nak60] (though he proved much more):
+\begin{theo}
+The sequence $B \Sigma_0 \xrightarrow{\sigma} B \Sigma_1 \xrightarrow{\sigma} B \Sigma_2 \xrightarrow{\sigma} \cdots$ exhibits homological stability. More precisely, the induced map
+    $$
+    \sigma_*: H_*\left(B \Sigma_n ; \mathbb{Z}\right) \longrightarrow H_*\left(B \Sigma_{n+1} ; \mathbb{Z}\right)
+    $$
+    is surjective if $* \leq \frac{n}{2}$ and an isomorphism if $* \leq \frac{n-1}{2}$.
+\end{theo}
+
+Remark 1.1.9. Of course, if we know property (3') holds then the range in the previous theorem in which $\sigma_*$ is an isomorphism improves to $* \leq \frac{n}{2}$. However, property ( 3 ') is rather special—related to the existence of transfer maps-and you should not expect it to hold for general sequences of classifying spaces of groups. We will not comment on it again, but see Exercise 1.3.6.\\
+Remark 1.1.10. The ranges in the previous remark are optimal among those of the form $* \leq a n+b$ with $a, b \in \mathbb{Q}$.
+
+\section{Applications}
+
+Homological stability is a structural property of a sequence of groups, or more
+generally topological spaces, but it is also useful tool. In fact, many homological stability theorems are proven in service of obtaining other mathematical results. To illustrate this, I now want to explain some straightforward applications of Theorem 1.1.8. These concern the transfer of information from low n to high n and vice-versa. They can be
+obtained by other methods as well, but their generalisations to other sequences of groups
+often can not.
+
+\subsection{Altenating groups}
+
+Recall that for path-connected $X$, the Hurewicz map $\pi_1(X) \rightarrow H_1(X ; \mathbb{Z})$ coincides with abelianisation (we are suppressing the basepoint). In particular, the map $G \rightarrow$ $H_1(B G ; \mathbb{Z})$ induces an isomorphism $G^{\text {ab }} \rightarrow H_1(B G ; \mathbb{Z})$ naturally in $G$. Thus we can understand the abelianisation of $\Sigma_n$ by computing its first homology group.
+The sign homomorphism sign: $\Sigma_n \rightarrow \mathbb{Z} / 2$ yields a map
+$$
+\text { sign: } B \Sigma_n \longrightarrow B \mathbb{Z} / 2,
+$$
+which induces a map on homology. This is compatible with stabilisation, in the sense that sign $\circ \sigma=$ sign, so we get a commutative squares
+$$
+\begin{array}{cc}
+H_1\left(B \Sigma_{n-1} ; \mathbb{Z}\right) \xrightarrow{\sigma_*} H_1\left(B \Sigma_n ; \mathbb{Z}\right) \\
+\downarrow_{\text {sign }} & \mid \text { sign } \\
+
+\mathbb{Z} / 2 \xlongequal{Z} / 2 .
+\end{array}
+$$
+
+The map $H_1\left(B \Sigma_2 ; \mathbb{Z}\right) \rightarrow \mathbb{Z} / 2$ is an isomorphism because sign: $\Sigma_2 \rightarrow \mathbb{Z} / 2$ is. By Theorem 1.1.8, in the commutative diagram
+the right-most top horizontal map is surjective and the other top horizontal maps are isomorphisms. A single diagram chase then deduces from the fact that the left-most vertical map is an isomorphism that all other vertical maps are.
+
+Thus we have used homological stability to prove that
+$$
+\text { sign: } \Sigma_n \longrightarrow \mathbb{Z} / 2
+$$
+is the abelianisation for $n \geq 2$, or equivalently that the kernel of the sign homomorphism is exactly the subgroup $\left[\Sigma_n, \Sigma_n\right]$ generated by commutators. Recalling that this kernel is exactly the alternating group $A_n$, we conclude that:
+
+\begin{theo}
+$\left[\Sigma_n, \Sigma_n\right]=A_n$.
+\end{theo} 
+
+Remark 1.2.2. This is a fact you likely knew already, and elementary group-theoretic arguments exist. We could have used this fact instead to give an elementary proof of Theorem 1.1.8 in degree $*=1$.
+
+\section{Group Completion}
+
+Homological stability implies that for in fixed degree $*$, for $n$ sufficienty large the canonical map
+$$
+H_*\left(B \Sigma_n ; \mathbb{Z}\right) \longrightarrow \underset{n \rightarrow \infty}{\operatorname{colim}} H_*\left(B \Sigma_n ; \mathbb{Z}\right)
+$$
+is an isomorphism; the right hand side is known as the stable homology. This has two somewhat tautological consequences:
+1. We can compute the right side from the left side.
+2. We can compute the left side from the right side.
+
+This is particularly interesting because the stable homology on the right side has a more familiar description.
+
+When we constructed the stabilisation map, we used that inclusion $\underline{n} \rightarrow \underline{n+1}$ yields a homomorphism $\Sigma_n \rightarrow \Sigma_{n+1}$. More generally, disjoint union induces a homomorphism $\Sigma_n \times \Sigma_m \rightarrow \Sigma_{n+m}$, which yields "multiplication" maps
+$$
+B \Sigma_n \times B \Sigma_m \longrightarrow B \Sigma_{n+m},
+$$
+making the space $\bigsqcup_{n \geq 0} B \Sigma_n$ into a unital topological monoid (these are associative but not commutative, and it is probably better to say $E_1$-space since that is a homotopy-invariant notion).
+
+\begin{theo}[McDuff-Segal]
+     If $M$ is a homotopy-commutative unital associative topological monoid, then $H_*(M ; \mathbb{Z})\left[\pi_0^{-1}\right] \cong H_*(\Omega B M ; \mathbb{Z})$.    
+\end{theo}
+
+%entender mejor esta parte
+
+\section{Serre's finiteness theorem and variations}
+
+Let us now use Corollary 1.2.6. By (1) the groups $H_*\left(B \Sigma_n ; \mathbb{Z}\right)$ are finite for $*>0$. By Theorem 1.1.8 the same is true for the stable homology as long as restrict to degrees $* \leq \frac{n}{2}$. Since $n$ is arbitrary, the stable homology is finite in all positive degrees. This has the following consequence:
+
+\begin{theo}
+$\pi_*(\mathbb{S})$ is finite for all $*>0$.
+\end{theo}
+
+%we can say something smimilar about torsion....
+
+Exercise 1.3.8 (Using Serre's finiteness theorem). Serre proved that $\pi_*(\mathbb{S})$ is finite for $*>0$. Combine this with Corollary 1.2.6 and Exercise 1.3.6 to prove that the sequence $B \Sigma_0 \xrightarrow{\sigma} B \Sigma_1 \xrightarrow{\sigma} B \Sigma_2 \xrightarrow{\sigma} \cdots$ exhibits homological stability. (Hint: you will not be able to give an explicit range.)
+
+Remark 1.3.9. See [McD75] for a similar qualitative argument for configuration spaces of manifolds.
+
+
+\chapter{Homological stability for symmetric groups}
+
+\begin{theo}
+The sequence $B \Sigma_0 \xrightarrow{\sigma} B \Sigma_1 \xrightarrow{\sigma} B \Sigma_2 \xrightarrow{\sigma} \cdots$ exhibits homological stability. More precisely,
+$$
+\sigma_*: H_*\left(B \Sigma_n ; \mathbb{Z}\right) \longrightarrow H_*\left(B \Sigma_{n+1} ; \mathbb{Z}\right)
+$$
+is surjective if $* \leq \frac{n}{2}$ and an isomorphism if $* \leq \frac{n-1}{2}$.
+\end{theo}
+
+
+
+
+
+
+
+
+
+\printbibliography % Add this line to print the bibliography section
