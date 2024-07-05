@@ -1,0 +1,345 @@
+\part{Topics of Algebra}
+
+\chapter{Category Theory}
+
+Reference \cite{adamekAbstractConcreteCategories}
+
+
+\begin{example}
+    \begin{enumerate}
+        \item For a topological spaces, the category of open sets with inclusions as morphisms. The opposite of this category, denoted by $\mathfrak{U}$, is used in sheaf theory.
+        \item If \ca and \cb are preordered sets, then functors between them are monotone maps.
+    \end{enumerate}
+\end{example}
+
+% A functor $F: \mathcal{A} \rightarrow \mathcal{B}$ is called an \textbf{isomorphism} provided that there is a functor $G: \mathcal{B} \rightarrow \mathcal{A}$ such that $G \circ F=i d_{\mathcal{A}}$ and $F \circ G=i d_{\mathcal{B}}$. The categories $\mathcal{A}$ and $\mathcal{B}$ are said to be \textbf{isomorphic}. \\
+% Note that $G$ is uniquely determined by $F$. It will be denoted by $F^{-1}$ and called the \textbf{inverse} of $F$.\\
+
+\noindent Let $F: \mathcal{A} \rightarrow \mathcal{B}$ be a functor.
+\begin{enumerate}
+    \item $F$ is \textbf{faithful} provided that all the \textbf{hom-set restrictions}
+    $$
+    F: \operatorname{hom}_{\mathcal{A}}\left(A, A^{\prime}\right) \rightarrow \operatorname{hom}_{\mathcal{B}}\left(F A, F A^{\prime}\right)
+    $$
+    are injective.
+    \item $F$ is \textbf{full} if all hom-set restrictions are surjective.
+    \item $F$ is an \textbf{embedding} if and it is faithful and injective on the class of objects.
+    \item $F$ is \textbf{essentially surjective} if for every object $B$ of \cb, there is an object $A$ of \ca such that $F A$ is isomorphic to $B$. 
+    \item If $F$ is essentially surjective and fully faithful, it is called an \textbf{equivalence of categories}, and \ca and \cb are said to be \textbf{equivalent}.
+\end{enumerate}
+
+Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A natural transformation $\tau$ from $F$ to $G$ (denoted by $\tau: F \rightarrow G$ or $F \xrightarrow{\tau} G$ ) is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following naturality condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
+$
+\begin{tikzcd}
+FA \arrow[r, "\tau_A"] \arrow[d, "Ff"'] & GA \arrow[d, "Gf"] \\
+FA' \arrow[r, "\tau_{A'}"'] & GA'
+\end{tikzcd}
+$ commutes.\\
+A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$, and $F$ and $G$ are said to be \textbf{naturally isomorphic}, denoted by $F \cong G$.
+
+
+\begin{example}
+    \begin{enumerate}
+        \item Let $U: \operatorname{Grp} \rightarrow$ Set be the forgetful functor, and let $S: \operatorname{Grp} \rightarrow$ Set be the "squaring-functor", defined by $S(G \xrightarrow{f} H)=G^2 \xrightarrow{f^2} H^2$. For each group $G$, its multiplication is a function $\tau_G: G^2 \rightarrow G$. The family $\tau=\left(\tau_G\right)$ is a natural transformation from $S$ to $U$. The naturality condition simply means that $f(x \cdot y)=f(x) \cdot f(y)$ for any group homomorphism $G \xrightarrow{f} H$ and any $x, y \in G$. Thus "multiplication" in groups can be regarded as a natural transformation. Similar for other structures.
+        \item Let $(\,\hat{} \,):$ Vec $\rightarrow$ Vec be the second-dual functor for vector spaces, then $\tau_V: V \rightarrow \hat{\hat{V}}$, defined by $\left(\tau_V(x)\right)(f)=f(x)$, yield a natural transformation $i d{ }_{\mathrm{Vec}} \xrightarrow{\tau}(\,\hat{}\,)$. It becomes a natural isomorphism when restricted to finite-dimensional vector spaces.
+        \item The assignment of the Hurewicz homomorphism $\pi_n(X) \rightarrow H_n(X)$ to each topological space $X$ is a natural transformation from the $n$-th homotopy functor $\pi_n:$ Top $\rightarrow$ Grp to the $n$-th homology functor $H_n:$ Top $\rightarrow$ Grp.
+        \item If $B \xrightarrow{f} C$ is an $\mathcal{A}$-morphism, then
+        $
+        \operatorname{hom}_{\mathcal{A}}(C,-) \xrightarrow{\tau_f} \operatorname{hom}_{\mathcal{A}}(B,-),
+        $
+        defined by $\tau_f(g)=g \circ f$, and
+        $
+        \operatorname{hom}_{\mathcal{A}}(-, B) \xrightarrow{\sigma_f} \operatorname{hom}_{\mathcal{A}}(-, C) \text {, }
+        $
+        defined by $\sigma_f(g)=f \circ g$, are natural transformations.
+        \item (Good definitions of extension) Let $F:$ Set $\rightarrow$ Vec be a functor that assigns to each set $X$ a vector space $F X$ with basis $X$, and to each function $X \xrightarrow{f} Y$ the unique linear extension $F X \xrightarrow{F f} F Y$ of $f$. This actually is not a correct definition of a functor, since there are many different vector spaces with the same basis. However, the definition is "correct up to natural isomorphism". Whenever we choose, for each set $X$, a specific vector space $F X$ with basis $X$, we do obtain a functor $F:$ Set $\rightarrow$ Vec (since the above condition determines the action of $F$ on functions uniquely). Furthermore, any two functors that are obtained in this way are naturally isomorphic.
+        \item For any 2-element set $A$, hom $(A,-)$ is naturally isomorphic to the squaring functor $S^2[3.20(10)]$ and hom $(-, A)$ is naturally isomorphic to the contravariant power-set functor $\mathcal{Q}[3.20(9)]$. If $B$ is isomorphic to $A$, then hom $(A,-)$ and hom $(B,-)$ are naturally isomorphic with those functors, the converse is true.
+    \end{enumerate}
+\end{example}
+
+\begin{prop}
+    A functor $\mathcal{A} \xrightarrow{F} \mathcal{B}$ is an equivalence if and only if there exists a functor $\mathcal{B} \xrightarrow{G} \mathcal{A}$ such that $i d_{\mathcal{A}} \cong G \circ F$ and $F \circ G \cong i d_{\mathcal{B}}$.
+\end{prop}
+
+
+\section{Limits and colimits}
+Let $A \stackrel{\text { f }}{\underset{g}{\rightrightarrows}} B$ be a pair of morphisms. A morphism $E \xrightarrow{e} A$ is called an equalizer of $f$ and $g$ provided that the following conditions hold:
+(1) $f \circ e=g \circ e$,
+(2) for any morphism $e^{\prime}: E^{\prime} \rightarrow A$ with $f \circ e^{\prime}=g \circ e^{\prime}$, there exists a unique morphism $\bar{e}: E^{\prime} \rightarrow E$ such that $e^{\prime}=e \circ \bar{e}$, i.e., such that the triangle
+\begin{tikzcd}
+    E' \arrow[d, "\overline{e}"'] \arrow[dr, "e'"] & \\
+    E \arrow[r, "e"'] & A \arrow[r, shift left, "f"] \arrow[r, shift right, "g"'] & B
+    \end{tikzcd} commutes.
+    
+
+A \textbf{source} is a pair $\left(A,\left(f_i\right)_{i \in I}\right)$ consisting of an object $A$ and a family of morphisms $f_i: A \rightarrow A_i$ with domain $A$, indexed by some class $I$. 
+
+%A source $\mathcal{P}=\left(P \xrightarrow{p_i} A_i\right)_I$ is called a product provided that for every source $\mathcal{S}=$ $\left(A \xrightarrow{f_i} A_i\right)_I$ with the same codomain as $\mathcal{P}$ there exists a unique morphism $A \xrightarrow{f} P$ with $\mathcal{S}=\mathcal{P} \circ f$. A product with codomain $\left(A_i\right)_I$ is called a product of the family $\left(A_i\right)_I$.
+
+\begin{prop}
+    A category has finite products if and only if it has terminal objects and products of pairs of objects.
+    A category that has products for all class-indexed families must be thin.
+A small category has products if and only if it is equivalent to a complete lattice.
+\end{prop}
+
+A \textbf{diagram} in a category $\mathcal{A}$ is a functor $D: \mathbf{I} \rightarrow \mathcal{A}$ with codomain $\mathcal{A}$. The domain, $\mathbf{I}$, is called the \textbf{scheme} of the diagram. A diagram with a small (or finite) scheme is said to be \textbf{small} (or finite).\\
+An A-source $\left(A \xrightarrow{f_i} D_i\right)_{i \in O b(\mathrm{I})}$ is said to be \textbf{natural for $D$} provided that for each I-morphism $i \xrightarrow{d} j$, the triangle 
+\begin{tikzcd}
+    A \arrow[d, "f_i"'] \arrow[dr, "f_j"] & \\
+    D_i \arrow[r, "Dd"'] & D_j 
+\end{tikzcd} commutes.\\
+Equivalently, natural sources can be regarded as natural transformations from constant functors $C: \mathbf{I} \rightarrow \mathbf{A}$ to the functor $D$.\\
+A \textbf{limit} of $D$ is a natural source $\left(L \xrightarrow{\ell_i} D_i\right)$ for $D$ with the \textbf{universal property} that for each natural source $\left(A \xrightarrow{f_i} D_i\right)$ there exists a unique morphism $f: A \rightarrow L$ with $f_i=$ $\ell_i \circ f$ for each $i \in O b(\mathbf{I})$.
+
+\begin{enumerate}
+    \item Every source is natural for a diagram with discrete scheme. Products are limits of diagrams with discrete scheme. An object, considered as an empty source, is a limit of the empty diagram if and only if it is a terminal object.
+
+    \item For A-morphisms $A \underset{g}{\stackrel{f}{\rightrightarrows}} B$, considered as a diagram $D$ with scheme $\bullet \Rightarrow \bullet$, a source $(A \stackrel{e}{\longleftarrow} C \xrightarrow{h} B)$ is natural provided that $g \circ e=h=f \circ e$.\\
+    $C \xrightarrow{e} A$ is an equalizer of $A \xrightarrow[g]{\stackrel{f}{\longrightarrow}} B$ if and only if the source $(A \stackrel{e}{\leftarrow} C \xrightarrow{f \circ e} B)$ is a limit of $D$. 
+
+    \item A poset $\mathbf{I}$ is \textbf{down-directed} if every pair of elements has a lower bound. Limits of diagrams with scheme $\mathbf{I}$ are called \textbf{projective} (or \textbf{inverse}) limits. 
+\end{enumerate}
+
+\begin{prop}
+If $\mathcal{L}=\left(L \xrightarrow{\ell_i} D_i\right)_{i \in O b(\mathbf{I})}$ is a limit of $D: \mathbf{I} \rightarrow \mathbf{A}$, then
+    \begin{enumerate}
+        \item for each limit $\mathcal{K}=\left(K \xrightarrow{k_i} D_i\right)_{i \in O b(\mathrm{I})}$ of $D$, there exist an isomorphism $K \xrightarrow{h} L$ with $\mathcal{K}=\mathcal{L} \circ h$,
+        \item for each isomorphism $A \xrightarrow{h} L$, the source $\mathcal{L} \circ h$ is a limit of $D$.
+    \end{enumerate}
+\end{prop}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Adjoint functors}
+
+
+
+
+
+
+
+\section{Concrete categories}
+
+A way to talk of \textit{low level structures} present on the objects of a category. Often it is easier to work with less structures, and there results like Yoneda's lemma that show us that it is possible to restrict our study to them.\\
+
+Let \cc be a category. A \textbf{concrete category} over \cc is a category $\mathcal{A}$ together wih a faithful functor $U: \mathcal{A} \rightarrow \mathcal{C}$, called the \textbf{forgetful} (or underlying) functor of the concrete category. $\mathcal{C}$ is called the \textbf{base category}. A concrete category over Set is called a \textbf{construct}.\\
+The category of groups (or topological spaces, rings, etc.), with the forgetful functor to Set, is a construct.\\
+
+\begin{enumerate}
+    \item A \textbf{structured arrow} with domain $X$ is a pair $(f, A)$ consisting of an A-object $A$ and an X-morphism $X \xrightarrow{f}|A|$,
+    \item if $(f, A)$ is \textbf{generating} provided that for any pair of A-morphisms $r, s: A \rightarrow B$ the equality $r \circ f=s \circ f$ implies that $r=s$,
+    \item and this $(f, A)$ is called \textbf{extremally generating} (resp. \textbf{concretely generating}) provided that each A-monomorphism (resp. A-embedding) $m: A^{\prime} \rightarrow A$, through which $f$ factors (i.e., $f=m \circ g$ for some $\mathbf{X}$-morphism $g$ ), is an $\mathbf{A}$-isomorphism.
+    \item In a construct, an object $A$ is (extremally resp. concretely) generated by a subset $X$ of $|A|$ provided that the inclusion map $X \hookrightarrow|A|$ is (extremally resp. concretely) generating.
+\end{enumerate}
+
+\begin{prop}
+    In a concrete category $\mathbf{A}$ over $\mathbf{X}$ the following hold for each structured arrow $f: X \rightarrow|A|:$
+    \begin{enumerate}
+        \item If $(f, A)$ is extremally generating, then $(f, A)$ is concretely generating.
+        \item If $(f, A)$ is concretely generating, then $(f, A)$ is generating.
+        \item If $X \xrightarrow{f}|A|$ is an $\mathbf{X}$-epimorphism, then $(f, A)$ is generating.
+        \item If $X \xrightarrow{f}|A|$ is an extremal epimorphism in $\mathbf{X}$, and if $||$ preserves monomorphisms, then $(f, A)$ is extremally generating.
+    \end{enumerate}
+\end{prop}
+
+\begin{example}
+    \begin{enumerate}
+        \item If an abstract category $\mathbf{A}$ is considered to be concrete over itself via the identity functor, then an A-morphism $A \xrightarrow{f} B$, considered as a structured arrow $(f, B)$, is generating (resp. extremally or concretely generating) if and only if $f$ is an epimorphism (resp. an extremal epimorphism). That is,
+        $$
+        \operatorname{Gen}(\mathbf{A})=\operatorname{Epi}(\mathbf{A}) \text { and } \operatorname{ExtrGen}(\mathbf{A})=\operatorname{ConcGen}(\mathbf{A})=\operatorname{ExtrEpi}(\mathbf{A})
+        $$
+        \begin{enumerate}
+            \item In Vec, Grp, Sgr, Rng, and other algebraic constructs, the concepts of concrete generation and of extremal generation coincide with the familiar (non-categorical) concept of generation.
+            In the constructs Sgr and Rng the inclusion map $\mathbb{Z} \hookrightarrow \mathbb{Q}$ is generating, but is not concretely generating [cf. 7.40(5)].
+
+            \item In the construct $\mathbf{A}=$ Top we have
+            $$
+            \begin{aligned}
+            & \text { ConcGen(A) }=\operatorname{Gen}(\mathbf{A})=\text { Surjective maps, and } \\
+            & \operatorname{ExtrGen}(\mathbf{A})=\text { Surjective maps with discrete codomain. }
+            \end{aligned}
+            $$
+
+            \item In the construct $\mathbf{A}=$ Haus we have
+            $$
+            \begin{aligned}
+            \operatorname{Gen}(\mathbf{A}) & =\text { Dense maps } \\
+            \text { ConcGen(A) } & =\text { Surjective maps, and } \\
+            \text { ExtrGen(A) } & =\text { Surjective maps with discrete codomain. }
+            \end{aligned}
+            $$
+        \item $A \xrightarrow{f} B$ is an epimorphism if and only if $(f, B)$ is generating.
+\item If $(f, B)$ is extremally generating and the forgetful functor preserves monomorphisms, then $A \xrightarrow{f} B$ is an extremal epimorphism.
+\item If $A \xrightarrow{f} B$ is an extremal epimorphism, then $(f, B)$ is concretely generating.    
+        \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+A \textbf{universal arrow} over an $\mathbf{X}$-object $X$ is a structured arrow $X \xrightarrow{u}|A|$ with domain $X$ such that, for each structured arrow $X \xrightarrow{f}|B|$ with domain $X$, there exists a unique $A$-morphism $\hat{f}: A \rightarrow B$ such that the triangle 
+\begin{tikzcd}
+    X \arrow[r, "u"] \arrow[dr, "f"'] &  {|A|} \arrow[d, "\overline{f}"]\\
+    & {|B|} 
+\end{tikzcd} commutes. The pair $(u,A)$ is called a \textbf{free object}.
+
+\begin{example}
+\begin{enumerate}
+    \item In a construct, an object $A$ is a free object over the empty set if and only if $A$ is an initial object, and over a singleton set if and only if $A$ represents the forgetful functor.
+    \item In the construct Vec each object is a free object over any basis for it.
+    \item In the constructs Top and Pos the free objects are precisely the discrete ones.
+    \item In the construct $\mathbf{A b}$ free objects over $X$ are the free abelian groups generated by $X$.
+    Similarly, the familiar free group generated by a set $X$ is a free object over $X$ in the construct Grp.
+    \item To construct a universal arrow in (Ban, $O$ ) over a set $X$, let $\ell_1(X)$ be the subspace of the vector space $K^X$ consisting of all $r=\left(r_x\right)_{x \in X}$ in $K^X$ whose norm $\|r\|=$ $\sum_{x \in X}\left|r_x\right|$ is finite. Then $\ell_1(X)$ is a Banach space. Define $X \xrightarrow{u} O\left(\ell_1(X)\right)$ at $y$ by the Dirac function $u(y)=\left(\delta_{y x}\right)_{x \in X}$. Then $\left(u, \ell_1(X)\right)$ is a universal arrow over $X$. Observe, for comparison, that for the construct (Ban, $U$ ) the only set having a universal arrow is the empty set, and that for the construct Ban $\mathrm{B}_{\mathrm{b}}$ the only sets having universal arrows are the finite ones.
+\end{enumerate}
+\end{example}
+
+\begin{prop}
+    \begin{enumerate}
+        \item Every universal arrow is extremally generating.
+        \item Any two universal arrows with domain $X$ are isomorphic. Conversely, if $X \xrightarrow{u}|A|$ is a universal arrow and $A \xrightarrow{k} A^{\prime}$ is an $\mathbf{A}$-isomorphism, then $X \xrightarrow{k o u}\left|A^{\prime}\right|$ is also universal.
+        \item If a concrete category $\mathbf{A}$ over $\mathbf{X}$ has free objects, then an $\mathbf{A}$-morphism is an $\mathbf{A}$-monomorphism if and only if it is an $\mathbf{X}$-monomorphism.
+        \item If a construct $\mathbf{A}$ has a free object over a singleton set, then the monomorphisms in $\mathbf{A}$ are precisely those morphisms that are injective functions.
+    \end{enumerate}
+\end{prop}
+
+A concrete category over $\mathbf{X}$ is said to have free objects provided that for each $\mathbf{X}$-object $X$ there exists a universal arrow over $X$.\\
+The constructs Vec, Grp, Ab, Mon, Sgr, Alg $(\Omega)$, Top, Pos, and $($ Ban,$O)$ have free objects; but the constructs Ban$_b$.
+
+A functor $F: \mathcal{A} \rightarrow$ Set is called representable (by an $\mathcal{A}$-object $A$ ) provided that $F$ is naturally isomorphic to the hom-functor $\operatorname{hom}(A,-): \mathcal{A} \rightarrow$ Set. Note that objects that represents the same functor are isomorphic.
+
+\begin{example}
+    \begin{enumerate}
+        \item Forgetful functors are often representable. For example,
+        (a) Vec $\rightarrow$ Set is represented by the vector space $\mathbb{R}$,
+        (b) $\operatorname{Grp} \rightarrow$ Set is represented by the group of integers $\mathbb{Z}$,
+        (c) Top $\rightarrow$ Set is represented by any one-point topological space.
+        \item The underlying functor $U$ for the construct Ban [5.2(3)] is not representable (see Exercise 10J). However, the faithful unit ball functor $O: \operatorname{Ban} \rightarrow$ Set is represented in the complex case by the Banach space $\mathbb{C}$ of complex numbers.
+    \end{enumerate}
+\end{example}
+
+\begin{prop}[Representative of Constructs]
+    For constructs $(\mathcal{A}, U)$ the forgetful functor is represented by an object $A$ if and only if $A$ is a free object over a singleton set [see Definition 8.22(2)]. This provides many additional examples of representations.
+\end{prop}
+
+For small categories $\mathcal{A}$ and $\mathcal{B}$ the \textbf{functor category} $[\mathcal{A}, \mathcal{B}]$ has as objects all functors from $\mathcal{A}$ to $\mathcal{B}$, as morphisms from $F$ to $G$ all natural transformations from $F$ to $G$, as identities the identity natural transformations, and as composition the (horizontal) composition of natural transformations.
+
+\begin{theo}[uniqueness of representations]
+    For any functor $F: \mathcal{A} \rightarrow$ Set, any $\mathcal{A}$-object $A$ and any element $a \in F(A)$, there exists a unique natural transformation $\tau: \operatorname{hom}(A,-) \rightarrow F$ with $\tau_A\left(i d_A\right)=a$.
+\end{theo}
+
+\begin{coro}[Yoneda Lemma]
+    If $F: \mathcal{A} \rightarrow$ Set is a functor and $A$ is an $\mathcal{A}$-object, then the following function
+    $$
+    Y:[\operatorname{hom}(A,-), F] \rightarrow F(A) \text { defined by } Y(\sigma)=\sigma_A\left(i d_A\right),
+    $$
+    is a bijection (where $[\operatorname{hom}(A,-), F]$ is the set of all natural transformations from hom $(A,-)$ to $F$ ).
+    
+\end{coro}
+
+\begin{coro}[Yoneda Embedding]
+    For any category $\mathcal{A}$, the functor $E: \mathcal{A} \rightarrow\left[\mathcal{A}^{\mathrm{op}} Set \right]$, defined by
+$$
+E(A \xrightarrow{f} B)=\operatorname{hom}(-, A) \xrightarrow{\sigma_f} \operatorname{hom}(-, B) \text {, }
+$$
+where $\sigma_f(g)=f \circ g$, is a full embedding.
+\end{coro}
+
+
+\chapter{Homological Algebra}
+
+In homological algebra one constructs homological invariants of algebraic objects by the following process, or some variant of it:
+
+Let $R$ be a ring and $T$ a covariant additive functor from $R$-modules to abelian groups. Thus the map $\operatorname{Hom}_R(M, N) \rightarrow \operatorname{Hom}_{\mathbf{z}}(T M, T N)$ defined by $T$ is a homomorphism of abelian groups for all $R$-modules $M, N$. For any $R$ module $M$, choose a free (or projective) resolution $\varepsilon: F \rightarrow M$ and consider the chain complex $T F$ of abelian groups obtained by applying $T$ to $F$ termwise. Now $T$, being additive, preserves chain homotopies; so we can apply the uniqueness theorem for resolutions (I.7.5) to deduce that the complex $T F$ is independent, up to canonical homotopy equivalence, of the choice of resolution. Passing to homology, we obtain groups $H_n(T F)$ which depend only on $T$ and $M$ (up to canonical isomorphism).
+
+This construction is of no interest, of course, if $T$ is an exact functor; for then the augmented complex
+$$
+\cdots \rightarrow T F_1 \rightarrow T F_0 \rightarrow T M \rightarrow 0
+$$
+is acyclic, so that $H_n(T F)=0$ for $n>0$ and $H_0(T F)=T M$. Thus we can regard the groups $H_n(T F)$ in the general case as a measure of the failure of $T$ to be exact.
+
+
+
+\chapter{Categorías Aditivas}
+
+
+Una \textbf{categoria pre-aditiva} es uma categoria tal que os $\operatorname{Hom}(A,B)$ possuem estrutura de grupo abeliano, e composição de morfismos é bilinear. Em particular, existem morfismos nulos.\\
+Um funtor entra categorias preaditivas é \textbf{aditivo} se os mapas $F:\operatorname{Hom}(A,B)\rightarrow \operatorname{Hom}(F(A),F(B))$ são homomorfismos de grupos. 
+
+\begin{prop}
+	Numa categoria pre-aditiva, tudo produto finito é um coproduto, e vice-versa (chamado de \textbf{biproduto}). 
+\end{prop}
+
+Uma \textbf{categoria aditiva} é uma categoria pre-aditiva que admite biprodutos finitos. Em particular, os biprodutos vazios são objetos zero.\\
+
+Uma \textbf{categoria abeliana} é uma categoria aditiva tal que:
+\begin{enumerate}
+	\item Todo morfismo possui núcleo e conúcelo,
+	\item todo monomorfismo (resp. epimorfismo) é o kernel (resp. cokernel) de um morfismo.
+\end{enumerate}
+
+
+Um \textbf{complexo} numa categoria aditiva $\mathcal{C}$ é uma sequência de objetos $\{X_j\}$
+
+\section{Objetos projetivos e injetivos}
+
+Um objeto $Q$ numa categoria é \textbf{injetivo} se para todo monomorfismo $f:X\rightarrow Y$ e todo morfismo $g:X \rightarrow Q$ existe um morfismo $h: Y\rightarrow Q$ tal que $h\circ f =g$.\\
+Uma categoria \textbf{tem suficientes injetivos} se para todo objeto $X$ existe um monomorfismo $X\rightarrow Q$, com $Q$ injetivo.
+
+
+Um objeto $P$ numa categoria é \textbf{injetivo} se para todo epimorfismo $e:E\rightarrow X$ e todo morfismo $f:P \rightarrow X$ existe um morfismo $h: P\rightarrow E$ tal que $e\circ h =f$.\\
+Uma categoria \textbf{tem suficientes projetivos} se para todo objeto $A$ existe um epimorfismo $P\rightarrow A$, com $P$ projetivo.
+
+\begin{prop}
+	Numa categoria abeliana, 
+	\begin{itemize}
+		\item um objeto é injetivo se e somente se $\operatorname{Hom}(\cdot , Q)$ é exato
+		\item um objeto é projetivo se e somente se $\operatorname{Hom}(\cdot , Q)$ é exato.
+	\end{itemize}
+\end{prop}
+
+
+
+\subsection{Resoluciones}
+
+
+\section{Categoría Trianguladas}
+
+
+
+\subsection{La categoría homotópica}
+
+
+
+
+
+\section{Categorías derivadas}
+
+
+
+
+
+
+
+
+\section{Spectral Sequences}
+
+
+\section{Abelian categories}
+
+\section{Derived functors}
+
+\section{Derived categories}
+
+
+
+

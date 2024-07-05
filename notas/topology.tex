@@ -3,9 +3,13 @@
 
 
 \chapter{Simplical sets and complexes}
-References \cite{goerssSimplicialHomotopyTheory2009,hatcherAlgebraicTopology2021}\\
+References \cite{goerssSimplicialHomotopyTheory2009,hatcherAlgebraicTopology2021}. \\
 
-Simplicial complexes are more intuitive, and are the foundation of algebraic topology. Simplicial are more suitable to be employed in proofs. Simplicial complexes were also called \textit{simplicial schemes} and simplicial sets, \textit{semi-simplicial} complexes. 
+Simplicial complexes are more intuitive, and are the foundation of algebraic topology. $\Delta$-complexes are usueful for computations. Simplicial sets are more suitable to high level concepts.
+
+%Simplicial complexes 
+%$\Delta$-complexes : semi-simplicial complexes
+%Simplicial sets : complete semi-simplicial complexes
 
 \section{(Abstract) simplical complexes}
 
@@ -43,11 +47,37 @@ Now think of the set of elements of $[0,1]^S$ with finite support as the direct 
 
 
 
+\section{CW-complexes}
+
+They can be defined in an inductive way:
+
+\begin{enumerate}
+    \item Start with a discrete set $X^0$, whose points are regarded as 0 -cells.
+    \item Inductively, form the $\boldsymbol{n}$-skeleton $X^n$ from $X^{n-1}$ by attaching $n$-cells $e_\alpha^n$ via maps $\varphi_\alpha: S^{n-1} \rightarrow X^{n-1}$. This means that $X^n$ is the quotient space of the disjoint union $X^{n-1} \amalg_\alpha D_\alpha^n$ of $X^{n-1}$ with a collection of $n$-disks $D_\alpha^n$ under the identifications $x \sim \varphi_\alpha(x)$ for $x \in \partial D_\alpha^n$. Thus as a set, $X^n=X^{n-1} \amalg_\alpha e_\alpha^n$ where each $e_\alpha^n$ is an open $n$-disk.
+    \item One can either stop this inductive process at a finite stage, setting $X=X^n$ for some $n<\infty$, or one can continue indefinitely, setting $X=\cup_n X^n$. In the latter case $X$ is given the weak topology: A set $A \subset X$ is open (or closed) iff $A \cap X^n$ is open (or closed) in $X^n$ for each $n$.
+    
+\end{enumerate}
+
+\begin{example}
+    \begin{enumerate}
+        \item A 1-dimensional cell complex $X=X^1$ is what is called a graph in algebraic topology. It consists of vertices (the 0 -cells) to which edges (the 1-cells) are attached. The two ends of an edge can be attached to the same vertex.
+        \item The sphere $S^n$ has the structure of a cell complex with just two cells, $e^0$ and $e^n$, the $n$-cell being attached by the constant map $S^{n-1} \rightarrow e^0$. This is equivalent to regarding $S^n$ as the quotient space $D^n / \partial D^n$.
+        \item \textbf{Real projective $\boldsymbol{n}$-space $\mathbb{R} \mathrm{P}^n$.} It is equivalent to the quotient space of a hemisphere $D^n$ with antipodal points of $\partial D^n$ identified. Since $\partial D^n$ with antipodal points identified is just $\mathbb{R P} \mathrm{P}^{n-1}$, we see that $\mathbb{R} \mathrm{P}^n$ is obtained from $\mathbb{R} \mathrm{P}^{n-1}$ by attaching an $n$-cell, with the quotient projection $S^{n-1} \rightarrow \mathbb{R} P^{n-1}$ as the attaching map. It follows by induction on $n$ that $\mathbb{R P}^n$ has a cell complex structure $e^0 \cup e^1 \cup \cdots \cup e^n$ with one cell $e^i$ in each dimension $i \leq n$.\\
+        The infinite union $\mathbb{R} P^{\infty}=U_n \mathbb{R} P^n$ becomes a cell complex with one cell in each dimension. We can view $\mathbb{R} P^{\infty}$ as the space of lines through the origin in $\mathbb{R}^{\infty}=\bigcup_n \mathbb{R}^n$.
+        
+        \item \textbf{Complex projective space $\mathbb{C} P^n$.} It is equivalent to the quotient of the unit sphere $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with $v \sim \lambda v$ for $|\lambda|=1$. \\
+        It is also possible to obtain $\mathbb{C P}^n$ as a quotient space of the disk $D^{2 n}$ under the identifications $v \sim \lambda v$ for $v \in \partial D^{2 n}$, in the following way. The vectors in $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with last coordinate real and nonnegative are precisely the vectors of the form $\left(w, \sqrt{1-|w|^2}\right) \in \mathbb{C}^n \times \mathbb{C}$ with $|w| \leq 1$. Such vectors form the graph of the function $w \mapsto \sqrt{1-|w|^2}$. This is a disk $D_{+}^{2 n}$ bounded by the sphere $S^{2 n-1} \subset S^{2 n+1}$ consisting of vectors $(w, 0) \in \mathbb{C}^n \times \mathbb{C}$ with $|w|=1$. Each vector in $S^{2 n+1}$ is equivalent under the identifications $v \sim \lambda v$ to a vector in $D_{+}^{2 n}$, and the latter vector is unique if its last coordinate is nonzero. If the last coordinate is zero, we have just the identifications $v \sim \lambda v$ for $v \in S^{2 n-1}$.\\
+        It follows that $\mathbb{P}^n$ is obtained from $\mathbb{C} \mathrm{P}^{n-1}$ by attaching a cell $e^{2 n}$ via the quotient map $S^{2 n-1} \rightarrow \mathbb{C P}^{n-1}$. So by induction on $n$ we obtain a cell structure $\mathbb{C P}^n=e^0 \cup e^2 \cup \cdots \cup e^{2 n}$ with cells only in even dimensions. Similarly, $\mathbb{C P}^{\infty}$ has a cell structure with one cell in each even dimension.
+    \end{enumerate}
+\end{example}
+
+Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $\Phi_\alpha: D_\alpha^n \rightarrow X$ which extends the attaching map $\varphi_\alpha$ and is a homeomorphism from the interior of $D_\alpha^n$ onto $e_\alpha^n$. Namely, we can take $\Phi_\alpha$ to be the composition $D_\alpha^n \hookrightarrow X^{n-1} \coprod_\alpha D_\alpha^n \rightarrow X^n \hookrightarrow X$ where the middle map is the quotient map defining $X^n$. 
+
+
+
 
 
 \section{Simplical sets}
-
-
 
 Let $\mathbf{\Delta}$ be the category of finite ordinal numbers, with order-preserving maps between them. More precisely, the objects for $\Delta$ consist of elements $\mathbf{n}, n \geq 0$, where $\mathbf{n}$ is a string of relations
 $$
@@ -174,40 +204,6 @@ so is at least $(r-1)$-connected. Thus we get [Seg68] (see also [ERW19, Section 
     $$
     with differentials given by $d^r: E_{p, q}^r \rightarrow E_{p-r, q+r-1}^r$. Moreover $d^1: E_{p, q}^1 \rightarrow E_{p-1, q}^1$ is given by $\sum_{i=0}^p(-1)^i\left(d_i\right)_*$, and the edge homomorphism $E_{0, q}^1 \rightarrow E_{0, q}^{\infty} \rightarrow H_q(X ; \mathbb{Z})$ is equal to the map induced on homology by the inclusion $X_0 \rightarrow\left\|X_{\bullet}\right\|$.   
 \end{theo}
-
-
-
-
-
-
-
-\section{CW-complexes}
-
-They can be defined in an inductive way:
-
-\begin{enumerate}
-    \item Start with a discrete set $X^0$, whose points are regarded as 0 -cells.
-    \item Inductively, form the $\boldsymbol{n}$-skeleton $X^n$ from $X^{n-1}$ by attaching $n$-cells $e_\alpha^n$ via maps $\varphi_\alpha: S^{n-1} \rightarrow X^{n-1}$. This means that $X^n$ is the quotient space of the disjoint union $X^{n-1} \amalg_\alpha D_\alpha^n$ of $X^{n-1}$ with a collection of $n$-disks $D_\alpha^n$ under the identifications $x \sim \varphi_\alpha(x)$ for $x \in \partial D_\alpha^n$. Thus as a set, $X^n=X^{n-1} \amalg_\alpha e_\alpha^n$ where each $e_\alpha^n$ is an open $n$-disk.
-    \item One can either stop this inductive process at a finite stage, setting $X=X^n$ for some $n<\infty$, or one can continue indefinitely, setting $X=\cup_n X^n$. In the latter case $X$ is given the weak topology: A set $A \subset X$ is open (or closed) iff $A \cap X^n$ is open (or closed) in $X^n$ for each $n$.
-    
-\end{enumerate}
-
-\begin{example}
-    \begin{enumerate}
-        \item A 1-dimensional cell complex $X=X^1$ is what is called a graph in algebraic topology. It consists of vertices (the 0 -cells) to which edges (the 1-cells) are attached. The two ends of an edge can be attached to the same vertex.
-        \item The sphere $S^n$ has the structure of a cell complex with just two cells, $e^0$ and $e^n$, the $n$-cell being attached by the constant map $S^{n-1} \rightarrow e^0$. This is equivalent to regarding $S^n$ as the quotient space $D^n / \partial D^n$.
-        \item \textbf{Real projective $\boldsymbol{n}$-space $\mathbb{R} \mathrm{P}^n$.} It is equivalent to the quotient space of a hemisphere $D^n$ with antipodal points of $\partial D^n$ identified. Since $\partial D^n$ with antipodal points identified is just $\mathbb{R P} \mathrm{P}^{n-1}$, we see that $\mathbb{R} \mathrm{P}^n$ is obtained from $\mathbb{R} \mathrm{P}^{n-1}$ by attaching an $n$-cell, with the quotient projection $S^{n-1} \rightarrow \mathbb{R} P^{n-1}$ as the attaching map. It follows by induction on $n$ that $\mathbb{R P}^n$ has a cell complex structure $e^0 \cup e^1 \cup \cdots \cup e^n$ with one cell $e^i$ in each dimension $i \leq n$.\\
-        The infinite union $\mathbb{R} P^{\infty}=U_n \mathbb{R} P^n$ becomes a cell complex with one cell in each dimension. We can view $\mathbb{R} P^{\infty}$ as the space of lines through the origin in $\mathbb{R}^{\infty}=\bigcup_n \mathbb{R}^n$.
-        
-        \item \textbf{Complex projective space $\mathbb{C} P^n$.} It is equivalent to the quotient of the unit sphere $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with $v \sim \lambda v$ for $|\lambda|=1$. \\
-        It is also possible to obtain $\mathbb{C P}^n$ as a quotient space of the disk $D^{2 n}$ under the identifications $v \sim \lambda v$ for $v \in \partial D^{2 n}$, in the following way. The vectors in $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with last coordinate real and nonnegative are precisely the vectors of the form $\left(w, \sqrt{1-|w|^2}\right) \in \mathbb{C}^n \times \mathbb{C}$ with $|w| \leq 1$. Such vectors form the graph of the function $w \mapsto \sqrt{1-|w|^2}$. This is a disk $D_{+}^{2 n}$ bounded by the sphere $S^{2 n-1} \subset S^{2 n+1}$ consisting of vectors $(w, 0) \in \mathbb{C}^n \times \mathbb{C}$ with $|w|=1$. Each vector in $S^{2 n+1}$ is equivalent under the identifications $v \sim \lambda v$ to a vector in $D_{+}^{2 n}$, and the latter vector is unique if its last coordinate is nonzero. If the last coordinate is zero, we have just the identifications $v \sim \lambda v$ for $v \in S^{2 n-1}$.\\
-        It follows that $\mathbb{P}^n$ is obtained from $\mathbb{C} \mathrm{P}^{n-1}$ by attaching a cell $e^{2 n}$ via the quotient map $S^{2 n-1} \rightarrow \mathbb{C P}^{n-1}$. So by induction on $n$ we obtain a cell structure $\mathbb{C P}^n=e^0 \cup e^2 \cup \cdots \cup e^{2 n}$ with cells only in even dimensions. Similarly, $\mathbb{C P}^{\infty}$ has a cell structure with one cell in each even dimension.
-    \end{enumerate}
-\end{example}
-
-Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $\Phi_\alpha: D_\alpha^n \rightarrow X$ which extends the attaching map $\varphi_\alpha$ and is a homeomorphism from the interior of $D_\alpha^n$ onto $e_\alpha^n$. Namely, we can take $\Phi_\alpha$ to be the composition $D_\alpha^n \hookrightarrow X^{n-1} \coprod_\alpha D_\alpha^n \rightarrow X^n \hookrightarrow X$ where the middle map is the quotient map defining $X^n$. 
-
-
 
 
 
