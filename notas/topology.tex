@@ -293,3 +293,19 @@ In view of 4.1, it is natural now to consider $C W$-complexes $Y$ satisfying the
     \item The universal covering space $X$ of $Y$ is contractible.
 \end{enumerate}
 
+
+
+\section{Eilenberg-Mac Lane spaces}
+
+The $n$th singular cohomology group of a space $X$ with coefficients in an abelian group $A$ is isomorphic to the homotopy classes of maps from $X$ to an Eilenberg-Mac Lane space, denoted by $K(A, n)$ of the homotopy type of a CW space, such that
+$$
+\pi_i K(A, n)= \begin{cases}A, & \text { if } i=n \\ 0, & \text { otherwise }\end{cases}
+$$
+
+The $K(A, n)$ are infinite loop spaces, and hence, the set of homotopy classes of maps $[X, K(A, n)]$ is actually an abelian group for all $n \geq 0$ and
+$$
+H^n(X ; A) \cong[X, K(A, n)]
+$$
+is an isomorphism of abelian groups that is natural in the space $X$. Thus the functor $X \mapsto$ $H^n(X ; A)$ is representable. A cohomology operation $\varphi_{(A, n),(B, m)}: H^n(X ; A) \rightarrow H^m(X ; B)$, which is natural in $X$, can hence be identified with a natural transformation between the functors $X \mapsto[X, K(A, n)]$ and $X \mapsto[X, K(B, m)]$, and these in turn are in bijection with $[K(A, n), K(B, m)] \cong H^m(K(A, n) ; B)$. Here, we actually get an isomorphism of abelian groups!! As $K(A, n)$ doesn't have nontrivial cohomology groups below degree $n$ (due to the Hurewicz theorem), these operations are trivial for $m<n$. For $A=B=\mathbb{F}_p$, a prime field, the collection of all such cohomology operations constitutes the Steenrod algebra.
+
+More generally, Brown's representability theorem states that every generalized cohomology theory can be represented by an Omega spectrum ([Ad74], [Sw75, chapter 9]).

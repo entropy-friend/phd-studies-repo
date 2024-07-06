@@ -1,14 +1,17 @@
 \part{Topics of Algebra}
 
+%\chapter{Foundations of Mathematics}
+
 \chapter{Category Theory}
 
-Reference \cite{adamekAbstractConcreteCategories}
+Reference \cite{adamekAbstractConcreteCategories,richterCategoriesHomotopyTheory2020} %ritcher
 
 
 \begin{example}
     \begin{enumerate}
         \item For a topological spaces, the category of open sets with inclusions as morphisms. The opposite of this category, denoted by $\mathfrak{U}$, is used in sheaf theory.
         \item If \ca and \cb are preordered sets, then functors between them are monotone maps.
+        \item $f: \mathbb{Z} \rightarrow \mathbb{Q}$ is a monomorphism and epimorphism, but not an isomorphism.
     \end{enumerate}
 \end{example}
 
@@ -35,7 +38,42 @@ FA \arrow[r, "\tau_A"] \arrow[d, "Ff"'] & GA \arrow[d, "Gf"] \\
 FA' \arrow[r, "\tau_{A'}"'] & GA'
 \end{tikzcd}
 $ commutes.\\
-A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$, and $F$ and $G$ are said to be \textbf{naturally isomorphic}, denoted by $F \cong G$.
+
+\begin{example}
+    A typical example of a natural transformation is the connecting homomorphism for singular homology. Consider, for instance, the $n$th singular homology group of a pair of spaces $(X, A)$. There is a connecting homomorphism
+$$
+\delta: H_n(X, A) \rightarrow H_{n-1}(A) .
+$$
+
+This morphism is natural for morphisms of pairs of topological spaces: if $f:(X, A) \rightarrow(Y, B)$ is a continuous map $f: X \rightarrow Y$ with $f(A) \subset B$, then the following diagram commutes:
+$$
+\begin{aligned}
+& H_n(X, A) \xrightarrow{\delta} H_{n-1}(A) \\
+& H_n(f) \underset{\downarrow}{H_n(Y, B)} \xrightarrow{\delta} H_{n-1}(B)
+\end{aligned}
+$$
+
+Thus, $\delta$ is a morphism between functors from the category of pairs of topological spaces to the category of abelian groups, the functor $(X, A) \mapsto H_n(X, A)$ and the functor $(X, A) \mapsto$ $H_{n-1}(A)$. \\
+
+\textit{Anoter example.} Let $\mathcal{E}_G$ be the translation category of a discrete group $G$, as in Example 1.2.3. Then, $\mathcal{E}_G$ is equivalent to the category $[0]$ with one object and one identity morphism. There is a unique functor $P: \mathcal{E}_G \rightarrow[0]$, sending every object to 0 and every morphism to the identity morphism on 0 . We define $F:[0] \rightarrow \mathcal{E}_G$ via $F(0)=e$, where $e$ denotes the neutral element in $G$, and we set $F\left(1_0\right)=e$. The composite $P \circ F$ is the identity functor on the category [0], whereas the composite $F \circ P$ sends any morphism $h: g \rightarrow h g$ in $\mathcal{E}_G$ to $e: e \rightarrow e$.
+We define $\eta: F \circ P \Rightarrow \operatorname{Id}_{\mathcal{E}_G}$ by setting
+$$
+\eta_g: F \circ P(g)=e \rightarrow g=\operatorname{Id}_{\mathcal{E}_G}(g)
+$$
+to be the morphism $g: e \rightarrow g$ in the translation category. As the diagram
+$$
+\begin{aligned}
+& \eta_g: F \circ P(g)=e \longrightarrow g \\
+& F \circ P(h)=e \downarrow \quad \backslash \operatorname{Id}(h)=h \\
+& \eta_{h g}: F \circ P(h g)=e \xrightarrow{h g} h g \\
+&
+\end{aligned}
+$$
+commutes for all $h, g \in G$ and as $\mathcal{E}_G$ is a groupoid, this defines a natural isomorphism.
+\end{example}
+
+A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$, and $F$ and $G$ are said to be \textbf{naturally isomorphic}, denoted by $F \cong G$.\\
+
 
 
 \begin{example}
@@ -57,12 +95,38 @@ A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are 
     \end{enumerate}
 \end{example}
 
-\begin{prop}
-    A functor $\mathcal{A} \xrightarrow{F} \mathcal{B}$ is an equivalence if and only if there exists a functor $\mathcal{B} \xrightarrow{G} \mathcal{A}$ such that $i d_{\mathcal{A}} \cong G \circ F$ and $F \circ G \cong i d_{\mathcal{B}}$.
-\end{prop}
+
+
+
 
 
 \section{Limits and colimits}
+
+An object $P$ in a category $\mathcal{C}$ is called projective if for every epimorphism $f: M \rightarrow Q$ in $\mathcal{C}$ and every $p: P \rightarrow Q$, there is a $\xi \in \operatorname{Hom}(P, M)$ with $f \circ \xi=p$, called the \textbf{lift} of $p$ to $M$.\\
+Dually, an object $I$ in a category $\mathcal{C}$ is called injective if for every monomorphism $f: U \rightarrow M$ in $\mathcal{C}$ and every $j: U \rightarrow I$, there is a $\zeta \in \operatorname{Hom}(M, I)$ with $\zeta \circ f=j$, called and \textbf{extension} of $j$ to $M$.\\
+$\mathcal{C}$ with $[0], \mathcal{C} *[0]$, has 0 as a terminal object and that $[0] * \mathcal{C}$ has 0 as an initial object. The category $\mathcal{C} *[0]$ is the \textbf{inductive cone} with base $\mathcal{C}$, and [0]* $\mathcal{C}$ is the \textbf{projective cone} with base $\mathcal{C}$.
+
+
+\begin{example}
+    \begin{enumerate}
+        \item In the category of sets, every set is injective and projective.
+        \item In the category of left $R$-modules, a module is projective if and only if it is a direct summand of a free module. A module $M$ is injective if and only if the functor $\operatorname{Hom}_R(-, M)$ is exact.
+        %\item An abelian group $A$ is a \textbf{divisible ableian group} if $nA= A$ for every $n \in \mathbb{N}$. Every divisible abelian group is an injective $\mathbb{Z}$-module, an viceversa. 
+    \end{enumerate}
+\end{example}
+
+\begin{prop}
+\begin{enumerate}
+    \item If $P$ is a projective object of a category $\mathcal{C}$ and if $i: U \rightarrow P$ is a monomorphism in $\mathcal{C}$ with a retraction $r: P \rightarrow U$, then $U$ is projective. Similarly, if $i: J \rightarrow I$ is a monomorphism with retraction $r: I \rightarrow J$ and $I$ is injective, then $J$ is injective.    
+    \item If $q: Q \rightarrow P$ is an epimorphism and if $P$ is projective, then $q$ has a section. Dually, if $j: I \rightarrow J$ is a monomorphism and $I$ is injective, then $j$ has a retraction.
+    \item The object $C$ is projective if and only if $\mathcal{C}(C,-): \mathcal{C} \rightarrow$ Sets preserves epimorphisms. 
+    \item The object $C$ is injective if and only if $\mathcal{C}(-, C): \mathcal{C}^o \rightarrow$ Sets sends monomorphisms to epimorphisms.
+\end{enumerate}
+\end{prop}
+
+
+
+
 Let $A \stackrel{\text { f }}{\underset{g}{\rightrightarrows}} B$ be a pair of morphisms. A morphism $E \xrightarrow{e} A$ is called an equalizer of $f$ and $g$ provided that the following conditions hold:
 (1) $f \circ e=g \circ e$,
 (2) for any morphism $e^{\prime}: E^{\prime} \rightarrow A$ with $f \circ e^{\prime}=g \circ e^{\prime}$, there exists a unique morphism $\bar{e}: E^{\prime} \rightarrow E$ such that $e^{\prime}=e \circ \bar{e}$, i.e., such that the triangle
@@ -108,28 +172,175 @@ If $\mathcal{L}=\left(L \xrightarrow{\ell_i} D_i\right)_{i \in O b(\mathbf{I})}$
     \end{enumerate}
 \end{prop}
 
+%cone over a limit (Ritcher)
+% cambio de notacion, no se mencionan diagramas
+
+\begin{prop}
+If $G: \mathcal{D} \rightarrow \mathcal{C}$ is another functor and if $\alpha: F \Rightarrow G$ is a natural transformation, then $\alpha$ induces a morphism $\operatorname{colim}_{\mathcal{D}} \alpha \in \mathcal{C}\left(\operatorname{colim}_D F, \operatorname{colim}_{\mathcal{D}} G\right)$. Prove that this turns $\operatorname{colim}_{\mathcal{D}}$ into a functor from $\operatorname{Fun}(\mathcal{D}, \mathcal{C})$ to $\mathcal{C}$.    
+\end{prop}
+
+\begin{prop}
+If the colimit ( $\operatorname{colim}_{\mathcal{D}} F, \tau$ ) exists for all functors $F: \mathcal{D} \rightarrow \mathcal{C}$, then the functor $\operatorname{colim}_{\mathcal{D}}: \operatorname{Fun}(\mathcal{D}, \mathcal{C}) \rightarrow \mathcal{C}$ is left adjoint to the diagonal functor $\Delta: \mathcal{C} \rightarrow \operatorname{Fun}(\mathcal{D}, \mathcal{C})$, that is, there are natural isomorphisms
+$$
+\mathcal{C}\left(\operatorname{colim}_{\mathcal{D}} F, C\right) \cong \operatorname{Fun}(\mathcal{D}, \mathcal{C})(F, \Delta(C))
+$$
+for all functors $F$ and all object $C$ of $\mathcal{C}$.
+\end{prop}
+
+%definicion dual de colimite
+
+If you build the colimit over a discrete diagram category (small category $\mathcal{D}$ that has only identity morphisms), then the colimit of a functor $F: \mathcal{D} \rightarrow \mathcal{C}$ is called the \textbf{coproduct} of the $F(D)$ for $D$ an object of $\mathcal{D}$, denoted by
+        $
+        \bigsqcup_{\mathcal{D}} F(D) .
+        $
+        Coproducts in the category of sets and in the category of topological spaces are the disjoint unions
+        Every coproduct comes with canonical structure maps, called \textbf{inclusions}.\\
+\textbf{Pushouts} are colimits over a diagram category $\mathcal{D}$ of the form
+        $
+        D_1 \leftarrow D_0 \rightarrow D_2 .
+        $.\\
+Another important class of examples is \textbf{coequalizers}. These are colimits of diagrams of the form
+        $$
+        F\left(D_0\right) \underset{\alpha}{\stackrel{\beta}{\Longrightarrow}} F\left(D_1\right) .
+        $$
 
 
+\begin{example}[Colimits]
+    \begin{enumerate}
+        \item Colimits exist in the category of Sets:
+        $$
+        \operatorname{colim}_{\mathcal{D}} F=\bigsqcup_{D \text { object of } \mathcal{D}} F(D) / \sim,
+        $$
+        where we declare that an $x \in F(D)$ is equivalent to a $y \in F\left(D^{\prime}\right)$ if there is a morphism $f \in \mathcal{D}\left(D, D^{\prime}\right)$, such that $F(f)(x)=y$. This relation is not symmetric, so one has to consider the equivalence relation generated by this relation. 
+        \item If all structure maps $F(i<j)$ are monomorphisms, then we might interpret the colimit $\operatorname{colim}_{\mathcal{D}} F$ as the union of the $F(i)$ s. Typical examples are increasing sequences of sets or topological spaces
+        $$
+        X_0 \subset X_1 \subset X_2 \subset \ldots
+        $$
+        or increasing sequences of abelian groups, vector spaces, and other algebraic objects. 
+        \item An important class of examples is CW complexes. These are the colimits of their skeleta.
+        \item In stable homotopy theory, the stable homotopy groups of spheres are a central object of study. Let $\mathbb{S}^n$ denote the unit sphere in $\mathbb{R}^{n+1}$. As the smash product of spheres satisfies $\mathbb{S}^1 \wedge \mathbb{S}^n \cong \mathbb{S}^{n+1}$ we have stabilization maps
+        $$
+        \pi_n\left(\mathbb{S}^m\right)=\left[\mathbb{S}^n, \mathbb{S}^{m+1}\right]_* \rightarrow\left[\mathbb{S}^{n+1}, \mathbb{S}^{m+1}\right]_*=\pi_{n+1}\left(\mathbb{S}^m\right)
+        $$
+        that send a homotopy class $[f]$ to the homotopy class of $\mathbb{S}^1 \wedge f$. Therefore, for every $m$, we get a sequential colimit and as $\pi_n\left(\mathbb{S}^m\right)=0$ for $n<m$, we can express $\pi_n\left(\mathbb{S}^m\right)$ as $\pi_{k+m}\left(\mathbb{S}^m\right)$ in the nontrivial cases, with $k \geq 0$, and get the $k$ th stable homotopy group of spheres as
+        $$
+        \pi_k^s=\operatorname{colim}\left(\pi_{k+m}\left(\mathbb{S}^m\right) \rightarrow \pi_{k+m+1}\left(\mathbb{S}^{m+1}\right) \rightarrow \pi_{k+m+2}\left(\mathbb{S}^{m+2}\right) \rightarrow \ldots\right)
+        $$
+        \item The first groups are $\pi_0^s=\mathbb{Z}, \pi_1^s=\mathbb{Z} / 2 \mathbb{Z}$ generated by the stabilization of the Hopf $\operatorname{map} \eta: \mathbb{S}^3 \rightarrow \mathbb{S}^2, \pi_2^s=\mathbb{Z} / 2 \mathbb{Z}, \pi_3^s=\mathbb{Z} / 24 \mathbb{Z}$, and so on.
+        \item In the category of pointed topological spaces the pointed sum (also known as the bouquet of spaces) is the coproduct.
+        \item Coproducts in the category of abelian groups are given by the direct sum. Coproducts in the category of general groups is the free product.
+        \item If $A$ is a topological space, together with continuous maps $f: A \rightarrow X$ and $g: A \rightarrow Y$, the pushout of $X \leftarrow A \rightarrow Y$ is the quotient space of the disjoint union $X \sqcup Y$ by the equivalence relation that identifies $f(a)$ with $g(a)$ for all $a \in A$.
+        \item Pushouts of groups are given by amalgamated products, given by $G_1 *_{G_0} G_2$, which is the quotient of the free product $G_1 * G_2$ by the normal subgroup generated by words of the form $f\left(g_0\right) h\left(g_0\right)^{-1}$ for $g_0 \in G_0$.
+        \item The cokernel of a homomorphism $f$ is the coequalizer of the diagram $A \underset{f}{\stackrel{0 }{\longrightarrow}} B$ in the category Ab.
+    \end{enumerate}
+\end{example}
 
+Limits, products... are defined dually
 
-
-
-
-
-
-
-
+\begin{example}[Limits]
+    \begin{enumerate}
+        \item Let $\left(X_n\right)_{n \in \mathbb{N}_0}$ be a family of sets with $X_{n+1} \subset X_n$. Then, the limit of the system
+        $$
+        \ldots \subset X_{n+1} \subset X_n \subset \ldots \subset X_1 \subset X_0
+        $$
+        is the intersection of the sets $X_n$.
+        \item Let $p$ be a fixed prime. The inverse limit of the diagram
+        is the ring of $p$-adic integers, $\mathbb{Z}_p$. Here, the maps $p_i$ are the canonical projection maps. An explicit model of the limit is
+        $$
+        \left\{\left(x_1, x_2, x_3, \ldots\right) \in \prod_{n \geq 1} \mathbb{Z} / p^n \mathbb{Z} \mid p_i\left(x_i\right)=x_{i-1} \text { for all } i \geq 2\right\} .
+        $$
+        This carries a ring structure, where addition and multiplication are defined coordinatewise.
+        \item Kernels in the category of abelian groups are limits of diagrams of the form $A \underset{f}{\stackrel{0}{\longrightarrow}} B$.
+        \item The presheaf $F$ is a sheaf if for every $U \in \mathfrak{U}(X)$ and for every open covering $\left(U_i\right)_{i \in I}$ of $U$, the following diagram is an equalizer:
+        $$
+        F(U) \longrightarrow \prod_{i \in I} F\left(U_i\right) \Longrightarrow \prod_{i, j \in I} F\left(U_i \cap U_j\right) .
+        $$
+        
+        Here, the first map is induced by the restriction maps res $U_U^{U_i}$, and the second pair of arrows is induced by two sets of restriction maps. $U_i \cap U_j$ is a subset of $U_i$ and of $U_j$.
+        Sheaves form a category as a full subcategory of the category of presheaves.
+        \item Fiber products in the category of sets are limits of diagrams of the form $A \underset{f}{\stackrel{g}{\longrightarrow}} C$. A concrete model for this pullback in these categories is $f^*(p):=Z \times_Y X:=\{(z, x) \in Z \times X \mid f(z)=p(x)\}$
+    \end{enumerate}
+\end{example}
 
 
 \section{Adjoint functors}
 
+Let $\mathcal{C}$ and $\mathcal{C}^{\prime}$ be categories. An \textbf{adjunction} between $\mathcal{C}$ and $\mathcal{C}^{\prime}$ is a pair of functors $L: \mathcal{C} \rightarrow \mathcal{C}^{\prime}, R: \mathcal{C}^{\prime} \rightarrow \mathcal{C}$, such that for each pair of objects $C$ of $\mathcal{C}$ and $C^{\prime}$ of $\mathcal{C}^{\prime}$, there is a bijection of sets
+$$
+\varphi_{C, C^{\prime}}: \mathcal{C}^{\prime}\left(L(C), C^{\prime}\right) \cong \mathcal{C}\left(C, R\left(C^{\prime}\right)\right),
+$$
+which is natural in $C$ and $C^{\prime}$.
+The functor $L$ is then left adjoint to $R$, and $R$ is right adjoint to $L$. We call $(L, R)$ an adjoint pair of functors.
+
+The naturality condidition on the bijections $\varphi_{C, C^{\prime}}$ can be spelled out explicitly as follows: For all morphisms $f: C \rightarrow D$ in $\mathcal{C}$ and $g: C^{\prime} \rightarrow D^{\prime}$ in $\mathcal{C}^{\prime}$, the diagram commutes.
+$$
+\begin{aligned}
+& \mathcal{C}^{\prime}\left(L(D), C^{\prime}\right) \xrightarrow{\mathcal{C}^{\prime}\left(L f, C^{\prime}\right)} \mathcal{C}^{\prime}\left(L(C), C^{\prime}\right) \xrightarrow{\mathcal{C}^{\prime}(L(C), g)} \mathcal{C}^{\prime}\left(L(C), D^{\prime}\right) \\
+& \varphi_{D, C^{\prime}} \downarrow \downarrow \varphi_{C, C^{\prime}} \downarrow \varphi_{C, D^{\prime}} \\
+& \mathcal{C}\left(D, R\left(C^{\prime}\right)\right) \xrightarrow{\mathcal{C}\left(f, R\left(C^{\prime}\right)\right)} \mathcal{C}\left(C, R\left(C^{\prime}\right)\right) \xrightarrow{\mathcal{C}(C, R(g))} \mathcal{C}\left(C, R\left(D^{\prime}\right)\right) \\
+&
+\end{aligned}
+$$
+
+\begin{example}
+A prototypical example of an adjunction is a forgetful functor and a 'free' functor: if $R=U$ is a forgetful functor and if a left adjoint of $U$ exists, then the defining property means that for each morphism from $C$ to $U\left(C^{\prime}\right)$ in the underlying category, there is a unique corresponding morphism from $L(C)$ to $C^{\prime}$, so, in this sense, $L(C)$ is the free object associated with $C$. For topological spaces, the free topological space on a set is the set with discrete topology.
+\end{example}
+
+\begin{prop}
+    \begin{enumerate}
+      \item The functor $L$ is left adjoint to $R$ iff there are natural transformations $\eta$ : Id $\Rightarrow R \circ L$ and $\varepsilon: L \circ R \Rightarrow$ Id with the properties that
+      $$
+      \varepsilon_L \circ L(\eta)=\operatorname{Id}_L \text { and } R(\varepsilon) \circ \eta_R=\operatorname{Id}_R
+      $$
+      hence, the diagrams
+      $$
+      L(C) \xrightarrow{L(\eta)} L R L(C) \text { and } R\left(C^{\prime}\right) \xrightarrow{\eta_{R\left(C^{\prime}\right)}} R L R\left(C^{\prime}\right)
+      $$
+      commute for all objects $C$ of $\mathcal{C}$ and $C^{\prime \prime}$ of $\mathcal{C}^{\prime}$.
+      \item Adjunction can be composed.
+      \item Each of the functors $L$ and $R$ determines the other functor uniquely up to isomorphism.
+      \item $G$ has a left-adjoint $F$ if and only if $\operatorname{Hom}_C(X, G-)$ is representable for all $X$ in $C$. The natural isomorphism $\Phi_X: \operatorname{Hom}_D(F X,-) \rightarrow \operatorname{Hom}_C(X, G-)$ yields the adjointness; that is
+$$
+\Phi_{X, Y}: \operatorname{Hom}_{\mathcal{D}}(F X, Y) \rightarrow \operatorname{Hom}_{\mathcal{C}}(X, G Y)
+$$
+is a bijection for all $X$ and $Y$.
+    \end{enumerate}
+\end{prop}
+The transformation $\eta$ is called the \textbf{unit of the adjunction} and $\varepsilon$ is the \textbf{counit}.
+
+%%%%% adicionar sobre diagramas refelectivos!!!!
+
+\begin{theo}
+Let $F: \mathcal{C} \rightarrow \mathcal{D}$ be an arbitrary functor. Then the following are equivalent.
+\begin{enumerate}
+    \item The functor $F$ possesses a left adjoint $L$, and the corresponding natural transformations $\varepsilon: L F \Rightarrow \operatorname{Id}$ and $\eta$ : Id $\Rightarrow F L$ are natural isomorphisms.
+    \item There is a functor $L: \mathcal{D} \rightarrow \mathcal{C}$ and two arbitrary natural isomorphisms $\mathrm{Id} \cong F L$ and $L F \cong \mathrm{Id}$.
+    \item The functor $F$ is fully faithful and essentially surjective.
+\end{enumerate}
+\end{theo}
+
+\subsubsection*{Skeleta of categories}
+\begin{example}
+    
+    \begin{enumerate}
+        \item A category is called \textbf{reduced} if isomorphic objects are identical. A subcategory $\mathcal{S}$ of a category $\mathcal{C}$ is a \textbf{skeleton} if $\mathcal{S}$ is reduced and if the inclusion $\mathcal{S} \hookrightarrow \mathcal{C}$ is an equivalence of categories.
+        
+        \item Consider the category of finite sets and functions. It contains the full subcategory whose objects are the sets of the form $\{1, \ldots, n\}$ for $n \geq 0$. Here, we use the convention that the empty set is encoded by $n=0$. The inclusion functor is full and faithful. As every finite set is in bijection with a standardized set of the form $\{1, \ldots, n\}$ as above, the inclusion functor is also essentially surjective. Therefore, these finite sets build a skeleton.
+        
+        \item A similar example is the category of finite-dimensional $K$-vector spaces. This has as a skeleton the full subcategory of vector spaces of the form $K^n$ for some finite natural number $n$. Here, $n=0$ encodes the zero vector space.
+    \end{enumerate}
+\end{example}
+
+
+\begin{prop}
+    Every category has an skeleton
+\end{prop}
 
 
 
 
 
-
-\section{Concrete categories}
+\section{Concrete categories and representable functors}
 
 A way to talk of \textit{low level structures} present on the objects of a category. Often it is easier to work with less structures, and there results like Yoneda's lemma that show us that it is possible to restrict our study to them.\\
 
@@ -253,6 +464,69 @@ E(A \xrightarrow{f} B)=\operatorname{hom}(-, A) \xrightarrow{\sigma_f} \operator
 $$
 where $\sigma_f(g)=f \circ g$, is a full embedding.
 \end{coro}
+
+\begin{prop}
+Consider the representable functor $\mathcal{D}(D,-): \mathcal{D} \rightarrow$ Sets for some object $D$ of $\mathcal{D}$. A useful fact is that
+    $$
+    \operatorname{colim}_{\mathcal{D}} \mathcal{D}(D,-) \cong\{*\} .
+    $$  
+\end{prop}
+
+
+
+
+
+
+
+\section{Grupoids}
+
+If we want a limited amount of interaction between $\mathcal{C}$ and $\mathcal{D}$, we can form the join of $\mathcal{C}$ and $\mathcal{D}$, denoted by $\mathcal{C} * \mathcal{D}$. The objects of $\mathcal{C} * \mathcal{D}$ are the disjoint union of the objects of $\mathcal{C}$ and the objects of $\mathcal{D}$ and as morphism we have
+$$
+(\mathcal{C} * \mathcal{D})(X, Y)=\left\{\begin{array}{l}
+\mathcal{C}(X, Y), \text { if } X \text { and } Y \text { are objects of } \mathcal{C} \\
+\mathcal{D}(X, Y), \text { if } X \text { and } Y \text { are objects of } \mathcal{D} \\
+\{*\}, \text { if } X \text { is an object of } \mathcal{C} \text { and } Y \text { is an object of } \mathcal{D} \\
+\varnothing, \text { otherwise. }
+\end{array}\right.
+$$
+
+A category is a grupoid if all morphisms are isomorphisms.
+
+\begin{example}
+    \begin{enumerate}
+        \item If $G$ is a group, then we denote by $\mathcal{C}_G$ the category with one object $*$ and $\mathcal{C}_G(*, *)=G$ with group multiplication as composition of maps. Then, $\mathcal{C}_G$ is a groupoid. Hence every group gives rise to a groupoid. Vice versa, a groupoid can be thought of as a group with many objects.
+        \item Let $X$ be a topological space. The fundamental groupoid of $X, \Pi(X)$, is the category whose objects are the points of $X$, and $\Pi(X)(x, y)$ is the set of homotopy classes of paths from $x$ to $y$ :
+        $$
+        \Pi(X)(x, y)=[[0,1], 0,1 ; X, x, y] .
+        $$
+        
+        The endomorphisms $\Pi(x, x)$ of $x \in X$ constitute the fundamental group of $X$ with respect to the basepoint $x, \pi_1(X, x)$.
+        \item Another important example of a groupoid is the translation category of a group. If $G$ is a discrete group, then we denote by $\mathcal{E}_G$ the category whose objects are the elements of the group and $$\mathcal{E}_G(g, h)=\left\{h g^{-1}\right\}, g \xrightarrow{h g^{-1}} h.$$
+
+        This category has the important feature that there is precisely one morphism from one object to any other object, so every object has equal rights.
+
+    \end{enumerate}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \chapter{Homological Algebra}
