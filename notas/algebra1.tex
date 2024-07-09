@@ -517,19 +517,52 @@ A category is a grupoid if all morphisms are isomorphisms.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 \chapter{Homological Algebra}
+
+References \cite{richterCategoriesHomotopyTheory2020}
+
+\section{Preadditive categories}
+
+A \textbf{preaddititve category} is a category $\mathcal{A}$, such that for every pair of objects $A_1, A_2$, there is an abelian group of morphisms from $A_1$ to $A_2$ and the composition of morphisms is a bilinear map.\\
+A preadditive category with only one object is nothing but a ring. The endomorphisms of that object are an abelian group, and the composition of morphisms defines the multiplicative structure. Thus, a preadditive category can be thought of as a ring with many objects. A group with many objects in this sense is a groupoid, so one might call a preadditive category a ringoid.\\
+Let $\mathcal{A}$ and $\mathcal{A}^{\prime}$ be preadditive categories. A functor $F: \mathcal{A} \rightarrow \mathcal{A}^{\prime}$ is additive if for any two objects $A_1, A_2$ of $\mathcal{A}$, the map $F: \mathcal{A}\left(A_1, A_2\right) \rightarrow \mathcal{A}^{\prime}\left(F\left(A_1\right), F\left(A_2\right)\right)$ is a group homomorphism.\\
+
+Assume that a category $\mathcal{C}$ has zero morphisms. Then, the kernel of a morphism $f \in \mathcal{C}\left(C_1, C_2\right)$ is the equalizer of the morphisms $f, 0: C_1 \rightarrow C_2$. Dually, the cokernel of a morphism $f \in \mathcal{C}\left(C_1, C_2\right)$ is the coequalizer of the morphisms $f, 0: C_1 \rightarrow C_2$.
+
+\begin{prop}
+    \begin{enumerate}
+        \item In a preadditive categoty, all equalizers are kernels.
+        \item Initial object exists if and only if zero object exists.
+        \item A finite product exists if and only if the finite coproduct exists, called \textbf{biproduct}.
+    \end{enumerate}
+\end{prop}
+
+A preadditive category is called \textbf{additive} if it has all finite biproducts.\\
+
+\begin{prop}
+A functor between additive categories is additive if and only if it preserves biproducts or just products.
+\end{prop}
+
+A preadditive category is an \textbf{abelian} category if it satisfies the following: 
+\begin{itemize}
+    \item There exists a zero object in $\mathcal{A}$.
+    \item The category $\mathcal{A}$ has finite biproducts.
+    \item Every morphism $f \in \mathcal{A}(A, B)$ has a cokernel and a kernel.
+    \item Every monomorphism is a kernel, and every epimorphism is a cokernel.
+\end{itemize}
+
+\begin{theo} Let \ca be an abelian category:
+\begin{enumerate}
+    \item a morphism is an isomorphism if and only if it is both a monomorphism and an epimorphism.
+    \item A morphism is a monomorphism if and only if its kernel is zero.
+    \item Let $f$ be a morphism. Then, we can factor $f$ as $f=i \circ p$, where $p$ is an epimorphism and $i$ is a monomorphism. Here, $i$ is the kernel of the cokernel of $f$ and $p$ is the cokernel of the kernel of $f$.
+    \item A monomorphism is the kernel of its cokernel, and an epimorphism is the cokernel of its kernel.
+\end{enumerate}   
+\end{theo}
+
+\begin{prop}
+Let $\mathcal{D}$ be a small category and let $\mathcal{A}$ be abelian. Then, the functor category $\operatorname{Fun}(\mathcal{D}, \mathcal{A})$ is abelian.   
+\end{prop}
 
 In homological algebra one constructs homological invariants of algebraic objects by the following process, or some variant of it:
 
@@ -540,69 +573,6 @@ $$
 \cdots \rightarrow T F_1 \rightarrow T F_0 \rightarrow T M \rightarrow 0
 $$
 is acyclic, so that $H_n(T F)=0$ for $n>0$ and $H_0(T F)=T M$. Thus we can regard the groups $H_n(T F)$ in the general case as a measure of the failure of $T$ to be exact.
-
-
-
-\chapter{Categorías Aditivas}
-
-
-Una \textbf{categoria pre-aditiva} es uma categoria tal que os $\operatorname{Hom}(A,B)$ possuem estrutura de grupo abeliano, e composição de morfismos é bilinear. Em particular, existem morfismos nulos.\\
-Um funtor entra categorias preaditivas é \textbf{aditivo} se os mapas $F:\operatorname{Hom}(A,B)\rightarrow \operatorname{Hom}(F(A),F(B))$ são homomorfismos de grupos. 
-
-\begin{prop}
-	Numa categoria pre-aditiva, tudo produto finito é um coproduto, e vice-versa (chamado de \textbf{biproduto}). 
-\end{prop}
-
-Uma \textbf{categoria aditiva} é uma categoria pre-aditiva que admite biprodutos finitos. Em particular, os biprodutos vazios são objetos zero.\\
-
-Uma \textbf{categoria abeliana} é uma categoria aditiva tal que:
-\begin{enumerate}
-	\item Todo morfismo possui núcleo e conúcelo,
-	\item todo monomorfismo (resp. epimorfismo) é o kernel (resp. cokernel) de um morfismo.
-\end{enumerate}
-
-
-Um \textbf{complexo} numa categoria aditiva $\mathcal{C}$ é uma sequência de objetos $\{X_j\}$
-
-\section{Objetos projetivos e injetivos}
-
-Um objeto $Q$ numa categoria é \textbf{injetivo} se para todo monomorfismo $f:X\rightarrow Y$ e todo morfismo $g:X \rightarrow Q$ existe um morfismo $h: Y\rightarrow Q$ tal que $h\circ f =g$.\\
-Uma categoria \textbf{tem suficientes injetivos} se para todo objeto $X$ existe um monomorfismo $X\rightarrow Q$, com $Q$ injetivo.
-
-
-Um objeto $P$ numa categoria é \textbf{injetivo} se para todo epimorfismo $e:E\rightarrow X$ e todo morfismo $f:P \rightarrow X$ existe um morfismo $h: P\rightarrow E$ tal que $e\circ h =f$.\\
-Uma categoria \textbf{tem suficientes projetivos} se para todo objeto $A$ existe um epimorfismo $P\rightarrow A$, com $P$ projetivo.
-
-\begin{prop}
-	Numa categoria abeliana, 
-	\begin{itemize}
-		\item um objeto é injetivo se e somente se $\operatorname{Hom}(\cdot , Q)$ é exato
-		\item um objeto é projetivo se e somente se $\operatorname{Hom}(\cdot , Q)$ é exato.
-	\end{itemize}
-\end{prop}
-
-
-
-\subsection{Resoluciones}
-
-
-\section{Categoría Trianguladas}
-
-
-
-\subsection{La categoría homotópica}
-
-
-
-
-
-\section{Categorías derivadas}
-
-
-
-
-
-
 
 
 \section{Spectral Sequences}

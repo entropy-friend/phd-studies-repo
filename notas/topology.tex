@@ -1,15 +1,192 @@
 \part{Topics of Algebraic Topology}
 
+\chapter{Simpliciality and Classifying Spaces}
+References \cite{richterCategoriesHomotopyTheory2020,goerssSimplicialHomotopyTheory2009,hatcherAlgebraicTopology2021}. \\
 
+Simplicial sets were originally used to give precise and convenient descriptions of classifying spaces of groups. This idea was vastly extended by Grothendieck's idea of considering classifying spaces of categories, and in particular by Quillen's work of algebraic K-theory. In this work, which earned him a Fields Medal, Quillen developed surprisingly efficient methods for manipulating infinite simplicial sets. These methods were used in other areas on the border between algebraic geometry and topology. For instance, the André-Quillen homology of a ring is a "non-abelian homology", defined and studied in this way.
 
-\chapter{Simplical sets and complexes}
-References \cite{goerssSimplicialHomotopyTheory2009,hatcherAlgebraicTopology2021}. \\
+Both the algebraic K-theory and the André-Quillen homology are defined using algebraic data to write down a simplicial set, and then taking the homotopy groups of this simplicial set.
+
+Simplicial methods are often useful when one wants to prove that a space is a loop space. The basic idea is that if $G$ is a group with classifying space $B G$, then $G$ is homotopy equivalent to the loop space $\Omega B G$. If $B G$ itself is a group, we can iterate the procedure, and $G$ is homotopy equivalent to the double loop space $\Omega^2 B(B G)$. In case $G$ is an abelian group, we can actually iterate this infinitely many times, and obtain that $G$ is an infinite loop space.
+
+Even if $X$ is not an abelian group, it can happen that it has a composition which is sufficiently commutative so that one can use the above idea to prove that $X$ is an infinite loop space. In this way, one can prove that the algebraic $K$-theory of a ring, considered as a topological space, is an infinite loop space.
+
+In recent years, simplicial sets have been used in higher category theory and derived algebraic geometry. Quasi-categories can be thought of as categories in which the composition of morphisms is defined only up to homotopy, and information about the composition of higher homotopies is also retained. Quasi-categories are defined as simplicial sets satisfying one additional condition, the weak Kan condition.
+
+As $\mathcal{C}$ is an arbitrary category, we can consider simplicial $R$-modules, simplicial sets, simplicial rings, simplicial topological spaces, and many more. Simplicial sets are particularly important because they model topological spaces (see 10.6.1). Simplicial objects in an abelian category $\mathcal{A}$ model non-negatively graded chain complexes over $\mathcal{A}$. The famous Dold-Kan correspondence (see Theorem 10.11.2) is an equivalence of categories between $s \mathcal{A}$ and $\mathrm{Ch}_{\geq 0}(\mathcal{A})$.
 
 Simplicial complexes are more intuitive, and are the foundation of algebraic topology. $\Delta$-complexes are usueful for computations. Simplicial sets are more suitable to high level concepts.
 
-%Simplicial complexes 
-%$\Delta$-complexes : semi-simplicial complexes
-%Simplicial sets : complete semi-simplicial complexes
+\section{Simplicial objects in a category}
+
+We consider the finite set $\{0,1, \ldots, n\}$ with its natural ordering $0<1<\ldots<n$ and call this ordered set $[n]$ for all $n \geq 0$. The \textbf{simplicial category}, $\Delta$, has as objects the ordered sets $[n], n \geq 0$, and the morphisms in $\Delta$ are the order-preserving functions, that is, functions $f:[n] \rightarrow[m]$, such that $f(i) \leq f(j)$ for all $i<j$.\\
+Let $\mathcal{C}$ be an arbitrary category. A simplicial object in $\mathcal{C}$ is a contravariant functor from $\Delta$ to $\mathcal{C}$. A cosimplicial object in $\mathcal{C}$ is a covariant functor from $\Delta$ to $\mathcal{C}$.\\
+Simplicial objects in a category $\mathcal{C}$ form a category, where the morphisms are natural transformations of functors. We denote this category by $s \mathcal{C}$, note that \cc can be embedded in $\mathcal{C}$, considering constant simplicial objects.\\
+
+
+
+%The category $\Delta$ is small. As the only order-preserving bijection of the set $[n]$ is the identity map, $\Delta$ has only trivial automorphism groups. Hence, if you take the associated category of isomorphisms, $\operatorname{Iso}(\Delta)$, then this is the discrete category on the objects $[n]$ for $n \geq 0$
+
+How can we describe simplicial objects in an explicit manner? Assume that we have a functor $X: \Delta^{o p} \rightarrow \mathcal{C}$. Then, for every object $[n] \in \Delta$, we have an object $X([n])=: X_n$ in $\mathcal{C}$. As all morphisms in $\Delta$ can be described as a composite of $\delta_i \mathrm{~s}$ and $\sigma_j \mathrm{~s}$, it suffices to know what the maps $X\left(\delta_i\right)=: d_i: X_n \rightarrow X_{n-1}$ and $X\left(\sigma_j\right)=: s_j$ do. Hence, if you want to describe a simplicial object, then you have to understand the sequence of objects $X_0, X_1, \ldots$ and the morphisms $d_i, s_j$ in $\mathcal{C}$. These maps satisfy the dual relations:
+$$
+\begin{aligned}
+& d_i \circ d_j=d_{j-1} \circ d_i, \quad i<j, \\
+& s_i \circ s_j=s_{j+1} \circ s_i, \quad i \leq j \text {, and } \\
+& d_i \circ s_j=\left\{\begin{array}{cl}
+s_{j-1} \circ d_i, & i<j, \\
+1_{[n]}, & i=j, j+1, \\
+s_j \circ d_{i-1}, & i>j+1 .
+\end{array}\right. \\
+&
+\end{aligned}
+$$
+
+Thus a simplicial object can be visualized as a diagram of the form
+$$
+X_0 \stackrel{X_1}{\stackrel{\rightleftarrows}{\rightleftarrows}} X_2 \quad \ldots,
+$$
+where the morphisms $\leftarrow$ correspond to the $d_i \mathrm{~s}$, whereas the morphisms $\rightarrow$ are given by the $s_j \mathrm{~s}$. Note that on $X_n$, you have $n+1$ maps going out to the left and to the right.\\
+The $d_i \mathrm{~s}$ are called \textbf{face} maps and the $s_j \mathrm{~s}$ are called \textbf{degeneracy maps}.
+For a concrete category $\mathcal{C}$ with a faithful functor $U: \mathcal{C} \rightarrow$ Sets the elements $x \in U\left(X_n\right)$ are the $n$-simplices of $X$. We will omit the functor $U$ from the notation. Elements of the form $x=s_i y \in X_n$ for a $y \in X_{n-1}$ are called degenerate $n$-simplices.\\
+
+Let $\Delta_n: \Delta^{o p} \rightarrow$ Sets be the functor given by $[m] \mapsto \Delta([m],[n])$.
+The Yoneda lemma identifies the set $X_n$ with the set of natural transformations from $\Delta_n$ to $X$ for every simplicial set $X$ :
+$$
+X_n \cong s \operatorname{Sets}\left(\triangle_n, X\right)
+$$
+
+The \textbf{category of elements of a simplicial set} $X, \operatorname{el}(X)$, is the category $X \backslash \Delta^{\circ}$ associated with the functor $X: \Delta^{\circ} \rightarrow$ Sets. Explicitly, the objects of el $(X)$ are the $x \in X_n$ for some $n$. The morphisms in el $(X)$ from $x \in X_n$ to $y \in X_m$ are all $f \in \Delta([n],[m])$, with $X(f)(y)=x$.
+
+\begin{prop}[consequence of density theorem]
+For every simplicial set $X$ there is an isomorphism of simplicial sets
+$$
+\operatorname{colim}_{\mathrm{el}(X)} \Delta_n \cong X
+$$
+\end{prop}
+
+\section{Geometric realization}
+
+The geometric realization of a simplicial set was introduced by Milnor [Mi57].
+Definition 10.6.1. Let $X$ be a simplicial set. The geometric realization of $X,|X|$, is the topological space
+$$
+|X|=\bigsqcup_{n \geq 0} X_n \times \triangle^n / \sim .
+$$
+
+Here, we consider the sets $X_n$ as discrete topological spaces, and $\triangle^n$ denotes the topological $n$-simplex
+$$
+\triangle^n=\left\{\left(t_0, \ldots, t_n\right) \in \mathbb{R}^{n+1} \mid 0 \leq t_i \leq 1, \sum t_i=1\right\} .
+$$
+
+The spaces $\triangle^n, n \geq 0$ form a cosimplicial topological space with structure maps
+$$
+\delta_i\left(t_0, \ldots, t_n\right)=\left(t_0, \ldots, t_{i-1}, 0, t_i, \ldots, t_n\right) \text { for } 0 \leq i \leq n
+$$
+and
+$$
+\sigma_j\left(t_0, \ldots, t_n\right)=\left(t_0, \ldots, t_j+t_{j+1}, \ldots, t_n\right) \text { for } 0 \leq i \leq n .
+$$
+
+The quotient in the geometric realization is generated by the relations
+$$
+\left(d_i(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \delta_i\left(t_0, \ldots, t_n\right)\right), \quad\left(s_j(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \sigma_j\left(t_0, \ldots, t_n\right)\right) .
+$$
+
+REMARK 10.6.2. The geometric realization of a simplicial set $X$ is nothing but the coend of the functor
+$$
+H: \Delta^o \times \Delta \rightarrow \text { Top, }
+$$
+with $H([n],[m])=X_n \times \triangle^m$, using that $[n] \mapsto X_n$ is a contravariant functor from $\Delta$ to Sets and that $[m] \mapsto \triangle^m$ is a covariant functor from the category $\Delta$ to the category Top. Here, we use the embedding of Sets into Top.
+
+If $f: X \rightarrow Y$ is a morphism of simplicial sets, that is, a natural transformation from $X$ to $Y$, then $f$ induces a continuous map of topological spaces
+$$
+|f|:|X| \rightarrow|Y|,
+$$
+where an equivalence class $\left[\left(x, t_0, \ldots, t_n\right)\right] \in|X|$ is sent to the class $\left[\left(f(x), t_0, \ldots, t_n\right)\right] \in|Y|$. This turns the geometric realization into a functor from the category of simplicial sets to the category of topological spaces.
+
+Elements of the form $s_j(x)$ are identified with something of a lower degree in the geometric realization, because of the relation
+$$
+\left(s_j(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \sigma_j\left(t_0, \ldots, t_n\right)\right) .
+$$
+
+Hence, these elements do not contribute any geometric information to $|X|$. This might justify the name degenerate for such elements. Note that elements in $X_0$ are never degenerate.
+
+An element $\left(y,\left(t_0, \ldots, t_m\right)\right) \in X_m \times \triangle^m$ is called \textbf{nondegenerate}, if $y$ is not of the form $s_j(x)$ for any $x$ and $j$ and if $\left(t_0, \ldots, t_m\right) \in \Delta^m$ is not a point on the boundary of the topological $m$-simplex.
+
+\begin{prop}
+    The geometric realization of a simplicial ser is a CW complex, such that every nondegenerate $n-$simplex corresponds to a $n-$cell.
+\end{prop}
+
+\begin{example}
+    \begin{enumerate}
+        \item The topological 1 -sphere is the quotient space $[0,1] / 0 \sim 1$. If we want to find a simplicial model for the 1-sphere, such that the geometric realization has the desired cell structure, then we should define a simplicial set $\mathbb{S}^1$ with one 0 -simplex, 0 , and one nondegenerate 1 -simplex, 1 . The simplicial identities force the existence of a 1-simplex $s_0(0)$, so we get two 1-simplices. For the cell structure we do not need any further maps, so we just take these simplices and all the resulting elements that are given due to the simplicial structure maps. We then get $\mathbb{S}_n^1 \cong[n]$ with face and degeneracy maps as follows:
+        $$
+        [0] \stackrel{\rightleftarrows}{\rightleftarrows}[1] \underset{\rightleftarrows}{\rightleftarrows}[2] \ldots,
+        $$
+        
+        The map $s_i:[n] \rightarrow[n+1]$ is the unique monotone injection, whose image does not contain $i+1$, while $d_i:[n] \rightarrow[n-1]$ is given by $d_i(j)=j$ if $j<i, d_i(i)=i$ if $i<n$, and $d_n(n)=0$ and $d_i(j)=j-1$ if $j>i$.
+        
+        The face maps glue the only nondegenerate 1-simplex 1 to the zero simplex $0 \in[0]$, and we obtain that the geometric realization, $\left|\mathbb{S}^1\right|$, is the topological 1sphere.
+        \item The geometric realization of the representable simplicial set $\Delta_n$ is $\left|\Delta_n\right|=\triangle^n$. This is a general fact about tensor products of functors and representable objects 15.1.5. \item Let $X$ and $Y$ be two simplicial sets. We already saw the product, $X \times Y$, which is the simplicial set with $(X \times Y)_n=X_n \times Y_n$. The simplicial structure maps $d_i$ and $s_j$ are defined coordinatewise. Be careful, an $n$-simplex $(x, y) \in X_n \times Y_n$ of the form $\left(s_i x^{\prime}, s_j y^{\prime}\right)$ for $i \neq j$ might not be degenerate in $X_n \times Y_n$, despite the fact that both coordinates are degenerate.
+    \end{enumerate}
+\end{example}
+
+\begin{prop}
+    \begin{enumerate}
+        \item Assume that $X$ and $Y$ are two simplicial sets, such that $|X| \times|Y|$ is a CW complex, with the CW structure induced by the one on $|X|$ and $|Y|$. Then,
+        $$
+        |X \times Y| \cong|X| \times|Y| \text {. }
+        $$
+        \item If $f, g: X \rightarrow Y$ are maps of simplicial sets that are homotopic, then $|f|$ is homotopic to $|g|$.
+    \end{enumerate}
+\end{prop}
+
+We consider the full subcategory $\Delta_{\leq n}$ of $\Delta$ with objects $[0], \ldots,[n]$. The inclusion functor
+$$
+\iota_n: \Delta_{\leq n} \rightarrow \Delta
+$$
+allows us to restrict simplicial sets $X$ to $\Delta_{\leq n}$ by considering $X \circ \iota_n: \Delta_{\leq n}^o \rightarrow$ Sets.
+The \textbf{$n$-skeleton} of a simplicial set $X, s k_n X$, is the left Kan extension of $X \circ \iota_n$ along $\iota_n$.
+It is easy to see that 
+$$
+\left|s k_n X\right| \cong s k_n|X|=: X^{(n)},
+$$
+where $s k_n|X|=X^{(n)}$ denotes the $n$-skeleton of the CW complex $|X|$.
+
+\subsection*{Fat realization of a Semi-simplicial set}
+
+Sometimes, you might want to use a variant of the geometric realization functor. An obvious reason is, that there are sequences of objects $X_0, X_1, \ldots$ that are only connected via face maps, but there are no degeneracy maps. Such functors are often called semisimplicial objects. In that situation, you cannot perform the geometric realization. The other situation that makes an alternative desirable is the situation, where you want to perform the geometric realization of a simplicial space and this space has bad point set behavior.\\
+
+Let $X$ be a simplicial set (or space), then the fat realization of $X,\|X\|$, is
+$$
+\|X\|=\bigsqcup_{n \geq 0} X_n \times \triangle^n / \sim,
+$$
+where the quotient in the fat geometric realization is generated by the relations
+$$
+\left(d_i(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \delta_i\left(t_0, \ldots, t_n\right)\right) .
+$$
+
+There are several alternative descriptions of $\|X\|$. One is to consider the semisimplicial category, $\Delta$, whose objects are the objects of $\Delta$, but we restrict to injective order-preserving maps. These are dual to the face maps used in the identifications in fat geometric realization. Thus, we can describe $\|X\|$ as the coend of the functor
+$$
+H: \Delta^o \times \Delta \rightarrow \text { Top, }
+$$
+with $H([p],[q])=X_p \times \triangle^q$.
+There is yet another description of the fat realization of a simplicial set or simplicial topological space (see, for instance, [We05, Proof of Proposition 1.3] or [Se74, p. 308]) as the ordinary geometric realization of a "fattened up" simplicial set.\\
+Of course, $\|X\|$ also makes sense, if you start with a semisimplicial object, that is, a functor $X: \Delta^o \rightarrow$ Sets.
+
+As we do not collapse degenerate simplices, the fat realization of a simplicial set is larger than the geometric realization.
+\begin{prop}
+    \begin{enumerate}
+        \item If all the $X_n$ are spaces of the homotopy type of a CW complex, then so is $\|X\|$.
+        \item If $f: X \rightarrow Y$ is a morphism of simplicial topological spaces, such that all $f_n: X_n \rightarrow$ $Y_n$ are homotopy equivalences, then $\|f\|$ is a homotopy equivalence.
+        \item Fat realization commutes with finite products.
+    \end{enumerate}
+\end{prop}
+
+
+
+
+\chapter{Simplicial Complexes}
+
 
 \section{(Abstract) simplical complexes}
 
@@ -79,131 +256,7 @@ Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $
 
 \section{Simplical sets}
 
-Let $\mathbf{\Delta}$ be the category of finite ordinal numbers, with order-preserving maps between them. More precisely, the objects for $\Delta$ consist of elements $\mathbf{n}, n \geq 0$, where $\mathbf{n}$ is a string of relations
-$$
-0 \rightarrow 1 \rightarrow 2 \rightarrow \cdots \rightarrow n
-$$
-(in other words $\mathbf{n}$ is a totally ordered set with $n+1$ elements). A morphism $\theta: \mathbf{m} \rightarrow \mathbf{n}$ is an order-preserving set function, or alternatively a functor. We usually commit the abuse of saying that $\mathbf{\Delta}$ is the ordinal number category.
 
-A simplicial set is a contravariant functor $X: \Delta^{o p} \rightarrow$ Sets, where Sets is the category of sets.
-
-\begin{rema}
-    The standard covariant functor: $\mathbf{n} \mapsto |\Delta^n| $ from $\Delta$ to \textbf{Top}. The singular set $S(T)$ is the simplicial set given by
-    $$
-    \mathbf{n} \mapsto \operatorname{hom}\left(\left|\Delta^n\right|, T\right) .
-    $$
-    
-    This is the object that gives the singular homology of the space $T$.\\
-
-    The standard $n$-simplex, simplicial $\Delta^n$ in the simplicial set category $\mathbf{S}$ is defined by
-$$
-\Delta^n=\operatorname{hom}_{\Delta}(, \mathbf{n}) .
-$$
-
-In other words, $\Delta^n$ is the contravariant functor on $\Delta$ which is represented by n.
-\end{rema}
-
-A map $f: X \rightarrow Y$ of simplicial sets (or, more simply, a simplicial map) is a natural transformation of contravariant set-valued functors defined on $\boldsymbol{\Delta}$. We shall use $\mathbf{S}$ to denote the resulting category of simplicial sets and simplicial maps.\\
-
-From a simplicial set $Y$, one may construct a simplicial abelian group $\mathbb{Z} Y$ (ie. a contravariant functor $\boldsymbol{\Delta}^{o p} \rightarrow \mathbf{A b}$ ), with $\mathbb{Z} Y_n$ set equal to the free abelian group on $Y_n$. The simplicial abelian group $\mathbb{Z} Y$ has associated to it a chain complex, called its Moore complex and also written $\mathbb{Z} Y$, with
-$$
-\begin{gathered}
-\mathbb{Z} Y_0 \stackrel{\partial}{\leftarrow} \mathbb{Z} Y_1 \stackrel{\partial}{\leftarrow} \mathbb{Z} Y_2 \leftarrow \ldots \quad \text { and } \\
-\partial=\sum_{i=0}^n(-1)^i d_i
-\end{gathered}
-$$
-in degree $n$. Recall that the integral singular homology groups $H_*(X ; \mathbb{Z})$ of the space $X$ are defined to be the homology groups of the chain complex $\mathbb{Z} S X$. The homology groups $H_n(Y, A)$ of a simplicial set $Y$ with coefficients in an abelian group $A$ are defined to be the homology groups $H_n(\mathbb{Z} Y \otimes A)$ of the chain complex $\mathbb{Z} Y \otimes A$.
-
-
-
-\subsection*{Geometric realization}
-
-\textbf{The simplex category:} $\Delta \downarrow X$ of a simplicial set $X$. The objects of $\Delta \downarrow X$ are the maps $\sigma: \Delta^n \rightarrow X$, or simplices of $X$. An arrow of $\Delta \downarrow X$ is a commutative diagram of simplicial maps .....
-
-Observe that $\theta$ is induced by a unique ordinal number $\operatorname{map} \theta: \mathbf{m} \rightarrow \mathbf{n}$.
-\begin{lemm} There is an isomorphism
-$$
-\begin{aligned}
-& X \cong \underset{\Delta^n \longrightarrow X}{\lim _{\longrightarrow}} \Delta^n . \\
-& \text { in } \Delta \downarrow X \\
-&
-\end{aligned}
-$$
-\end{lemm}
-
-The realization $|X|$ of a simplicial set $X$ is defined by the colimit
-$$
-\begin{aligned}
-|X|= & \xrightarrow{\lim }\left|\Delta^n\right| . \\
-& \Delta^n \rightarrow X \\
-& \text { in } \Delta \downarrow X
-\end{aligned}
-$$
-in the category of topological spaces. The construction $X \mapsto|X|$ is seen to be functorial in simplicial sets $X$, by using the fact that any simplicial map $f: X \rightarrow Y$ induces a functor $f_*: \Delta \downarrow X \rightarrow \Delta \downarrow Y$ by composition with $f$.
-
-\begin{prop}
-    The realization functor is left adjoint to the singular functor in the sense that there is an isomorphism
-$$
-\operatorname{hom}_{\text {Top }}(|X|, Y) \cong \operatorname{hom}_{\mathbf{S}}(X, S Y)
-$$
-which is natural in simplicial sets $X$ and topological spaces $Y$. In particular, since $\mathbf{S}$ has all colimits and the realization functor, || preserves them.
-\end{prop} 
-
-\begin{prop}
-    $|X|$ is a $C W$-complex for each simplicial set $X$. In particular it is a compactly generated Hausdorff space.
-\end{prop}
-
-\section{Semi-simplicial sets}
-
-It will suffice for our purposes to keep track of less structure, and replace $\Delta$ by its subcategory $\Delta_{\text {inj }}$ with the same objects but morphisms only injective order-preserving maps. A semi-simplicial set is a functor $\Delta_{\mathrm{inj}}^{\mathrm{op}} \rightarrow$ Set and a semi-simplicial space is a functor $\Delta_{\mathrm{inj}}^{\mathrm{op}} \rightarrow$ Top. That, it is the analogue of a simplicial space which only face maps and no degeneracy maps. We can restrict $\Delta^{\bullet}$ to $\Delta_{\text {inj }}$ and once more take the coend to get a geometric realisation
-$$
-\left\|X_{\bullet}\right\|:=\Delta^{\bullet} \otimes_{\Delta_{\text {inj }}} X_{\bullet}=\left(\bigsqcup_{p \geq 0} \Delta^p \times X_p\right) / \sim
-$$
-with $\sim$ the equivalence relation generated by $\left(\delta_i t, x\right) \sim\left(t, d_i x\right)$. A reference for semisimplicial spaces and their properties is [ERW19].
-
-We now define the semi-simpicial set with $\Sigma_n$-action which will replace $*$. Let FI be the category whose objects are finite sets and whose morphisms are injections.
-
-$W_n(1) \bullet$ is the \textbf{semi-simplicial set with $p$-simplices} given by
-$$
-W_n(\underline{1}) \bullet=\operatorname{Hom}_{\mathrm{FI}}([p], \underline{n})
-$$
-and face maps $d_i$ given by precomposition with $\delta_i:[p-1] \rightarrow[p]$.
-That is, $W_n(1)_p$ has as $p$-simplices the ordered words $\left(m_0 m_1 \cdots m_p\right)$ of elements of $\underline{n}$ and no letter duplicated. The $i$ th face map forgets the $i$ th letter $m_i$. This explains why we call this the semi-simplicial set of injective words. The notation is rather complicated, but will become clear in the next lecture.
-
-The group $\Sigma_n$ acts on $W_n(1)$. by post-composition, and hence on the geometric realisation. We have that:
-
-\begin{prop}
-    \begin{enumerate}
-        \item $\left\|W_n(\mathbf{1}) \cdot\right\|$ is homologically $\frac{n-1}{2}$-connected.
-    \end{enumerate}
-\end{prop}
-(ii) $W_n(\underline{1})_p$ is a transitive $\Sigma_n$-set, and the stabiliser of $x \in W_n(1)_p$ is the group of permutations of $\underline{n} \backslash \operatorname{im}(x)$.
-
-%por demostrar mas tarde
-
-A filtration $F_0 X \subset F_1 X \subset \ldots$ on a space $X$ makes the singular chains $C_*(X)$ into a filtered chain complex by setting $F_r C_*(X):=\operatorname{im}\left(C_*\left(F_r X\right) \rightarrow C_*(X)\right)$. Assuming that $F_{r-1} X \rightarrow F_r X$ is a cofibration and $F_r X / F_{r-1} X$ is at least $(r-1)$-connected, this gives a strongly-convergent first-quadrant spectral sequence
-$$
-E_{p, q}^1=\widetilde{H}_{p+q}\left(F_p X / F_{p-1} X ; \mathbb{Z}\right) \Longrightarrow H_{p+q}(X ; \mathbb{Z})
-$$
-with differentials given by $d^r: E_{p, q}^r \rightarrow E_{p-r, q+r-1}^r$.
-Remark 2.3.1. If you are unfamiliar with these notions, I recommend you look at [McC01, Hat]. Roughly, a spectral sequence is an algebraic object that conveniently packages all long exact sequences in homology for the pairs $\left(F_s X, F_r X\right)$ with $s \geq r$ with the goal of compute the homology of $X$.
-We can in particular apply this to the geometric realisation $\left\|X_{\bullet}\right\|$. This has a filtration
-$$
-F_r\left\|X_{\bullet}\right\|:=\left(\bigsqcup_{0 \leq p \leq r} \Delta^p \times X_p\right) / \sim
-$$
-with equivalence relation $\sim$ as before, all of whose maps are cofibrations under a mild condition on $X_{\bullet}$ that will be satisfied in examples in these notes. The associated graded is given by
-$$
-\frac{F_r\left\|X_{\bullet}\right\|}{F_{r-1}\left\|X_{\bullet}\right\|}=\frac{\Delta^r}{\partial \Delta^r} \wedge\left(X_r\right)_{+}
-$$
-so is at least $(r-1)$-connected. Thus we get [Seg68] (see also [ERW19, Section 1.4]):
-
-\begin{theo}
-    There is a strongly convergent first quadrant spectral sequence
-    $$
-    E_{p, q}^1=H_q\left(X_p ; \mathbb{Z}\right) \Longrightarrow H_{p+q}\left(\left\|X_{\bullet}\right\| ; \mathbb{Z}\right)
-    $$
-    with differentials given by $d^r: E_{p, q}^r \rightarrow E_{p-r, q+r-1}^r$. Moreover $d^1: E_{p, q}^1 \rightarrow E_{p-1, q}^1$ is given by $\sum_{i=0}^p(-1)^i\left(d_i\right)_*$, and the edge homomorphism $E_{0, q}^1 \rightarrow E_{0, q}^{\infty} \rightarrow H_q(X ; \mathbb{Z})$ is equal to the map induced on homology by the inclusion $X_0 \rightarrow\left\|X_{\bullet}\right\|$.   
-\end{theo}
 
 
 
