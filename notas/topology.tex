@@ -15,6 +15,10 @@ In recent years, simplicial sets have been used in higher category theory and de
 
 As $\mathcal{C}$ is an arbitrary category, we can consider simplicial $R$-modules, simplicial sets, simplicial rings, simplicial topological spaces, and many more. Simplicial sets are particularly important because they model topological spaces (see 10.6.1). Simplicial objects in an abelian category $\mathcal{A}$ model non-negatively graded chain complexes over $\mathcal{A}$. The famous Dold-Kan correspondence (see Theorem 10.11.2) is an equivalence of categories between $s \mathcal{A}$ and $\mathrm{Ch}_{\geq 0}(\mathcal{A})$.
 
+\begin{theo}
+The normalized chain complex is part of an equivalence of categories between the simplicial objects in $\mathcal{A}$ and the non-negatively graded chain complexes over $\mathcal{A}$.   
+\end{theo}
+
 Simplicial complexes are more intuitive, and are the foundation of algebraic topology. $\Delta$-complexes are usueful for computations. Simplicial sets are more suitable to high level concepts.
 
 \section{Simplicial objects in a category}
@@ -184,6 +188,82 @@ As we do not collapse degenerate simplices, the fat realization of a simplicial 
 
 
 
+\section{Classifying spaces}
+
+To any small category, you can associate a topological space that takes the data of the category (objects, morphisms, and composition of morphisms) and translates it into a CW complex. This is done in a two-stage process: First you construct a simplicial set out of your category, and then, you form its geometric realization.
+
+\begin{enumerate}
+    \item For a small category $\mathcal{C}$, let $M_n(\mathcal{C})$ be the set
+    $$
+    \left\{C_0 \xrightarrow{f_1} C_1 \xrightarrow{f_2} \ldots \xrightarrow{f_n} C_n \mid C_i \text { object of } \mathcal{C}, f_i \text { morphism in } \mathcal{C}\right\}
+    $$
+    of the $n$-tuples of composable morphisms in $\mathcal{C}$. We denote an element, as earlier, as $\left[f_n|\ldots| f_1\right]$.
+    \item The \textbf{nerve} of the category $\mathcal{C}$ is the simplicial set $N \mathcal{C}: \Delta^{o p} \rightarrow$ Sets, which sends $[n]$ to the set $M_n(\mathcal{C})$. The degeneracies insert identity morphisms
+    $$
+    s_i\left[f_n|\ldots| f_1\right]=\left[f_n|\ldots| f_{i+1}\left|1_{C_i}\right| f_i|\ldots| f_1\right], \quad 0 \leq i \leq n,
+    $$
+    and the face maps compose morphisms:
+    $$
+    d_i\left[f_n|\ldots| f_1\right]= \begin{cases}{\left[f_n|\ldots| f_2\right],} & i=0, \\ {\left[f_n|\ldots| f_{i+1} \circ f_i|\ldots| f_1\right],} & 0<i<n, \\ {\left[f_{n-1}|\ldots| f_1\right],} & i=n .\end{cases}
+    $$
+    \item The \textbf{classifying space} of the category $\mathcal{C}$ is the geometric realization of the nerve of \cc: $B \mathcal{C}=|N \mathcal{C}|$.
+\end{enumerate}
+
+You can also interpret the $i$ th face map as omitting the object $C_i$. If $i$ is 0 or $n$, then the morphism next to $C_i$ just dies with the object, whereas for $0<i<n$, deleting the object causes the composition of the adjacent morphisms.\\
+
+The objects $C$ of $\mathcal{C}$ give zero cells in $B \mathcal{C}$, and a nonidentity morphism from $C$ to $C^{\prime \prime}$ gives rise to an edge whose endpoints correspond to the objects $C$ and $C^{\prime}$. If $g \circ f$ is a composition of morphisms in $\mathcal{C}$, then in the classifying space, you will find a triangle, with edges corresponding to $f, g$, and $g \circ f$. Threefold compositions give rise to tetrahedra and so on.\\
+The topological space $B \mathcal{C}$ is always a $\mathrm{CW}$ complex, and a functor $F: \mathcal{C} \rightarrow \mathcal{D}$ induces a continuous and cellular map of topological spaces:
+$
+B F: B \mathcal{C} \rightarrow B \mathcal{D} \text {. }
+$.\\
+
+Hence, $B$ is a functor from the category cat to the category Top of topological spaces.
+
+
+\begin{example}
+    \begin{enumerate}
+        \item If $X$ is a set and $\mathcal{C}$ is the corresponding discrete category, then the classifying space $B C$ is $X$ with the discrete topology.
+        \item If $G$ is a group and we consider the small category $\mathcal{C}_G$ associated with $G$, then the classifying space $B\left(\mathcal{C}_G\right)$ is called the classifying space of the group $G$ and is denoted by $B G$. If the group $G$ is abelian, then the group composition is a group homomorphism, and it induces a functor $\mathcal{C}_G \times \mathcal{C}_G \rightarrow \mathcal{C}_G$. We therefore obtain a map
+        $$
+        B G \times B G \rightarrow B\left(\mathcal{C}_G \times \mathcal{C}_G\right) \rightarrow B\left(\mathcal{C}_G\right)=B G,
+        $$
+        and for abelian groups $G, B G$ is a topological group. For instance, $B \mathbb{Z} \simeq \mathbb{S}^1$.
+        If $G$ is a topological group, then we can implement the topology into the construction of $B G$ by endowing $G^n \times \triangle^n$ with the product topology.
+        
+        For instance, $B \mathbb{S}^1 \simeq \mathbb{C} P^{\infty}$, and this is an Eilenberg-Mac Lane space of type $(\mathbb{Z}, 2)$, $K(\mathbb{Z}, 2)=\mathbb{C} P^{\infty} \simeq B(B \mathbb{Z})$. In general, if $A$ is a finitely generated abelian group, then the $n$-fold iterated classifying space construction is a model of the Eilenberg-Mac Lane space $K(A, n)$. { why?}
+        
+        If $G$ is a discrete group, then the homology of the group $G$ (with coefficients in $\mathbb{Z}$ ) is the singular homology $H_*(B G ; \mathbb{Z})$.
+        \item For a monoid, one can build $B\left(\mathcal{C}_M\right)$. We will learn more about this space later (see, for instance, Theorem 13.4.6 and Proposition 13.4.4).
+        \item Let us consider the category $\Sigma$. This has as objects the natural numbers (including zero), and the only morphisms are automorphisms with $\Sigma([n],[n])=\Sigma_n$. Therefore, the classifying space of $\Sigma$ has one component for every natural number, because the different objects are not connected by morphisms. Thus,
+        $$
+        B \Sigma=\bigsqcup_{n \geq 0} B \Sigma_n .
+        $$
+        
+        \item If we consider the poset $[n]$ as a category, then the nerve of $[n]$ is isomorphic to the representable functor $\Delta_n$ and $B[n] \cong \triangle^n$.
+    \end{enumerate}
+\end{example}
+
+\begin{theo}
+    \begin{enumerate}
+        \item For two functors $F, F^{\prime}: \mathcal{C} \rightarrow \mathcal{D}$, a natural transformation $\tau: F \Rightarrow F^{\prime}$ induces a homotopy between $B F$ and $B F^{\prime}$.
+        \item If $\mathcal{C} \underset{R}{\stackrel{L}{\rightleftarrows}} \mathcal{D}$ is an adjoint pair of functors, then $B C$ is homotopy equivalent to $B \mathcal{D}$. 
+        \item In particular, an equivalence of categories gives rise to a homotopy equivalence of classifying spaces.
+        \item If a small category \cc has an initial or terminal object, then its classifying space is contractible.
+        \item Let $G$ be a discrete group. We saw that in its translation category, $\mathcal{E}_G$, every object is terminal and initial, and thus, $B \mathcal{E}_G$ is contractible. In fact, $B \mathcal{E}_G$ is a model for the universal space for $G$-bundles, $E G$, and this is, in general, not homeomorphic to a point. For instance. $E \mathbb{Z} / 2 \mathbb{Z}$ is $\mathbb{S}^{\infty}=\operatorname{colim}_n \mathbb{S}^n$.
+        The simplicial structure on $N \mathcal{E}_G$ is as follows: An element in $\left(N \mathcal{E}_G\right)$ is a string
+        $$
+        g_0 \xrightarrow{g_1 g_0^{-1}} g_1 \xrightarrow{g_2 g_1^{-1}} \ldots \xrightarrow{g_q g_{q-1}^{-1}} g_q,
+        $$ but this can be simplified by just remembering the $(q+1)$-tuple of group elements $\left(g_0, \ldots, g_q\right)$. With this identification, the face maps omit a $g_i$, and the degeneracies double a $g_i$.
+    \end{enumerate}
+\end{theo}
+
+
+
+
+
+
+
+
 
 \chapter{Simplicial Complexes}
 
@@ -224,6 +304,12 @@ Now think of the set of elements of $[0,1]^S$ with finite support as the direct 
 
 
 
+
+
+
+
+
+
 \section{CW-complexes}
 
 They can be defined in an inductive way:
@@ -251,10 +337,6 @@ They can be defined in an inductive way:
 Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $\Phi_\alpha: D_\alpha^n \rightarrow X$ which extends the attaching map $\varphi_\alpha$ and is a homeomorphism from the interior of $D_\alpha^n$ onto $e_\alpha^n$. Namely, we can take $\Phi_\alpha$ to be the composition $D_\alpha^n \hookrightarrow X^{n-1} \coprod_\alpha D_\alpha^n \rightarrow X^n \hookrightarrow X$ where the middle map is the quotient map defining $X^n$. 
 
 
-
-
-
-\section{Simplical sets}
 
 
 
@@ -286,7 +368,7 @@ is exact. We have, therefore:
 
 
 
-\section{Classifying space}
+\section{Classifying space of groups}
 
 Suppose that $\mathcal{C}$ is a (small) category. The classifying space (or nerve ) $B \mathcal{C}$ of $\mathcal{C}$ is the simplicial set with
 $$
