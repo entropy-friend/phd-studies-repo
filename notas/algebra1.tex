@@ -263,6 +263,125 @@ Limits, products... are defined dually
 \end{example}
 
 
+
+
+\section{Kan extensions}
+
+Kan extensions take a given functor and extend it to a different category. There are two ways of doing that, via colimits and via limits. These extensions don’t have to exist, and even if they exist, they might not have nice properties. But in controlled situations, they are extremely useful and they are actually ubiquitous
+
+Let $G: \mathcal{C} \rightarrow \mathcal{D}$ and $F: \mathcal{C} \rightarrow \mathcal{E}$ be functors. The left Kan extension of $F$ along $G$ is a pair $(K, \alpha)$, where
+\begin{itemize}
+    \item $K: \mathcal{D} \rightarrow \mathcal{E}$ is a functor, and
+    \item $\alpha: F \Rightarrow K \circ G$ is a natural transformation. %Graficos!!!!!
+    \item This pair $(K, \alpha)$ has the universal property that for all pairs $(H, \beta)$, where $H: \mathcal{D} \rightarrow \mathcal{E}$ is a functor and $\beta: F \Rightarrow H \circ G$ is a natural transformation, there is a unique natural transformation $\gamma: K \Rightarrow H$ with the property that $\gamma_G \circ \alpha=\beta$.
+\end{itemize}
+
+\begin{theo}
+Let $G: \mathcal{C} \rightarrow \mathcal{D}$ and $F: \mathcal{C} \rightarrow \mathcal{E}$ be functors. Assume that the category $\mathcal{C}$ is small and that $\mathcal{E}$ is cocomplete. Then, the left Kan extension of $F$ along $G$ exists.
+\end{theo}
+
+\begin{theo}
+For small categories $\mathcal{C}, \mathcal{D}$ and $G: \mathcal{C} \rightarrow \mathcal{D}$ and a cocomplete category $\mathcal{E}$ the functor,
+$$
+G^*: \operatorname{Fun}(\mathcal{D}, \mathcal{E}) \rightarrow \operatorname{Fun}(\mathcal{C}, \mathcal{E})
+$$
+has a left adjoint, and this adjoint is given by the left Kan extension.
+\end{theo}
+
+\begin{example}
+    \begin{enumerate}
+        \item EXAMPLE 4.1.6. Let $\mathcal{C}=$ Fin be a small skeleton of the category of finite sets, let $\mathcal{D}$ be the category of sets, Sets, and let $I$ be the canonical inclusion functor of the subcategory Fin into the category Sets. If $\mathcal{E}$ is an arbitrary cocomplete category, then Theorem 4.1.4 ensures, that you can extend any functor $F$ : Fin $\rightarrow \mathcal{E}$ as a left Kan extension to the category Sets, and you actually have an explicit formula for doing it.
+        \item EXERCISE 4.1.9. Let $G$ be a finite group and let $H$ be a subgroup of $G$. Consider the inclusion of the category $\mathcal{C}_H$ with one object and morphisms $H$ into the category $\mathcal{C}_G$, $i: \mathcal{C}_H \rightarrow \mathcal{C}_G$. A functor $F: \mathcal{C}_H \rightarrow \mathrm{Ab}$ is nothing but a $\mathbb{Z}[H]$-module. $M=F(*)$ carries a linear $H$-action. What is the left Kan extension of a given $F$ along $i$ ?
+        \item Example 4.1.12. Assume that $f: X \rightarrow Y$ is a continuous map between topological spaces and $\mathcal{F}$ is a presheaf on $Y$. One could try to pull $\mathcal{F}$ back via $f$ by defining $f^{-1} \mathcal{F}(U)=$ $\mathcal{F}(f(U))$, but, of course, $f(U)$ doesn't have to be open, so instead, one defines the inverse image presheaf as the left Kan extension
+        $$
+        f^{-1} \mathcal{F}(U)=\operatorname{colim}_{f(U) \subset V \text { open }} \mathcal{F}(V) .
+        $$
+        Even if $\mathcal{F}$ was a sheaf, $f^{-1} \mathcal{F}$ might not be one, so for sheaves, $f^{-1} \mathcal{F}$ is defined as the sheafification.
+    \end{enumerate}
+\end{example}
+
+
+The functor $H$ preserves the left $K a n$ extension $(K, \alpha)$ of $F$ along $G$ if $(H \circ K, H \alpha)$ is a left Kan extension of $H \circ F$ along $G$.
+
+\begin{theo}
+Let $G: \mathcal{C} \rightarrow \mathcal{D}$ be a functor between small categories. Left adjoint functors $L: \mathcal{E} \rightarrow \mathcal{F}$ preserve left Kan extensions of functors $F: \mathcal{D} \rightarrow \mathcal{E}$.
+\end{theo}
+
+A right Kan extension of $F: \mathcal{C} \rightarrow \mathcal{E}$ is pointwise if and only if it is preserved by all representable functors $\mathcal{E}(E,-): \mathcal{E} \rightarrow$ Sets.\\
+The dual statement is also true, but in that case, we have to consider the representable functors $\mathcal{E}(-, E)$ which transform colimits to limits in Sets ${ }^{\circ}$.
+
+Let $\mathcal{D}$ and $\mathcal{E}$ be categories. Assume that $H_1: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ and $H_2: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E}$ are functors, and let
+$$
+\tau_D: H_1(D, D) \rightarrow H_2(D, D)
+$$
+be a family (indexed over the objects of $\mathcal{D}$ ) of morphisms $\tau_D \in \mathcal{E}\left(H_1(D, D), H_2(D, D)\right)$. Then, $\left(\tau_D\right)_D$ is called a dinatural transformation if for all morphisms $f \in \mathcal{D}\left(D, D^{\prime}\right)$, the diagram
+$$
+H_1\left(D^{\prime}, D\right) \xrightarrow{H_1(f, D)} H_1(D, D)
+$$
+commutes.
+
+\begin{enumerate}
+    \item An important example of a functor $H: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E}$ is a natural evaluation map. Fix a $K$-vector space $W$, and denote by $L(V, W)$ the vector space of $K$-linear maps from $V$ to $W$. Consider the functor
+    $$
+    L(-, W) \otimes \mathrm{Id} \rightarrow \text { vect }^o \times \text { vect } \rightarrow \text { vect, } \quad\left(V_1, V_2\right) \mapsto L\left(V_1, W\right) \otimes V_2 .
+    $$
+    
+    A dinatural transformation from this functor to the constant functor on $W, \kappa_W$, consists of a family of linear maps
+    $$
+    \tau_V: L(V, W) \otimes V \rightarrow W
+    $$
+    which transform naturally in $V$.
+    \item Let $V$ and $W$ be $K$-vector spaces, and denote by Iso $(V, W)$ the vector space of $K$-linear isomorphisms from $V$ to $W$. Then,
+    $$
+    \text { Iso : vect }{ }^0 \times \text { vect } \rightarrow \text { vect }
+    $$
+    is a functor, and Iso $(V, V)$ is the group of automorphisms of $V$. For instance, if $K=$ $\mathbb{R}$, we can consider the orientation preserving automorphisms of $V, \operatorname{Aut}^{+}(V)$. The inclusion of $\operatorname{Aut}^{+}(V)$ into Aut $(V)$ is then a $\tau_V$ where $\tau$ is a dinatural transformation. 
+    \item In fact, the preceding example generalizes to any category. For two objects $C_1$ and $C_2$ of a category $\mathcal{C}$, we can always consider the set of isomorphisms from $C_1$ to $C_2$, Iso $\left(C_1, C_2\right)$, and $\operatorname{Aut}\left(C_1\right)=\operatorname{Iso}\left(C_1, C_1\right)$, the group of automorphisms of the object $C_1$. If this group has interesting subgroups that transform naturally in $C_1$, then the inclusion of such a subgroup into Aut $\left(C_1\right)$ gives rise to a dinatural transformation. Last but not least, we fix an object $E$ of $\mathcal{E}$ and consider the constant functor on $E$, $\kappa_E$, as a functor
+    $$
+    \kappa_E: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E} \text {. }
+    $$
+\end{enumerate}
+
+Let $H: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ be a functor. An end of $H$ is a pair $(E, \tau)$, where $E$ is an object of $\mathcal{E}$ and $\tau$ is a dinatural transformation from $\kappa_E$ to $H$, with the property that for all other objects $E^{\prime}$ of $\mathcal{E}$ with a dinatural transformation $\nu$ from $\kappa_{E^{\prime}}$ to $H$, there is a unique $\xi \in \mathcal{E}\left(E^{\prime}, E\right)$, such that $\nu_D=\tau_D \circ \xi$ for all $D$.
+
+\begin{example}\begin{enumerate}
+    \item Let $\mathcal{D}$ be a small category, let $\mathcal{E}$ be an arbitrary category, and assume $F$ and $G$ are functors from $\mathcal{D}$ to $\mathcal{E}$. We consider
+        $$
+        \mathcal{E}(F(-), G(-)): \mathcal{D}^o \times \mathcal{D} \rightarrow \text { Sets }
+        $$
+        as a functor. An end of this functor is a set $X$, together with a universal dinatural transformation
+        $$
+        \varepsilon_D: X \rightarrow \mathcal{E}(F(D), G(D))
+        $$
+        for all objects $D$ of $\mathcal{D}$, which satisfies the coherence condition, as illustrated in the diagram (4.4.1). It is clear that the set of all natural transformations satisfies this condition: If $X^{\prime}$ is another set with a dinatural transformation $\nu$ from $\kappa_{X^{\prime}}$ to $\mathcal{E}(F(-), G(-))$, then for every element $x \in X^{\prime}, \nu_D(x)$ is actually a natural transformation because of the naturality of $\nu$, but then, we obtain a function $f: X^{\prime} \rightarrow X=\operatorname{nat}(F, G)$, with $f(x)_D=\nu_D(x)$.
+        
+        As a special case, we obtain that the abelian group of $R$-module homomorphism between two left $R$-modules $M$ and $N$ is an end.   
+        \item Example 4.4.7. Let $\mathcal{D}$ be a small category and let $F: \mathcal{D}^o \rightarrow k$-mod and $G: \mathcal{D} \rightarrow k$-mod be functors. Here, $k$ is an arbitrary commutative ring with unit, and $k$-mod denotes the category of $k$-modules and $k$-linear maps. Then, we can build the tensor product of $F$ and $G$ as
+        $$
+        F \otimes_{\mathcal{D}} G:=\bigoplus_D F(D) \otimes_k G(D) / \sim,
+        $$
+        where the sum is indexed by all objects $D$ of $\mathcal{D}$ and where we divide out by the $k$-submodule of $\oplus_D F(D) \otimes_k G(D)$ generated by
+        $$
+        F(f)(x) \otimes y-x \otimes G(f)(y), \quad x \in F\left(D^{\prime}\right), y \in G(D), f \in \mathcal{D}\left(D, D^{\prime}\right) .
+        $$
+        
+        We claim that $F \otimes_{\mathcal{D}} G$, together with the dinatural transformation $\tau$ that sends $F(D) \otimes_k$ $G(D)$ to the class of the summand in $F \otimes_{\mathcal{D}} G$, is the coend of the functor $F \otimes_k G: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow$ $k$-mod that sends $\left(D_1, D_2\right)$ to $F\left(D_1\right) \otimes_k G\left(D_2\right)$ and $(f, g) \in \mathcal{D}\left(D_1, D_2\right) \times \mathcal{D}\left(D_3, D_4\right)$ to $F(f) \otimes_k G(g)$
+\end{enumerate}
+\end{example}
+
+Let $\mathcal{D}$ and $\mathcal{E}$ be categories and let $H: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ be a functor. We denote by $\int_{\mathcal{D}} H$ the end of the functor $H$; and by $\int^{\mathcal{D}} H$ the coend of the functor $H$.\\
+
+\begin{prop}[Fubini theorem for ends] Let $H:\left(\mathcal{D} \times \mathcal{D}^{\prime}\right)^o \times\left(\mathcal{D} \times \mathcal{D}^{\prime}\right) \rightarrow \mathcal{E}$ be a functor. If the ends $\int_{\mathcal{D}} H\left(D, D_1^{\prime}, D, D_2^{\prime}\right)$ exist for all objects $D_1^{\prime}, D_2^{\prime}$ of $\mathcal{D}^{\prime}$ and if the ends $\int_{\mathcal{D}^{\prime}} H\left(D_1, D^{\prime}, D_2, D^{\prime}\right)$ exist for all objects $D_1$ and $D_2$ of $\mathcal{D}$, then
+$$
+\int_{\mathcal{D}} \int_{\mathcal{D}^{\prime}} H\left(D, D^{\prime}, D, D^{\prime}\right) \cong \int_{\mathcal{D}^{\prime}} \int_{\mathcal{D}} H\left(D, D^{\prime}, D, D^{\prime}\right) \cong \int_{\mathcal{D} \times \mathcal{D}^{\prime}} H\left(D, D^{\prime}, D, D^{\prime}\right),
+$$
+and if one of them exists, then the others do as well.
+\end{prop} 
+
+
+
+
+
 \section{Adjoint functors}
 
 Let $\mathcal{C}$ and $\mathcal{C}^{\prime}$ be categories. An \textbf{adjunction} between $\mathcal{C}$ and $\mathcal{C}^{\prime}$ is a pair of functors $L: \mathcal{C} \rightarrow \mathcal{C}^{\prime}, R: \mathcal{C}^{\prime} \rightarrow \mathcal{C}$, such that for each pair of objects $C$ of $\mathcal{C}$ and $C^{\prime}$ of $\mathcal{C}^{\prime}$, there is a bijection of sets
@@ -519,9 +638,11 @@ A category is a grupoid if all morphisms are isomorphisms.
 
 \chapter{Homological Algebra}
 
-References \cite{richterCategoriesHomotopyTheory2020}
+References \cite{richterCategoriesHomotopyTheory2020,weibelKbookIntroductionAlgebraic2013a}
+\section{Abelian Categories}
 
-\section{Preadditive categories}
+
+
 
 A \textbf{preaddititve category} is a category $\mathcal{A}$, such that for every pair of objects $A_1, A_2$, there is an abelian group of morphisms from $A_1$ to $A_2$ and the composition of morphisms is a bilinear map.\\
 A preadditive category with only one object is nothing but a ring. The endomorphisms of that object are an abelian group, and the composition of morphisms defines the multiplicative structure. Thus, a preadditive category can be thought of as a ring with many objects. A group with many objects in this sense is a groupoid, so one might call a preadditive category a ringoid.\\
@@ -574,16 +695,182 @@ $$
 $$
 is acyclic, so that $H_n(T F)=0$ for $n>0$ and $H_0(T F)=T M$. Thus we can regard the groups $H_n(T F)$ in the general case as a measure of the failure of $T$ to be exact.
 
+\section{Chain complexes}
 
-\section{Spectral Sequences}
+Here are some important constructions on chain complexes. A chain complex $B$ is called a subcomplex of $C$ if each $B_n$ is a submodule of $C_n$ and the differential on $B$ is the restriction of the differential on $C$, that is, when the inclusions $i_n: B_n \subseteq C_n$ constitute a chain map $B \rightarrow C$. In this case we can assemble the quotient modules $C_n / B_n$ into a chain complex
+$$
+\cdots \rightarrow C_{n+1} / B_{n+1} \xrightarrow{d} C_n / B_n \xrightarrow{d} C_{n-1} / B_{n-1} \xrightarrow{d} \cdots
+$$
+denoted $C / B$ and called the quotient complex. If $f: B \rightarrow C$ is a chain map, the kernels $\left\{\operatorname{ker}\left(f_n\right)\right\}$ assemble to form a subcomplex of $B$ denoted $\operatorname{ker}(f)$, and the cokernels \{coker $\left.\left(f_n\right)\right\}$ assemble to form a quotient complex of $C$ denoted $\operatorname{coker}(f)$.\\
+Suppose that $\mathcal{A}=\mathrm{Ch}$ and $f$ is a chain map. Show that the complex $\operatorname{ker}(f)$ is a kernel of $f$ and that $\operatorname{coker}(f)$ is a cokernel of $f$.
+
+\begin{theo}
+The category $\operatorname{Ch}=\boldsymbol{C h}(\mathcal{A})$ of chain complexes is an abelian category.   
+\end{theo}
+
+If $C$ is a chain complex and $n$ is an integer, we let $\tau_{\geq n} C$ denote the subcomplex of $C$ defined by
+$$
+\left(\tau_{\geq n} C\right)_i= \begin{cases}0 & \text { if } i<n \\ Z_n & \text { if } i=n \\ C_i & \text { if } i>n .\end{cases}
+$$
+
+Clearly $H_i\left(\tau_{\geq n} C\right)=0$ for $i<n$ and $H_i\left(\tau_{\geq n} C\right)=H_i(C)$ for $i \geq n$. The complex $\tau_{\geq n} C$ is called the (good) truncation of $C$ below $n$, and the quotient complex $\tau_{<n} C=C /\left(\tau_{\geq n} C\right)$ is called the (good) truncation of $C$ above $n$; $H_i\left(\tau_{<n} C\right)$ is $H_i(C)$ for $i<n$ and 0 for $i \geq n$.\\
+
+If $C$ is a complex and $p$ an integer, we form a new complex $C[p]$ as follows:
+$$
+C[p]_n=C_{n+p} \quad\left(\text { resp. } C[p]^n=C^{n-p}\right)
+$$
+with differential $(-1)^p d$. We call $C[p]$ the $p^{t h}$ translate of $C$. Note that translation shifts homology:
+$$
+H_n(C[p])=H_{n+p}(C) \quad\left(\text { resp. } H^n(C[p])=H^{n-p}(C)\right) .
+$$
+
+We make translation into a functor by shifting indices on chain maps. That is, if $f: C \rightarrow D$ is a chain map, then $f[p]$ is the chain map given by the formula
+$$
+f[p]_n=f_{n+p} \quad\left(\text { resp. } f[p]^n=f^{n-p}\right)
+$$ 
+
+\begin{prop}
+    \begin{enumerate}
+        \item If $C$ is a complex, there are exact sequences of complexes:
+        $$
+        \begin{gathered}
+        0 \longrightarrow Z(C) \longrightarrow C \xrightarrow{d} B(C)[-1] \longrightarrow 0 ; \\
+        0 \longrightarrow H(C) \longrightarrow C / B(C) \xrightarrow{d} Z(C)[-1] \longrightarrow H(C)[-1] \longrightarrow 0 .
+        \end{gathered}
+        $$
+        
+        \item (Mapping cone) Let $f: B \rightarrow C$ be a morphism of chain complexes. Form a double chain complex $D$ out of $f$ by thinking of $f$ as a chain complex in $\mathbf{C h}$ and using the sign trick, putting $B[-1]$ in the row $q=1$ and $C$ in the row $q=0$. Thinking of $C$ and $B[-1]$ as double complexes in the obvious way, show that there is a short exact sequence of double complexes
+        $$
+        0 \longrightarrow C \longrightarrow D \xrightarrow{\delta} B[-1] \longrightarrow 0 \text {. }
+        $$
+        
+        The total complex of $D$ is cone $\left(f^{\prime}\right)$, the mapping cone (see section 1.5) of a map $f^{\prime}$, which differs from $f$ only by some $\pm$ signs and is isomorphic to $f$.
+    \end{enumerate}
+\end{prop}
 
 
-\section{Abelian categories}-+-
+
+\begin{prop}The following are proved first for chain complexes of $R$-modules, but they hold in any abelian category, by the Freyd-Mitchell embedding theorem.
+    \begin{enumerate}
+      \item[3-lemma] Consider the conmutative diagram of $R-$modules
+       $$\begin{aligned} & A^{\prime} \longrightarrow B^{\prime} \longrightarrow C^{\prime} \longrightarrow 0 \\ & f \downarrow \quad \quad \quad \downarrow \quad h \downarrow \\ & 0 \longrightarrow A \xrightarrow{i} B \longrightarrow C . \\ & \end{aligned}$$ If the rows are exact, there is an exact sequence
+       $$
+       \operatorname{ker}(f) \rightarrow \operatorname{ker}(g) \rightarrow \operatorname{ker}(h) \xrightarrow{\partial} \operatorname{coker}(f) \rightarrow \operatorname{coker}(g) \rightarrow \operatorname{coker}(h)
+       $$
+       with $\partial$ defined by the formula
+       $$
+       \partial\left(c^{\prime}\right)=i^{-1} g p^{-1}\left(c^{\prime}\right), \quad c^{\prime} \in \operatorname{ker}(h)
+       $$
+       
+       Moreover, if $A^{\prime} \rightarrow B^{\prime}$ is monic, then so is $\operatorname{ker}(f) \rightarrow \operatorname{ker}(g)$, and if $B \rightarrow C$ is onto, then so is coker $(f) \rightarrow$ coker $(g)$.
+  
+       \item[5-lemma] In any commutative diagram
+       $$
+       \begin{aligned}
+       & A^{\prime} \longrightarrow B^{\prime} \longrightarrow C^{\prime} \longrightarrow D^{\prime} \longrightarrow E^{\prime} \\
+       & a \downarrow \cong \quad b \downarrow \cong \quad c \downarrow \quad d \downarrow \cong \quad e \downarrow \cong \\
+       & A \longrightarrow B \longrightarrow C \longrightarrow D \longrightarrow E \\
+       &
+       \end{aligned}
+       $$
+       with exact rows in any abelian category, show that if $a, b, d$, and $e$ are isomorphisms, then $c$ is also an isomorphism. More precisely, show that if $b$ and $d$ are monic and $a$ is an epi, then $c$ is monic. Dually, show that if $b$ and $d$ are epis and $e$ is monic, then $c$ is an epi.
+    \end{enumerate}  
+  \end{prop}
+  
+  
+  \begin{theo}
+      Let $0 \rightarrow A . \xrightarrow{f} B . \xrightarrow{g} C . \rightarrow 0$ be a short exact sequence of chain complexes. Then there are natural maps $\partial: H_n(C) \rightarrow H_{n-1}(A)$, called connecting homomorphisms, such that
+      $$
+      \cdots \xrightarrow{g} H_{n+1}(C) \xrightarrow{\partial} H_n(A) \xrightarrow{f} H_n(B) \xrightarrow{g} H_n(C) \xrightarrow{\partial} H_{n-1}(A) \xrightarrow{f} \cdots
+      $$
+      is an exact sequence. The long exact sequence is a functor from $\mathcal{S}$ to $\mathcal{L}$. That is, for every short exact sequence there is a long exact sequence, and for every map (*) of short exact sequences there is a commutative ladder diagram
+      \end{theo}
+      
+      When one computes with modules, it is useful to be able to push elements around. By decoding the above proof, we obtain the following formula for the connecting homomorphism: Let $z \in H_n(C)$, and represent it by a cycle $c \in C_n$. Lift the cycle to $b \in B_n$ and apply $d$. The element $d b$ of $B_{n-1}$ actually belongs to the submodule $Z_{n-1}(A)$ and represents $\partial(z) \in H_{n-1}(A)$.\\
+
+The data of the long exact sequence is sometimes organized into the mnemonic shape
+      $$
+      \begin{array}{ccc}
+      H_*(A) & \longrightarrow & H_*(B) \\
+      { }_2 \nwarrow & & \swarrow \\
+      & & H_*(C)
+      \end{array}
+      $$
+      
+      This is called an exact triangle for obvious reasons. This mnemonic shape is responsible for the term "triangulated category," which we will discuss in Chapter 10. The category $\mathbf{K}$ of chain equivalence classes of complexes and maps (see exercise 1.4.5 in the next section) is an example of a triangulated category.
+
+
+      Now suppose that we are given two chain complexes $C$ and $D$, together with randomly chosen maps $s_n: C_n \rightarrow D_{n+1}$. Let $f_n$ be the map from $C_n$ to $D_n$ defined by the formula $f_n=d_{n+1} s_n+s_{n-1} d_n$.
+      $$
+      \begin{aligned}
+      & C_{n+1} \xrightarrow{d} C_n \xrightarrow{d} C_{n-1} \\
+      & s \swarrow f \downarrow s \swarrow \\
+      & D_{n+1} \underset{d}{\longrightarrow} D_n \underset{d}{\longrightarrow} D_{n-1} \\
+      &
+      \end{aligned}
+      $$ Note that $f$ is, in fact, a chain map.
+
+We say that two chain maps $f$ and $g$ from $C$ to $D$ are chain homotopic if their difference $f-g$ is null homotopic, that is, if
+      $$
+      f-g=s d+d s .
+      $$
+      
+      The maps $\left\{s_n\right\}$ are called a chain homotopy from $f$ to $g$. Finally, we say that $f: C \rightarrow D$ is a chain homotopy equivalence (Bourbaki uses homotopism) if there is a map $g: D \rightarrow C$ such that $g f$ and $f g$ are chain homotopic to the respective identity maps of $C$ and $D$.
+
+\begin{prop}
+    \begin{enumerate}
+        \item If $f: C \rightarrow D$ is null homotopic, then every map $f_*: H_n(C) \rightarrow$ $H_n(D)$ is zero. If $f$ and $g$ are chain homotopic, then they induce the same $\operatorname{maps} H_n(C) \rightarrow H_n(D)$.
+        \item Consider the homology $H_*(C)$ of $C$ as a chain complex with zero differentials. Show that if the complex $C$ is split, then there is a chain homotopy equivalence between $C$ and $H_*(C)$. Give an example in which the converse fails.
+        \item Verify homotoy category!
+    \end{enumerate}
+\end{prop}
+
+\subsection*{Mapping cone}
+.Let $f: B . \rightarrow C$ be a map of chain complexes. The mapping cone of $f$ is the chain complex cone $(f)$ whose degree $n$ part is $B_{n-1} \oplus C_n$. In order to match other sign conventions, the differential in cone $(f)$ is given by the formula
+$$
+d(b, c)=(-d(b), d(c)-f(b)), \quad\left(b \in B_{n-1}, c \in C_n\right) .
+$$
+
 
 \section{Derived functors}
+
 
 \section{Derived categories}
 
 
+\section{Spectral sequences}
 
+Example 1.2.4 A double complex (or bicomplex) in $\mathcal{A}$ is a family $\left\{C_{p, q}\right\}$ of objects of $\mathcal{A}$, together with maps
+$$
+d^h: C_{p, q} \rightarrow C_{p-1, q} \quad \text { and } \quad d^v: C_{p, q} \rightarrow C_{p, q-1}
+$$
+such that $d^h \circ d^h=d^v \circ d^v=d^v d^h+d^h d^v=0$. It is useful to picture the bicomplex $C_{\text {.. }}$ as a lattice \begin{tikzcd}
+    & \vdots \arrow[d] & \vdots \arrow[d] & \vdots \arrow[d] & \\
+    \cdots \arrow[r] & C_{p-1,q+1} \arrow[d, "d^v"'] & C_{p,q+1} \arrow[l, "d^h"'] \arrow[d, "d^v"'] & C_{p+1,q+1} \arrow[l, "d^h"'] \arrow[d, "d^v"'] & \cdots \arrow[l] \\
+    \cdots \arrow[r] & C_{p-1,q} \arrow[d, "d^v"'] & C_{p,q} \arrow[l, "d^h"'] \arrow[d, "d^v"'] & C_{p+1,q} \arrow[l, "d^h"'] \arrow[d, "d^v"'] & \cdots \arrow[l] \\
+    \cdots \arrow[r] & C_{p-1,q-1} \arrow[d] & C_{p,q-1} \arrow[l, "d^h"'] \arrow[d] & C_{p+1,q-1} \arrow[l, "d^h"'] \arrow[l] & \cdots \arrow[l] \\
+    & \vdots & \vdots & \vdots & \\
+    \end{tikzcd}
+    in which the maps $d^h$ go horizontally, the maps $d^v$ go vertically, and each square anticommutes. Each row $C_{* q}$ and each column $C_{p *}$ is a chain complex.
 
+We say that a double complex $C$ is bounded if $C$ has only finitely many nonzero terms along each diagonal line $p+q=n$, for example, if $C$ is concentrated in the first quadrant of the plane (a first quadrant double complex).\\
+Because of the anticommutivity, the maps $d^v$ are not maps in Ch, but chain maps $f_{* q}$ from $C_{* q}$ to $C_{*, q-1}$ can be defined by introducing $\pm$ signs:
+$$
+f_{p, q}=(-1)^p d_{p, q}^v: C_{p, q} \rightarrow C_{p, q-1} .
+$$
+
+Using this sign trick, we can identify the category of double complexes with the category $\mathbf{C h}(\mathbf{C h})$ of chain complexes in the abelian category $\mathbf{C h}$.\\
+Total Complexes 1.2.6 To see why the anticommutative condition $d^v d^h+$ $d^h d^v=0$ is useful, define the total complexes $\operatorname{Tot}(C)=\operatorname{Tot}^{\Pi}(C)$ and $\operatorname{Tot}^{\oplus}(C)$ by
+$$
+\operatorname{Tot}^{\Pi}(C)_n=\prod_{p+q=n} C_{p, q} \quad \text { and } \quad \operatorname{Tot}^{\oplus}(C)_n=\bigoplus_{p+q=n} C_{p, q} \text {. }
+$$
+
+The formula $d=d^h+d^v$ defines maps
+$$
+d: \operatorname{Tot}^{\Pi}(C)_n \rightarrow \operatorname{Tot}^{\Pi}(C)_{n-1} \quad \text { and } \quad d: \operatorname{Tot}^{\oplus}(C)_n \rightarrow \operatorname{Tot}^{\oplus}(C)_{n-1}
+$$
+such that $d \circ d=0$, making $\operatorname{Tot}^{\Pi}(C)$ and $\operatorname{Tot}^{\oplus}(C)$ into chain complexes. Note that $\operatorname{Tot}^{\oplus}(C)=\operatorname{Tot}^{\Pi}(C)$ if $C$ is bounded, and especially if $C$ is a first quadrant double complex.\\ $\operatorname{Tot}^{\Pi}(C)$ and $\operatorname{Tot}^{\oplus}(C)$ do not exist in all abelian categories, like the category of finite abelian groups.
+
+\begin{prop}
+Let $0 \rightarrow A \rightarrow B \rightarrow C \rightarrow 0$ be a short exact sequence of double complexes of modules. Show that there is a short exact sequence of total complexes, and conclude that if $\operatorname{Tot}(C)$ is acyclic, then $\operatorname{Tot}(A) \rightarrow \operatorname{Tot}(B)$ is a quasi-isomorphism.
+\end{prop}
