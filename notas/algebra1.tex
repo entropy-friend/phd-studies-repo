@@ -826,20 +826,33 @@ We say that two chain maps $f$ and $g$ from $C$ to $D$ are chain homotopic if th
 \end{prop}
 
 \subsection*{Mapping cone}
-.Let $f: B . \rightarrow C$ be a map of chain complexes. The mapping cone of $f$ is the chain complex cone $(f)$ whose degree $n$ part is $B_{n-1} \oplus C_n$. In order to match other sign conventions, the differential in cone $(f)$ is given by the formula
+Let $f: B . \rightarrow C$ be a map of chain complexes. The mapping cone of $f$ is the chain complex cone $(f)$ whose degree $n$ part is $B_{n-1} \oplus C_n$. In order to match other sign conventions, the differential in cone $(f)$ is given by the formula
 $$
 d(b, c)=(-d(b), d(c)-f(b)), \quad\left(b \in B_{n-1}, c \in C_n\right) .
 $$
 
 
+
 \section{Derived functors}
+
+
 
 
 \section{Derived categories}
 
 
+
+
+
+
+
+
 \section{Spectral sequences}
 
+
+%adicionar historia 
+
+\subsection{Double complexes}
 Example 1.2.4 A double complex (or bicomplex) in $\mathcal{A}$ is a family $\left\{C_{p, q}\right\}$ of objects of $\mathcal{A}$, together with maps
 $$
 d^h: C_{p, q} \rightarrow C_{p-1, q} \quad \text { and } \quad d^v: C_{p, q} \rightarrow C_{p, q-1}
@@ -860,7 +873,8 @@ f_{p, q}=(-1)^p d_{p, q}^v: C_{p, q} \rightarrow C_{p, q-1} .
 $$
 
 Using this sign trick, we can identify the category of double complexes with the category $\mathbf{C h}(\mathbf{C h})$ of chain complexes in the abelian category $\mathbf{C h}$.\\
-Total Complexes 1.2.6 To see why the anticommutative condition $d^v d^h+$ $d^h d^v=0$ is useful, define the total complexes $\operatorname{Tot}(C)=\operatorname{Tot}^{\Pi}(C)$ and $\operatorname{Tot}^{\oplus}(C)$ by
+
+To see why the anticommutative condition $d^v d^h+$ $d^h d^v=0$ is useful, define the total complexes $\operatorname{Tot}(C)=\operatorname{Tot}^{\Pi}(C)$ and $\operatorname{Tot}^{\oplus}(C)$ by
 $$
 \operatorname{Tot}^{\Pi}(C)_n=\prod_{p+q=n} C_{p, q} \quad \text { and } \quad \operatorname{Tot}^{\oplus}(C)_n=\bigoplus_{p+q=n} C_{p, q} \text {. }
 $$
@@ -874,3 +888,46 @@ such that $d \circ d=0$, making $\operatorname{Tot}^{\Pi}(C)$ and $\operatorname
 \begin{prop}
 Let $0 \rightarrow A \rightarrow B \rightarrow C \rightarrow 0$ be a short exact sequence of double complexes of modules. Show that there is a short exact sequence of total complexes, and conclude that if $\operatorname{Tot}(C)$ is acyclic, then $\operatorname{Tot}(A) \rightarrow \operatorname{Tot}(B)$ is a quasi-isomorphism.
 \end{prop}
+
+\subsection{General definitions}
+
+A \textbf{homology spectral sequence } (starting with $E^a$ ) in an abelian category $\mathcal{A}$ consists of the following data:
+\begin{enumerate}
+    \item 
+    A family $\left\{E_{p q}^r\right\}$ of objects of $\mathcal{A}$ defined for all integers $p, q$, and $r \geq a$
+    \item 
+    Maps $d_{p q}^r: E_{p q}^r \rightarrow E_{p-r, q+r-1}^r$ that are differentials in the sense that $d^r d^r=0$, so that the "lines of slope $ \displaystyle - \left(\frac{r+1}{r}\right)$ " in the lattice $E_{* *}^r$ form chain complexes (we say the differentials go "to the left")
+    \item 
+    Isomorphisms between $E_{p q}^{r+1}$ and the homology of $E_{* *}^r$ at the spot $E_{p q}^r$ :
+    $$
+    E_{p q}^{r+1} \cong \operatorname{ker}\left(d_{p q}^r\right) / \text { image }\left(d_{p+r, q-r+1}^r\right)
+    $$
+\end{enumerate}
+
+($E_{p q}^{r+1}$ is a subquotient of $E_{p q}^r$). The total degree of the term $E_{p q}^r$ is $n=p+q$; the terms of total degree $n$ lie on a line of slope -1 , and each differential $d_{p q}^r$ decreases the total degree by one.\\
+A \textbf{first quadrant} (homology) spectral sequence is one with $E_{p q}^r=0$ unless $p \geq 0$ and $q \geq 0$.\\
+
+There is a \textbf{category of homology spectral sequences}; a morphism $f: E^{\prime} \rightarrow$ $E$ is a family of maps $f_{p q}^r: E_{p q}^{\prime} \rightarrow E_{p q}^r$ in $\mathcal{A}$ (for $r$ suitably large) with $d^r f^r=$ $f^r d^r$ such that each $f_{p q}^{r+1}$ is the map induced by $f_{p q}^r$ on homology.
+
+\subsection*{Bounded convergence}
+You could stop after these definitions! Just look at the Lerray-Serre spectral sequence.\\
+
+A homology spectral sequence is said to be \textbf{bounded} if for each $n$ there are only finitely many nonzero terms of total degree $n$ in $E_{* *}^a$. If so, then for each $p$ and $q$ there is an $r_0$ such that $E_{p q}^r=$ $E_{p q}^{r+1}$ for all $r \geq r_0$. We write $E_{p q}^{\infty}$ for this stable value of $E_{p q}^r$.\\
+To see this, consider a first quadrant spectral sequence $E^a _{pq}$. If we fix $p$ and $q$, then $E_{p q}^r=E_{p q}^{r+1}$ for all large $r(r>\max \{p, q+1\}$ will do), because the $d^r$ landing in the ( $p, q$ ) spot come from the fourth quadrant, while the $d^r$ leaving $E_{p q}^r$ land in the second quadrant.\\ 
+
+We say that a bounded spectral sequence \textbf{converges} to $H_*$ if we are given a family of objects $H_n$ of $\mathcal{A}$, each having a finite filtration
+$$
+0=F_s H_n \subseteq \cdots \subseteq F_{p-1} H_n \subseteq F_p H_n \subseteq F_{p+1} H_n \subseteq \cdots \subseteq F_t H_n=H_n,
+$$
+and we are given isomorphisms $E_{p q}^{\infty} \cong F_p H_{p+q} / F_{p-1} H_{p+q}$. The traditional symbolic way of describing such a bounded convergence is like this:
+$$
+E_{p q}^a \Rightarrow H_{p+q}
+$$
+
+A (homology) spectral sequence collapses at $E^r(r \geq 1)$ if there is exactly one nonzero row or column in the lattice $\left\{E_{p q}^r\right\}$.\\
+If a collapsing spectral sequence converges to $H_*$, we can read the $H_n$ off: $H_n$ is the unique nonzero $E_{p q}^r$ with $p+q=n$. The overwhelming majority of all applications of spectral sequences involve spectral sequences that collapse at $E^1$ or $E^2$.
+
+
+\section{Spectral sequence of a filtered complex}
+A filtration $F$ on a chain complex $C$ is an ordered family of chain subcomplexes $\cdots \subseteq F_{p-1} C \subseteq F_p C \subseteq \cdots$ of $C$. The filtration is \textbf{exhaustive} if $C=\cup F_p C$. 
+
