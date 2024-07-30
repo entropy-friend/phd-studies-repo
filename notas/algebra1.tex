@@ -889,7 +889,7 @@ such that $d \circ d=0$, making $\operatorname{Tot}^{\Pi}(C)$ and $\operatorname
 Let $0 \rightarrow A \rightarrow B \rightarrow C \rightarrow 0$ be a short exact sequence of double complexes of modules. Show that there is a short exact sequence of total complexes, and conclude that if $\operatorname{Tot}(C)$ is acyclic, then $\operatorname{Tot}(A) \rightarrow \operatorname{Tot}(B)$ is a quasi-isomorphism.
 \end{prop}
 
-\subsection{General definitions}
+\subsection{Terminology}
 
 A \textbf{homology spectral sequence } (starting with $E^a$ ) in an abelian category $\mathcal{A}$ consists of the following data:
 \begin{enumerate}
@@ -909,8 +909,8 @@ A \textbf{first quadrant} (homology) spectral sequence is one with $E_{p q}^r=0$
 
 There is a \textbf{category of homology spectral sequences}; a morphism $f: E^{\prime} \rightarrow$ $E$ is a family of maps $f_{p q}^r: E_{p q}^{\prime} \rightarrow E_{p q}^r$ in $\mathcal{A}$ (for $r$ suitably large) with $d^r f^r=$ $f^r d^r$ such that each $f_{p q}^{r+1}$ is the map induced by $f_{p q}^r$ on homology.
 
-\subsection*{Bounded convergence}
-You could stop after these definitions! Just look at the Lerray-Serre spectral sequence.\\
+\subsubsection{Bounded convergence}
+You could stop after reading this part! Just take a look on the Lerray-Serre spectral sequence.\\
 
 A homology spectral sequence is said to be \textbf{bounded} if for each $n$ there are only finitely many nonzero terms of total degree $n$ in $E_{* *}^a$. If so, then for each $p$ and $q$ there is an $r_0$ such that $E_{p q}^r=$ $E_{p q}^{r+1}$ for all $r \geq r_0$. We write $E_{p q}^{\infty}$ for this stable value of $E_{p q}^r$.\\
 To see this, consider a first quadrant spectral sequence $E^a _{pq}$. If we fix $p$ and $q$, then $E_{p q}^r=E_{p q}^{r+1}$ for all large $r(r>\max \{p, q+1\}$ will do), because the $d^r$ landing in the ( $p, q$ ) spot come from the fourth quadrant, while the $d^r$ leaving $E_{p q}^r$ land in the second quadrant.\\ 
@@ -924,10 +924,229 @@ $$
 E_{p q}^a \Rightarrow H_{p+q}
 $$
 
-A (homology) spectral sequence collapses at $E^r(r \geq 1)$ if there is exactly one nonzero row or column in the lattice $\left\{E_{p q}^r\right\}$.\\
-If a collapsing spectral sequence converges to $H_*$, we can read the $H_n$ off: $H_n$ is the unique nonzero $E_{p q}^r$ with $p+q=n$. The overwhelming majority of all applications of spectral sequences involve spectral sequences that collapse at $E^1$ or $E^2$.
+A (homology) spectral sequence \textbf{collapses at $E^r(r \geq 1)$ } if there is exactly one nonzero row or column in the lattice $\left\{E_{p q}^r\right\}$.\\
+If a collapsing spectral sequence converges to $H_*$, we can read the $H_n$ off: $H_n$ is the unique nonzero $E_{p q}^r$ with $p+q=n$. The overwhelming majority of all applications of spectral sequences involve spectral sequences that collapse at $E^1$ or $E^2$.\\
+%mapping cone and spectral sequences exercise 5.4.4!!
 
 
-\section{Spectral sequence of a filtered complex}
-A filtration $F$ on a chain complex $C$ is an ordered family of chain subcomplexes $\cdots \subseteq F_{p-1} C \subseteq F_p C \subseteq \cdots$ of $C$. The filtration is \textbf{exhaustive} if $C=\cup F_p C$. 
+
+\subsubsection{General case}
+
+We are assuming axioms (Ab4) and (Ab4$^*$)!\\
+
+Given a homology spectral sequence, we see that each $E_{p q}^{r+1}$ is a subquotient of the previous term $E_{p q}^r$. By induction on $r$, we see that there is a nested family of subobjects of $E_{p q}^a$ :
+$$
+0=B_{p q}^a \subseteq \cdots \subseteq B_{p q}^r \subseteq B_{p q}^{r+1} \subseteq \cdots \subseteq Z_{p q}^{r+1} \subseteq Z_{p q}^r \subseteq \cdots \subseteq Z_{p q}^a=E_{p q}^a
+$$
+such that $E_{p q}^r \cong Z_{p q}^r / B_{p q}^r$. We introduce the intermediate objects
+$$
+B_{p q}^{\infty}=\bigcup_{r=a}^{\infty} B_{p q}^r \quad \text { and } \quad Z_{p q}^{\infty}=\bigcap_{r=a}^{\infty} Z_{p q}^r
+$$
+and define $E_{p q}^{\infty}=Z_{p q}^{\infty} / B_{p q}^{\infty}$. In a bounded spectral sequence both the union and intersection are finite, so $B_{p q}^{\infty}=B_{p q}^r$ and $Z_{p q}^{\infty}=Z_{p q}^r$ for large $r$. Thus this definition agrees with the previous one.\\
+A homology spectral sequence is said to be \textbf{bounded below }if for each $n$ there is an integer $s=s(n)$ such that the terms $E_{p q}^a$ of total degree $n$ vanish for all $p<s$. These spectral sequences have good convergence properties. Bounded spectral sequences are bounded below. Right half-plane homology spectral sequences are bounded below but not bounded.\\
+
+We say the spectral sequence \textbf{weakly converges} to $H_*$ if we are given objects $H_n$ of $\mathcal{A}$, each having a filtration
+$$
+\cdots \subseteq F_{p-1} H_n \subseteq F_p H_n \subseteq F_{p+1} H_n \subseteq \cdots \subseteq H_n,
+$$
+together with isomorphisms $\beta_{p q}: E_{p q}^{\infty} \cong F_p H_{p+q} / F_{p-1} H_{p+q}$ for all $p$ and $q$. Note that a weakly convergent spectral sequence cannot detect elements of $\cap F_p H_n$, nor can it detect elements in $H_n$ that are not in $\cup F_p H_n$.\\
+We say that the spectral sequence $\left\{E_{p q}^r\right\}$ approaches $H_*$ (or \textbf{abuts} to $H_*$ ) if it weakly converges to $H_*$ and we also have $H_n=\cup F_p H_n$ and $\cap F_p H_n=0$ for all $n$. Every weakly convergent spectral sequence approaches $\cup F_p H_* / \cap$ $F_p H_*$.\\
+
+We say that a spectral sequence is \textbf{regular} if for each $p$ and $q$ the differentials $d_{p q}^r$ (or $d_r^{p q}$ ) leaving $E_{p q}^r$ (or $E_r^{p q}$ ) are zero for all large $r$. \\
+Regularity is the most useful general condition for convergence used in practice; bounded below spectral sequences are also regular. Note that a spectral sequence is regular iff for each $p$ and $q: Z_{p q}^{\infty}=Z_{p q}^r$ for all large $r$.\\
+
+We say that the spectral sequence \textbf{converges} to $H_*$ if it approaches $H_*$, it is regular, and $H_n=\lim \left(H_n / F_p H_n\right)$ for each $n$.\\ 
+A bounded below spectral sequence converges to $H_*$ whenever it approaches $H_*$, because the inverse limit condition is always satisfied in a bounded below spectral sequence.\\
+We say that a map $h: H_* \rightarrow H_*^{\prime}$ is compatible with a morphism $f: E \rightarrow E^{\prime}$ if $h$ maps $F_p H_n$ to $F_p H_n^{\prime}$ and the associated maps $F_p H_n / F_{p-1} H_n \rightarrow F_p H_n^{\prime} / F_{p-1} H_n^{\prime}$ correspond under $\beta$ and $\beta^{\prime}$ to $f_{p q}^{\infty}: E_{p q}^{\infty} \rightarrow$ $E_{p q}^{\prime} \quad(q=n-p)$
+
+\begin{theo}[Comparison Theorem]
+Let $\left\{E_{p q}^r\right\}$ and $\left\{E_{p q}^{\prime r}\right\}$ converge to $H_*$ and $H_*^{\prime}$, respectively. Suppose given a map $h: H_* \rightarrow H_*^{\prime}$ compatible with a morphism $f: E \rightarrow E^{\prime}$ of spectral sequences. If $f^r: E_{p q}^r \cong E_{p q}^{\prime r}$ is an isomorphism for all $p$ and $q$ and some $r$ (hence for $r=\infty$ by the Mapping Lemma), then $h: H_* \rightarrow H_*^{\prime}$ is an isomorphism. 
+\end{theo}
+
+\subsubsection*{Filtered Chains}
+A filtration $F$ on a chain complex $C$ is an ordered family of chain subcomplexes $\cdots \subseteq F_{p-1} C \subseteq F_p C \subseteq \cdots$ of $C$. The filtration is \textbf{exhaustive} if $C=\cup F_p C$. \\
+A filtration on a chain complex $C$ is called \textbf{bounded} if for each $n$ there are integers $s<t$ such that $F_s C_n=0$ and $F_t C_n=C_n$. In this case, there are only finitely many nonzero terms of total degree $n$ in $E_{* *}^0$, so the spectral sequence is bounded.\\
+The filtration is called \textbf{bounded below} if for each $n$ there is an integer $s$ so that $F_s C_n=0$, and it is called \textbf{bounded above} if for each $n$ there is a $t$ so that $F_t C_n=C_n$. Bounded filtrations are bounded above and below. Being bounded above is merely an easy way to ensure that a filtration is exhaustive. %are these definitions equivalent?
+
+\begin{example}
+We call the filtration \textbf{canonically bounded} if $F_{-1} C=0$ and $F_n C_n=C_n$ for each $n$. As $E_{p q}^0=$ $F_p C_{p+q} / F_{p-1} C_{p+q}$, every canonically bounded filtration gives rise to a first quadrant spectral sequence (converging to $H_*(C)$ ). For example, the Leray- Serre spectral sequence arises from a canonically bounded filtration of the singular chain complex $S_*(E)$. %ver geometria
+\end{example}
+
+\begin{theo}[Construction of a spectral sequence]
+A filtration $F$ of a chain complex $C$ naturally determines a spectral sequence starting with $E_{p q}^0=F_p C_{p+q} / F_{p-1} C_{p+q}$ and $E_{p q}^1=H_{p+q}\left(E_{p *}^0\right)$.    
+\end{theo}
+
+A filtration on a chain complex $C$ is called \textbf{Hausdorff} if $\cap F_p C=0$. It will be clear from the construction that both $C$ and its Hausdorff quotient $C^h=C / \cap F_p C$ give rise to the same spectral sequence.\\
+A filtration on $C$ is called \textbf{complete} if $C=\lim C / F_p C$. Complete filtrations are Hausdorff because $\cap F_p C$ is the kernel of the map from $C$ to its completion $\widehat{C}=\operatorname{\operatorname {lim}} C / F_p C$ (which is also a filtered complex: $F_n \widehat{C}=$ $\left.\underset{\longleftarrow}{\lim } F_n C / F_p C\right)$. \\
+Bounded below filtrations are complete, and hence Hausdorff, because $F_s H_n(C)=0$ for each $n$.
+
+\begin{coro}
+The two spectral sequences arising from $C$ and $\widehat{C}$ are the same.    
+\end{coro}
+
+A filtration on a chain complex $C$ induces a filtration on the homology of $C: F_p H_n(C)$ is the image of the map $H_n\left(F_p C\right) \rightarrow H_n(C)$. If the filtration on $C$ is exhaustive, then the filtration on $H_n$ is also exhaustive $\left(H_n=\cup F_p H_n\right)$, because every element of $H_n$ is represented by an element $c$ of some $F_p C_n$ such that $d(c)=0$. If the filtration on $C$ is bounded below then the filtration on each $H_n(C)$ is also bounded below, since $F_p C=0$ implies that $F_p H_n(C)=0$. But this not happen with Hausdorff condition.
+
+\begin{theo}[Classical convergence]
+\begin{enumerate}
+    \item Suppose that the filtration on $C$ is bounded. Then the spectral sequence is bounded and converges to $H_*(C)$ :
+    $$
+    E_{p q}^1=H_{p+q}\left(F_p C / F_{p-1} C\right) \Rightarrow H_{p+q}(C) .
+    $$
+    \item Suppose that the filtration on $C$ is bounded below and exhaustive. Then the spectral sequence is bounded below and also converges to $H_*(C)$.
+    Moreover, the convergence is natural in the sense that if $f: C \rightarrow C^{\prime}$ is a map of filtered complexes, then the map $f_*: H_*(C) \rightarrow H_*\left(C^{\prime}\right)$ is compatible with the corresponding map of spectral sequences.
+\end{enumerate}   
+\end{theo}
+
+
+
+\begin{theo}[Complete convergence]
+Suppose that the filtration on $C$ is complete and exhaustive and the spectral sequence is regular (5.2.10). Then:
+\begin{enumerate}
+    \item 1. The spectral sequence weakly converges to $H_*(C)$.
+    \item If the spectral sequence is bounded above, it converges to $H_*(C)$.
+\end{enumerate}
+\end{theo}
+
+\subsection{Spectral sequences from double complexes}
+There are two filtrations associated to every double complex $C$ (seen as a complex of complexes), resulting in two spectral sequences related to the homology of $\operatorname{Tot}(C)$, each one with interesting properties. The interplay between them is the key of many calculations.\\ %seria bueno definir filtered objects in general??
+
+
+\textbf{Filtration by columns.} If $C=C_{* *}$ is a double complex, we may filter the (product or direct sum) total complex $\operatorname{Tot}(C)$ by the columns of $C$, letting ${ }^I F_n \operatorname{Tot}(C)$ be the total complex of the double subcomplex $\left({ }^I \tau_{\leq n} C\right)_{p q}= \begin{cases}C_{p q} & \text { if } p \leq n \\ 0 & \text { if } p>n\end{cases}$ of $C$. This gives rise to a spectral sequence $\left\{{ }^I E_{p q}^r\right\}$, starting with ${ }^I E_{p q}^0=C_{p q}$. The maps $d^0$ are just the vertical differentials $d^v$ of $C$, so
+$$
+{ }^I E_{p q}^1=H_q^v\left(C_{p *}\right)
+$$
+
+The maps $d^1: H_q^v\left(C_{p *}\right) \rightarrow H_q^v\left(C_{p-1, *}\right)$ are induced on homology from the horizontal differentials $d^h$ of $C$, so we may use the suggestive notation:
+$$
+{}^I E_{p q}^2=H_p^h H_q^v(C)
+$$
+
+If $C$ is a first quadrant double complex, the filtration is canonically bounded, and we have the convergent spectral sequence as in the previous section:
+$$
+{ }^I E_{p q}^2=H_p^h H_q^v(C) \Rightarrow H_{p+q}(\operatorname{Tot}(C))
+$$
+
+\textbf{Filtration by rows.} If $C$ is a double complex, we may also filter $\operatorname{Tot}(C)$ by the rows of $C$, letting ${ }^{I I} F_n \operatorname{Tot}(C)$ be the total complex of $\left({ }^{I I} \tau_{\leq n} C\right)_{p q}= \begin{cases}C_{p q} & \text { if } q \leq n \\ 0 & \text { if } q>n\end{cases}$. \\
+Since $F_p \operatorname{Tot}(C) / F_{p-1} \operatorname{Tot}(C)$ is the row $C_{* p},{ }^I E_{p q}^0=C_{q p}$ and ${ }^{I I} E_{p q}^1=$ $H_q^h\left(C_{* p}\right)$. (Beware the interchange of $p$ and $q$ in the notation!) The maps $d^1$ are induced from the vertical differentials $d^v$ of $C$, so we may use the suggestive notation $$ {}^{II} E^2_{pq} = H^v _p H^h _q (C) .$$
+Of course, this should not be surprising, since interchanging the roles of $p$ and $q$ converts the filtration by rows into the filtration by columns, and interchanges the spectral sequences ${ }^I E$ and ${ }^{I 1} E$.
+
+As before, if $C$ is a first quadrant double complex, this filtration is canonically bounded, and the spectral sequence converges to $H_* \operatorname{Tot}(C)$.\\
+
+We can prove the balancing property of Tor using both spectral sequences. We can also prove the Künneth formula, the Univeral Coefficient Theorem and the Acyclic Assembly Lemma from the following result:
+
+\begin{theo}[Künneth spectral sequence]
+Let $P$ be a bounded below complex of flat $R$-modules and $M$ an $R$-module. Then there is a boundedly converging right half-plane spectral sequence
+    $$
+    E_{p q}^2=\operatorname{Tor}_p^R\left(H_q(P), M\right) \Rightarrow H_{p+q}\left(P \otimes_R M\right)
+    $$    
+\end{theo}
+
+\subsubsection{Hypercohomology}
+Let $\mathcal{A}$ be an abelian category that has enough projectives. A\textbf{ (left) Cartan-Eilenberg resolution} $P_{* *}$ of a chain complex $A_*$ in $\mathcal{A}$ is an upper half-plane double complex ( $P_{p q}=0$ if $q<0$ ), consisting of projective objects of $\mathcal{A}$, together with a chain map ("augmentation") $P_{* 0} \xrightarrow{\epsilon} A_*$ such that for every $p$
+\begin{enumerate}
+    \item If $A_p=0$, the column $P_{p *}$ is zero.
+    \item The maps on boundaries and homology
+    $$
+    \begin{aligned}
+    & B_p(\epsilon): B_p\left(P, d^h\right) \rightarrow B_p(A) \\
+    & H_p(\epsilon): H_p\left(P, d^h\right) \rightarrow H_p(A)
+    \end{aligned}
+    $$
+    are projective resolutions in $\mathcal{A}$. Here $B_p\left(P, d^h\right)$ denotes the horizontal boundaries in the $(p, q)$ spot, that is, the chain complex whose $q^{t h}$ term is $d^h\left(P_{p+1, q}\right)$. The chain complexes $Z_p\left(P, d^h\right)$ and $H_p\left(P, d^h\right)=$ $Z_p\left(P, d^h\right) / B_p\left(P, d^h\right)$ are defined similarly.
+\end{enumerate}
+
+\begin{lemm}
+    Every chain complex has a Cartan-Eilenberg resolution.
+\end{lemm}
+
+Let $f, g: D \rightarrow E$ be two maps of double complexes. A \textbf{chain homotopy} from $f$ to $g$ consists of maps $s_{p q}^h: D_{p q} \rightarrow E_{p+1, q}$ and $s_{p q}^v$ : $D_{p q} \rightarrow E_{p, q+1}$ so that
+\[
+g-f = (d^h s^h + s^h d^h) + (d^v s^v + s^v d^v)
+\]
+\[
+s^v d^h+d^h s^v=s^h d^v+d^v s^h=0.
+\]
+
+This definition is set up so that $\left\{s^h+s^v\right.$ : $\left.\operatorname{Tot}(D)_n \rightarrow \operatorname{Tot}(E)_{n+1}\right\}$ forms an ordinary chain homotopy between the maps $\operatorname{Tot}(f)$ and $\operatorname{Tot}(g)$ from $\operatorname{Tot}^{\oplus}(D)$ to $\operatorname{Tot}^{\oplus}(E)$.
+
+\begin{prop}
+    \begin{enumerate}
+        \item If $f, g: A \rightarrow B$ are homotopic maps of chain complexes, and $\tilde{f}, \tilde{g}: P \rightarrow$ $Q$ are maps of Cartan-Eilenberg resolutions lying over them, show that $\tilde{f}$ is chain homotopic to $\tilde{g}$.
+        \item Show that any two Cartan-Eilenberg resolutions $P, Q$ of $A$ are chain homotopy equivalent. Conclude that for any additive functor $F$ the chain complexes $\operatorname{Tot}^{\oplus}(F(P))$ and $\operatorname{Tot}^{\oplus}(F(Q))$ are chain homotopy equivalent.
+    \end{enumerate}
+\end{prop}
+
+
+Let $F: \mathcal{A} \rightarrow \mathcal{B}$ be a right exact functor, and assume that $\mathcal{A}$ has enough projectives. If $A$ is a chain complex in $\mathcal{A}$ and $P \rightarrow A$ is a Cartan-Eilenberg resolution, define $\mathbb{L}_i F(A)$ to be $H_i \operatorname{Tot}^{\oplus}(F(P))$. The Proposition shows that $\mathbb{L}_i F(A)$ is independent of the choice of $P$.\\
+If $f: A \rightarrow B$ is a chain map and $\tilde{f}: P \rightarrow Q$ is a map of Cartan-Eilenberg resolutions over $f$, define $\mathbb{L}_i F(f)$ to be the map $H_i(\operatorname{Tot}(\tilde{f}))$ from $\mathbb{L}_i F(A)$ to $\mathbb{L}_i F(B)$. The Proposition implies that $\mathbb{L}_i F$ is a functor from $\operatorname{Ch}(\mathcal{A})$ to $\mathcal{B}$, at least when $\mathcal{B}$ is cocomplete. The $\mathbb{L}_i F$ are called the left hyper-derived functors of $F$.\\
+If $\mathcal{B}$ is not cocomplete, $\operatorname{Tot}^{\oplus}(F(P))$ and $\mathbb{L}_i F(A)$ may not exist for all chain complexes $A$. In this case we restrict to the category $\mathrm{Ch}_{+}(\mathcal{A})$ of all chain complexes $A$ which are bounded below in the sense that there is a $p_0$ such that $A_p=0$ for $p<p_0$. Since $P_{p q}=0$ if $p<p_0$ or $q<0, \operatorname{Tot}^{\oplus}(F(P))$ exists in $\mathbf{C h}(\mathcal{B})$ and we may consider $\mathbb{L}_i F$ to be a functor from $\mathrm{Ch}_{+}(\mathcal{A})$ to $\mathcal{B}$.
+
+\begin{lemm}
+If $0 \rightarrow A \rightarrow B \rightarrow C \rightarrow 0$ is a short exact sequence of bounded below complexes, there is a long exact sequence
+    $$
+    \cdots \mathbb{L}_{i+1} F(C) \xrightarrow{\delta} \mathbb{L}_i F(A) \rightarrow \mathbb{L}_i F(B) \rightarrow \mathbb{L}_i F(C) \xrightarrow{\delta} \cdots
+    $$    
+\end{lemm}
+
+
+\begin{prop}
+There is always a convergent spectral sequence
+    $$
+    { }^{I I} E_{p q}^2=\left(L_p F\right)\left(H_q(A)\right) \Rightarrow \mathbb{L}_{p+q} F(A) .
+    $$
+    
+    If $A$ is bounded below, there is a convergent spectral sequence
+    $$
+    { }^I E_{p q}^2=H_p\left(L_q F(A)\right) \Rightarrow \mathbb{L}_{p+q} F(A)
+    $$   
+\end{prop}
+
+\begin{coro}
+\begin{enumerate}
+    \item If $A$ is exact, $\mathbb{L}_i F(A)=0$ for all $i$.
+    \item Any quasi-isomorphism $f: A \rightarrow B$ induces isomorphisms
+    $$
+    \mathbb{L}_* F(A) \cong \mathbb{L}_* F(B)
+    $$
+    \item If each $A_p$ is $F$-acyclic (2.4.3), that is, $L_q F\left(A_p\right)=0$ for $q \neq 0$, and $A$ is bounded below, then
+    $$
+    \mathbb{L}_p F(A)=H_p(F(A)) \text { for all } p
+    $$ 
+\end{enumerate}    
+\end{coro}
+
+we can understand all these result in the more general context of derived categories and functors.\\
+%more interesting tools can be added to this part, but I think it is enough for our purposes
+
+\begin{example} 
+Let $X$ be a topological space and $\mathcal{F}^*$ a cochain complex of sheaves on $X$. The hypercohomology $\mathbb{N}^i\left(X, \mathcal{F}^*\right)$ is $\mathbb{R}^i \Gamma\left(\mathcal{F}^*\right)$, where $\Gamma$ is the global sections functor. This generalizes sheaf cohomology to complexes of sheaves, and if $\mathcal{F}^*$ is a bounded below complex of injective sheaves, then $\mathbb{H}^i\left(X, \mathcal{F}^*\right)=\boldsymbol{H}^i\left(\Gamma\left(\mathcal{F}^*\right)\right)$. The hypercohomology spectral sequence is ${ }^{11} E_2^{p q}=H^p\left(X, H^q\left(\mathcal{F}^*\right)\right) \Rightarrow \mathbb{H}^{p+q}\left(X, \mathcal{F}^*\right)$.
+\end{example}    
+
+\subsubsection*{Grothenidieck spectral sequence}
+
+\textbf{Cohomological Setup.} Let $\mathcal{A}, \mathcal{B}$, and $\mathcal{C}$ be abelian categories such that both $\mathcal{A}$ and $\mathcal{B}$ have enough injectives. We are given left exact functors $G: \mathcal{A} \rightarrow$ $\mathcal{B}$ and $F: \mathcal{B} \rightarrow \mathcal{C}$.\\
+
+Let $F: B \rightarrow C$ be a left exact functor. An object $B$ of $\mathcal{B}$ is called \textbf{$F$-acyclic} if the derived functors of $F$ vanish on $B$, that is, if $R^i F(B)=$ 0 for $i \neq 0$. (Compare with 2.4.3.)
+
+\begin{theo}[Grothendieck Spectral Sequence Theorem]
+Let $\mathcal{A}, \mathcal{B}$, and $\mathcal{C}$ be abelian categories such that both $\mathcal{A}$ and $\mathcal{B}$ have enough projectives. Suppose given right exact functors $G: \mathcal{A} \rightarrow \mathcal{B}$ and $F: \mathcal{B} \rightarrow \mathcal{C}$ such that $G$ sends projective objects of $\mathcal{A}$ to $F$-acyclic objects of $\mathcal{B}$. Then there is a convergent first quadrant homology spectral sequence for each $A$ in $\mathcal{A}$ :
+    $$
+    E_{p q}^2=\left(L_p F\right)\left(L_q G\right)(A) \Rightarrow L_{p+q}(F G)(A) .
+    $$
+    
+    The exact sequence of low degree terms is
+    $$
+    L_2(F G) A \rightarrow\left(L_2 F\right)(G A) \rightarrow F\left(L_1 G(A)\right) \rightarrow L_1(F G) A \rightarrow\left(L_1 F\right)(G A) \rightarrow 0 .
+    $$
+\end{theo} 
+
+
+\begin{example}[Leray Spectral Sequence] Let $f: X \rightarrow Y$ be a continuous map of topological spaces. The direct image sheaf functor $f_*$ (2.6.6) has the exact functor $f^{-1}$ as its left adjoint (exercise 2.6.2), so $f_*$ is left exact and preserves injectives by 2.3.10. If $\mathcal{F}$ is a sheaf of abelian groups on $X$, the global sections of $f_* \mathcal{F}$ is the group $\left(f_* \mathcal{F}\right)(Y)=\mathcal{F}\left(f^{-1} Y\right)=\mathcal{F}(X)$. Thus we are in the situation 
+    
+The Grothendieck spectral sequence in this case is called the Leray spectral sequence: Since $R^p \Gamma$ is sheaf cohomology (2.5.4), it is usually written as
+$$
+E_2^{p q}=H^p\left(Y ; R^q f_* \mathcal{F}\right) \Rightarrow H^{p+q}(X ; \mathcal{F})
+$$
+\end{example}
+
 
