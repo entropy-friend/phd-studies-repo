@@ -52,5 +52,73 @@
 
 
 
+\part*{Topics of Algebraic Topology}
+% Chapters
+
+\chapter{Simplicial sets and complexes}
+
+Simplicial complexes are more intuitive, and are the foundation of algebraic topology. Simplicial sets were also called simplicial schemes and semi-simplicial complexes. 
+
+\section{Simplicial complexes}
+
+
+
+\section{Simplical sets}
+
+Let $\mathbf{\Delta}$ be the category of finite ordinal numbers, with order-preserving maps between them. More precisely, the objects for $\Delta$ consist of elements $\mathbf{n}, n \geq 0$, where $\mathbf{n}$ is a string of relations
+$$
+0 \rightarrow 1 \rightarrow 2 \rightarrow \cdots \rightarrow n
+$$
+(in other words $\mathbf{n}$ is a totally ordered set with $n+1$ elements). A morphism $\theta: \mathbf{m} \rightarrow \mathbf{n}$ is an order-preserving set function, or alternatively a functor. We usually commit the abuse of saying that $\mathbf{\Delta}$ is the ordinal number category.
+
+A simplicial set is a contravariant functor $X: \Delta^{o p} \rightarrow$ Sets, where Sets is the category of sets.
+
+\begin{example}
+    Let $\boldsymbol{\Delta}$ be the category of finite ordinal numbers, with order-preserving maps between them. More precisely, the objects for $\Delta$ consist of elements $\mathbf{n}, n \geq 0$, where $\mathbf{n}$ is a string of relations
+$$
+0 \rightarrow 1 \rightarrow 2 \rightarrow \cdots \rightarrow n
+$$
+(in other words $\mathbf{n}$ is a totally ordered set with $n+1$ elements). A morphism $\theta: \mathbf{m} \rightarrow \mathbf{n}$ is an order-preserving set function, or alternatively a functor. We usually commit the abuse of saying that $\boldsymbol{\Delta}$ is the ordinal number category.
+
+A simplicial set is a contravariant functor $X: \Delta^{o p} \rightarrow$ Sets, where Sets is the category of sets.
+\end{example}
+
+
+
+\section{CW-complexes}
+
+\section{Homotopy theory}
+
+
+
+
+
+\chapter{K-theory constructions} 
+\section{Volodin's K-theory}
+
+Let $G$ be a group and $\left\{G_i\right\}{ }_{i \varepsilon I}$ a family of subgroups. Define $V\left(G,\left\{G_i\right\}\right)$ to be the simplicial scheme, alias simplicial complex, (and also its geometric realization, i.e., $\operatorname{RV}\left(G,\left\{G_i\right\}\right)$ in the notation of, Ch. V, Prop. 7.16), whose vertices are the elements of $G$, where $g_0, \ldots, g_p\left(g_i \neq g_j\right)$ form a $p$-simplex if for some $G_i$ all the elements $g_j g_k^{-1}$ lie in $G_i$. We'11 often shorten the notation to $V(G)$. If $H$ is another group with a family of subgroups $\left\{H_j\right\}$ and $\phi: G \rightarrow H$ is a homomorphism sending each $G_i$ into some $H_j$, then $\phi$ induces a simplicial map $V(\phi): V(G) \rightarrow V(H)$.
+
+In many situations, the space $V(G)$ is not convenient from a technical point of view and it is more convenient to use simplicial sets ([8], Ch. II) instead of simplicial schemes: Denote by $W\left(G,\left\{G_i\right\}\right)$ the geometric realization ([8], Ch. III §3) of the (semi)simplicial set whose p-simplices are the sequences $\left(g_0, \ldots, g_p\right)$ of elements of $G$ (not necessarily distinct) such that for some $G_i$ al1 $g_j g_k^{-1}$ lie in $G_i$, the $r$-th face (resp. degeneracy) of this simplex being obtained by omitting $g_r$ (resp., repeating $g_r$ ). Associating with any p-simplex $\left(g_0, \ldots, g_p\right)$ the linear singular simplex of the space $V(G)$ which sends the $i$-th vertex of the standard simplex to $g_j$, we obtain a map of simplicial sets from $W(G)$ to the simplicial set of singular simplices of $V(G)$ and hence a cellular map (linear on any simplex) from $W(G)$ to $V(G)$. This map is a homotopy equivalence as one sees from the following lemmas.
+
+
+
+
+
+
+
+
+\section{Milnor's K-theory}
+% Add more chapters and sections as neededed
+
+
+\section{Whitehead's K-theory}
+
+\section{Quillen's K-theory}
+
+
+
+\chapter{Homological stability}
+
+
 
 \end{document}
