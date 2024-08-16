@@ -178,10 +178,45 @@ is surjective if $* \leq \frac{n}{2}$ and an isomorphism if $* \leq \frac{n-1}{2
 
 
 
+\chapter*{Stability in algebraic K-theory}
+
+% includes proofs!!!
+
+\section{Previous work}
+%Quillen Wagoner, van der Kallen
+\begin{theo}
+    The canonical map $k_{i, n}^Q(R) \rightarrow k_{i, n+1}^Q(R)$ is surjective for $n \geq 2 i+\max (s . r . R-1,1)-1$ and bijective for $n \geq 2 i+\max (s . r . R-1,1)+1$. 
+\end{theo}
+A common feature in all these papers is the approach to stability problems for higher K-groups through stability for homology of linear groups.
 
 
+\section{Suslin's work}
+\cite{suslinStabilityAlgebraicKtheory1982} 
+
+\begin{theo}
+    Let $R$ be a ring, $r=s . r . R$. The canonical homomorphism $\quad k_{i, n}(R) \rightarrow k_{i, n+1}(R)$ is surjective for $n \geq r+i-1$ and bijective for $n \geq r+i$.    
+    \end{theo}
+
+ \begin{prop}
+If $q \leq n-r$, then the differentials $d_{p q}^t$ are trivial for $t \geq 2$. Moreover $E_{p, q}^{\infty}=0$ for $0<q \leq n-r$.
+ \end{prop}   
+
+ \begin{coro}
+    If $n \geq r+i$ then the action of $S t_n(R)$ and of $S_n$ on $K_{i, n}(R)$ is trivial.
+ \end{coro}
+
+\subsection{Homotopy fiber of Quillen's plus construction}
+
+Suppose that $G$ is a group, $H$ a perfect normal subgroup and $B G \rightarrow \mathrm{BG}^{+}$Quillen's plus construction relative to $H$. Let $Y$ be the homotopy fiber of $B G \rightarrow B G^{+}$.
+
+\begin{lemm}
+    \begin{enumerate}
+        \item a) $Y$ has the homotopy type of a CW-complex.
+        b) $\quad Y$ is connected, $\pi_1(Y)$ is a universal central extension of the perfect group $H \quad($ see $[15]), \pi_j(Y)$ acts trivially on $\pi_i(Y)(i \geq 2)$.
+        c) $\tilde{H}_{\star}(Y)=0$.
+        d) $\quad \pi_i(Y)=\pi_{i+1}\left(B G^{+}\right)$for $i \geq 2$.
+    \end{enumerate}
+    These properties characterize $Y$ up to homotopy equivalence.
+\end{lemm}
 
 
-
-
-\printbibliography % Add this line to print the bibliography section
