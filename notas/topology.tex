@@ -1,0 +1,446 @@
+\part{Topics of Algebraic Topology}
+
+\chapter{Simpliciality and Classifying Spaces}
+References \cite{richterCategoriesHomotopyTheory2020,goerssSimplicialHomotopyTheory2009,hatcherAlgebraicTopology2021}. \\
+
+Simplicial sets were originally used to give precise and convenient descriptions of classifying spaces of groups. This idea was vastly extended by Grothendieck's idea of considering classifying spaces of categories, and in particular by Quillen's work of algebraic K-theory. In this work, which earned him a Fields Medal, Quillen developed surprisingly efficient methods for manipulating infinite simplicial sets. These methods were used in other areas on the border between algebraic geometry and topology. For instance, the André-Quillen homology of a ring is a "non-abelian homology", defined and studied in this way.
+
+Both the algebraic K-theory and the André-Quillen homology are defined using algebraic data to write down a simplicial set, and then taking the homotopy groups of this simplicial set.
+
+Simplicial methods are often useful when one wants to prove that a space is a loop space. The basic idea is that if $G$ is a group with classifying space $B G$, then $G$ is homotopy equivalent to the loop space $\Omega B G$. If $B G$ itself is a group, we can iterate the procedure, and $G$ is homotopy equivalent to the double loop space $\Omega^2 B(B G)$. In case $G$ is an abelian group, we can actually iterate this infinitely many times, and obtain that $G$ is an infinite loop space.
+
+Even if $X$ is not an ab elian group, it can happen that it has a composition which is sufficiently commutative so that one can use the above idea to prove that $X$ is an infinite loop space. In this way, one can prove that the algebraic $K$-theory of a ring, considered as a topological space, is an infinite loop space.
+
+In recent years, simplicial sets have been used in higher category theory and derived algebraic geometry. Quasi-categories can be thought of as categories in which the composition of morphisms is defined only up to homotopy, and information about the composition of higher homotopies is also retained. Quasi-categories are defined as simplicial sets satisfying one additional condition, the weak Kan condition.
+
+As $\mathcal{C}$ is an arbitrary category, we can consider simplicial $R$-modules, simplicial sets, simplicial rings, simplicial topological spaces, and many more. Simplicial sets are particularly important because they model topological spaces (see 10.6.1). Simplicial objects in an abelian category $\mathcal{A}$ model non-negatively graded chain complexes over $\mathcal{A}$. The famous Dold-Kan correspondence (see Theorem 10.11.2) is an equivalence of categories between $s \mathcal{A}$ and $\mathrm{Ch}_{\geq 0}(\mathcal{A})$.
+
+\begin{theo}
+The normalized chain complex is part of an equivalence of categories between the simplicial objects in $\mathcal{A}$ and the non-negatively graded chain complexes over $\mathcal{A}$.   
+\end{theo}
+
+Simplicial complexes are more intuitive, and are the foundation of algebraic topology. $\Delta$-complexes are usueful for computations. Simplicial sets are more suitable to high level concepts.
+
+\section{Simplicial objects in a category}
+
+We consider the finite set $\{0,1, \ldots, n\}$ with its natural ordering $0<1<\ldots<n$ and call this ordered set $[n]$ for all $n \geq 0$. The \textbf{simplicial category}, $\Delta$, has as objects the ordered sets $[n], n \geq 0$, and the morphisms in $\Delta$ are the order-preserving functions, that is, functions $f:[n] \rightarrow[m]$, such that $f(i) \leq f(j)$ for all $i<j$.\\
+Let $\mathcal{C}$ be an arbitrary category. A simplicial object in $\mathcal{C}$ is a contravariant functor from $\Delta$ to $\mathcal{C}$. A cosimplicial object in $\mathcal{C}$ is a covariant functor from $\Delta$ to $\mathcal{C}$.\\
+Simplicial objects in a category $\mathcal{C}$ form a category, where the morphisms are natural transformations of functors. We denote this category by $s \mathcal{C}$, note that \cc can be embedded in $\mathcal{C}$, considering constant simplicial objects.\\
+
+
+
+%The category $\Delta$ is small. As the only order-preserving bijection of the set $[n]$ is the identity map, $\Delta$ has only trivial automorphism groups. Hence, if you take the associated category of isomorphisms, $\operatorname{Iso}(\Delta)$, then this is the discrete category on the objects $[n]$ for $n \geq 0$
+
+How can we describe simplicial objects in an explicit manner? Assume that we have a functor $X: \Delta^{o p} \rightarrow \mathcal{C}$. Then, for every object $[n] \in \Delta$, we have an object $X([n])=: X_n$ in $\mathcal{C}$. As all morphisms in $\Delta$ can be described as a composite of $\delta_i \mathrm{~s}$ and $\sigma_j \mathrm{~s}$, it suffices to know what the maps $X\left(\delta_i\right)=: d_i: X_n \rightarrow X_{n-1}$ and $X\left(\sigma_j\right)=: s_j$ do. Hence, if you want to describe a simplicial object, then you have to understand the sequence of objects $X_0, X_1, \ldots$ and the morphisms $d_i, s_j$ in $\mathcal{C}$. These maps satisfy the dual relations:
+$$
+\begin{aligned}
+& d_i \circ d_j=d_{j-1} \circ d_i, \quad i<j, \\
+& s_i \circ s_j=s_{j+1} \circ s_i, \quad i \leq j \text {, and } \\
+& d_i \circ s_j=\left\{\begin{array}{cl}
+s_{j-1} \circ d_i, & i<j, \\
+1_{[n]}, & i=j, j+1, \\
+s_j \circ d_{i-1}, & i>j+1 .
+\end{array}\right. \\
+&
+\end{aligned}
+$$
+
+Thus a simplicial object can be visualized as a diagram of the form
+$$
+X_0 \stackrel{X_1}{\stackrel{\rightleftarrows}{\rightleftarrows}} X_2 \quad \ldots,
+$$
+where the morphisms $\leftarrow$ correspond to the $d_i \mathrm{~s}$, whereas the morphisms $\rightarrow$ are given by the $s_j \mathrm{~s}$. Note that on $X_n$, you have $n+1$ maps going out to the left and to the right.\\
+The $d_i \mathrm{~s}$ are called \textbf{face} maps and the $s_j \mathrm{~s}$ are called \textbf{degeneracy maps}.
+For a concrete category $\mathcal{C}$ with a faithful functor $U: \mathcal{C} \rightarrow$ Sets the elements $x \in U\left(X_n\right)$ are the $n$-simplices of $X$. We will omit the functor $U$ from the notation. Elements of the form $x=s_i y \in X_n$ for a $y \in X_{n-1}$ are called degenerate $n$-simplices.\\
+
+Let $\Delta_n: \Delta^{o p} \rightarrow$ Sets be the functor given by $[m] \mapsto \Delta([m],[n])$.
+The Yoneda lemma identifies the set $X_n$ with the set of natural transformations from $\Delta_n$ to $X$ for every simplicial set $X$ :
+$$
+X_n \cong s \operatorname{Sets}\left(\triangle_n, X\right)
+$$
+
+The \textbf{category of elements of a simplicial set} $X, \operatorname{el}(X)$, is the category $X \backslash \Delta^{\circ}$ associated with the functor $X: \Delta^{\circ} \rightarrow$ Sets. Explicitly, the objects of el $(X)$ are the $x \in X_n$ for some $n$. The morphisms in el $(X)$ from $x \in X_n$ to $y \in X_m$ are all $f \in \Delta([n],[m])$, with $X(f)(y)=x$.
+
+\begin{prop}[consequence of density theorem]
+For every simplicial set $X$ there is an isomorphism of simplicial sets
+$$
+\operatorname{colim}_{\mathrm{el}(X)} \Delta_n \cong X
+$$
+\end{prop}
+
+\section{Geometric realization}
+
+The geometric realization of a simplicial set was introduced by Milnor [Mi57].
+Definition 10.6.1. Let $X$ be a simplicial set. The geometric realization of $X,|X|$, is the topological space
+$$
+|X|=\bigsqcup_{n \geq 0} X_n \times \triangle^n / \sim .
+$$
+
+Here, we consider the sets $X_n$ as discrete topological spaces, and $\triangle^n$ denotes the topological $n$-simplex
+$$
+\triangle^n=\left\{\left(t_0, \ldots, t_n\right) \in \mathbb{R}^{n+1} \mid 0 \leq t_i \leq 1, \sum t_i=1\right\} .
+$$
+
+The spaces $\triangle^n, n \geq 0$ form a cosimplicial topological space with structure maps
+$$
+\delta_i\left(t_0, \ldots, t_n\right)=\left(t_0, \ldots, t_{i-1}, 0, t_i, \ldots, t_n\right) \text { for } 0 \leq i \leq n
+$$
+and
+$$
+\sigma_j\left(t_0, \ldots, t_n\right)=\left(t_0, \ldots, t_j+t_{j+1}, \ldots, t_n\right) \text { for } 0 \leq i \leq n .
+$$
+
+The quotient in the geometric realization is generated by the relations
+$$
+\left(d_i(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \delta_i\left(t_0, \ldots, t_n\right)\right), \quad\left(s_j(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \sigma_j\left(t_0, \ldots, t_n\right)\right) .
+$$
+
+REMARK 10.6.2. The geometric realization of a simplicial set $X$ is nothing but the coend of the functor
+$$
+H: \Delta^o \times \Delta \rightarrow \text { Top, }
+$$
+with $H([n],[m])=X_n \times \triangle^m$, using that $[n] \mapsto X_n$ is a contravariant functor from $\Delta$ to Sets and that $[m] \mapsto \triangle^m$ is a covariant functor from the category $\Delta$ to the category Top. Here, we use the embedding of Sets into Top.
+
+If $f: X \rightarrow Y$ is a morphism of simplicial sets, that is, a natural transformation from $X$ to $Y$, then $f$ induces a continuous map of topological spaces
+$$
+|f|:|X| \rightarrow|Y|,
+$$
+where an equivalence class $\left[\left(x, t_0, \ldots, t_n\right)\right] \in|X|$ is sent to the class $\left[\left(f(x), t_0, \ldots, t_n\right)\right] \in|Y|$. This turns the geometric realization into a functor from the category of simplicial sets to the category of topological spaces.
+
+Elements of the form $s_j(x)$ are identified with something of a lower degree in the geometric realization, because of the relation
+$$
+\left(s_j(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \sigma_j\left(t_0, \ldots, t_n\right)\right) .
+$$
+
+Hence, these elements do not contribute any geometric information to $|X|$. This might justify the name degenerate for such elements. Note that elements in $X_0$ are never degenerate.
+
+An element $\left(y,\left(t_0, \ldots, t_m\right)\right) \in X_m \times \triangle^m$ is called \textbf{nondegenerate}, if $y$ is not of the form $s_j(x)$ for any $x$ and $j$ and if $\left(t_0, \ldots, t_m\right) \in \Delta^m$ is not a point on the boundary of the topological $m$-simplex.
+
+\begin{prop}
+    The geometric realization of a simplicial ser is a CW complex, such that every nondegenerate $n-$simplex corresponds to a $n-$cell.
+\end{prop}
+
+\begin{example}
+    \begin{enumerate}
+        \item The topological 1 -sphere is the quotient space $[0,1] / 0 \sim 1$. If we want to find a simplicial model for the 1-sphere, such that the geometric realization has the desired cell structure, then we should define a simplicial set $\mathbb{S}^1$ with one 0 -simplex, 0 , and one nondegenerate 1 -simplex, 1 . The simplicial identities force the existence of a 1-simplex $s_0(0)$, so we get two 1-simplices. For the cell structure we do not need any further maps, so we just take these simplices and all the resulting elements that are given due to the simplicial structure maps. We then get $\mathbb{S}_n^1 \cong[n]$ with face and degeneracy maps as follows:
+        $$
+        [0] \stackrel{\rightleftarrows}{\rightleftarrows}[1] \underset{\rightleftarrows}{\rightleftarrows}[2] \ldots,
+        $$
+        
+        The map $s_i:[n] \rightarrow[n+1]$ is the unique monotone injection, whose image does not contain $i+1$, while $d_i:[n] \rightarrow[n-1]$ is given by $d_i(j)=j$ if $j<i, d_i(i)=i$ if $i<n$, and $d_n(n)=0$ and $d_i(j)=j-1$ if $j>i$.
+        
+        The face maps glue the only nondegenerate 1-simplex 1 to the zero simplex $0 \in[0]$, and we obtain that the geometric realization, $\left|\mathbb{S}^1\right|$, is the topological 1sphere.
+        \item The geometric realization of the representable simplicial set $\Delta_n$ is $\left|\Delta_n\right|=\triangle^n$. This is a general fact about tensor products of functors and representable objects 15.1.5. \item Let $X$ and $Y$ be two simplicial sets. We already saw the product, $X \times Y$, which is the simplicial set with $(X \times Y)_n=X_n \times Y_n$. The simplicial structure maps $d_i$ and $s_j$ are defined coordinatewise. Be careful, an $n$-simplex $(x, y) \in X_n \times Y_n$ of the form $\left(s_i x^{\prime}, s_j y^{\prime}\right)$ for $i \neq j$ might not be degenerate in $X_n \times Y_n$, despite the fact that both coordinates are degenerate.
+    \end{enumerate}
+\end{example}
+
+\begin{prop}
+    \begin{enumerate}
+        \item Assume that $X$ and $Y$ are two simplicial sets, such that $|X| \times|Y|$ is a CW complex, with the CW structure induced by the one on $|X|$ and $|Y|$. Then,
+        $$
+        |X \times Y| \cong|X| \times|Y| \text {. }
+        $$
+        \item If $f, g: X \rightarrow Y$ are maps of simplicial sets that are homotopic, then $|f|$ is homotopic to $|g|$.
+    \end{enumerate}
+\end{prop}
+
+We consider the full subcategory $\Delta_{\leq n}$ of $\Delta$ with objects $[0], \ldots,[n]$. The inclusion functor
+$$
+\iota_n: \Delta_{\leq n} \rightarrow \Delta
+$$
+allows us to restrict simplicial sets $X$ to $\Delta_{\leq n}$ by considering $X \circ \iota_n: \Delta_{\leq n}^o \rightarrow$ Sets.
+The \textbf{$n$-skeleton} of a simplicial set $X, s k_n X$, is the left Kan extension of $X \circ \iota_n$ along $\iota_n$.
+It is easy to see that 
+$$
+\left|s k_n X\right| \cong s k_n|X|=: X^{(n)},
+$$
+where $s k_n|X|=X^{(n)}$ denotes the $n$-skeleton of the CW complex $|X|$.
+
+\subsection*{Fat realization of a Semi-simplicial set}
+
+Sometimes, you might want to use a variant of the geometric realization functor. An obvious reason is, that there are sequences of objects $X_0, X_1, \ldots$ that are only connected via face maps, but there are no degeneracy maps. Such functors are often called semisimplicial objects. In that situation, you cannot perform the geometric realization. The other situation that makes an alternative desirable is the situation, where you want to perform the geometric realization of a simplicial space and this space has bad point set behavior.\\
+
+Let $X$ be a simplicial set (or space), then the fat realization of $X,\|X\|$, is
+$$
+\|X\|=\bigsqcup_{n \geq 0} X_n \times \triangle^n / \sim,
+$$
+where the quotient in the fat geometric realization is generated by the relations
+$$
+\left(d_i(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \delta_i\left(t_0, \ldots, t_n\right)\right) .
+$$
+
+There are several alternative descriptions of $\|X\|$. One is to consider the semisimplicial category, $\Delta$, whose objects are the objects of $\Delta$, but we restrict to injective order-preserving maps. These are dual to the face maps used in the identifications in fat geometric realization. Thus, we can describe $\|X\|$ as the coend of the functor
+$$
+H: \Delta^o \times \Delta \rightarrow \text { Top, }
+$$
+with $H([p],[q])=X_p \times \triangle^q$.
+There is yet another description of the fat realization of a simplicial set or simplicial topological space (see, for instance, [We05, Proof of Proposition 1.3] or [Se74, p. 308]) as the ordinary geometric realization of a "fattened up" simplicial set.\\
+Of course, $\|X\|$ also makes sense, if you start with a semisimplicial object, that is, a functor $X: \Delta^o \rightarrow$ Sets.
+
+As we do not collapse degenerate simplices, the fat realization of a simplicial set is larger than the geometric realization.
+\begin{prop}
+    \begin{enumerate}
+        \item If all the $X_n$ are spaces of the homotopy type of a CW complex, then so is $\|X\|$.
+        \item If $f: X \rightarrow Y$ is a morphism of simplicial topological spaces, such that all $f_n: X_n \rightarrow$ $Y_n$ are homotopy equivalences, then $\|f\|$ is a homotopy equivalence.
+        \item Fat realization commutes with finite products.
+    \end{enumerate}
+\end{prop}
+
+
+
+\section{Classifying spaces}
+
+To any small category, you can associate a topological space that takes the data of the category (objects, morphisms, and composition of morphisms) and translates it into a CW complex. This is done in a two-stage process: First you construct a simplicial set out of your category, and then, you form its geometric realization.
+
+\begin{enumerate}
+    \item For a small category $\mathcal{C}$, let $M_n(\mathcal{C})$ be the set
+    $$
+    \left\{C_0 \xrightarrow{f_1} C_1 \xrightarrow{f_2} \ldots \xrightarrow{f_n} C_n \mid C_i \text { object of } \mathcal{C}, f_i \text { morphism in } \mathcal{C}\right\}
+    $$
+    of the $n$-tuples of composable morphisms in $\mathcal{C}$. We denote an element, as earlier, as $\left[f_n|\ldots| f_1\right]$.
+    \item The \textbf{nerve} of the category $\mathcal{C}$ is the simplicial set $N \mathcal{C}: \Delta^{o p} \rightarrow$ Sets, which sends $[n]$ to the set $M_n(\mathcal{C})$. The degeneracies insert identity morphisms
+    $$
+    s_i\left[f_n|\ldots| f_1\right]=\left[f_n|\ldots| f_{i+1}\left|1_{C_i}\right| f_i|\ldots| f_1\right], \quad 0 \leq i \leq n,
+    $$
+    and the face maps compose morphisms:
+    $$
+    d_i\left[f_n|\ldots| f_1\right]= \begin{cases}{\left[f_n|\ldots| f_2\right],} & i=0, \\ {\left[f_n|\ldots| f_{i+1} \circ f_i|\ldots| f_1\right],} & 0<i<n, \\ {\left[f_{n-1}|\ldots| f_1\right],} & i=n .\end{cases}
+    $$
+    \item The \textbf{classifying space} of the category $\mathcal{C}$ is the geometric realization of the nerve of \cc: $B \mathcal{C}=|N \mathcal{C}|$.
+\end{enumerate}
+
+You can also interpret the $i$ th face map as omitting the object $C_i$. If $i$ is 0 or $n$, then the morphism next to $C_i$ just dies with the object, whereas for $0<i<n$, deleting the object causes the composition of the adjacent morphisms.\\
+
+The objects $C$ of $\mathcal{C}$ give zero cells in $B \mathcal{C}$, and a nonidentity morphism from $C$ to $C^{\prime \prime}$ gives rise to an edge whose endpoints correspond to the objects $C$ and $C^{\prime}$. If $g \circ f$ is a composition of morphisms in $\mathcal{C}$, then in the classifying space, you will find a triangle, with edges corresponding to $f, g$, and $g \circ f$. Threefold compositions give rise to tetrahedra and so on.\\
+The topological space $B \mathcal{C}$ is always a $\mathrm{CW}$ complex, and a functor $F: \mathcal{C} \rightarrow \mathcal{D}$ induces a continuous and cellular map of topological spaces:
+$
+B F: B \mathcal{C} \rightarrow B \mathcal{D} \text {. }
+$.\\
+
+Hence, $B$ is a functor from the category cat to the category Top of topological spaces.
+
+
+\begin{example}
+    \begin{enumerate}
+        \item If $X$ is a set and $\mathcal{C}$ is the corresponding discrete category, then the classifying space $B C$ is $X$ with the discrete topology.
+        \item If $G$ is a group and we consider the small category $\mathcal{C}_G$ associated with $G$, then the classifying space $B\left(\mathcal{C}_G\right)$ is called the classifying space of the group $G$ and is denoted by $B G$. If the group $G$ is abelian, then the group composition is a group homomorphism, and it induces a functor $\mathcal{C}_G \times \mathcal{C}_G \rightarrow \mathcal{C}_G$. We therefore obtain a map
+        $$
+        B G \times B G \rightarrow B\left(\mathcal{C}_G \times \mathcal{C}_G\right) \rightarrow B\left(\mathcal{C}_G\right)=B G,
+        $$
+        and for abelian groups $G, B G$ is a topological group. For instance, $B \mathbb{Z} \simeq \mathbb{S}^1$.
+        If $G$ is a topological group, then we can implement the topology into the construction of $B G$ by endowing $G^n \times \triangle^n$ with the product topology.
+        
+        For instance, $B \mathbb{S}^1 \simeq \mathbb{C} P^{\infty}$, and this is an Eilenberg-Mac Lane space of type $(\mathbb{Z}, 2)$, $K(\mathbb{Z}, 2)=\mathbb{C} P^{\infty} \simeq B(B \mathbb{Z})$. In general, if $A$ is a finitely generated abelian group, then the $n$-fold iterated classifying space construction is a model of the Eilenberg-Mac Lane space $K(A, n)$. { why?}
+        
+        If $G$ is a discrete group, then the homology of the group $G$ (with coefficients in $\mathbb{Z}$ ) is the singular homology $H_*(B G ; \mathbb{Z})$.
+        \item For a monoid, one can build $B\left(\mathcal{C}_M\right)$. We will learn more about this space later (see, for instance, Theorem 13.4.6 and Proposition 13.4.4).
+        \item Let us consider the category $\Sigma$. This has as objects the natural numbers (including zero), and the only morphisms are automorphisms with $\Sigma([n],[n])=\Sigma_n$. Therefore, the classifying space of $\Sigma$ has one component for every natural number, because the different objects are not connected by morphisms. Thus,
+        $$
+        B \Sigma=\bigsqcup_{n \geq 0} B \Sigma_n .
+        $$
+        
+        \item If we consider the poset $[n]$ as a category, then the nerve of $[n]$ is isomorphic to the representable functor $\Delta_n$ and $B[n] \cong \triangle^n$.
+    \end{enumerate}
+\end{example}
+
+\begin{theo}
+    \begin{enumerate}
+        \item For two functors $F, F^{\prime}: \mathcal{C} \rightarrow \mathcal{D}$, a natural transformation $\tau: F \Rightarrow F^{\prime}$ induces a homotopy between $B F$ and $B F^{\prime}$.
+        \item If $\mathcal{C} \underset{R}{\stackrel{L}{\rightleftarrows}} \mathcal{D}$ is an adjoint pair of functors, then $B C$ is homotopy equivalent to $B \mathcal{D}$. 
+        \item In particular, an equivalence of categories gives rise to a homotopy equivalence of classifying spaces.
+        \item If a small category \cc has an initial or terminal object, then its classifying space is contractible.
+        \item Let $G$ be a discrete group. We saw that in its translation category, $\mathcal{E}_G$, every object is terminal and initial, and thus, $B \mathcal{E}_G$ is contractible. In fact, $B \mathcal{E}_G$ is a model for the universal space for $G$-bundles, $E G$, and this is, in general, not homeomorphic to a point. For instance. $E \mathbb{Z} / 2 \mathbb{Z}$ is $\mathbb{S}^{\infty}=\operatorname{colim}_n \mathbb{S}^n$.
+        The simplicial structure on $N \mathcal{E}_G$ is as follows: An element in $\left(N \mathcal{E}_G\right)$ is a string
+        $$
+        g_0 \xrightarrow{g_1 g_0^{-1}} g_1 \xrightarrow{g_2 g_1^{-1}} \ldots \xrightarrow{g_q g_{q-1}^{-1}} g_q,
+        $$ but this can be simplified by just remembering the $(q+1)$-tuple of group elements $\left(g_0, \ldots, g_q\right)$. With this identification, the face maps omit a $g_i$, and the degeneracies double a $g_i$.
+    \end{enumerate}
+\end{theo}
+
+
+
+
+
+
+
+
+
+\chapter{Simplicial Complexes}
+
+
+\section{(Abstract) simplical complexes}
+
+A set (of \textbf{vertices}) together with a  family of finite subsets (\textbf{simplexes}) such that every subset of every simplex is a simplex and every subset consisting of a single vertex is a simplex.  
+
+\begin{example}
+    \begin{enumerate}
+        \item The \textbf{standard n-simplex} $\Delta^n$ is the set of all $(n+1)$-tuples $(t_0, \ldots, t_n)$ of non-negative real numbers such that $t_0 + \cdots + t_n = 1$. The standard 0-simplex is a point, the standard 1-simplex is a line segment, the standard 2-simplex is a triangle, and so on.
+
+        \item The \textbf{boundary} of the standard n-simplex $\Delta^n$ is the set of all $(n+1)$-tuples $(t_0, \ldots, t_n)$ of non-negative real numbers such that $t_0 + \cdots + t_n = 1$ and at least one of the $t_i$ is zero. The boundary of the standard 0-simplex is empty, the boundary of the standard 1-simplex is the set of its two endpoints, the boundary of the standard 2-simplex is the set of its three edges, and so on.
+
+        \item (\textbf{Concrete simplicial complexes}) It is subset of $\mathbb{R}^n$ that is a union of standard simplices, that satisfies the previous conditions.
+
+        \item If Y is a subset of the vertex set of a simplicial scheme $S$, then we can introduce on it the induced simplicial scheme structure $ Y \cap S$, by defining the simplexes as the subsets of $ Y $ that are simplexes of $S$.  
+
+        \item Let $X$ be a set and let $\{p(y): y \in Y\}$ be a covering of $X$. Then we can consider two simplicial complexes. 
+        \begin{enumerate}
+            \item The nerve $\operatorname{Nerv}(p)$ of the covering is the simplicial scheme with the vertex set $Y$, and a subset $Z$ of $Y$ is counted as a simplex if the intersection $\underset{Z}{\cap} p(y)$ is non-empty. 
+            \item The simplicial complex $V(p)$ is the simplicial scheme with the vertex set $X$, and a subset $Z$ of $X$ is counted as a simplex if $Z$ is contained in some $p(y)$.
+        \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+\subsection*{Geometric realization}
+
+The construction goes as follows. First, define $|K|$ as a subset of $[0,1]^S$ consisting of functions $t: S \rightarrow[0,1]$ satisfying the two conditions: $\square$
+$$
+\begin{aligned}
+& \left\{s \in S: t_s>0\right\} \in K \\
+& \sum_{s \in S} t_s=1
+\end{aligned}
+$$
+
+Now think of the set of elements of $[0,1]^S$ with finite support as the direct limit of $[0,1]^A$ where $A$ ranges over finite subsets of $S$, and give that direct limit the induced topology. Now give $|K|$ the subspace topology. \textit{It is always Hausdorff}. We will identify an abstract simplicial complex with its geometric realization.
+
+
+
+
+
+
+
+
+
+\section{CW-complexes}
+
+They can be defined in an inductive way:
+
+\begin{enumerate}
+    \item Start with a discrete set $X^0$, whose points are regarded as 0 -cells.
+    \item Inductively, form the $\boldsymbol{n}$-skeleton $X^n$ from $X^{n-1}$ by attaching $n$-cells $e_\alpha^n$ via maps $\varphi_\alpha: S^{n-1} \rightarrow X^{n-1}$. This means that $X^n$ is the quotient space of the disjoint union $X^{n-1} \amalg_\alpha D_\alpha^n$ of $X^{n-1}$ with a collection of $n$-disks $D_\alpha^n$ under the identifications $x \sim \varphi_\alpha(x)$ for $x \in \partial D_\alpha^n$. Thus as a set, $X^n=X^{n-1} \amalg_\alpha e_\alpha^n$ where each $e_\alpha^n$ is an open $n$-disk.
+    \item One can either stop this inductive process at a finite stage, setting $X=X^n$ for some $n<\infty$, or one can continue indefinitely, setting $X=\cup_n X^n$. In the latter case $X$ is given the weak topology: A set $A \subset X$ is open (or closed) iff $A \cap X^n$ is open (or closed) in $X^n$ for each $n$.
+    
+\end{enumerate}
+
+\begin{example}
+    \begin{enumerate}
+        \item A 1-dimensional cell complex $X=X^1$ is what is called a graph in algebraic topology. It consists of vertices (the 0 -cells) to which edges (the 1-cells) are attached. The two ends of an edge can be attached to the same vertex.
+        \item The sphere $S^n$ has the structure of a cell complex with just two cells, $e^0$ and $e^n$, the $n$-cell being attached by the constant map $S^{n-1} \rightarrow e^0$. This is equivalent to regarding $S^n$ as the quotient space $D^n / \partial D^n$.
+        \item \textbf{Real projective $\boldsymbol{n}$-space $\mathbb{R} \mathrm{P}^n$.} It is equivalent to the quotient space of a hemisphere $D^n$ with antipodal points of $\partial D^n$ identified. Since $\partial D^n$ with antipodal points identified is just $\mathbb{R P} \mathrm{P}^{n-1}$, we see that $\mathbb{R} \mathrm{P}^n$ is obtained from $\mathbb{R} \mathrm{P}^{n-1}$ by attaching an $n$-cell, with the quotient projection $S^{n-1} \rightarrow \mathbb{R} P^{n-1}$ as the attaching map. It follows by induction on $n$ that $\mathbb{R P}^n$ has a cell complex structure $e^0 \cup e^1 \cup \cdots \cup e^n$ with one cell $e^i$ in each dimension $i \leq n$.\\
+        The infinite union $\mathbb{R} P^{\infty}=U_n \mathbb{R} P^n$ becomes a cell complex with one cell in each dimension. We can view $\mathbb{R} P^{\infty}$ as the space of lines through the origin in $\mathbb{R}^{\infty}=\bigcup_n \mathbb{R}^n$.
+        
+        \item \textbf{Complex projective space $\mathbb{C} P^n$.} It is equivalent to the quotient of the unit sphere $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with $v \sim \lambda v$ for $|\lambda|=1$. \\
+        It is also possible to obtain $\mathbb{C P}^n$ as a quotient space of the disk $D^{2 n}$ under the identifications $v \sim \lambda v$ for $v \in \partial D^{2 n}$, in the following way. The vectors in $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with last coordinate real and nonnegative are precisely the vectors of the form $\left(w, \sqrt{1-|w|^2}\right) \in \mathbb{C}^n \times \mathbb{C}$ with $|w| \leq 1$. Such vectors form the graph of the function $w \mapsto \sqrt{1-|w|^2}$. This is a disk $D_{+}^{2 n}$ bounded by the sphere $S^{2 n-1} \subset S^{2 n+1}$ consisting of vectors $(w, 0) \in \mathbb{C}^n \times \mathbb{C}$ with $|w|=1$. Each vector in $S^{2 n+1}$ is equivalent under the identifications $v \sim \lambda v$ to a vector in $D_{+}^{2 n}$, and the latter vector is unique if its last coordinate is nonzero. If the last coordinate is zero, we have just the identifications $v \sim \lambda v$ for $v \in S^{2 n-1}$.\\
+        It follows that $\mathbb{P}^n$ is obtained from $\mathbb{C} \mathrm{P}^{n-1}$ by attaching a cell $e^{2 n}$ via the quotient map $S^{2 n-1} \rightarrow \mathbb{C P}^{n-1}$. So by induction on $n$ we obtain a cell structure $\mathbb{C P}^n=e^0 \cup e^2 \cup \cdots \cup e^{2 n}$ with cells only in even dimensions. Similarly, $\mathbb{C P}^{\infty}$ has a cell structure with one cell in each even dimension.
+    \end{enumerate}
+\end{example}
+
+Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $\Phi_\alpha: D_\alpha^n \rightarrow X$ which extends the attaching map $\varphi_\alpha$ and is a homeomorphism from the interior of $D_\alpha^n$ onto $e_\alpha^n$. Namely, we can take $\Phi_\alpha$ to be the composition $D_\alpha^n \hookrightarrow X^{n-1} \coprod_\alpha D_\alpha^n \rightarrow X^n \hookrightarrow X$ where the middle map is the quotient map defining $X^n$. 
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Geometric Group Theory}
+
+By a \textbf{$G$-complex} we will mean a $C W$-complex $X$ together with an action of $G$ on $X$ which permutes the cells. Thus we have for each $g \in G$ a homeomorphism $x \mapsto g x$ of $X$ such that the image go of any cell $\sigma$ of $X$ is again a cell. For example, if $X$ is a simplicial complex on which $G$ acts simplicially, then $X$ is a $G$-complex.
+
+If $X$ is a $G$-complex then the action of $G$ on $X$ induces an action of $G$ on the cellular chain complex $C_*(X)$, which thereby becomes a chain complex of $G$-modules. Moreover, the canonical augmentation $\varepsilon: C_0(X) \rightarrow \mathbb{Z}$ (defined by $\varepsilon(v)=1$ for every 0 -cell $v$ of $X$ ) is a map of $G$-modules.
+
+We will say that $X$ is a free $G$-complex if the action of $G$ freely permutes the cells of $X$ (i.e., $g \sigma \neq \sigma$ for all $\sigma$ if $g \neq 1$ ). In this case each chain module $C_n(X)$ has a $\mathbb{Z}$-basis which is freely permuted by $G$, hence by $3.1 C_n(X)$ is a free $\mathbb{Z} G$-module with one basis element for every $G$-orbit of cells. (Note that to obtain a specific basis we must choose a representative cell from each orbit and we must choose an orientation of each such representative.)
+
+Finally, if $X$ is contractible, then $H_*(X) \approx H_*$ (pt.); in other words, the sequence
+$$
+\cdots \rightarrow C_n(X) \stackrel{\partial}{\rightarrow} C_{n-1}(X) \rightarrow \cdots \rightarrow C_0(X) \stackrel{\varepsilon}{\rightarrow} \mathbb{Z} \rightarrow 0
+$$
+is exact. We have, therefore:
+
+\begin{prop}
+    
+    Let $X$ be a contractible free $G$-complex. Then the augmented cellular chain complex of $X$ is a free resolution of $\mathbb{Z}$ over $\mathbb{Z} G$.
+\end{prop}
+
+
+
+
+\section{Classifying space of groups}
+
+Suppose that $\mathcal{C}$ is a (small) category. The classifying space (or nerve ) $B \mathcal{C}$ of $\mathcal{C}$ is the simplicial set with
+$$
+B \mathcal{C}_n=\operatorname{hom}_{\text {cat }}(\mathbf{n}, \mathcal{C}),
+$$
+$n$-simplex is a string
+$$
+a_0 \xrightarrow{\alpha_1} a_1 \xrightarrow{\alpha_2} \ldots \xrightarrow{\alpha_n} a_n
+$$
+of composeable arrows of length $n$ in $\mathcal{C}$.\\
+
+If $G$ is a group, then $G$ can be identified with a category (or groupoid) with one object $*$ and one morphism $g: * \rightarrow *$ for each element $g$ of $G$, and so the classifying space $B G$ of $G$ is defined. Moreover $|B G|$ is an Eilenberg-Mac Lane space of the form $K(G, 1)$, as the notation suggests; this is now the standard construction.
+
+
+Recall that we constructed $B G$ as the geometric realisation of the nerve of a category * // $G$. As the notation suggests, this can be interpreted as a quotient, or more precisely a homotopy quotient. One can construct the homotopy quotient $X / / G$ of any space $X$ with $G$-action by a group $G$, and here we just take $X=*$. By abuse of notation * // $G=|N(* / / G)|{ }^2$ A reference for its construction and properties is [Rie14], but we will only need the following facts:
+
+\begin{enumerate}
+    \item Homotopy quotients are natural. If $X \rightarrow Y$ is an equivariant map between $G$-spaces then there is an induced map $X / / G \rightarrow Y / / G$.
+    \item Homotopy quotients preserve homological connectivity. If $X \rightarrow Y$ is an equivariant map between $G$-spaces which is homologically $d$-connected then $X / / G \rightarrow Y / / G$ is also homologically $d$-connected. (Recall that a map is homologically $d$-connected if it is an isomorphism on $H_i$ for $i<d$ and surjection on $H_d$.)
+    \item Homotopy quotients commute with geometric realisation. If $X_{\bullet}$ is a semi-simplicial $G$-space, then $\left\|X_{\bullet}\right\| / / G \simeq\left\|X_{\bullet} / / G\right\|$. (We will explain the terminology and notation later.)
+    \item Homotopy quotients of transitive $G$-sets. If $S$ is a transitive $G$-set, then $S / / G \simeq$ $B \operatorname{Stab}_G(s)$ for any $s \in S$.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\chapter{Homotopy theory}
+
+Let $I^n$ be the $n$-dimensional unit cube, the product of $n$ copies of the interval $[0,1]$. The boundary $\partial I^n$ of $I^n$ is the subspace consisting of points with at least one coordinate equal to 0 or 1 . For a space $X$ with basepoint $x_0 \in X$, define $\pi_n\left(X, x_0\right)$ to be the set of homotopy classes of maps $f:\left(I^n, \partial I^n\right) \rightarrow\left(X, x_0\right)$, where homotopies $f_t$ are required to satisfy $f_t\left(\partial I^n\right)=x_0$ for all $t$. The definition extends to the case $n=0$ by taking $I^0$ to be a point and $\partial I^0$ to be empty, so $\pi_0\left(X, x_0\right)$ is just the set of path-components of $X$.
+
+When $n \geq 2$, a sum operation in $\pi_n\left(X, x_0\right)$, generalizing the composition operation in $\pi_1$, is defined by
+$$
+(f+g)\left(s_1, s_2, \cdots, s_n\right)= \begin{cases}f\left(2 s_1, s_2, \cdots, s_n\right), & s_1 \in[0,1 / 2] \\ g\left(2 s_1-1, s_2, \cdots, s_n\right), & s_1 \in[1 / 2,1]\end{cases}
+$$
+
+It is evident that this sum is well-defined on homotopy classes. Since only the first coordinate is involved in the sum operation, the same arguments as for $\pi_1$ show that $\pi_n\left(X, x_0\right)$ is a group, with identity element the constant map sending $I^n$ to $x_0$ and with inverses given by $-f\left(s_1, s_2, \cdots, s_n\right)=f\left(1-s_1, s_2, \cdots, s_n\right)$.
+
+
+\begin{prop}
+    If $n \geq 2$, then $\pi_n\left(X, x_0\right)$ is abelian.
+\end{prop}
+
+
+\section{Covering spaces}
+%estamos solo usando estos resultados... deberiamos dar mejores definiciones
+
+
+In view of 4.1, it is natural now to consider $C W$-complexes $Y$ satisfying the following three conditions:
+\begin{enumerate}
+    \item $Y$ is connected.
+    \item $\pi_1(Y)$ is isomorphic to $G$.
+    \item The universal covering space $X$ of $Y$ is contractible.
+\end{enumerate}
+
+
+
+\section{Eilenberg-Mac Lane spaces}
+
+The $n$th singular cohomology group of a space $X$ with coefficients in an abelian group $A$ is isomorphic to the homotopy classes of maps from $X$ to an Eilenberg-Mac Lane space, denoted by $K(A, n)$ of the homotopy type of a CW space, such that
+$$
+\pi_i K(A, n)= \begin{cases}A, & \text { if } i=n \\ 0, & \text { otherwise }\end{cases}
+$$
+
+The $K(A, n)$ are infinite loop spaces, and hence, the set of homotopy classes of maps $[X, K(A, n)]$ is actually an abelian group for all $n \geq 0$ and
+$$
+H^n(X ; A) \cong[X, K(A, n)]
+$$
+is an isomorphism of abelian groups that is natural in the space $X$. Thus the functor $X \mapsto$ $H^n(X ; A)$ is representable. A cohomology operation $\varphi_{(A, n),(B, m)}: H^n(X ; A) \rightarrow H^m(X ; B)$, which is natural in $X$, can hence be identified with a natural transformation between the functors $X \mapsto[X, K(A, n)]$ and $X \mapsto[X, K(B, m)]$, and these in turn are in bijection with $[K(A, n), K(B, m)] \cong H^m(K(A, n) ; B)$. Here, we actually get an isomorphism of abelian groups!! As $K(A, n)$ doesn't have nontrivial cohomology groups below degree $n$ (due to the Hurewicz theorem), these operations are trivial for $m<n$. For $A=B=\mathbb{F}_p$, a prime field, the collection of all such cohomology operations constitutes the Steenrod algebra.
+
+More generally, Brown's representability theorem states that every generalized cohomology theory can be represented by an Omega spectrum ([Ad74], [Sw75, chapter 9]).
