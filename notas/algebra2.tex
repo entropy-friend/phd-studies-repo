@@ -24,7 +24,7 @@ Let G be a finitely generated abelian group.
 
 \section{Actions}
 
-An action of a group G on a set S is a function $\mathrm{G} \times \mathrm{S} \rightarrow \mathrm{S}$ (usually denoted by $(\mathrm{g}, \mathrm{x}) \mapsto \mathrm{gx}$ ) such that for all $\mathrm{x} \varepsilon \mathrm{S}$ and $\mathrm{g}_1, \mathrm{~g}_2 \in \mathrm{G}$ :
+\cite{brownCohomologyGroups1982} An action of a group G on a set S is a function $\mathrm{G} \times \mathrm{S} \rightarrow \mathrm{S}$ (usually denoted by $(\mathrm{g}, \mathrm{x}) \mapsto \mathrm{gx}$ ) such that for all $\mathrm{x} \varepsilon \mathrm{S}$ and $\mathrm{g}_1, \mathrm{~g}_2 \in \mathrm{G}$ :
 $$
 \mathrm{ex}=\mathrm{x} \quad \text { and } \quad\left(\mathrm{g}_1 \mathrm{~g}_2\right) \mathrm{x}=\mathrm{g}_1\left(\mathrm{~g}_2 \mathrm{x}\right) .
 $$
@@ -45,18 +45,6 @@ $$ In particular, we can take $G$ acting on itself by conjugation, so that the c
 \end{theo}
 
 Let $G$ and $H$ be groups and $\theta: H \rightarrow$ Aut $G$ a homomorphism. Let $G \times_\theta H$ be the set $G \times H$ with the following binary operation: $(g, h)\left(g^{\prime}, h^{\prime}\right)=\left(g\left[\theta(h)\left(g^{\prime}\right)\right], h h^{\prime}\right)$. Show that $G \times_\theta H$ is a group with identity element $(e, e)$ and $(g, h)^{-1}=$ $\left(\theta\left(h^{-1}\right)\left(g^{-1}\right), h^{-1}\right) . G \times_\theta H$ is called the semidirect product of $G$ and $H$.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -89,11 +77,49 @@ $$
 M_G \approx \mathbb{Z} \otimes_{\mathbb{Z} G} M .
 $$
 
-Here, in order for the tensor product to make sense, we regard $\mathbb{Z}$ as a right $\mathbb{Z} G$-module (with trivial $G$-action). To prove 2.1 , note that in $\mathbb{Z} \otimes_{\mathbb{Z} G} M$ we have the identity $1 \otimes g m=1 \cdot g \otimes m=1 \otimes m ;$ hence there is a map $M_G \rightarrow$ $\mathbb{Z} \otimes_{\mathbb{Z} G} M$ given by $\bar{m} \mapsto 1 \otimes m$, where $\bar{m}$ denotes the image in $M_G$ of an element $m \in M$. On the other hand, using the universal property of the tensor product, we can define a map $\mathbb{Z} \otimes_{\mathbb{Z} G} M \rightarrow M_G$ by $a \otimes m \mapsto a \bar{m}$. These two maps are inverses of one another.
+Here, in order for the tensor product to make sense, we regard $\mathbb{Z}$ as a right $\mathbb{Z} G$-module (with trivial $G$-action). To prove 2.1 , note that in $\mathbb{Z} \otimes_{\mathbb{Z} G} M$ we have the identity $1 \otimes g m=1 \cdot g \otimes m=1 \otimes m ;$ hence there is a map $M_G \rightarrow$ $\mathbb{Z} \otimes_{\mathbb{Z} G} M$ given by $\bar{m} \mapsto 1 \otimes m$, where $\bar{m}$ denotes the image in $M_G$ of an element $m \in M$. On the other hand, using the universal property of the tensor product, we can define a map $\mathbb{Z} \otimes_{\mathbb{Z} G} M \rightarrow M_G$ by $a \otimes m \mapsto a \bar{m}$. These two maps are inverses of one another. $$\text{Also} M^G \simeq \operatorname{Hom}_G(\mathbb{Z},M) $$
 
 In view of 2.1 and standard properties of the tensor product, we immediately obtain the following two properties of the co-invariants functor:
 
+\begin{enumerate}
+    \item Right-exactness: Given an exact sequence $M^{\prime} \rightarrow M \rightarrow M^{\prime \prime} \rightarrow 0$ of $G$-modules, the induced sequence $M_G^{\prime} \rightarrow M_G \rightarrow M_G^{\prime \prime} \rightarrow 0$ is exact.
+    \item If $F$ is a free $\mathbb{Z} G$-module with basis $\left(e_i\right)$, then $F_G$ is a free $\mathbb{Z}$-module with basis $\left(\bar{e}_i\right)$.
+\end{enumerate}
 
+\begin{prop}
+    
+    Let $X$ be a free G-complex and let $Y$ be the orbit complex $X / G$. Then $C_*(Y) \approx C_*(X)_G$.
+\end{prop}
+
+%incluir más sobre teoria geometrica de grupos
+
+
+
+
+
+\section{Cohomology}
+References \cite{weibelIntroductionHomologicalAlgebra1994}.
+Let $A$ be a $G$-module. We write $H_*(G ; A)$ for the left derived functors $L_*\left(-_G\right)(A)$ and call them the homology groups of $G$ with $c O$ efficients in $A ;$ by the lemma above, $$H_*(G ; A) \cong \operatorname{Tor}_*^{\mathbb{Z} G}(\mathbb{Z}, A)$$ By definition, $H_0(G ; A)=A_G$. Similarly, we write $H^*(G ; A)$ for the right derived functors $R^*\left({ }^G\right)(A)$ and call them the cohomology groups of $G$ with coefficients in $A ;$ by the lemma above, $$H^*(G ; A) \cong \operatorname{Ext}_{\mathbb{Z} G}^*(\mathbb{Z}, A)$$ By definition, $H^0(G ; A)=A^G$
+
+Example 6.1.3 If $G=1$ is the trivial group, $A_G=A^G=A$. Since the higher derived functors of an exact functor vanish, $H_*(1 ; A)=H^*(1 ; A)=0$ for * $\neq 0$.
+
+Example 6.1.4 Let $G$ be the infinite cyclic group $T$ with generator $t$. We may identify $\mathbb{Z} T$ with the Laurent polynomial ring $\mathbb{Z}\left[t, t^{-1}\right]$. Since the sequence
+
+$$
+0 \rightarrow \mathbb{Z} T \xrightarrow{t-1} \mathbb{Z} T \rightarrow \mathbb{Z} \rightarrow 0
+$$
+
+is exact,
+
+$$
+\begin{aligned}
+& H_n(T ; A)=H^n(T ; A)=0 \text { for } n \neq 0,1, \text { and } \\
+& H_1(T ; A) \cong H^0(T ; A)=A^T, H^1(T ; A) \cong H_0(T ; A)=A_T
+\end{aligned}
+$$
+
+
+In particular, $H_1(T ; \mathbb{Z})=H^1(T ; \mathbb{Z})=\mathbb{Z}$. We will see in the next section that all free groups display similar behavior, because $p d_G(\mathbb{Z})=1$.
 
 
 \section{An spectral sequence for group cohomology}
