@@ -101,29 +101,193 @@ In view of 2.1 and standard properties of the tensor product, we immediately obt
 References \cite{weibelIntroductionHomologicalAlgebra1994}.
 Let $A$ be a $G$-module. We write $H_*(G ; A)$ for the left derived functors $L_*\left(-_G\right)(A)$ and call them the homology groups of $G$ with $c O$ efficients in $A ;$ by the lemma above, $$H_*(G ; A) \cong \operatorname{Tor}_*^{\mathbb{Z} G}(\mathbb{Z}, A)$$ By definition, $H_0(G ; A)=A_G$. Similarly, we write $H^*(G ; A)$ for the right derived functors $R^*\left({ }^G\right)(A)$ and call them the cohomology groups of $G$ with coefficients in $A ;$ by the lemma above, $$H^*(G ; A) \cong \operatorname{Ext}_{\mathbb{Z} G}^*(\mathbb{Z}, A)$$ By definition, $H^0(G ; A)=A^G$
 
-Example 6.1.3 If $G=1$ is the trivial group, $A_G=A^G=A$. Since the higher derived functors of an exact functor vanish, $H_*(1 ; A)=H^*(1 ; A)=0$ for * $\neq 0$.
-
-Example 6.1.4 Let $G$ be the infinite cyclic group $T$ with generator $t$. We may identify $\mathbb{Z} T$ with the Laurent polynomial ring $\mathbb{Z}\left[t, t^{-1}\right]$. Since the sequence
-
-$$
+\begin{example}
+    \begin{enumerate}
+        \item If $G=1$ is the trivial group, $A_G=A^G=A$. Since the higher derived functors of an exact functor vanish, $H_*(1 ; A)=H^*(1 ; A)=0$ for * $\neq 0$.
+        \item Let $G$ be the infinite cyclic group $T$ with generator $t$. We may identify $\mathbb{Z} T$ with the Laurent polynomial ring $\mathbb{Z}\left[t, t^{-1}\right]$. Since the sequence $$
 0 \rightarrow \mathbb{Z} T \xrightarrow{t-1} \mathbb{Z} T \rightarrow \mathbb{Z} \rightarrow 0
 $$
-
 is exact,
-
 $$
 \begin{aligned}
 & H_n(T ; A)=H^n(T ; A)=0 \text { for } n \neq 0,1, \text { and } \\
 & H_1(T ; A) \cong H^0(T ; A)=A^T, H^1(T ; A) \cong H_0(T ; A)=A_T
 \end{aligned}
 $$
-
-
 In particular, $H_1(T ; \mathbb{Z})=H^1(T ; \mathbb{Z})=\mathbb{Z}$. We will see in the next section that all free groups display similar behavior, because $p d_G(\mathbb{Z})=1$.
+    \end{enumerate}
+\end{example}
+
+The \textbf{augmentation ideal} of $\mathbb{Z} G$ is the kernel $\mathfrak{I}$ of the ring map $\mathbb{Z} G \xrightarrow{\epsilon} \mathbb{Z}$ which sends $\sum n_g g$ to $\sum n_g$. Because $\{1\} \cup\{g-1: g \in G$, $g \neq 1\}$ is a basis for $\mathbb{Z} G$ as a free $\mathbb{Z}$-module, it follows that $\mathfrak{I}$ is a free $\mathbb{Z}$ module with basis $\{g-1: g \in G, g \neq 1\}$.
+
+\begin{example}
+    \begin{enumerate}
+        \item Since the trivial $G$-module $\mathbb{Z}$ is $\mathbb{Z} G / \mathfrak{J}, H_0(G ; A)=A_G$ is isomorphic to $\mathbb{Z} \otimes_{\mathbb{Z} G} A=\mathbb{Z} G / \mathcal{I} \otimes_{\mathbb{Z} G} A \cong A / \mathcal{I} A$ for every $G$-module $A$. For example, $H_0(G ; \mathbb{Z})=\mathbb{Z} / \mathfrak{I} \mathbb{Z}=\mathbb{Z}, H_0(G ; \mathbb{Z} G)=\mathbb{Z} G / \mathfrak{I} \cong \mathbb{Z}$, and $H_0(G ; \mathfrak{I})=$ $\mathfrak{I} / \mathfrak{I}^2$
+
+        \item Because $\mathbb{Z} G$ is a projective object in $\mathbb{Z} G$-mod, $H_*(G ; \mathbb{Z} G)=0$ for $* \neq 0$ and $H_0(G ; \mathbb{Z} G)=\mathbb{Z}$. When $G$ is a finite group, Shapiro's Lemma (6.3.2 below) implies that $H^*(G ; \mathbb{Z} G)=0$ for $* \neq 0$. This fails when $G$ is infinite; for example, we saw in 6.1 .4 that $H^1(T ; \mathbb{Z} T) \cong \mathbb{Z}$ for the infinite cyclic group $T$. If $G$ is finite, then $H^0(G ; \mathbb{Z} G) \cong \mathbb{Z}$, but $H^0(G ; \mathbb{Z} G)=0$ if $G$ is infinite.
+    \end{enumerate}
+\end{example}
+
+% the norm element is used for cohomology of finite gorups (6.1.8 Weibel)
+
+\begin{theo}[$H_1$]
+For any group $G, H_1(G ; \mathbb{Z}) \cong \mathfrak{I} / \mathfrak{J}^2 \cong G /[G, G]$.   
+\end{theo}
+
+\begin{theo}[Trivial $G-$module]
+If $A$ is any trivial $G$-module, $H_0(G ; A) \cong A, H_1(G ; A) \cong$ $G /[G, G] \otimes_{\mathbb{Z}} A$, and for $n \geq 2$ there are (noncanonical) isomorphisms:
+
+$$
+H_n(G ; A) \cong H_n(G ; \mathbb{Z}) \otimes_{\mathbb{Z}} A \oplus \operatorname{Tor}_1^{\mathbb{Z}}\left(H_{n-1}(G ; \mathbb{Z}), A\right)
+$$
+\end{theo}
 
 
+\subsubsection*{Spectral sequence}
+
+If $A_*$ is a chain complex of $G$-modules, the hyperderived functors $\mathbb{L}_i(-G)\left(A_*\right)$ of 5.7.4 are written as $\mathbb{H}_i\left(G ; A_*\right)$ and called the hyperhomology groups of $G$. Similarly, if $A^*$ is a cochain complex of $G$ modules, the hypercohomology groups $\mathbb{H}^i\left(G ; A^*\right)$ are just the hyper-derived functors $\mathbb{R}^i\left(-{ }^G\right)\left(A^*\right)$. The generalities of Chapter 5 , section 7 become the following facts in this case. The hyperhomology spectral sequences are
+
+$$
+\begin{aligned}
+& { }^{I I} E_{p q}^2=H_p\left(G ; H_q\left(A_*\right)\right) \Rightarrow \mathbb{H}_{p+q}\left(G ; A_*\right) ; \text { and } \\
+& { }^I E_{p q}^2=H_p\left(H_q\left(G ; A_*\right)\right) \Rightarrow \mathbb{H}_{p+q}\left(G ; A_*\right) \text { when } A_* \text { is bounded below, }
+\end{aligned}
+$$
+
+In particular, suppose that $A$ is bounded below. If each $A_i$ is a flat $\mathbb{Z} G$-module, then $\mathbb{H}_i\left(G ; A_*\right)=H_i\left(\left(A_*\right)_G\right)$; if each $A^i$ is a projective $\mathbb{Z} G$-module, then $H^i\left(G ; A^*\right)=H^i\left(\left(A^*\right)^G\right)$.
+
+
+\section{Cyclic and Free Groups Cohomology}
+
+\begin{theo}
+    If $A$ is a module for the cyclic group $G=C_m$, then
+
+    $$
+    \begin{aligned}
+    & H_n\left(C_m ; A\right)=\left\{\begin{array}{ll}
+    A /(\sigma-1) A & \text { if } n=0 \\
+    A^G / N A & \text { if } n=1,3,5,7, \ldots\} ; \\
+    \{a \in A: N a=0\} /(\sigma-1) A & \text { if } n=2,4,6,8, \ldots
+    \end{array}\right\} ; \\
+    & H^n\left(C_m ; A\right)=\left\{\begin{array}{ll}
+    A^G & \text { if } n=0 \\
+    \{a \in A: N a=0\} /(\sigma-1) A & \text { if } n=1,3,5,7, \ldots \\
+    A^G / N A & \text { if } n=2,4,6,8, \ldots
+    \end{array}\right\} .
+    \end{aligned}
+    $$    
+\end{theo}
+
+$$\begin{aligned} H_n\left(C_m ; \mathbb{Z}\right) & =\left\{\begin{array}{ll}\mathbb{Z} & \text { if } n=0 \\ \mathbb{Z} / m & \text { if } n=1,3,5,7, \ldots \\ 0 & \text { if } n=2,4,6,8, \ldots\end{array}\right\} ; \\ H^n\left(C_m ; \mathbb{Z}\right) & =\left\{\begin{array}{ll}\mathbb{Z} & \text { if } n=0 \\ 0 & \text { if } n=1,3,5,7, \ldots \\ \mathbb{Z} / m & \text { if } n=2,4,6,8, \ldots\end{array}\right\}\end{aligned}$$
+
+\textbf{Tate Cohomology.} Taking full advantage of this periodicity, we set
+
+$$
+\hat{H}^n\left(C_m ; A\right)=\left\{\begin{array}{ll}
+A^G / N A & \text { if } n \in \mathbb{Z} \text { is even } \\
+\{a \in A: N A=0\} /(\sigma-1) A & \text { if } n \in \mathbb{Z} \text { is odd }
+\end{array}\right\}
+$$
+
+
+More generally, if $G$ is a finite group and $A$ is a $G$-module, we define the Tate cohomology groups of $G$ to be the groups
+
+$$
+\hat{H}^n(G ; A)=\left\{\begin{array}{ll}
+H^n(G ; A) & \text { if } n \geq 1 \\
+A^G / N A & \text { if } n=0 \\
+\{a \in A: N a=0\} / \mathcal{J} A & \text { if } n=-1 \\
+H_{1-n}(G ; A) & \text { if } n \leq-2
+\end{array}\right\}
+$$
+
+\begin{example}
+[Dimension-shifting] Given a $G$-module $A$ ($G$ finite), choose a short exact sequence $0 \rightarrow K \rightarrow P \rightarrow A \rightarrow 0$ with $P$ projective. Shapiro's Lemma (below) implies that $\hat{H}^*(G, P)=0$ for all $* \in \mathbb{Z}$. Therefore $\hat{H}^n(G ; A) \cong$ $\hat{H}^{n+1}(G ; K)$. This shows that every Tate cohomology group $\hat{H}^n(G ; A)$ determines the entire theory.    
+\end{example}
+
+\begin{prop}
+Let $G$ be the free group on the set $X$. Then the augmentation ideal $\mathfrak{I}$ is a free $\mathbb{Z} G$-module with basis the set $X-1=\{x-1: x \in X\}$. Also, $0 \rightarrow \mathfrak{I} \rightarrow \mathbb{Z} G \rightarrow \mathbb{Z} \rightarrow 0$ is a free resolution of $\mathbb{Z}$. Consequently, $\operatorname{pd}_G(\mathbb{Z})=1$, that is, $H_n(G ; A)=H^n(G ; A)=0$ for $n \neq 0,1$. Moreover, $H_0(G ; \mathbb{Z}) \cong H^0(G ; \mathbb{Z}) \cong \mathbb{Z}$, while
+
+$$
+H_1(G ; \mathbb{Z}) \cong \bigoplus_{x \in X} \mathbb{Z} \quad \text { and } \quad H^1(G ; \mathbb{Z}) \cong \prod_{x \in X} \mathbb{Z}
+$$
+Stallings and Swan proved the converse!
+\end{prop}
+
+\section{Calculations with Shapiro's Lemma}
+
+If $H$ is a subgroups of $G$, $\mathbb{Z} G \otimes_{\mathbb{Z} H} A$ is called the \textbf{induced $G$-module} and is written $\operatorname{Ind}_H^G(A)$. Similarly, $\operatorname{Hom}_H(\mathbb{Z} G, A)$ is called the \textbf{coinduced $G$-module} and is written $\operatorname{Coind}_H^G(A)$.
+
+\begin{theo}[Shapiro's Lemma] Let $H$ be a subgroup of $G$ and $A$ an $H$-module. Then
+
+    $$
+    H_*\left(G ; \operatorname{Ind}_H^G(A)\right) \cong H_*(H ; A) ; \text { and } H^*\left(G ; \operatorname{Coind}_H^G(A)\right) \cong H^*(H ; A)
+    $$       
+\end{theo}
+
+\begin{coro}
+    \begin{enumerate}
+        \item If $A$ is an abelian group, then
+        $$
+        H_*\left(G ; \mathbb{Z} G \otimes_{\mathbb{Z}} A\right)=H^*\left(G ; \operatorname{Hom}_{\mathrm{Ab}}(\mathbb{Z} G, A)\right)=\left\{\begin{array}{ll}
+        A & \text { if } *=0 \\
+        0 & \text { if } * \neq 0
+        \end{array}\right\}
+        $$
+    \item If $G$ is a finite group, then $H^*\left(G ; \mathbb{Z} G \otimes_{\mathbb{Z}} A\right)=0$ for $* \neq 0$ and all $A$. 
+    \item If $G$ is finite and $P$ is a projective $G$ module,
+
+    $$
+    \widehat{H}^*(G ; P)=0 \text { for all } * .
+    $$
+    
+    \end{enumerate}
+\end{coro}
+
+\begin{theo}[Hilbert 90, additive version]
+Let $K \subset L$ be a finite Galois extension of fields, with Galois group $G$. Then $L$ is a $G$-module, $L^G \cong L_G \cong$ $K$, and
+    $$
+    H^*(G ; L)=H_*(G ; L)=0 \text { for } * \neq 0
+    $$ %review normal basis theorem
+\end{theo}
+
+\begin{example}[Cyclic Galois extensions]
+Suppose that $G$ is cyclic of order $m$, generated by $\sigma$. The trace $\operatorname{tr}(x)$ of an element $x \in L$ is the element $x+$ $\sigma x+\cdots+\sigma^{m-1} x$ of $K$. In this case, Hilbert's Theorem 90 states that there is an exact sequence
+
+    $$
+    0 \rightarrow K \rightarrow L \xrightarrow{\sigma-1} L \xrightarrow{t r} K \rightarrow 0 .
+    $$
+    
+    
+    Indeed, we saw in the last section that for $* \neq 0$ every group $H_*(G ; L)$ and $H^*(G ; L)$ is either $K / \operatorname{tr}(L)$ or $\operatorname{ker}(\operatorname{tr}) /(\sigma-1) K$.
+    
+    As an application, suppose that $\operatorname{char}(K)=p$ and that $[L: K]=p$. Since $\operatorname{tr}(1)=p \cdot 1=0$, there is an $x \in L$ such that $(\sigma-1) x=1$, that is, $\sigma x=$ $x+1$. Hence $L=K(x)$ and $x^p-x \in K$ because
+    
+    $$
+    \sigma\left(x^p-x\right)=(x+1)^p-(x+1)=x^p-x
+    $$
+% Noether theorem (generalize example when G not cyclic, Brauer Groups) / transfer homomorphism 
+\end{example}
+%cual es el orgien de las derivaciones?? ver introduccion libro Brown 
+
+%incluir bar resolution en teoria geometrica de grupos. Tambien inclui Weibel 6.10
+
+
+%antes, podria colocar el teorema de Hopf... pero Brown lo hace mas facil a partir de la interpretacion topologica
+
+\section{Universal Central Extensions}
+%comparar con Srinivas
+
+
+
+
+
+
+
+\newpage
 \section{An spectral sequence for group cohomology}
-
+% en realidad es mayer vietoris generalizado, podemos aplicar induccion para el caso de productos amalgamado de dos subgrupos, esta en Brown II.7 
+%existe una teoria mas general, podemos deducirlo de la secuencia espectral de mayer vietoris??
 Suppose that $X$ is a simplicial set and $x_i$ are simplicial subsets such that $X=U X_i$. Then, setting $X_{i j}=X_i \cap X_j$ (etc.) we'11 obviously have for the realisations: $|x|=U\left|x_i\right|,\left|x_i\right| \cap\left|x_j\right|=\left|x_{i j}\right|, \ldots$ Let's suppose that the set of indices is linearly ordered. Consider the following bicomplex:
 $$ K = \longrightarrow \underset{i<j<k}{\oplus} C_*\left(x_{i j k}\right) \longrightarrow \underset{i<j}{\oplus} C_*\left(x_{i j}\right)\longrightarrow \underset{i}{\oplus} C_*\left(x_{i}\right) $$
 
@@ -156,7 +320,7 @@ If $G_1, \ldots, G_n$ are subgroups of $G$, there exists a fuctorial spectral se
 
 (2.6) Remark. It may be shown easily that the space $Z\left(G,\left\{G_i\right\}\right)$, is homotopy equivalent to Volodin's space $V\left(G,\left\{G_i\right\}\right)$, but we will not need this fact.
 
-
+\
 
 
 \chapter{Rings (with identity)}
