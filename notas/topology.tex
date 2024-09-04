@@ -343,6 +343,8 @@ Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $
 
 \chapter{Homotopy theory}
 
+References: \cite{mayConciseCourseAlgebraic1999}
+
 Let $I^n$ be the $n$-dimensional unit cube, the product of $n$ copies of the interval $[0,1]$. The boundary $\partial I^n$ of $I^n$ is the subspace consisting of points with at least one coordinate equal to 0 or 1 . For a space $X$ with basepoint $x_0 \in X$, define $\pi_n\left(X, x_0\right)$ to be the set of homotopy classes of maps $f:\left(I^n, \partial I^n\right) \rightarrow\left(X, x_0\right)$, where homotopies $f_t$ are required to satisfy $f_t\left(\partial I^n\right)=x_0$ for all $t$. The definition extends to the case $n=0$ by taking $I^0$ to be a point and $\partial I^0$ to be empty, so $\pi_0\left(X, x_0\right)$ is just the set of path-components of $X$.
 
 When $n \geq 2$, a sum operation in $\pi_n\left(X, x_0\right)$, generalizing the composition operation in $\pi_1$, is defined by
@@ -358,16 +360,43 @@ It is evident that this sum is well-defined on homotopy classes. Since only the 
 \end{prop}
 
 
-\section{Covering spaces}
+\section{Fundamental group and covering spaces}
 %estamos solo usando estos resultados... deberiamos dar mejores definiciones
 
+A \textbf{grupoid} is a category in which every morphism is invertible. A group can be viewed as a grupoid with just one object. We have the category of grupois, where morphism are the functors.\\
+The \textbf{fundamental groupoid} $\Pi_1(X)$ of a space $X$ is the grupoid whose objects are the points of $X$ and whose morphisms are the homotopy classes of paths in $X$ with fixed endpoints. Then, $\Pi_1$ is a functor Top$\rightarrow$Grd.\\
 
-In view of 4.1, it is natural now to consider $C W$-complexes $Y$ satisfying the following three conditions:
-\begin{enumerate}
-    \item $Y$ is connected.
-    \item $\pi_1(Y)$ is isomorphic to $G$.
-    \item The universal covering space $X$ of $Y$ is contractible.
-\end{enumerate}
+\begin{theo}[Van Kampen]
+Let $X$ be path connected and choose a basepoint $x \in X$. Let $\mathscr{O}$ be a cover of $X$ by path connected open subsets such that the intersection of finitely many subsets in $\mathscr{O}$ is again in $\mathscr{O}$ and $x$ is in each $U \in \mathscr{O}$. Regard $\mathscr{O}$ as a category whose morphisms are the inclusions of subsets and observe that the functor $\pi_1(-, x)$, restricted to the spaces and maps in $\mathcal{O}$, gives a diagram
+
+    $$
+    \pi_1 \mid \mathscr{O}: \mathscr{O} \longrightarrow \mathscr{G}
+    $$
+    
+    of groups. The group $\pi_1(X, x)$ is the colimit of this diagram. In symbols,
+    
+    $$
+    \pi_1(X, x) \cong \operatorname{colim}_{U \in \mathscr{O}} \pi_1(U, x)
+    $$
+        
+\end{theo}
+
+\begin{coro}
+    \begin{enumerate}
+        \item Let $X$ be the wedge of a set of path connected based spaces $X_i$, each of which contains a contractible neighborhood $V_i$ of its basepoint. Then $\pi_1(X)$ is the free product of the groups $\pi_1\left(X_i\right)$.
+        \item For based spaces: $\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$.
+        \item Let $X=U \cup V$, where $U, V$, and $U \cap V$ are path connected open neighborhoods of the basepoint of $X$ and $V$ is simply connected. Then $\pi_1(U) \longrightarrow$ $\pi_1(X)$ is an epimorphism whose kernel is the smallest normal subgroup of $\pi_1(U)$ that contains the image of $\pi_1(U \cap V)$.
+    \end{enumerate}
+\end{coro}
+
+
+
+% In view of 4.1, it is natural now to consider $C W$-complexes $Y$ satisfying the following three conditions:
+% \begin{enumerate}
+%     \item $Y$ is connected.
+%     \item $\pi_1(Y)$ is isomorphic to $G$.
+%     \item The universal covering space $X$ of $Y$ is contractible.
+% \end{enumerate}
 
 
 
