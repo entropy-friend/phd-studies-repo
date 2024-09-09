@@ -18,6 +18,7 @@ It can be constructed by extracting from $G$ the groupoid $* / / G$ given by:
 We then take its nerve to obtain a simplicial set, and take the geometric realisation to get a topological space $|N(* / / G)|$; this is a model for $B G$. Exercise 1.3.1 proves it indeed has the desired property.
 
 
+
 \begin{prop}
     $H_*\left(B \Sigma_n ; \mathbb{Z}\right)$  is the same as computing the group homology of $\Sigma_n$ with coefficients in $\mathbb{Z}$.
 \end{prop}
@@ -165,17 +166,9 @@ Exercise 1.3.8 (Using Serre's finiteness theorem). Serre proved that $\pi_*(\mat
 
 Remark 1.3.9. See [McD75] for a similar qualitative argument for configuration spaces of manifolds.
 
+\section{Computations with Homological Stability}
 
-\chapter{Homological stability for symmetric groups}
-
-\begin{theo}
-The sequence $B \Sigma_0 \xrightarrow{\sigma} B \Sigma_1 \xrightarrow{\sigma} B \Sigma_2 \xrightarrow{\sigma} \cdots$ exhibits homological stability. More precisely,
-$$
-\sigma_*: H_*\left(B \Sigma_n ; \mathbb{Z}\right) \longrightarrow H_*\left(B \Sigma_{n+1} ; \mathbb{Z}\right)
-$$
-is surjective if $* \leq \frac{n}{2}$ and an isomorphism if $* \leq \frac{n-1}{2}$.
-\end{theo}
-
+\cite{wahlHomologicalStabilityTool2022}
 
 
 \chapter{Stability in algebraic K-theory}
@@ -254,3 +247,24 @@ The canonical homomorphism $\mathrm{H}_i\left(\mathrm{GL}_n(R)\right) \rightarro
 \end{coro}
 
 It seems reasonable in view of [20], [12], [21] to suppose that for essentially commutative rings (i.e., rings that are finitely generated as a module over their center) the group $S t_n(R)$ acts trivially on $K_{i, n}(R)$ for $n \geq i+2$ and hence $k_{i, n}(R)=k_{i, n}^Q(R)$ for $n \geq 2 i+1$.
+
+
+\chapter{Homological stability for general linear groups}
+References:\cite{maazenHomologyStabilityGeneral1979a,suslinStabilityAlgebraicKtheory1982,wilberdvanderkallenHomologyStabilityLinear1980}
+
+\chapter{Homological stability for unitary and symplectic groups I}
+\cite{mirzaiiHomologyStabilitySymplectic2001,mirzaiiHomologyStabilityUnitary2002a,}
+
+
+\chapter{Homological stability for symmetric groups}
+\cite{kupersHomologicalStabilityMinicourse2021}
+\begin{theo}
+The sequence $B \Sigma_0 \xrightarrow{\sigma} B \Sigma_1 \xrightarrow{\sigma} B \Sigma_2 \xrightarrow{\sigma} \cdots$ exhibits homological stability. More precisely,
+$$
+\sigma_*: H_*\left(B \Sigma_n ; \mathbb{Z}\right) \longrightarrow H_*\left(B \Sigma_{n+1} ; \mathbb{Z}\right)
+$$
+is surjective if $* \leq \frac{n}{2}$ and an isomorphism if $* \leq \frac{n-1}{2}$.
+\end{theo}
+
+
+\chapter{Homological stability for unitary and symplectic groups II}
