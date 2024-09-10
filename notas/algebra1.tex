@@ -4,18 +4,20 @@
 
 \chapter{Category Theory}
 
-Reference \cite{adamekAbstractConcreteCategories,richterCategoriesHomotopyTheory2020} %ritcher
+\textit{References \cite{adamekAbstractConcreteCategories,richterCategoriesHomotopyTheory2020}.} %ritcher
 
 
-    
+\section{Some facts}  
 
 \begin{example}
     \begin{enumerate}
-        \item For a topological spaces, the category of open sets with inclusions as morphisms. The opposite of this category, denoted by $\mathfrak{U}$, is used in sheaf theory.
-        \item If \ca and \cb are preordered sets, then functors between them are monotone maps.
+        \item On a topological space, the category of open sets with inclusions as morphisms. The opposite of this category, denoted by $\mathfrak{U}$, is used in sheaf theory.
+        \item If \ca and \cb are preordered sets, then functors between them are the monotone maps.
         \item $f: \mathbb{Z} \rightarrow \mathbb{Q}$ is a monomorphism and epimorphism, but not an isomorphism.
+        \item A \textbf{grupoid} is a category with whose morphisms are isomorphisms. In particular, a group can be seen as a grupoid with one element.
     \end{enumerate}
 \end{example}
+\medspace
 
 % A functor $F: \mathcal{A} \rightarrow \mathcal{B}$ is called an \textbf{isomorphism} provided that there is a functor $G: \mathcal{B} \rightarrow \mathcal{A}$ such that $G \circ F=i d_{\mathcal{A}}$ and $F \circ G=i d_{\mathcal{B}}$. The categories $\mathcal{A}$ and $\mathcal{B}$ are said to be \textbf{isomorphic}. \\
 % Note that $G$ is uniquely determined by $F$. It will be denoted by $F^{-1}$ and called the \textbf{inverse} of $F$.\\
@@ -33,7 +35,7 @@ Reference \cite{adamekAbstractConcreteCategories,richterCategoriesHomotopyTheory
     \item If $F$ is essentially surjective and fully faithful, it is called an \textbf{equivalence of categories}, and \ca and \cb are said to be \textbf{equivalent}.
 \end{enumerate}
 
-Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A natural transformation $\tau$ from $F$ to $G$ (denoted by $\tau: F \rightarrow G$ or $F \xrightarrow{\tau} G$ ) is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following naturality condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
+Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A \textbf{natural transformation} $\tau$ from $F$ to $G$ (denoted by $\tau: F \rightarrow G$ or $F \xrightarrow{\tau} G$ ) is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following naturality condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
 $
 \begin{tikzcd}
 FA \arrow[r, "\tau_A"] \arrow[d, "Ff"'] & GA \arrow[d, "Gf"] \\
@@ -42,37 +44,14 @@ FA' \arrow[r, "\tau_{A'}"'] & GA'
 $ commutes.\\
 
 \begin{example}
-    A typical example of a natural transformation is the connecting homomorphism for singular homology. Consider, for instance, the $n$th singular homology group of a pair of spaces $(X, A)$. There is a connecting homomorphism
+    A typical example of a natural transformation is the connecting homomorphism for singular homology. Consider, for instance, the $n$-th singular homology group of a pair of spaces $(X, A)$. The long exact sequence of the pair contains the group morphisms
 $$
 \delta: H_n(X, A) \rightarrow H_{n-1}(A) .
 $$
 
-This morphism is natural for morphisms of pairs of topological spaces: if $f:(X, A) \rightarrow(Y, B)$ is a continuous map $f: X \rightarrow Y$ with $f(A) \subset B$, then the following diagram commutes:
-$$
-\begin{aligned}
-& H_n(X, A) \xrightarrow{\delta} H_{n-1}(A) \\
-& H_n(f) \underset{\downarrow}{H_n(Y, B)} \xrightarrow{\delta} H_{n-1}(B)
-\end{aligned}
-$$
+$\delta$ is a natural transformation between the functors  $(X, A) \mapsto H_n(X, A)$ and $(X, A) \mapsto$ $H_{n-1}(A)$, from the category of pairs of topological spaces to the category of abelian groups. \\
 
-Thus, $\delta$ is a morphism between functors from the category of pairs of topological spaces to the category of abelian groups, the functor $(X, A) \mapsto H_n(X, A)$ and the functor $(X, A) \mapsto$ $H_{n-1}(A)$. \\
 
-\textit{Anoter example.} Let $\mathcal{E}_G$ be the translation category of a discrete group $G$, as in Example 1.2.3. Then, $\mathcal{E}_G$ is equivalent to the category $[0]$ with one object and one identity morphism. There is a unique functor $P: \mathcal{E}_G \rightarrow[0]$, sending every object to 0 and every morphism to the identity morphism on 0 . We define $F:[0] \rightarrow \mathcal{E}_G$ via $F(0)=e$, where $e$ denotes the neutral element in $G$, and we set $F\left(1_0\right)=e$. The composite $P \circ F$ is the identity functor on the category [0], whereas the composite $F \circ P$ sends any morphism $h: g \rightarrow h g$ in $\mathcal{E}_G$ to $e: e \rightarrow e$.
-We define $\eta: F \circ P \Rightarrow \operatorname{Id}_{\mathcal{E}_G}$ by setting
-$$
-\eta_g: F \circ P(g)=e \rightarrow g=\operatorname{Id}_{\mathcal{E}_G}(g)
-$$
-to be the morphism $g: e \rightarrow g$ in the translation category. As the diagram
-$$
-\begin{aligned}
-& \eta_g: F \circ P(g)=e \longrightarrow g \\
-& F \circ P(h)=e \downarrow \quad \backslash \operatorname{Id}(h)=h \\
-& \eta_{h g}: F \circ P(h g)=e \xrightarrow{h g} h g \\
-&
-\end{aligned}
-$$
-commutes for all $h, g \in G$ and as $\mathcal{E}_G$ is a groupoid, this defines a natural isomorphism.
-\end{example}
 
 A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$, and $F$ and $G$ are said to be \textbf{naturally isomorphic}, denoted by $F \cong G$.\\
 
