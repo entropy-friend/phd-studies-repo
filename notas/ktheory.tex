@@ -155,38 +155,30 @@ and the surjection $\phi: \operatorname{St}(R) \longrightarrow E(R)$. Let $$K_2(
 
 %\chapter{Whitehead's K-theory}
 
-\chapter{Quillen's K-theory}
+\chapter{Quillen's K-theories}
 
-\section{The Plus Construction}
-(check properties of classifying space)
+\section{The $+-$Construction}
+\textit{References} \cite{srinivasAlgebraicKTheory1996,weibelKbookIntroductionAlgebraic2013a}.\\
+Inspiration was given by \cite{kervaireSmoothHomologySpheres1969}\\
 
-\begin{theo}[Quillen]
-Let $(X, x)$ be a path connected space, $N \triangleleft$ $\pi_1(X, x)$ a perfect normal subgroup. Then there exists a continuous map of pairs $f:(X, x) \longrightarrow\left(X^{+}, x^{+}\right)$such that
+The higher algebraic $K$-groups of a ring $R$ will be defined to be the homotopy groups $K_n(R)=\pi_n K(R)$ of a certain topological space $K(R)$.
+Since $\pi_1(B G L(R)) \cong G L(R), \pi_1(B G L(R))$ has a perfect normal subgroup isomorphic to $E(R)$.\\
+
+We construct a CW complex $B G L(R)^{+}$ with distinguished inclusion $ i: B G L(R) \rightarrow B G L(R)^{+}$ such that:
 \begin{enumerate}
-    \item There is an exact sequence
-    $$
-    0 \longrightarrow N \longrightarrow \pi_1(X, x) \xrightarrow{f_*} \pi_1\left(X^{+}, x^{+}\right) \longrightarrow 0
-    $$
-    \item For any local coefficient system $L$ on $X^{+}$,
-    $$
-    f_*: H_n\left(X, f^* L\right) \longrightarrow H_n\left(X^{+}, L\right)
-    $$
-    is an isomorphism for any $n \geq 0$.
-    \item If $g:(X, x) \longrightarrow(Y, y)$ is a continuous map such that
-    $$
-    N \subset \operatorname{ker}\left(g_*: \pi_1(X, x) \longrightarrow \pi_1(Y, y)\right)
-    $$
-    then there exists a continuous map $h:\left(X^{+}, x^{+}\right) \longrightarrow(Y, y)$, unique up to homotopy, making the diagram commute.
+    \item $i_*: \pi_1(B G L(R)) \longrightarrow \pi_1\left(B G L(R)^{+}\right)$ is the quotient map $G L(R) \longrightarrow G L(R) / E(R) = K_1(R)$
+    \item for any local coefficient system $L$ on $B G L(R)^{+}$,
+$$
+i_*: H_n\left(B G L(R), i^* L\right) \longrightarrow H_n\left(B G L(R)^{+}, L\right)
+$$
+is an isomorphism for all $n \geq 0$.
 \end{enumerate}
 
-\end{theo}
+$B G L(R)^{+}$ is unique up to homotopy. Hence, the homotopy groups $K_n(R)$ of $B G L(R)^{+}$ are well-defined up to a canonical isomorphism, and the \textit{Quillen's $K-$groups} are defined as $$K_i (R) = \pi BGL(R)^+, \quad \forall n\geq 1 $$ 
 
-\begin{prop}
-    \begin{itemize}
-        \item Let $(\hat{X}, \hat{x}) \longrightarrow(X, x)$ be the covering of $X$ corresponding to the subgroup $N \triangleleft \pi_1(X, x)$, and let $\left(\tilde{X}^{+}, \tilde{x}^{+}\right)$be the universal covering of $\left(\mathrm{X}^{+}, x^{+}\right)$. Then $\left(\tilde{X}^{+}, \tilde{x}^{+}\right)$is the result of applying the plus construction to $(\hat{X}, \hat{x})$.
-        \item Let $f_i:\left(X_i, x_i\right) \longrightarrow\left(X_i^{+}, x_i^{+}\right), i=1,2$ be obtained from the plus construction, for given perfect normal subgroups $N_i \triangleleft$ $\pi_1\left(X_i, x_i\right)$. Then $\left(f_1, f_2\right):\left(X_1 \times X_2,\left(x_1, x_2\right)\right) \longrightarrow\left(X_1^{+} \times X_2^{+},\left(x_1^{+}, x_2^{+}\right)\right)$ is homotopy equivalent to the result of applying the plus construction to $N_1 \times N_2 \triangleleft \pi_1\left(X_1 \times X_2,\left(x_1, x_2\right)\right)$.
-    \end{itemize}
-\end{prop}
+In this situation, take $K(R) = K_0(R) \times B G L(R)^{+}$. By construction, $K_0(R)=\pi_0 K(R)$. Moreover, it is clear that $\pi_n K(R)=\pi_n B G L(R)^{+}=K_n(R)$ for $n \geq 1$, as desired. 
+This $K$ is not functorial, but it is possible to modify the components of this $K(R)$, up to homotopy equivalence, to gain functoriality.
+
 
 \begin{prop}
     Let $F(R)$ be the homotopy fiber of $B G L(R) \longrightarrow B G L(R)^{+}$. Then:
@@ -197,20 +189,45 @@ Let $(X, x)$ be a path connected space, $N \triangleleft$ $\pi_1(X, x)$ a perfec
     \end{enumerate} 
 \end{prop}
 
+
 \begin{coro}
 $\pi_i\left(B G L(R)^{+}\right) \cong K_i(R), i=1,2$, and
 $
 \pi_3\left(B G L(R)^{+}\right) \cong H_3(S t(R), \mathbb{Z}) .
 $
 \end{coro}
-Quillen's K-theory is defined as
-$$K_i(R)=\pi_i\left(B G L(R)^{+}\right), i \geq 1$$
+
+
+\begin{theo}[Recognition criteria] %weibel
+The map $i: B G L(R) \rightarrow B G L(R)^{+}$is universal for maps into $H$-spaces. That is, for each map $f: B G L(R) \rightarrow H$, where $H$ is an $H$-space, there is a map $g: B G L(R)^{+} \rightarrow H$ so that $f=g$ and such that the induced $\operatorname{map} \pi_i\left(B G L(R)^{+}\right) \rightarrow \pi_i(H)$ is independent of $g$.
+\end{theo}
 
 \section{Exact categories}
 
 
 
 \chapter{Volodin's K-theory}
+
+\textit{References} \cite{weibelKbookIntroductionAlgebraic2013a,suslinEquivalenceKtheories1981c,suslinStabilityAlgebraicKtheory1982}
+
+Volodin constructed a model for $X(R)$, that we denote by $V(R)$. \\
+For each $n$, let $T_n(R)$ denote the subgroup of $G L_n(R)$ consisting of upper triangular matrices with 1's on the diagonal. As $n$ varies, the union of these groups forms a subgroup $T(R)$ of $G L(R)$. Similarly we may regard the permutation groups $\Sigma_n$ as subgroups of $G L_n(R)$ by their representation as permutation matrices, and their union (the infinite permutation group $\Sigma_{\infty}$ ) is a subgroup of $G L(R)$. For each $\sigma \in \Sigma_n$, let $T_n^\sigma(R)$ denote the subgroup of $G L_n(R)$ obtained by conjugating $T_n(R)$ by $\sigma$. For example, if $\sigma=(n, \ldots, 1)$, then $T_n^\sigma(R)$ is the subgroup of lower triangular matrices.
+
+Since the classifying spaces $B T_n(R)$ and their conjugates $B T_n(R)^\sigma$ are subspaces of $B G L_n(R)$, and hence of $B G L(R)$, we may form their union over all $n$ and $\sigma: X(R)=\bigcup_{n, \sigma} B T_n(R)^\sigma$. 
+
+
+\begin{theo}
+    The space $X(R)$ is acyclic. 
+\end{theo}
+
+
+
+
+
+
+%%CONSTRUIR ESPACIO CLASIFICANTE  A PARTIR DE SIMPLICIALES????
+
+
 
 Let $G$ be a group and $\left\{G_i\right\}{ }_{i \varepsilon I}$ a family of subgroups. Define $V\left(G,\left\{G_i\right\}\right)$, or just $V(G)$ to be the simplicial complex, whose vertices are the elements of $G$, where $g_0, \ldots, g_p\left(g_i \neq g_j\right)$ form a $p$-simplex if for some $G_i$ all the elements $g_j g_k^{-1}$ lie in $G_i$. If $H$ is another group with a family of subgroups $\left\{H_j\right\}$ and $\phi: G \rightarrow H$ is a homomorphism sending each $G_i$ into some $H_j$, then $\phi$ induces a simplicial map $V(\phi): V(G) \rightarrow V(H)$.
 

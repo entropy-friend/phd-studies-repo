@@ -467,4 +467,78 @@ Recall that we constructed $B G$ as the geometric realisation of the nerve of a 
 \end{enumerate}
 
 
+\section{Acyclic spaces and acyclic groups}
 
+References \cite{karoubiContemporaryDevelopmentsAlgebraic2003}
+
+ We call a \textbf{topological space $E$ acyclic} if it has the homology of a point.
+
+\begin{lemm}
+    Let $E$ be an acyclic space. Then $E$ is connected, its fundamental group $G=\pi_1(E)$ is a perfect group, and $H_2(G ; \mathbb{Z})=0$.
+\end{lemm}
+\begin{proof}
+    
+$E$ must be connected, as $H_0(E)=\mathbb{Z}$. Since $G^{ab} =G /[G, G]=H_1(E ; \mathbb{Z})=0$, we have $G$ is perfect. To calculate $H_2(G)$, note that $H_1(\tilde{E} ; \mathbb{Z})=$ 0. Moreover, the homotopy fiber of the canonical map $E \rightarrow B G$ is homotopy equivalent to $\tilde{E}$. In fact, the Serre spectral sequence for this homotopy fibration is $E_{p q}^2=H_p\left(G ; H_q(\tilde{E} ; \mathbb{Z})\right) \Rightarrow H_{p+q}(E ; \mathbb{Z})$ and the conclusion that $H_2(G ; \mathbb{Z})=0$ follows from the associated exact sequence of low degree terms:
+\end{proof}
+
+$$
+H_2(E ; \mathbb{Z}) \rightarrow H_2(G ; \mathbb{Z}) \xrightarrow{d^2} H_1(\tilde{E} ; \mathbb{Z})^G \rightarrow H_1(E ; \mathbb{Z}) \rightarrow H_1(G ; \mathbb{Z})
+$$
+
+
+%revisar esta demostracion con secuencias espectrales, tambien secuencia exacta larga de homotopy fiber
+
+Let $X$ and $Y$ be based connected CW complexes. A \textbf{map} $f: X \rightarrow Y$ is called \textbf{acyclic} if the homotopy fiber $F(f)$ of $f$ is acyclic (has the homology of a point).\\
+This implies that $F(f)$ is connected and $\pi_1 F(f)$ is a perfect group.
+From the exact sequence $\pi_1 F(f) \rightarrow \pi_1(X) \rightarrow \pi_1(Y) \rightarrow \pi_0 F(f)$ we also have that $\pi_1(X) \rightarrow \pi_1(Y)$ is onto, and its kernel $P$ is a perfect normal subgroup of $\pi_1(X)$.\\
+
+Let $P$ be a perfect normal subgroup of $\pi_1(X)$, where $X$ is a based connected CW complex. An acyclic map $f: X \rightarrow Y$ is called a \textbf{+-construction} on $X$ relative to $P$ if $P$ is the kernel of $\pi_1(X) \rightarrow \pi_1(Y)$.
+\begin{lemm}
+ If $X$ is acyclic, the map $X \rightarrow *$ is a + -construction.   
+\end{lemm}
+
+When Quillen introduced the notion of acyclic maps in 1969, during his construction of higher $K-$theory, he observed that both $Y$ and the map $f$ are determined up to homotopy by the subgroup $P$.
+
+\begin{theo}[Quillen]
+Let $(X, x)$ be a connected CW complex, $N \triangleleft$ $\pi_1(X, x)$ a perfect normal subgroup. Then there exists a continuous map of pairs $f:(X, x) \longrightarrow\left(X^{+}, x^{+}\right)$ such that
+\begin{enumerate}
+    \item There is an exact sequence
+    $$
+    0 \longrightarrow N \longrightarrow \pi_1(X, x) \xrightarrow{f_*} \pi_1\left(X^{+}, x^{+}\right) \longrightarrow 0
+    $$
+    \item For any local coefficient system $L$ on $X^{+}$,
+    $$
+    f_*: H_n\left(X, f^* L\right) \longrightarrow H_n\left(X^{+}, L\right)
+    $$
+    is an isomorphism for any $n \geq 0$.
+    \item If $g:(X, x) \longrightarrow(Y, y)$ is a continuous map such that
+    $$
+    N \subset \operatorname{ker}\left(g_*: \pi_1(X, x) \longrightarrow \pi_1(Y, y)\right)
+    $$
+    then there exists a continuous map $h:\left(X^{+}, x^{+}\right) \longrightarrow(Y, y)$, unique up to homotopy, making the diagram commute.
+    In particular, if $g$ is another +-construction relative to $P$, then the map $h$ above is a homotopy equivalence: $h: Y \xrightarrow{\sim} Z$.
+\end{enumerate}
+\end{theo}
+\begin{proof}
+    asdfasdf
+\end{proof}
+
+\textit{Every group $G$ has a unique largest perfect subgroup $P$, called the perfect radical of $G$, and it is a normal subgroup of $G$. }If no mention is made to the contrary, the notation $X^{+}$will always denote the +-construction relative to the perfect radical of $\pi_1(X)$.
+
+\begin{prop} % Weibel
+    \begin{enumerate}
+        \item Let $X$ and $Y$ be connected $C W$ complexes. A map $f: X \rightarrow Y$ is acyclic if and only if $H_*(X, M) \cong H_*(Y, M)$ for every $\pi_1(Y)$-module $M$.
+        \item Let $P$ be a perfect normal subgroup of a group $G$, with corresponding +-construction $f: B G \rightarrow B G^{+}$. If $F(f)$ is the homotopy fiber of $f$, then $\pi_1 F(f)$ is the universal central extension of $P$, and $\pi_2\left(B G^{+}\right) \cong$ $H_2(P ; \mathbb{Z})$
+    \end{enumerate}
+\end{prop}
+
+
+
+
+
+
+\begin{prop}
+Let $(\hat{X}, \hat{x}) \longrightarrow(X, x)$ be the covering of $X$ corresponding to the subgroup $N \triangleleft \pi_1(X, x)$, and let $\left(\tilde{X}^{+}, \tilde{x}^{+}\right)$be the universal covering of $\left(\mathrm{X}^{+}, x^{+}\right)$. Then $\left(\tilde{X}^{+}, \tilde{x}^{+}\right)$is the result of applying the plus construction to $(\hat{X}, \hat{x})$.
+%        \item Let $f_i:\left(X_i, x_i\right) \longrightarrow\left(X_i^{+}, x_i^{+}\right), i=1,2$ be obtained from the plus construction, for given perfect normal subgroups $N_i \triangleleft$ $\pi_1\left(X_i, x_i\right)$. Then $\left(f_1, f_2\right):\left(X_1 \times X_2,\left(x_1, x_2\right)\right) \longrightarrow\left(X_1^{+} \times X_2^{+},\left(x_1^{+}, x_2^{+}\right)\right)$ is homotopy equivalent to the result of applying the plus construction to $N_1 \times N_2 \triangleleft \pi_1\left(X_1 \times X_2,\left(x_1, x_2\right)\right)$.
+
+\end{prop}
