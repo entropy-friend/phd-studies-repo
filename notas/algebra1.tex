@@ -35,33 +35,29 @@ Let $F: \mathcal{A} \rightarrow \mathcal{B}$ be a functor.
     \item If $F$ is essentially surjective and fully faithful, it is called an \textbf{equivalence of categories}, and \ca and \cb are said to be \textbf{equivalent}.
 \end{enumerate}
 
-Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A \textbf{natural transformation} $\tau$ from $F$ to $G$ (denoted by $\tau: F \rightarrow G$ or $F \xrightarrow{\tau} G$ ) is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following \textit{natural} condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
+Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A \textbf{natural transformation} $\tau: F \rightarrow G$ is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following \textit{natural} condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
 $
 \begin{tikzcd}
 FA \arrow[r, "\tau_A"] \arrow[d, "Ff"'] & GA \arrow[d, "Gf"] \\
 FA' \arrow[r, "\tau_{A'}"'] & GA'
 \end{tikzcd}
 $ commutes.\\
+A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$, and $F$ and $G$ are said to be \textbf{naturally isomorphic}, denoted by $F \cong G$.
 
 \begin{example}
-    A typical example of a natural transformation is the connecting homomorphism for singular homology. Consider, for instance, the $n$-th singular homology group of a pair of spaces $(X, A)$. The long exact sequence of the pair contains the group morphisms
+    Consider the $n$-th singular homology group of a pair of spaces $(X, A)$. The long exact sequence of the pair contains the group morphisms
 $$
 \delta: H_n(X, A) \rightarrow H_{n-1}(A) .
 $$
 \noindent
-this set of morphism forms a natural transformation between the functors  $(X, A) \mapsto H_n(X, A)$ and $(X, A) \mapsto$ $H_{n-1}(A)$, from the category of pairs of topological spaces to the category of abelian groups. \\
+This forms a natural transformation between $(X, A) \mapsto H_n(X, A)$ and $(X, A) \mapsto$ $H_{n-1}(A)$, both being from the category of pairs of topological spaces to the category of abelian groups. \\
 
 
 
-A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$, and $F$ and $G$ are said to be \textbf{naturally isomorphic}, denoted by $F \cong G$.\\
-\end{example}
-
-
-\begin{example}
     \begin{enumerate}
-        \item Let $U: \operatorname{Grp} \rightarrow$ Set be the forgetful functor, and let $S: \operatorname{Grp} \rightarrow$ Set be the "squaring-functor", defined by $S(G \xrightarrow{f} H)=G^2 \xrightarrow{f^2} H^2$. For each group $G$, its multiplication is a function $\tau_G: G^2 \rightarrow G$. The family $\tau=\left(\tau_G\right)$ is a natural transformation from $S$ to $U$. The naturality condition simply means that $f(x \cdot y)=f(x) \cdot f(y)$ for any group homomorphism $G \xrightarrow{f} H$ and any $x, y \in G$. Thus "multiplication" in groups can be regarded as a natural transformation. Similar for other structures.
-        \item Let $(\,\hat{} \,):$ Vec $\rightarrow$ Vec be the second-dual functor for vector spaces, then $\tau_V: V \rightarrow \hat{\hat{V}}$, defined by $\left(\tau_V(x)\right)(f)=f(x)$, yield a natural transformation $i d{ }_{\mathrm{Vec}} \xrightarrow{\tau}(\,\hat{}\,)$. It becomes a natural isomorphism when restricted to finite-dimensional vector spaces.
-        \item The assignment of the Hurewicz homomorphism $\pi_n(X) \rightarrow H_n(X)$ to each topological space $X$ is a natural transformation from the $n$-th homotopy functor $\pi_n:$ Top $\rightarrow$ Grp to the $n$-th homology functor $H_n:$ Top $\rightarrow$ Grp.
+        %\item Let $U: \operatorname{Gr} \rightarrow \operatorname{Set} $ be the forgetful functor, and let $S: \operatorname{Grp} \rightarrow$ Set be the "squaring-functor", defined by $S(G \xrightarrow{f} H)=G^2 \xrightarrow{f^2} H^2$. For each group $G$, its multiplication is a function $\tau_G: G^2 \rightarrow G$. The family $\tau=\left(\tau_G\right)$ is a natural transformation from $S$ to $U$. The naturality condition simply means that $f(x \cdot y)=f(x) \cdot f(y)$ for any group homomorphism $G \xrightarrow{f} H$ and any $x, y \in G$. Thus "multiplication" in groups can be regarded as a natural transformation. Similar for other structures.
+        %\item Let $(\,\hat{} \,):$ Vec $\rightarrow$ Vec be the second-dual functor for vector spaces, then $\tau_V: V \rightarrow \hat{\hat{V}}$, defined by $\left(\tau_V(x)\right)(f)=f(x)$, yield a natural transformation $i d{ }_{\mathrm{Vec}} \xrightarrow{\tau}(\,\hat{}\,)$. It becomes a natural isomorphism when restricted to finite-dimensional vector spaces.
+        \item The assignment of the Hurewicz homomorphism $\pi_n(X) \rightarrow H_n(X)$ to each topological space $X$ is a natural transformation.
         \item If $B \xrightarrow{f} C$ is an $\mathcal{A}$-morphism, then
         $
         \operatorname{hom}_{\mathcal{A}}(C,-) \xrightarrow{\tau_f} \operatorname{hom}_{\mathcal{A}}(B,-),
@@ -72,7 +68,7 @@ A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are 
         $
         defined by $\sigma_f(g)=f \circ g$, are natural transformations.
         \item (Good definitions of extension) Let $F:$ Set $\rightarrow$ Vec be a functor that assigns to each set $X$ a vector space $F X$ with basis $X$, and to each function $X \xrightarrow{f} Y$ the unique linear extension $F X \xrightarrow{F f} F Y$ of $f$. This actually is not a correct definition of a functor, since there are many different vector spaces with the same basis. However, the definition is "correct up to natural isomorphism". Whenever we choose, for each set $X$, a specific vector space $F X$ with basis $X$, we do obtain a functor $F:$ Set $\rightarrow$ Vec (since the above condition determines the action of $F$ on functions uniquely). Furthermore, any two functors that are obtained in this way are naturally isomorphic.
-        \item For any 2-element set $A$, hom $(A,-)$ is naturally isomorphic to the squaring functor $S^2[3.20(10)]$ and hom $(-, A)$ is naturally isomorphic to the contravariant power-set functor $\mathcal{Q}[3.20(9)]$. If $B$ is isomorphic to $A$, then hom $(A,-)$ and hom $(B,-)$ are naturally isomorphic with those functors, the converse is true.
+%        \item For any 2-element set $A$, hom $(A,-)$ is naturally isomorphic to the squaring functor $S^2[3.20(10)]$ and hom $(-, A)$ is naturally isomorphic to the contravariant power-set functor $\mathcal{Q}[3.20(9)]$. If $B$ is isomorphic to $A$, then hom $(A,-)$ and hom $(B,-)$ are naturally isomorphic with those functors, the converse is true.
     \end{enumerate}
 \end{example}
 
@@ -83,69 +79,127 @@ A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are 
 
 \section{Limits and colimits}
 
-An object $P$ in a category $\mathcal{C}$ is called projective if for every epimorphism $f: M \rightarrow Q$ in $\mathcal{C}$ and every $p: P \rightarrow Q$, there is a $\xi \in \operatorname{Hom}(P, M)$ with $f \circ \xi=p$, called the \textbf{lift} of $p$ to $M$.\\
-Dually, an object $I$ in a category $\mathcal{C}$ is called injective if for every monomorphism $f: U \rightarrow M$ in $\mathcal{C}$ and every $j: U \rightarrow I$, there is a $\zeta \in \operatorname{Hom}(M, I)$ with $\zeta \circ f=j$, called and \textbf{extension} of $j$ to $M$.\\
-$\mathcal{C}$ with $[0], \mathcal{C} *[0]$, has 0 as a terminal object and that $[0] * \mathcal{C}$ has 0 as an initial object. The category $\mathcal{C} *[0]$ is the \textbf{inductive cone} with base $\mathcal{C}$, and [0]* $\mathcal{C}$ is the \textbf{projective cone} with base $\mathcal{C}$.
+An object $P$ in a category $\mathcal{C}$ is called \textbf{projective} if, for every epimorphism $f: M \rightarrow Q$ in $\mathcal{C}$ and every $p: P \rightarrow Q$, there is a $\xi \in \operatorname{Hom}(P, M)$ with $f \circ \xi=p$, called the \textbf{lift} of $p$ to $M$.\\
+Dually, an object $I$ in a category $\mathcal{C}$ is called \textbf{injective} if for every monomorphism $f: U \rightarrow M$ in $\mathcal{C}$ and every $j: U \rightarrow I$, there is a $\zeta \in \operatorname{Hom}(M, I)$ with $\zeta \circ f=j$, called and \textbf{extension} of $j$ to $M$.\\
+\medspace
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: 
+\path (0,81); %set diagram left start at 0, and has height of 81
+
+
+% Text Node
+\draw (132,62) node [anchor=north east] [inner sep=0.75pt]   [align=left] {P};
+% Text Node
+\draw (169.99,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {Q};
+% Text Node
+\draw (169.99,19) node [anchor=south west] [inner sep=0.75pt]   [align=left] {M};
+% Text Node
+\draw (139,32) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle \xi $};
+% Text Node
+\draw (319,32) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle \varsigma $};
+% Text Node
+\draw (181,32) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle f$};
+% Text Node
+\draw (359,38) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle f$};
+% Text Node
+\draw (142.6,55.6) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle p$};
+% Text Node
+\draw (336.78,55.6) node [anchor=north] [inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle j$};
+% Text Node
+\draw (310.99,62) node [anchor=north east] [inner sep=0.75pt]   [align=left] {P};
+% Text Node
+\draw (348.98,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {U};
+% Text Node
+\draw (348.98,19) node [anchor=south west] [inner sep=0.75pt]   [align=left] {M};
+% Connection
+\draw    (176.89,23) -- (176.59,58) ;
+\draw [shift={(176.59,58)}, rotate = 270.49] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (17.64,-3.29) .. controls (13.66,-1.4) and (10.02,-0.3) .. (6.71,0) .. controls (10.02,0.3) and (13.66,1.4) .. (17.64,3.29)(10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Connection
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (135,60.07) -- (165.69,24.2) ;
+\draw [shift={(166.99,22.68)}, rotate = 130.56] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Connection
+\draw    (135,70) -- (164.99,70) ;
+\draw [shift={(166.99,70)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Connection
+\draw    (315.99,70) -- (345.98,70) ;
+\draw [shift={(313.99,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Connection
+\draw    (355.32,50) -- (355.75,25) ;
+\draw [shift={(355.78,23)}, rotate = 90.97] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(355.32,50)}, rotate = 270.97] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+% Connection
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (345.98,22.68) -- (315.29,58.55) ;
+\draw [shift={(313.99,60.07)}, rotate = 310.56] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+\end{tikzpicture}
+
+%$\mathcal{C}$ with $[0], \mathcal{C} *[0]$, has 0 as a terminal object and that $[0] * \mathcal{C}$ has 0 as an initial object. The category $\mathcal{C} *[0]$ is the \textbf{inductive cone} with base $\mathcal{C}$, and [0]* $\mathcal{C}$ is the \textbf{projective cone} with base $\mathcal{C}$.
+
 
 
 \begin{example}
     \begin{enumerate}
-        \item In the category of sets, every set is injective and projective.
-        \item In the category of left $R$-modules, a module is projective if and only if it is a direct summand of a free module. A module $M$ is injective if and only if the functor $\operatorname{Hom}_R(-, M)$ is exact.
+        \item In $\operatorname{Sets}$, every object is injective and projective.
+        \item In $R-\operatorname{Mod}$ (left), a module is projective iff it is a direct summand of a free module. A module $M$ is injective if and only if the functor $\operatorname{Hom}_R(-, M)$ is exact.
         %\item An abelian group $A$ is a \textbf{divisible ableian group} if $nA= A$ for every $n \in \mathbb{N}$. Every divisible abelian group is an injective $\mathbb{Z}$-module, an viceversa. 
     \end{enumerate}
 \end{example}
 
 \begin{prop}
 \begin{enumerate}
-    \item If $P$ is a projective object of a category $\mathcal{C}$ and if $i: U \rightarrow P$ is a monomorphism in $\mathcal{C}$ with a retraction $r: P \rightarrow U$, then $U$ is projective. Similarly, if $i: J \rightarrow I$ is a monomorphism with retraction $r: I \rightarrow J$ and $I$ is injective, then $J$ is injective.    
-    \item If $q: Q \rightarrow P$ is an epimorphism and if $P$ is projective, then $q$ has a section. Dually, if $j: I \rightarrow J$ is a monomorphism and $I$ is injective, then $j$ has a retraction.
-    \item The object $C$ is projective if and only if $\mathcal{C}(C,-): \mathcal{C} \rightarrow$ Sets preserves epimorphisms. 
-    \item The object $C$ is injective if and only if $\mathcal{C}(-, C): \mathcal{C}^o \rightarrow$ Sets sends monomorphisms to epimorphisms.
+    %\item If $P$ is a projective object of a category $\mathcal{C}$ and if $i: U \rightarrow P$ is a monomorphism in $\mathcal{C}$ with a retraction $r: P \rightarrow U$, then $U$ is projective. Similarly, if $i: J \rightarrow I$ is a monomorphism with retraction $r: I \rightarrow J$ and $I$ is injective, then $J$ is injective.    
+    %\item If $q: Q \rightarrow P$ is an epimorphism and if $P$ is projective, then $q$ has a section. Dually, if $j: I \rightarrow J$ is a monomorphism and $I$ is injective, then $j$ has a retraction.
+    \item $A$ is projective if and only if $\operatorname{Hom}_\mathcal{C}(A,-): \mathcal{C} \rightarrow$ Sets preserves epimorphisms. 
+    \item $A$ is injective if and only if $\operatorname{Hom}_\mathcal{C}(-, A): \mathcal{C}^o \rightarrow$ Sets sends monomorphisms to epimorphisms.
 \end{enumerate}
 \end{prop}
 
 
 
 
-Let $A \stackrel{\text { f }}{\underset{g}{\rightrightarrows}} B$ be a pair of morphisms. A morphism $E \xrightarrow{e} A$ is called an equalizer of $f$ and $g$ provided that the following conditions hold:
+Let $A \stackrel{\text { f }}{\underset{g}{\rightrightarrows}} B$ be a pair of morphisms. A morphism $E \xrightarrow{e} A$ is called an \textbf{equalizer} of $f$ and $g$ provided that the following conditions hold:
 (1) $f \circ e=g \circ e$,
 (2) for any morphism $e^{\prime}: E^{\prime} \rightarrow A$ with $f \circ e^{\prime}=g \circ e^{\prime}$, there exists a unique morphism $\bar{e}: E^{\prime} \rightarrow E$ such that $e^{\prime}=e \circ \bar{e}$, i.e., such that the triangle
 \begin{tikzcd}
     E' \arrow[d, "\overline{e}"'] \arrow[dr, "e'"] & \\
     E \arrow[r, "e"'] & A \arrow[r, shift left, "f"] \arrow[r, shift right, "g"'] & B
-    \end{tikzcd} commutes.
-    
+    \end{tikzcd} commutes.\\
 
-A \textbf{source} is a pair $\left(A,\left(f_i\right)_{i \in I}\right)$ consisting of an object $A$ and a family of morphisms $f_i: A \rightarrow A_i$ with domain $A$, indexed by some class $I$. 
+   
 
-%A source $\mathcal{P}=\left(P \xrightarrow{p_i} A_i\right)_I$ is called a product provided that for every source $\mathcal{S}=$ $\left(A \xrightarrow{f_i} A_i\right)_I$ with the same codomain as $\mathcal{P}$ there exists a unique morphism $A \xrightarrow{f} P$ with $\mathcal{S}=\mathcal{P} \circ f$. A product with codomain $\left(A_i\right)_I$ is called a product of the family $\left(A_i\right)_I$.
+A \textbf{source} is a pair $\left(A,\left(f_i\right)_{i \in I}\right)$ consisting of an object $A$ and a family of morphisms $f_i: A \rightarrow A_i$ with domain $A$, indexed by some class $I$.\\
+A source $\mathcal{P}=\left(P \xrightarrow{p_i} A_i\right)_I$ is called a \textbf{product} provided that for every source $\mathcal{S}=$ $\left(A \xrightarrow{f_i} A_i\right)_I$ with the same codomain as $\mathcal{P}$ there exists a unique morphism $A \xrightarrow{f} P$ with $\mathcal{S}=\mathcal{P} \circ f$. A product with codomain $\left(A_i\right)_I$ is called a \textbf{product of the family} $\left(A_i\right)_I$.\\
 
-\begin{prop}
-    A category has finite products if and only if it has terminal objects and products of pairs of objects.
-    A category that has products for all class-indexed families must be thin.
-A small category has products if and only if it is equivalent to a complete lattice.
-\end{prop}
-
-A \textbf{diagram} in a category $\mathcal{A}$ is a functor $D: \mathbf{I} \rightarrow \mathcal{A}$ with codomain $\mathcal{A}$. The domain, $\mathbf{I}$, is called the \textbf{scheme} of the diagram. A diagram with a small (or finite) scheme is said to be \textbf{small} (or finite).\\
-An A-source $\left(A \xrightarrow{f_i} D_i\right)_{i \in O b(\mathrm{I})}$ is said to be \textbf{natural for $D$} provided that for each I-morphism $i \xrightarrow{d} j$, the triangle 
+%\begin{fac}
+ %   A category has finite products if and only if it has terminal objects and products of pairs of objects.
+  %  A category that has products for all class-indexed families must be thin.
+%A small category has products if and only if it is equivalent to a complete lattice.
+%\end{fac}
+ A \textbf{diagram} in a category $\mathcal{A}$ is a functor $D: \mathbf{I} \rightarrow \mathcal{A}$, where $\mathbf{I}$ is called the \textbf{scheme} of the diagram. A diagram with a small (or finite) scheme is said to be \textbf{small} (or finite).\\
+An A-source $\left(A \xrightarrow{f_i} D_i\right)_{i \in O b(\mathrm{I})}$ is said to be \textbf{natural} for the diagram $D$ provided that for each I-morphism $i \xrightarrow{d} j$, the triangle 
 \begin{tikzcd}
     A \arrow[d, "f_i"'] \arrow[dr, "f_j"] & \\
     D_i \arrow[r, "Dd"'] & D_j 
-\end{tikzcd} commutes.\\
-Equivalently, natural sources can be regarded as natural transformations from constant functors $C: \mathbf{I} \rightarrow \mathbf{A}$ to the functor $D$.\\
-A \textbf{limit} of $D$ is a natural source $\left(L \xrightarrow{\ell_i} D_i\right)$ for $D$ with the \textbf{universal property} that for each natural source $\left(A \xrightarrow{f_i} D_i\right)$ there exists a unique morphism $f: A \rightarrow L$ with $f_i=$ $\ell_i \circ f$ for each $i \in O b(\mathbf{I})$.
+\end{tikzcd} commutes. Equivalently, natural sources can be regarded as natural transformations from constant functors $C: \mathbf{I} \rightarrow \mathbf{A}$ to the functor $D$.\\
+A \textbf{limit} of a diagram $D$ is a natural source $\left(L \xrightarrow{\ell_i} D_i\right)$ for $D$ with the \textbf{universal property} that for each natural source $\left(A \xrightarrow{f_i} D_i\right)$ there exists a unique morphism $f: A \rightarrow L$ with $f_i=$ $\ell_i \circ f$ for each $i \in O b(\mathbf{I})$.\\
+ A poset $\mathbf{I}$ is \textbf{down-directed} if every pair of elements has a lower bound. Limits of diagrams with this king of scheme are called \textbf{projective} (or \textbf{inverse}) limits. 
 
+
+\begin{prop}
+    
 \begin{enumerate}
-    \item Every source is natural for a diagram with discrete scheme. Products are limits of diagrams with discrete scheme. An object, considered as an empty source, is a limit of the empty diagram if and only if it is a terminal object.
+%    \item Every source is natural for a diagram with discrete scheme. Products are limits of diagrams with discrete scheme. An object, considered as an empty source, is a limit of the empty diagram if and only if it is a terminal object.
 
     \item For A-morphisms $A \underset{g}{\stackrel{f}{\rightrightarrows}} B$, considered as a diagram $D$ with scheme $\bullet \Rightarrow \bullet$, a source $(A \stackrel{e}{\longleftarrow} C \xrightarrow{h} B)$ is natural provided that $g \circ e=h=f \circ e$.\\
     $C \xrightarrow{e} A$ is an equalizer of $A \xrightarrow[g]{\stackrel{f}{\longrightarrow}} B$ if and only if the source $(A \stackrel{e}{\leftarrow} C \xrightarrow{f \circ e} B)$ is a limit of $D$. 
-
-    \item A poset $\mathbf{I}$ is \textbf{down-directed} if every pair of elements has a lower bound. Limits of diagrams with scheme $\mathbf{I}$ are called \textbf{projective} (or \textbf{inverse}) limits. 
 \end{enumerate}
+\end{prop}
 
-\begin{prop}
+\begin{prop}[Uniqueness]
 If $\mathcal{L}=\left(L \xrightarrow{\ell_i} D_i\right)_{i \in O b(\mathbf{I})}$ is a limit of $D: \mathbf{I} \rightarrow \mathbf{A}$, then
     \begin{enumerate}
         \item for each limit $\mathcal{K}=\left(K \xrightarrow{k_i} D_i\right)_{i \in O b(\mathrm{I})}$ of $D$, there exist an isomorphism $K \xrightarrow{h} L$ with $\mathcal{K}=\mathcal{L} \circ h$,
@@ -156,34 +210,59 @@ If $\mathcal{L}=\left(L \xrightarrow{\ell_i} D_i\right)_{i \in O b(\mathbf{I})}$
 %cone over a limit (Ritcher)
 % cambio de notacion, no se mencionan diagramas
 
-\begin{prop}
-If $G: \mathcal{D} \rightarrow \mathcal{C}$ is another functor and if $\alpha: F \Rightarrow G$ is a natural transformation, then $\alpha$ induces a morphism $\operatorname{colim}_{\mathcal{D}} \alpha \in \mathcal{C}\left(\operatorname{colim}_D F, \operatorname{colim}_{\mathcal{D}} G\right)$. Prove that this turns $\operatorname{colim}_{\mathcal{D}}$ into a functor from $\operatorname{Fun}(\mathcal{D}, \mathcal{C})$ to $\mathcal{C}$.    
-\end{prop}
+%\begin{prop}
+%If $G: \mathcal{D} \rightarrow \mathcal{C}$ is another functor and if $\alpha: F \Rightarrow G$ is a natural transformation, then $\alpha$ induces a morphism $\operatorname{colim}_{\mathcal{D}} \alpha \in \mathcal{C}\left(\operatorname{colim}_D F, \operatorname{colim}_{\mathcal{D}} G\right)$. Prove that this turns $\operatorname{colim}_{\mathcal{D}}$ into a functor from $\operatorname{Fun}(\mathcal{D}, \mathcal{C})$ to $\mathcal{C}$.    
+%\end{prop}
 
-\begin{prop}
-If the colimit ( $\operatorname{colim}_{\mathcal{D}} F, \tau$ ) exists for all functors $F: \mathcal{D} \rightarrow \mathcal{C}$, then the functor $\operatorname{colim}_{\mathcal{D}}: \operatorname{Fun}(\mathcal{D}, \mathcal{C}) \rightarrow \mathcal{C}$ is left adjoint to the diagonal functor $\Delta: \mathcal{C} \rightarrow \operatorname{Fun}(\mathcal{D}, \mathcal{C})$, that is, there are natural isomorphisms
-$$
-\mathcal{C}\left(\operatorname{colim}_{\mathcal{D}} F, C\right) \cong \operatorname{Fun}(\mathcal{D}, \mathcal{C})(F, \Delta(C))
-$$
-for all functors $F$ and all object $C$ of $\mathcal{C}$.
-\end{prop}
+%\begin{prop}
+%If the colimit ($\operatorname{colim}_{\mathcal{D}} F, \tau$) exists for all functors $F: \mathcal{D} \rightarrow \mathcal{C}$, then the functor $\operatorname{colim}_{\mathcal{D}}: \operatorname{Fun}(\mathcal{D}, \mathcal{C}) \rightarrow \mathcal{C}$ is left adjoint to the diagonal functor $\Delta: \mathcal{C} \rightarrow \operatorname{Fun}(\mathcal{D}, \mathcal{C})$, that is, there are natural isomorphisms
+%$$\mathcal{C}\left(\operatorname{colim}_{\mathcal{D}} F, C\right) \cong \operatorname{Fun}(\mathcal{D}, \mathcal{C})(F, \Delta(C))$$for all functors $F$ and all object $C$ of $\mathcal{C}$.
+%\end{prop}
 
+
+\begin{example}[Limits]
+    \begin{enumerate}
+        \item Let $\left(X_n\right)_{n \in \mathbb{N}_0}$ be a family of sets with $X_{n+1} \subset X_n$. Then, the limit of the system
+        $
+        \ldots \subset X_{n+1} \subset X_n \subset \ldots \subset X_1 \subset X_0
+        $
+        is the intersection of the sets $X_n$.
+        \item Let $p$ be a fixed prime. The inverse limit of the diagram
+        is the ring of $p$-adic integers, $\mathbb{Z}_p$. Here, the maps $p_i$ are the canonical projection maps. An explicit model of the limit is
+        $$
+        \left\{\left(x_1, x_2, x_3, \ldots\right) \in \prod_{n \geq 1} \mathbb{Z} / p^n \mathbb{Z} \mid p_i\left(x_i\right)=x_{i-1} \text { for all } i \geq 2\right\} .
+        $$
+        This carries a ring structure, where addition and multiplication are defined coordinatewise.
+        \item Kernels in the category of abelian groups are limits of diagrams of the form $A \underset{f}{\stackrel{0}{\longrightarrow}} B$.
+        \item The presheaf $F$ is a sheaf if for every $U \in \mathfrak{U}(X)$ and for every open covering $\left(U_i\right)_{i \in I}$ of $U$, the following diagram is an equalizer:
+        $$
+        F(U) \longrightarrow \prod_{i \in I} F\left(U_i\right) \Longrightarrow \prod_{i, j \in I} F\left(U_i \cap U_j\right) .
+        $$
+        
+        Here, the first map is induced by the restriction maps res $U_U^{U_i}$, and the second pair of arrows is induced by two sets of restriction maps. $U_i \cap U_j$ is a subset of $U_i$ and of $U_j$.
+        Sheaves form a category as a full subcategory of the category of presheaves.
+        \item Fiber products in the category of sets are limits of diagrams of the form $A \underset{f}{\stackrel{g}{\longrightarrow}} C$. A concrete model for this pullback in these categories is $$f^*(p):=Z \times_Y X:=\{(z, x) \in Z \times X \mid f(z)=p(x)\}$$
+    \end{enumerate}
+\end{example}
+
+
+Dually (inverting the arrow) we define colimit, coproducts, coequalizers...\\
 %definicion dual de colimite
 
 If you build the colimit over a discrete diagram category (small category $\mathcal{D}$ that has only identity morphisms), then the colimit of a functor $F: \mathcal{D} \rightarrow \mathcal{C}$ is called the \textbf{coproduct} of the $F(D)$ for $D$ an object of $\mathcal{D}$, denoted by
         $
         \bigsqcup_{\mathcal{D}} F(D) .
         $
-        Coproducts in the category of sets and in the category of topological spaces are the disjoint unions
+        Coproducts in the category of sets and in the category of topological spaces are the disjoint unions.
         Every coproduct comes with canonical structure maps, called \textbf{inclusions}.\\
 \textbf{Pushouts} are colimits over a diagram category $\mathcal{D}$ of the form
         $
         D_1 \leftarrow D_0 \rightarrow D_2 .
         $.\\
 Another important class of examples is \textbf{coequalizers}. These are colimits of diagrams of the form
-        $$
+        $
         F\left(D_0\right) \underset{\alpha}{\stackrel{\beta}{\Longrightarrow}} F\left(D_1\right) .
-        $$
+        $
 
 
 \begin{example}[Colimits]
@@ -216,150 +295,6 @@ Another important class of examples is \textbf{coequalizers}. These are colimits
     \end{enumerate}
 \end{example}
 
-Limits, products... are defined dually
-
-\begin{example}[Limits]
-    \begin{enumerate}
-        \item Let $\left(X_n\right)_{n \in \mathbb{N}_0}$ be a family of sets with $X_{n+1} \subset X_n$. Then, the limit of the system
-        $$
-        \ldots \subset X_{n+1} \subset X_n \subset \ldots \subset X_1 \subset X_0
-        $$
-        is the intersection of the sets $X_n$.
-        \item Let $p$ be a fixed prime. The inverse limit of the diagram
-        is the ring of $p$-adic integers, $\mathbb{Z}_p$. Here, the maps $p_i$ are the canonical projection maps. An explicit model of the limit is
-        $$
-        \left\{\left(x_1, x_2, x_3, \ldots\right) \in \prod_{n \geq 1} \mathbb{Z} / p^n \mathbb{Z} \mid p_i\left(x_i\right)=x_{i-1} \text { for all } i \geq 2\right\} .
-        $$
-        This carries a ring structure, where addition and multiplication are defined coordinatewise.
-        \item Kernels in the category of abelian groups are limits of diagrams of the form $A \underset{f}{\stackrel{0}{\longrightarrow}} B$.
-        \item The presheaf $F$ is a sheaf if for every $U \in \mathfrak{U}(X)$ and for every open covering $\left(U_i\right)_{i \in I}$ of $U$, the following diagram is an equalizer:
-        $$
-        F(U) \longrightarrow \prod_{i \in I} F\left(U_i\right) \Longrightarrow \prod_{i, j \in I} F\left(U_i \cap U_j\right) .
-        $$
-        
-        Here, the first map is induced by the restriction maps res $U_U^{U_i}$, and the second pair of arrows is induced by two sets of restriction maps. $U_i \cap U_j$ is a subset of $U_i$ and of $U_j$.
-        Sheaves form a category as a full subcategory of the category of presheaves.
-        \item Fiber products in the category of sets are limits of diagrams of the form $A \underset{f}{\stackrel{g}{\longrightarrow}} C$. A concrete model for this pullback in these categories is $f^*(p):=Z \times_Y X:=\{(z, x) \in Z \times X \mid f(z)=p(x)\}$
-    \end{enumerate}
-\end{example}
-
-
-
-
-\section{Kan extensions}
-
-Kan extensions take a given functor and extend it to a different category. There are two ways of doing that, via colimits and via limits. These extensions don’t have to exist, and even if they exist, they might not have nice properties. But in controlled situations, they are extremely useful and they are actually ubiquitous
-
-Let $G: \mathcal{C} \rightarrow \mathcal{D}$ and $F: \mathcal{C} \rightarrow \mathcal{E}$ be functors. The left Kan extension of $F$ along $G$ is a pair $(K, \alpha)$, where
-\begin{itemize}
-    \item $K: \mathcal{D} \rightarrow \mathcal{E}$ is a functor, and
-    \item $\alpha: F \Rightarrow K \circ G$ is a natural transformation. %Graficos!!!!!
-    \item This pair $(K, \alpha)$ has the universal property that for all pairs $(H, \beta)$, where $H: \mathcal{D} \rightarrow \mathcal{E}$ is a functor and $\beta: F \Rightarrow H \circ G$ is a natural transformation, there is a unique natural transformation $\gamma: K \Rightarrow H$ with the property that $\gamma_G \circ \alpha=\beta$.
-\end{itemize}
-
-\begin{theo}
-Let $G: \mathcal{C} \rightarrow \mathcal{D}$ and $F: \mathcal{C} \rightarrow \mathcal{E}$ be functors. Assume that the category $\mathcal{C}$ is small and that $\mathcal{E}$ is cocomplete. Then, the left Kan extension of $F$ along $G$ exists.
-\end{theo}
-
-\begin{theo}
-For small categories $\mathcal{C}, \mathcal{D}$ and $G: \mathcal{C} \rightarrow \mathcal{D}$ and a cocomplete category $\mathcal{E}$ the functor,
-$$
-G^*: \operatorname{Fun}(\mathcal{D}, \mathcal{E}) \rightarrow \operatorname{Fun}(\mathcal{C}, \mathcal{E})
-$$
-has a left adjoint, and this adjoint is given by the left Kan extension.
-\end{theo}
-
-\begin{example}
-    \begin{enumerate}
-        \item EXAMPLE 4.1.6. Let $\mathcal{C}=$ Fin be a small skeleton of the category of finite sets, let $\mathcal{D}$ be the category of sets, Sets, and let $I$ be the canonical inclusion functor of the subcategory Fin into the category Sets. If $\mathcal{E}$ is an arbitrary cocomplete category, then Theorem 4.1.4 ensures, that you can extend any functor $F$ : Fin $\rightarrow \mathcal{E}$ as a left Kan extension to the category Sets, and you actually have an explicit formula for doing it.
-        \item EXERCISE 4.1.9. Let $G$ be a finite group and let $H$ be a subgroup of $G$. Consider the inclusion of the category $\mathcal{C}_H$ with one object and morphisms $H$ into the category $\mathcal{C}_G$, $i: \mathcal{C}_H \rightarrow \mathcal{C}_G$. A functor $F: \mathcal{C}_H \rightarrow \mathrm{Ab}$ is nothing but a $\mathbb{Z}[H]$-module. $M=F(*)$ carries a linear $H$-action. What is the left Kan extension of a given $F$ along $i$ ?
-        \item Example 4.1.12. Assume that $f: X \rightarrow Y$ is a continuous map between topological spaces and $\mathcal{F}$ is a presheaf on $Y$. One could try to pull $\mathcal{F}$ back via $f$ by defining $f^{-1} \mathcal{F}(U)=$ $\mathcal{F}(f(U))$, but, of course, $f(U)$ doesn't have to be open, so instead, one defines the inverse image presheaf as the left Kan extension
-        $$
-        f^{-1} \mathcal{F}(U)=\operatorname{colim}_{f(U) \subset V \text { open }} \mathcal{F}(V) .
-        $$
-        Even if $\mathcal{F}$ was a sheaf, $f^{-1} \mathcal{F}$ might not be one, so for sheaves, $f^{-1} \mathcal{F}$ is defined as the sheafification.
-    \end{enumerate}
-\end{example}
-
-
-The functor $H$ preserves the left $K a n$ extension $(K, \alpha)$ of $F$ along $G$ if $(H \circ K, H \alpha)$ is a left Kan extension of $H \circ F$ along $G$.
-
-\begin{theo}
-Let $G: \mathcal{C} \rightarrow \mathcal{D}$ be a functor between small categories. Left adjoint functors $L: \mathcal{E} \rightarrow \mathcal{F}$ preserve left Kan extensions of functors $F: \mathcal{D} \rightarrow \mathcal{E}$.
-\end{theo}
-
-A right Kan extension of $F: \mathcal{C} \rightarrow \mathcal{E}$ is pointwise if and only if it is preserved by all representable functors $\mathcal{E}(E,-): \mathcal{E} \rightarrow$ Sets.\\
-The dual statement is also true, but in that case, we have to consider the representable functors $\mathcal{E}(-, E)$ which transform colimits to limits in Sets ${ }^{\circ}$.
-
-Let $\mathcal{D}$ and $\mathcal{E}$ be categories. Assume that $H_1: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ and $H_2: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E}$ are functors, and let
-$$
-\tau_D: H_1(D, D) \rightarrow H_2(D, D)
-$$
-be a family (indexed over the objects of $\mathcal{D}$ ) of morphisms $\tau_D \in \mathcal{E}\left(H_1(D, D), H_2(D, D)\right)$. Then, $\left(\tau_D\right)_D$ is called a dinatural transformation if for all morphisms $f \in \mathcal{D}\left(D, D^{\prime}\right)$, the diagram
-$$
-H_1\left(D^{\prime}, D\right) \xrightarrow{H_1(f, D)} H_1(D, D)
-$$
-commutes.
-
-\begin{enumerate}
-    \item An important example of a functor $H: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E}$ is a natural evaluation map. Fix a $K$-vector space $W$, and denote by $L(V, W)$ the vector space of $K$-linear maps from $V$ to $W$. Consider the functor
-    $$
-    L(-, W) \otimes \mathrm{Id} \rightarrow \text { vect }^o \times \text { vect } \rightarrow \text { vect, } \quad\left(V_1, V_2\right) \mapsto L\left(V_1, W\right) \otimes V_2 .
-    $$
-    
-    A dinatural transformation from this functor to the constant functor on $W, \kappa_W$, consists of a family of linear maps
-    $$
-    \tau_V: L(V, W) \otimes V \rightarrow W
-    $$
-    which transform naturally in $V$.
-    \item Let $V$ and $W$ be $K$-vector spaces, and denote by Iso $(V, W)$ the vector space of $K$-linear isomorphisms from $V$ to $W$. Then,
-    $$
-    \text { Iso : vect }{ }^0 \times \text { vect } \rightarrow \text { vect }
-    $$
-    is a functor, and Iso $(V, V)$ is the group of automorphisms of $V$. For instance, if $K=$ $\mathbb{R}$, we can consider the orientation preserving automorphisms of $V, \operatorname{Aut}^{+}(V)$. The inclusion of $\operatorname{Aut}^{+}(V)$ into Aut $(V)$ is then a $\tau_V$ where $\tau$ is a dinatural transformation. 
-    \item In fact, the preceding example generalizes to any category. For two objects $C_1$ and $C_2$ of a category $\mathcal{C}$, we can always consider the set of isomorphisms from $C_1$ to $C_2$, Iso $\left(C_1, C_2\right)$, and $\operatorname{Aut}\left(C_1\right)=\operatorname{Iso}\left(C_1, C_1\right)$, the group of automorphisms of the object $C_1$. If this group has interesting subgroups that transform naturally in $C_1$, then the inclusion of such a subgroup into Aut $\left(C_1\right)$ gives rise to a dinatural transformation. Last but not least, we fix an object $E$ of $\mathcal{E}$ and consider the constant functor on $E$, $\kappa_E$, as a functor
-    $$
-    \kappa_E: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E} \text {. }
-    $$
-\end{enumerate}
-
-Let $H: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ be a functor. An end of $H$ is a pair $(E, \tau)$, where $E$ is an object of $\mathcal{E}$ and $\tau$ is a dinatural transformation from $\kappa_E$ to $H$, with the property that for all other objects $E^{\prime}$ of $\mathcal{E}$ with a dinatural transformation $\nu$ from $\kappa_{E^{\prime}}$ to $H$, there is a unique $\xi \in \mathcal{E}\left(E^{\prime}, E\right)$, such that $\nu_D=\tau_D \circ \xi$ for all $D$.
-
-\begin{example}\begin{enumerate}
-    \item Let $\mathcal{D}$ be a small category, let $\mathcal{E}$ be an arbitrary category, and assume $F$ and $G$ are functors from $\mathcal{D}$ to $\mathcal{E}$. We consider
-        $$
-        \mathcal{E}(F(-), G(-)): \mathcal{D}^o \times \mathcal{D} \rightarrow \text { Sets }
-        $$
-        as a functor. An end of this functor is a set $X$, together with a universal dinatural transformation
-        $$
-        \varepsilon_D: X \rightarrow \mathcal{E}(F(D), G(D))
-        $$
-        for all objects $D$ of $\mathcal{D}$, which satisfies the coherence condition, as illustrated in the diagram (4.4.1). It is clear that the set of all natural transformations satisfies this condition: If $X^{\prime}$ is another set with a dinatural transformation $\nu$ from $\kappa_{X^{\prime}}$ to $\mathcal{E}(F(-), G(-))$, then for every element $x \in X^{\prime}, \nu_D(x)$ is actually a natural transformation because of the naturality of $\nu$, but then, we obtain a function $f: X^{\prime} \rightarrow X=\operatorname{nat}(F, G)$, with $f(x)_D=\nu_D(x)$.
-        
-        As a special case, we obtain that the abelian group of $R$-module homomorphism between two left $R$-modules $M$ and $N$ is an end.   
-        \item Example 4.4.7. Let $\mathcal{D}$ be a small category and let $F: \mathcal{D}^o \rightarrow k$-mod and $G: \mathcal{D} \rightarrow k$-mod be functors. Here, $k$ is an arbitrary commutative ring with unit, and $k$-mod denotes the category of $k$-modules and $k$-linear maps. Then, we can build the tensor product of $F$ and $G$ as
-        $$
-        F \otimes_{\mathcal{D}} G:=\bigoplus_D F(D) \otimes_k G(D) / \sim,
-        $$
-        where the sum is indexed by all objects $D$ of $\mathcal{D}$ and where we divide out by the $k$-submodule of $\oplus_D F(D) \otimes_k G(D)$ generated by
-        $$
-        F(f)(x) \otimes y-x \otimes G(f)(y), \quad x \in F\left(D^{\prime}\right), y \in G(D), f \in \mathcal{D}\left(D, D^{\prime}\right) .
-        $$
-        
-        We claim that $F \otimes_{\mathcal{D}} G$, together with the dinatural transformation $\tau$ that sends $F(D) \otimes_k$ $G(D)$ to the class of the summand in $F \otimes_{\mathcal{D}} G$, is the coend of the functor $F \otimes_k G: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow$ $k$-mod that sends $\left(D_1, D_2\right)$ to $F\left(D_1\right) \otimes_k G\left(D_2\right)$ and $(f, g) \in \mathcal{D}\left(D_1, D_2\right) \times \mathcal{D}\left(D_3, D_4\right)$ to $F(f) \otimes_k G(g)$
-\end{enumerate}
-\end{example}
-
-Let $\mathcal{D}$ and $\mathcal{E}$ be categories and let $H: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ be a functor. We denote by $\int_{\mathcal{D}} H$ the end of the functor $H$; and by $\int^{\mathcal{D}} H$ the coend of the functor $H$.\\
-
-\begin{prop}[Fubini theorem for ends] Let $H:\left(\mathcal{D} \times \mathcal{D}^{\prime}\right)^o \times\left(\mathcal{D} \times \mathcal{D}^{\prime}\right) \rightarrow \mathcal{E}$ be a functor. If the ends $\int_{\mathcal{D}} H\left(D, D_1^{\prime}, D, D_2^{\prime}\right)$ exist for all objects $D_1^{\prime}, D_2^{\prime}$ of $\mathcal{D}^{\prime}$ and if the ends $\int_{\mathcal{D}^{\prime}} H\left(D_1, D^{\prime}, D_2, D^{\prime}\right)$ exist for all objects $D_1$ and $D_2$ of $\mathcal{D}$, then
-$$
-\int_{\mathcal{D}} \int_{\mathcal{D}^{\prime}} H\left(D, D^{\prime}, D, D^{\prime}\right) \cong \int_{\mathcal{D}^{\prime}} \int_{\mathcal{D}} H\left(D, D^{\prime}, D, D^{\prime}\right) \cong \int_{\mathcal{D} \times \mathcal{D}^{\prime}} H\left(D, D^{\prime}, D, D^{\prime}\right),
-$$
-and if one of them exists, then the others do as well.
-\end{prop} 
-
-
 
 
 
@@ -370,17 +305,31 @@ $$
 \varphi_{C, C^{\prime}}: \mathcal{C}^{\prime}\left(L(C), C^{\prime}\right) \cong \mathcal{C}\left(C, R\left(C^{\prime}\right)\right),
 $$
 which is natural in $C$ and $C^{\prime}$.
-The functor $L$ is then left adjoint to $R$, and $R$ is right adjoint to $L$. We call $(L, R)$ an adjoint pair of functors.
+The functor $L$ is then left adjoint to $R$, and $R$ is right adjoint to $L$. We call $(L, R)$ an adjoint pair of functors.\\
+The naturality condition on the bijections $\varphi_{C, C^{\prime}}$ can be spelled out explicitly as follows: For all morphisms $f: C \rightarrow D$ in $\mathcal{C}$ and $g: C^{\prime} \rightarrow D^{\prime}$ in $\mathcal{C}^{\prime}$, the diagram commutes.
 
-The naturality condidition on the bijections $\varphi_{C, C^{\prime}}$ can be spelled out explicitly as follows: For all morphisms $f: C \rightarrow D$ in $\mathcal{C}$ and $g: C^{\prime} \rightarrow D^{\prime}$ in $\mathcal{C}^{\prime}$, the diagram commutes.
-$$
-\begin{aligned}
-& \mathcal{C}^{\prime}\left(L(D), C^{\prime}\right) \xrightarrow{\mathcal{C}^{\prime}\left(L f, C^{\prime}\right)} \mathcal{C}^{\prime}\left(L(C), C^{\prime}\right) \xrightarrow{\mathcal{C}^{\prime}(L(C), g)} \mathcal{C}^{\prime}\left(L(C), D^{\prime}\right) \\
-& \varphi_{D, C^{\prime}} \downarrow \downarrow \varphi_{C, C^{\prime}} \downarrow \varphi_{C, D^{\prime}} \\
-& \mathcal{C}\left(D, R\left(C^{\prime}\right)\right) \xrightarrow{\mathcal{C}\left(f, R\left(C^{\prime}\right)\right)} \mathcal{C}\left(C, R\left(C^{\prime}\right)\right) \xrightarrow{\mathcal{C}(C, R(g))} \mathcal{C}\left(C, R\left(D^{\prime}\right)\right) \\
-&
-\end{aligned}
-$$
+\begin{center}
+    
+
+\begin{tikzpicture}[  > = Stealth,  node distance = 4cm,  auto,  thick,  font = \large\itshape]
+  % Define nodes
+  \node (A) {$C'(L(D), C')$};
+  \node (B) [right of=A] {$C'(L(C), C')$};
+  \node (C) [right of=B] {$C'(L(C), D')$};
+  \node (D) [below of=A] {$C(D, R(C'))$};
+  \node (E) [below of=B] {$C(C, R(C'))$};
+  \node (F) [below of=C] {$C(C, R(D'))$};
+  
+  % Draw arrows
+  \draw[->] (A) -- node[above] {$C'(Lf,C')$} (B);
+  \draw[->] (B) -- node[above] {$C'(L(C),g)$} (C);
+  \draw[->] (D) -- node[above] {$C(f,R(C'))$} (E);
+  \draw[->] (E) -- node[above] {$C(C,R(g))$} (F);
+  \draw[->] (A) -- node[left] {$\varphi_{D,C'}$} (D);
+  \draw[->] (B) -- node[left] {$\varphi_{C,C'}$} (E);
+  \draw[->] (C) -- node[right] {$\varphi_{C,D'}$} (F);
+\end{tikzpicture}
+\end{center}
 
 \begin{example}
 A prototypical example of an adjunction is a forgetful functor and a 'free' functor: if $R=U$ is a forgetful functor and if a left adjoint of $U$ exists, then the defining property means that for each morphism from $C$ to $U\left(C^{\prime}\right)$ in the underlying category, there is a unique corresponding morphism from $L(C)$ to $C^{\prime}$, so, in this sense, $L(C)$ is the free object associated with $C$. For topological spaces, the free topological space on a set is the set with discrete topology.
@@ -420,10 +369,10 @@ Let $F: \mathcal{C} \rightarrow \mathcal{D}$ be an arbitrary functor. Then the f
 \end{theo}
 
 \subsubsection*{Skeleta of categories}
+ A category is called \textbf{reduced} if isomorphic objects are identical. A subcategory $\mathcal{S}$ of a category $\mathcal{C}$ is a \textbf{skeleton} if $\mathcal{S}$ is reduced and if the inclusion $\mathcal{S} \hookrightarrow \mathcal{C}$ is an equivalence of categories.
 \begin{example}
     
     \begin{enumerate}
-        \item A category is called \textbf{reduced} if isomorphic objects are identical. A subcategory $\mathcal{S}$ of a category $\mathcal{C}$ is a \textbf{skeleton} if $\mathcal{S}$ is reduced and if the inclusion $\mathcal{S} \hookrightarrow \mathcal{C}$ is an equivalence of categories.
         
         \item Consider the category of finite sets and functions. It contains the full subcategory whose objects are the sets of the form $\{1, \ldots, n\}$ for $n \geq 0$. Here, we use the convention that the empty set is encoded by $n=0$. The inclusion functor is full and faithful. As every finite set is in bijection with a standardized set of the form $\{1, \ldots, n\}$ as above, the inclusion functor is also essentially surjective. Therefore, these finite sets build a skeleton.
         
@@ -575,6 +524,127 @@ Consider the representable functor $\mathcal{D}(D,-): \mathcal{D} \rightarrow$ S
 
 
 
+
+
+
+
+
+
+\section{Kan extensions}
+
+Kan extensions take a given functor and extend it to a different category. There are two ways of doing that, via colimits and via limits. These extensions don’t have to exist, and even if they exist, they might not have nice properties. But in controlled situations, they are extremely useful and they are actually ubiquitous
+
+Let $G: \mathcal{C} \rightarrow \mathcal{D}$ and $F: \mathcal{C} \rightarrow \mathcal{E}$ be functors. The left Kan extension of $F$ along $G$ is a pair $(K, \alpha)$, where
+\begin{itemize}
+    \item $K: \mathcal{D} \rightarrow \mathcal{E}$ is a functor, and
+    \item $\alpha: F \Rightarrow K \circ G$ is a natural transformation. %Graficos!!!!!
+    \item for all pairs $(H, \beta)$, where $H: \mathcal{D} \rightarrow \mathcal{E}$ is a functor and $\beta: F \Rightarrow H \circ G$ is a natural transformation, there is a unique natural transformation $\gamma: K \Rightarrow H$ with the property that $\gamma_G \circ \alpha=\beta$.
+\end{itemize}
+
+
+
+
+\begin{theo}
+Let $G: \mathcal{C} \rightarrow \mathcal{D}$ and $F: \mathcal{C} \rightarrow \mathcal{E}$ be functors. Assume that the category $\mathcal{C}$ is small and that $\mathcal{E}$ is cocomplete. Then, the left Kan extension of $F$ along $G$ exists.
+\end{theo}
+
+\begin{theo}
+For small categories $\mathcal{C}, \mathcal{D}$ and $G: \mathcal{C} \rightarrow \mathcal{D}$ and a cocomplete category $\mathcal{E}$ the functor,
+$$
+G^*: \operatorname{Fun}(\mathcal{D}, \mathcal{E}) \rightarrow \operatorname{Fun}(\mathcal{C}, \mathcal{E})
+$$
+has a left adjoint, and this adjoint is given by the left Kan extension.
+\end{theo}
+
+\begin{example}
+    \begin{enumerate}
+        \item Let $\mathcal{C}=$ Fin be a small skeleton of the category of finite sets, let $\mathcal{D}$ be the category of sets, Sets, and let $I$ be the canonical inclusion functor of the subcategory Fin into the category Sets. If $\mathcal{E}$ is an arbitrary cocomplete category, then Theorem 4.1.4 ensures, that you can extend any functor $F$ : Fin $\rightarrow \mathcal{E}$ as a left Kan extension to the category Sets, and you actually have an explicit formula for doing it.
+        \item Let $G$ be a finite group and let $H$ be a subgroup of $G$. Consider the inclusion of the category $\mathcal{C}_H$ with one object and morphisms $H$ into the category $\mathcal{C}_G$, $i: \mathcal{C}_H \rightarrow \mathcal{C}_G$. A functor $F: \mathcal{C}_H \rightarrow \mathrm{Ab}$ is nothing but a $\mathbb{Z}[H]$-module. $M=F(*)$ carries a linear $H$-action. What is the left Kan extension of a given $F$ along $i$ ?
+        \item Assume that $f: X \rightarrow Y$ is a continuous map between topological spaces and $\mathcal{F}$ is a presheaf on $Y$. One could try to pull $\mathcal{F}$ back via $f$ by defining $f^{-1} \mathcal{F}(U)=$ $\mathcal{F}(f(U))$, but, of course, $f(U)$ doesn't have to be open, so instead, one defines the inverse image presheaf as the left Kan extension
+        $$
+        f^{-1} \mathcal{F}(U)=\operatorname{colim}_{f(U) \subset V \text { open }} \mathcal{F}(V) .
+        $$
+        Even if $\mathcal{F}$ was a sheaf, $f^{-1} \mathcal{F}$ might not be one, so for sheaves, $f^{-1} \mathcal{F}$ is defined as the sheafification.
+    \end{enumerate}
+\end{example}
+
+
+The functor $H$ preserves the left $K a n$ extension $(K, \alpha)$ of $F$ along $G$ if $(H \circ K, H \alpha)$ is a left Kan extension of $H \circ F$ along $G$.
+
+\begin{theo}
+Let $G: \mathcal{C} \rightarrow \mathcal{D}$ be a functor between small categories. Left adjoint functors $L: \mathcal{E} \rightarrow \mathcal{F}$ preserve left Kan extensions of functors $F: \mathcal{D} \rightarrow \mathcal{E}$.
+\end{theo}
+
+A right Kan extension of $F: \mathcal{C} \rightarrow \mathcal{E}$ is pointwise if and only if it is preserved by all representable functors $\mathcal{E}(E,-): \mathcal{E} \rightarrow$ Sets.\\
+The dual statement is also true, but in that case, we have to consider the representable functors $\mathcal{E}(-, E)$ which transform colimits to limits in Sets ${ }^{\circ}$.
+
+Let $\mathcal{D}$ and $\mathcal{E}$ be categories. Assume that $H_1: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ and $H_2: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E}$ are functors, and let
+$$
+\tau_D: H_1(D, D) \rightarrow H_2(D, D)
+$$
+be a family (indexed over the objects of $\mathcal{D}$ ) of morphisms $\tau_D \in \mathcal{E}\left(H_1(D, D), H_2(D, D)\right)$. Then, $\left(\tau_D\right)_D$ is called a dinatural transformation if for all morphisms $f \in \mathcal{D}\left(D, D^{\prime}\right)$, the diagram
+$$
+H_1\left(D^{\prime}, D\right) \xrightarrow{H_1(f, D)} H_1(D, D)
+$$
+commutes.
+
+\begin{enumerate}
+    \item An important example of a functor $H: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E}$ is a natural evaluation map. Fix a $K$-vector space $W$, and denote by $L(V, W)$ the vector space of $K$-linear maps from $V$ to $W$. Consider the functor
+    $$
+    L(-, W) \otimes \mathrm{Id} \rightarrow \text { vect }^o \times \text { vect } \rightarrow \text { vect, } \quad\left(V_1, V_2\right) \mapsto L\left(V_1, W\right) \otimes V_2 .
+    $$
+    
+    A dinatural transformation from this functor to the constant functor on $W, \kappa_W$, consists of a family of linear maps
+    $$
+    \tau_V: L(V, W) \otimes V \rightarrow W
+    $$
+    which transform naturally in $V$.
+    \item Let $V$ and $W$ be $K$-vector spaces, and denote by Iso $(V, W)$ the vector space of $K$-linear isomorphisms from $V$ to $W$. Then,
+    $$
+    \text { Iso : vect }{ }^0 \times \text { vect } \rightarrow \text { vect }
+    $$
+    is a functor, and Iso $(V, V)$ is the group of automorphisms of $V$. For instance, if $K=$ $\mathbb{R}$, we can consider the orientation preserving automorphisms of $V, \operatorname{Aut}^{+}(V)$. The inclusion of $\operatorname{Aut}^{+}(V)$ into Aut $(V)$ is then a $\tau_V$ where $\tau$ is a dinatural transformation. 
+    \item In fact, the preceding example generalizes to any category. For two objects $C_1$ and $C_2$ of a category $\mathcal{C}$, we can always consider the set of isomorphisms from $C_1$ to $C_2$, Iso $\left(C_1, C_2\right)$, and $\operatorname{Aut}\left(C_1\right)=\operatorname{Iso}\left(C_1, C_1\right)$, the group of automorphisms of the object $C_1$. If this group has interesting subgroups that transform naturally in $C_1$, then the inclusion of such a subgroup into Aut $\left(C_1\right)$ gives rise to a dinatural transformation. Last but not least, we fix an object $E$ of $\mathcal{E}$ and consider the constant functor on $E$, $\kappa_E$, as a functor
+    $$
+    \kappa_E: \mathcal{D}^o \times \mathcal{D} \rightarrow \mathcal{E} \text {. }
+    $$
+\end{enumerate}
+
+Let $H: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ be a functor. An end of $H$ is a pair $(E, \tau)$, where $E$ is an object of $\mathcal{E}$ and $\tau$ is a dinatural transformation from $\kappa_E$ to $H$, with the property that for all other objects $E^{\prime}$ of $\mathcal{E}$ with a dinatural transformation $\nu$ from $\kappa_{E^{\prime}}$ to $H$, there is a unique $\xi \in \mathcal{E}\left(E^{\prime}, E\right)$, such that $\nu_D=\tau_D \circ \xi$ for all $D$.
+
+\begin{example}\begin{enumerate}
+    \item Let $\mathcal{D}$ be a small category, let $\mathcal{E}$ be an arbitrary category, and assume $F$ and $G$ are functors from $\mathcal{D}$ to $\mathcal{E}$. We consider
+        $$
+        \mathcal{E}(F(-), G(-)): \mathcal{D}^o \times \mathcal{D} \rightarrow \text { Sets }
+        $$
+        as a functor. An end of this functor is a set $X$, together with a universal dinatural transformation
+        $$
+        \varepsilon_D: X \rightarrow \mathcal{E}(F(D), G(D))
+        $$
+        for all objects $D$ of $\mathcal{D}$, which satisfies the coherence condition, as illustrated in the diagram (4.4.1). It is clear that the set of all natural transformations satisfies this condition: If $X^{\prime}$ is another set with a dinatural transformation $\nu$ from $\kappa_{X^{\prime}}$ to $\mathcal{E}(F(-), G(-))$, then for every element $x \in X^{\prime}, \nu_D(x)$ is actually a natural transformation because of the naturality of $\nu$, but then, we obtain a function $f: X^{\prime} \rightarrow X=\operatorname{nat}(F, G)$, with $f(x)_D=\nu_D(x)$.
+        
+        As a special case, we obtain that the abelian group of $R$-module homomorphism between two left $R$-modules $M$ and $N$ is an end.   
+        \item Example 4.4.7. Let $\mathcal{D}$ be a small category and let $F: \mathcal{D}^o \rightarrow k$-mod and $G: \mathcal{D} \rightarrow k$-mod be functors. Here, $k$ is an arbitrary commutative ring with unit, and $k$-mod denotes the category of $k$-modules and $k$-linear maps. Then, we can build the tensor product of $F$ and $G$ as
+        $$
+        F \otimes_{\mathcal{D}} G:=\bigoplus_D F(D) \otimes_k G(D) / \sim,
+        $$
+        where the sum is indexed by all objects $D$ of $\mathcal{D}$ and where we divide out by the $k$-submodule of $\oplus_D F(D) \otimes_k G(D)$ generated by
+        $$
+        F(f)(x) \otimes y-x \otimes G(f)(y), \quad x \in F\left(D^{\prime}\right), y \in G(D), f \in \mathcal{D}\left(D, D^{\prime}\right) .
+        $$
+        
+        We claim that $F \otimes_{\mathcal{D}} G$, together with the dinatural transformation $\tau$ that sends $F(D) \otimes_k$ $G(D)$ to the class of the summand in $F \otimes_{\mathcal{D}} G$, is the coend of the functor $F \otimes_k G: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow$ $k$-mod that sends $\left(D_1, D_2\right)$ to $F\left(D_1\right) \otimes_k G\left(D_2\right)$ and $(f, g) \in \mathcal{D}\left(D_1, D_2\right) \times \mathcal{D}\left(D_3, D_4\right)$ to $F(f) \otimes_k G(g)$
+\end{enumerate}
+\end{example}
+
+Let $\mathcal{D}$ and $\mathcal{E}$ be categories and let $H: \mathcal{D}^{\circ} \times \mathcal{D} \rightarrow \mathcal{E}$ be a functor. We denote by $\int_{\mathcal{D}} H$ the end of the functor $H$; and by $\int^{\mathcal{D}} H$ the coend of the functor $H$.\\
+
+\begin{prop}[Fubini theorem for ends] Let $H:\left(\mathcal{D} \times \mathcal{D}^{\prime}\right)^o \times\left(\mathcal{D} \times \mathcal{D}^{\prime}\right) \rightarrow \mathcal{E}$ be a functor. If the ends $\int_{\mathcal{D}} H\left(D, D_1^{\prime}, D, D_2^{\prime}\right)$ exist for all objects $D_1^{\prime}, D_2^{\prime}$ of $\mathcal{D}^{\prime}$ and if the ends $\int_{\mathcal{D}^{\prime}} H\left(D_1, D^{\prime}, D_2, D^{\prime}\right)$ exist for all objects $D_1$ and $D_2$ of $\mathcal{D}$, then
+$$
+\int_{\mathcal{D}} \int_{\mathcal{D}^{\prime}} H\left(D, D^{\prime}, D, D^{\prime}\right) \cong \int_{\mathcal{D}^{\prime}} \int_{\mathcal{D}} H\left(D, D^{\prime}, D, D^{\prime}\right) \cong \int_{\mathcal{D} \times \mathcal{D}^{\prime}} H\left(D, D^{\prime}, D, D^{\prime}\right),
+$$
+and if one of them exists, then the others do as well.
+\end{prop} 
 
 
 
