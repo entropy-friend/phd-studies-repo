@@ -4,16 +4,16 @@
 
 \chapter{Category Theory}
 
-\textit{References \cite{adamekAbstractConcreteCategories2004,richterCategoriesHomotopyTheory2020}.} %ritcher
-
+\textit{References \cite{adamekAbstractConcreteCategories2004,richterCategoriesHomotopyTheory2020}.}\\ %ritcher
+In general, categories and functors will be denoted with calligraphic letters (except for Gr, Ab, Top, Sets, \dots) and objects with capital letters.\\
 
 \section{Some facts}  
 
 \begin{example}
     \begin{enumerate}
-        \item On a topological space, the category of open sets with inclusions as morphisms. The opposite of this category, denoted by $\mathfrak{U}$, is used in sheaf theory.
-        \item If \ca and \cb are preordered sets, then functors between them are the monotone maps.
-        \item $f: \mathbb{Z} \rightarrow \mathbb{Q}$ is a monomorphism and epimorphism, but not an isomorphism.
+        \item On a topological space, the category of open sets with inclusions as morphisms. The opposite of this category, denoted by $\mathcal{U}$, is essential in sheaf theory.
+        \item If \ca and \cb are preordered sets, then the functors between them are the monotone maps.
+        \item $i: \mathbb{Z} \hookrightarrow \mathbb{Q}$ is a monomorphism and epimorphism, but not an isomorphism.
         \item A \textbf{grupoid} is a category with whose morphisms are isomorphisms. In particular, a group can be seen as a grupoid with one element.
     \end{enumerate}
 \end{example}
@@ -22,7 +22,7 @@
 % A functor $F: \mathcal{A} \rightarrow \mathcal{B}$ is called an \textbf{isomorphism} provided that there is a functor $G: \mathcal{B} \rightarrow \mathcal{A}$ such that $G \circ F=i d_{\mathcal{A}}$ and $F \circ G=i d_{\mathcal{B}}$. The categories $\mathcal{A}$ and $\mathcal{B}$ are said to be \textbf{isomorphic}. \\
 % Note that $G$ is uniquely determined by $F$. It will be denoted by $F^{-1}$ and called the \textbf{inverse} of $F$.\\
 
-\noindent Let $F: \mathcal{A} \rightarrow \mathcal{B}$ be a functor.
+Let $F: \mathcal{A} \rightarrow \mathcal{B}$ be a functor.
 \begin{enumerate}
     \item $F$ is \textbf{faithful} provided that all the \textbf{hom-set restrictions}
     $$
@@ -35,7 +35,7 @@
     \item If $F$ is essentially surjective and fully faithful, it is called an \textbf{equivalence of categories}, and \ca and \cb are said to be \textbf{equivalent}.
 \end{enumerate}
 
-Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A \textbf{natural transformation} $\tau$ from $F$ to $G$ (denoted by $\tau: F \rightarrow G$ or $F \xrightarrow{\tau} G$ ) is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following naturality condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
+Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A \textbf{natural transformation} $\tau$ from $F$ to $G$ (denoted by $\tau: F \rightarrow G$ or $F \xrightarrow{\tau} G$ ) is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following \textit{natural} condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
 $
 \begin{tikzcd}
 FA \arrow[r, "\tau_A"] \arrow[d, "Ff"'] & GA \arrow[d, "Gf"] \\
