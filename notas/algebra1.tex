@@ -304,32 +304,15 @@ Let $\mathcal{C}$ and $\mathcal{C}^{\prime}$ be categories. An \textbf{adjunctio
 $$
 \varphi_{C, C^{\prime}}: \mathcal{C}^{\prime}\left(L(C), C^{\prime}\right) \cong \mathcal{C}\left(C, R\left(C^{\prime}\right)\right),
 $$
-which is natural in $C$ and $C^{\prime}$.
-The functor $L$ is then left adjoint to $R$, and $R$ is right adjoint to $L$. We call $(L, R)$ an adjoint pair of functors.\\
-The naturality condition on the bijections $\varphi_{C, C^{\prime}}$ can be spelled out explicitly as follows: For all morphisms $f: C \rightarrow D$ in $\mathcal{C}$ and $g: C^{\prime} \rightarrow D^{\prime}$ in $\mathcal{C}^{\prime}$, the diagram commutes.
-
+which is natural in $C$ and $C^{\prime}$. The functor $L$ is then left adjoint to $R$, and $R$ is right adjoint to $L$. We call $(L, R)$ an adjoint pair of functors.\\
+The naturality condition on the bijections $\varphi_{C, C^{\prime}}$ can be spelled out explicitly as follows: For all morphisms $f: C \rightarrow D$ in $\mathcal{C}$ and $g: C^{\prime} \rightarrow D^{\prime}$ in $\mathcal{C}^{\prime}$, the following diagram commutes:
 \begin{center}
-    
-
-\begin{tikzpicture}[  > = Stealth,  node distance = 4cm,  auto,  thick,  font = \large\itshape]
-  % Define nodes
-  \node (A) {$C'(L(D), C')$};
-  \node (B) [right of=A] {$C'(L(C), C')$};
-  \node (C) [right of=B] {$C'(L(C), D')$};
-  \node (D) [below of=A] {$C(D, R(C'))$};
-  \node (E) [below of=B] {$C(C, R(C'))$};
-  \node (F) [below of=C] {$C(C, R(D'))$};
-  
-  % Draw arrows
-  \draw[->] (A) -- node[above] {$C'(Lf,C')$} (B);
-  \draw[->] (B) -- node[above] {$C'(L(C),g)$} (C);
-  \draw[->] (D) -- node[above] {$C(f,R(C'))$} (E);
-  \draw[->] (E) -- node[above] {$C(C,R(g))$} (F);
-  \draw[->] (A) -- node[left] {$\varphi_{D,C'}$} (D);
-  \draw[->] (B) -- node[left] {$\varphi_{C,C'}$} (E);
-  \draw[->] (C) -- node[right] {$\varphi_{C,D'}$} (F);
-\end{tikzpicture}
+    \begin{tikzcd}[column sep=huge]
+        \mathcal{C}^{\prime}(L(D), C^{\prime}) \arrow[r, "{\mathcal{C}^{\prime} (Lf, C^{\prime})}"] \arrow[d, "{\varphi_{D,C^{\prime}}}"] & \mathcal{C}^{\prime}(L(C), C^{\prime}) \arrow[r, "{\mathcal{C}^{\prime} (L(C), g)}"] \arrow[d, "{\varphi_{C,C^{\prime}}}"] & \mathcal{C}^{\prime}(L(C), D^{\prime}) \arrow[d, "{\varphi_{C,D^{\prime}}}"]  \\
+        \mathcal{C}(D, R(C^{\prime})) \arrow[r, "{\mathcal{C}(f, R(C^{\prime}))}"] & \mathcal{C}(C, R(C^{\prime})) \arrow[r, "{\mathcal{C}(C, R(g))}"] & \mathcal{C}(C, R(D^{\prime}))
+        \end{tikzcd}
 \end{center}
+
 
 \begin{example}
 A prototypical example of an adjunction is a forgetful functor and a 'free' functor: if $R=U$ is a forgetful functor and if a left adjoint of $U$ exists, then the defining property means that for each morphism from $C$ to $U\left(C^{\prime}\right)$ in the underlying category, there is a unique corresponding morphism from $L(C)$ to $C^{\prime}$, so, in this sense, $L(C)$ is the free object associated with $C$. For topological spaces, the free topological space on a set is the set with discrete topology.
@@ -341,18 +324,9 @@ A prototypical example of an adjunction is a forgetful functor and a 'free' func
       $$
       \varepsilon_L \circ L(\eta)=\operatorname{Id}_L \text { and } R(\varepsilon) \circ \eta_R=\operatorname{Id}_R
       $$
-      hence, the diagrams
-      $$
-      L(C) \xrightarrow{L(\eta)} L R L(C) \text { and } R\left(C^{\prime}\right) \xrightarrow{\eta_{R\left(C^{\prime}\right)}} R L R\left(C^{\prime}\right)
-      $$
-      commute for all objects $C$ of $\mathcal{C}$ and $C^{\prime \prime}$ of $\mathcal{C}^{\prime}$.
       \item Adjunction can be composed.
       \item Each of the functors $L$ and $R$ determines the other functor uniquely up to isomorphism.
-      \item $G$ has a left-adjoint $F$ if and only if $\operatorname{Hom}_C(X, G-)$ is representable for all $X$ in $C$. The natural isomorphism $\Phi_X: \operatorname{Hom}_D(F X,-) \rightarrow \operatorname{Hom}_C(X, G-)$ yields the adjointness; that is
-$$
-\Phi_{X, Y}: \operatorname{Hom}_{\mathcal{D}}(F X, Y) \rightarrow \operatorname{Hom}_{\mathcal{C}}(X, G Y)
-$$
-is a bijection for all $X$ and $Y$.
+      
     \end{enumerate}
 \end{prop}
 The transformation $\eta$ is called the \textbf{unit of the adjunction} and $\varepsilon$ is the \textbf{counit}.
@@ -368,24 +342,7 @@ Let $F: \mathcal{C} \rightarrow \mathcal{D}$ be an arbitrary functor. Then the f
 \end{enumerate}
 \end{theo}
 
-\subsubsection*{Skeleta of categories}
- A category is called \textbf{reduced} if isomorphic objects are identical. A subcategory $\mathcal{S}$ of a category $\mathcal{C}$ is a \textbf{skeleton} if $\mathcal{S}$ is reduced and if the inclusion $\mathcal{S} \hookrightarrow \mathcal{C}$ is an equivalence of categories.
-\begin{example}
-    
-    \begin{enumerate}
-        
-        \item Consider the category of finite sets and functions. It contains the full subcategory whose objects are the sets of the form $\{1, \ldots, n\}$ for $n \geq 0$. Here, we use the convention that the empty set is encoded by $n=0$. The inclusion functor is full and faithful. As every finite set is in bijection with a standardized set of the form $\{1, \ldots, n\}$ as above, the inclusion functor is also essentially surjective. Therefore, these finite sets build a skeleton.
-        
-        \item A similar example is the category of finite-dimensional $K$-vector spaces. This has as a skeleton the full subcategory of vector spaces of the form $K^n$ for some finite natural number $n$. Here, $n=0$ encodes the zero vector space.
-    \end{enumerate}
-\end{example}
-
-
-\begin{prop}
-    Every category has an skeleton
-\end{prop}
-
-
+%preservacion de limites y colimites
 
 
 

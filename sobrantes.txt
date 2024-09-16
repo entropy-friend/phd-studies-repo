@@ -1,0 +1,25 @@
+\item $G$ has a left-adjoint $F$ if and only if $\operatorname{Hom}_C(X, G-)$ is representable for all $X$ in $C$. The natural isomorphism $\Phi_X: \operatorname{Hom}_D(F X,-) \rightarrow \operatorname{Hom}_C(X, G-)$ yields the adjointness; that is
+$$
+\Phi_{X, Y}: \operatorname{Hom}_{\mathcal{D}}(F X, Y) \rightarrow \operatorname{Hom}_{\mathcal{C}}(X, G Y)
+$$
+is a bijection for all $X$ and $Y$.
+
+
+
+\subsubsection*{Skeleta of categories}
+ A category is called \textbf{reduced} if isomorphic objects are identical. A subcategory $\mathcal{S}$ of a category $\mathcal{C}$ is a \textbf{skeleton} if $\mathcal{S}$ is reduced and if the inclusion $\mathcal{S} \hookrightarrow \mathcal{C}$ is an equivalence of categories.
+\begin{example}
+    
+    \begin{enumerate}
+        
+        \item Consider the category of finite sets and functions. It contains the full subcategory whose objects are the sets of the form $\{1, \ldots, n\}$ for $n \geq 0$. Here, we use the convention that the empty set is encoded by $n=0$. The inclusion functor is full and faithful. As every finite set is in bijection with a standardized set of the form $\{1, \ldots, n\}$ as above, the inclusion functor is also essentially surjective. Therefore, these finite sets build a skeleton.
+        
+        \item A similar example is the category of finite-dimensional $K$-vector spaces. This has as a skeleton the full subcategory of vector spaces of the form $K^n$ for some finite natural number $n$. Here, $n=0$ encodes the zero vector space.
+    \end{enumerate}
+\end{example}
+
+
+\begin{prop}
+    Every category has an skeleton
+\end{prop}
+

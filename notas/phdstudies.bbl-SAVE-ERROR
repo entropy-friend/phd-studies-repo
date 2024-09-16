@@ -1,0 +1,872 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{adamekAbstractConcreteCategories2004}{misc}{}{}
+      \name{author}{3}{}{%
+        {{hash=ae7cbbd245158fc879b7a2fc86899c5d}{%
+           family={Adámek},
+           familyi={A\bibinitperiod},
+           given={Jirí},
+           giveni={J\bibinitperiod}}}%
+        {{hash=03d5107fd2120578a0139c1f592304c6}{%
+           family={Herrlich},
+           familyi={H\bibinitperiod},
+           given={Horst},
+           giveni={H\bibinitperiod}}}%
+        {{hash=5ed586277d0e542f7b5022f2b5a8efe7}{%
+           family={Strecker},
+           familyi={S\bibinitperiod},
+           given={George\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=b9c3709b2a176bb5e7c498512914f6fd}{%
+           family={Schubert},
+           familyi={S\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{92cf5bbfabcf5ea654c7ff007f7edb1b}
+      \strng{fullhash}{92cf5bbfabcf5ea654c7ff007f7edb1b}
+      \strng{fullhashraw}{92cf5bbfabcf5ea654c7ff007f7edb1b}
+      \strng{bibnamehash}{92cf5bbfabcf5ea654c7ff007f7edb1b}
+      \strng{authorbibnamehash}{92cf5bbfabcf5ea654c7ff007f7edb1b}
+      \strng{authornamehash}{92cf5bbfabcf5ea654c7ff007f7edb1b}
+      \strng{authorfullhash}{92cf5bbfabcf5ea654c7ff007f7edb1b}
+      \strng{authorfullhashraw}{92cf5bbfabcf5ea654c7ff007f7edb1b}
+      \strng{editorbibnamehash}{b9c3709b2a176bb5e7c498512914f6fd}
+      \strng{editornamehash}{b9c3709b2a176bb5e7c498512914f6fd}
+      \strng{editorfullhash}{b9c3709b2a176bb5e7c498512914f6fd}
+      \strng{editorfullhashraw}{b9c3709b2a176bb5e7c498512914f6fd}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Abstract and {{Concrete Categories}} - {{The Joy}} of {{Cats}}}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/PB22UKNL/Schubert - Abstract and Concrete Categories - The Joy of Cats.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://katmat.math.uni-bremen.de/acc/
+      \endverb
+      \verb{url}
+      \verb http://katmat.math.uni-bremen.de/acc/
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{brownCohomologyGroups1982}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=561a0728b1507369c5bd47709221275f}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Kenneth\bibnamedelima S.},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{561a0728b1507369c5bd47709221275f}
+      \strng{fullhash}{561a0728b1507369c5bd47709221275f}
+      \strng{fullhashraw}{561a0728b1507369c5bd47709221275f}
+      \strng{bibnamehash}{561a0728b1507369c5bd47709221275f}
+      \strng{authorbibnamehash}{561a0728b1507369c5bd47709221275f}
+      \strng{authornamehash}{561a0728b1507369c5bd47709221275f}
+      \strng{authorfullhash}{561a0728b1507369c5bd47709221275f}
+      \strng{authorfullhashraw}{561a0728b1507369c5bd47709221275f}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4684-9329-0 978-1-4684-9327-6}
+      \field{langid}{english}
+      \field{series}{Graduate {{Texts}} in {{Mathematics}}}
+      \field{title}{Cohomology of {{Groups}}}
+      \field{volume}{87}
+      \field{year}{1982}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-1-4684-9327-6
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/DHABUM9I/Brown - 1982 - Cohomology of Groups.pdf
+      \endverb
+      \keyw{Abelian group,Cohomology,Groups,Gruppe (Math.),Kohomologie,notion}
+    \endentry
+    \entry{goerssSimplicialHomotopyTheory2009}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=412faf071798330e91007f59ae2d6ee2}{%
+           family={Goerss},
+           familyi={G\bibinitperiod},
+           given={Paul\bibnamedelima G.},
+           giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=34394d8ae626e3433634862abdc5b4b3}{%
+           family={Jardine},
+           familyi={J\bibinitperiod},
+           given={John\bibnamedelima F.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Basel}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser Basel}%
+      }
+      \strng{namehash}{ba044f0b8b164d19eb892a329552e01b}
+      \strng{fullhash}{ba044f0b8b164d19eb892a329552e01b}
+      \strng{fullhashraw}{ba044f0b8b164d19eb892a329552e01b}
+      \strng{bibnamehash}{ba044f0b8b164d19eb892a329552e01b}
+      \strng{authorbibnamehash}{ba044f0b8b164d19eb892a329552e01b}
+      \strng{authornamehash}{ba044f0b8b164d19eb892a329552e01b}
+      \strng{authorfullhash}{ba044f0b8b164d19eb892a329552e01b}
+      \strng{authorfullhashraw}{ba044f0b8b164d19eb892a329552e01b}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-0346-0188-7 978-3-0346-0189-4}
+      \field{langid}{english}
+      \field{title}{Simplicial {{Homotopy Theory}}}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-0346-0189-4
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/WDRQYMWS/Goerss y Jardine - 2009 - Simplicial Homotopy Theory.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{hatcherAlgebraicTopology2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0a94eadf86d8b878d4c37bc5640e53e3}{%
+           family={Hatcher},
+           familyi={H\bibinitperiod},
+           given={Allen},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{fullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{fullhashraw}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{bibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorbibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authornamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorfullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorfullhashraw}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Algebraic {{Topology}}}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/W9KE4PQ6/Hatcher.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://pi.math.cornell.edu/~hatcher/AT/AT.pdf
+      \endverb
+      \verb{url}
+      \verb https://pi.math.cornell.edu/~hatcher/AT/AT.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{karoubiContemporaryDevelopmentsAlgebraic2003}{book}{}{}
+      \name{editor}{3}{}{%
+        {{hash=bd2038c32c40af7dd9d3259e956868e7}{%
+           family={Karoubi},
+           familyi={K\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7bfb49ad95c4903575e84d702a947440}{%
+           family={Kuku},
+           familyi={K\bibinitperiod},
+           given={Aderemi\bibnamedelima O.},
+           giveni={A\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=3ad42836d1822e3696062f46b952795a}{%
+           family={Pedrini},
+           familyi={P\bibinitperiod},
+           given={Claudio},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Trieste, Italy}%
+      }
+      \list{publisher}{1}{%
+        {Abdus Salam International Centre for Theoretical Physics}%
+      }
+      \strng{namehash}{c9780c51d2e1b4f2f8cdb888e118aab1}
+      \strng{fullhash}{c9780c51d2e1b4f2f8cdb888e118aab1}
+      \strng{fullhashraw}{c9780c51d2e1b4f2f8cdb888e118aab1}
+      \strng{bibnamehash}{c9780c51d2e1b4f2f8cdb888e118aab1}
+      \strng{editorbibnamehash}{c9780c51d2e1b4f2f8cdb888e118aab1}
+      \strng{editornamehash}{c9780c51d2e1b4f2f8cdb888e118aab1}
+      \strng{editorfullhash}{c9780c51d2e1b4f2f8cdb888e118aab1}
+      \strng{editorfullhashraw}{c9780c51d2e1b4f2f8cdb888e118aab1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{1. ed}
+      \field{isbn}{978-92-95003-21-7}
+      \field{langid}{english}
+      \field{number}{15}
+      \field{pagetotal}{536}
+      \field{series}{{{ICTP}} Lecture Notes}
+      \field{shorttitle}{Contemporary Developments in Algebraic K-Theory}
+      \field{title}{Contemporary Developments in Algebraic K-Theory: {{School}} on {{Algebraic K-Theory}} and Its {{Applications}}, 8-19 {{July}} 2002; (Dedicated to {{H}}. {{Bass}} on the Occasion of His 70th Birthday)}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/WIS84VHC/Karoubi et al. - 2003 - Contemporary developments in algebraic k-theory School on Algebraic K-Theory and its Applications,.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{kervaireSmoothHomologySpheres1969}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3284f18e1ec8d35b37aa847ca36259bc}{%
+           family={Kervaire},
+           familyi={K\bibinitperiod},
+           given={Michel\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3284f18e1ec8d35b37aa847ca36259bc}
+      \strng{fullhash}{3284f18e1ec8d35b37aa847ca36259bc}
+      \strng{fullhashraw}{3284f18e1ec8d35b37aa847ca36259bc}
+      \strng{bibnamehash}{3284f18e1ec8d35b37aa847ca36259bc}
+      \strng{authorbibnamehash}{3284f18e1ec8d35b37aa847ca36259bc}
+      \strng{authornamehash}{3284f18e1ec8d35b37aa847ca36259bc}
+      \strng{authorfullhash}{3284f18e1ec8d35b37aa847ca36259bc}
+      \strng{authorfullhashraw}{3284f18e1ec8d35b37aa847ca36259bc}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0002-9947, 1088-6850}
+      \field{journaltitle}{Trans. Amer. Math. Soc.}
+      \field{langid}{english}
+      \field{number}{0}
+      \field{title}{Smooth Homology Spheres and Their Fundamental Groups}
+      \field{volume}{144}
+      \field{year}{1969}
+      \field{dateera}{ce}
+      \field{pages}{67\bibrangedash 72}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1090/S0002-9947-1969-0253347-3
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/GGBXK5TT/Kervaire - 1969 - Smooth homology spheres and their fundamental groups.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{kupersHomologicalStabilityMinicourse2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=22ba2c7da2772a75d541322953e9be48}{%
+           family={Kupers},
+           familyi={K\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{22ba2c7da2772a75d541322953e9be48}
+      \strng{fullhash}{22ba2c7da2772a75d541322953e9be48}
+      \strng{fullhashraw}{22ba2c7da2772a75d541322953e9be48}
+      \strng{bibnamehash}{22ba2c7da2772a75d541322953e9be48}
+      \strng{authorbibnamehash}{22ba2c7da2772a75d541322953e9be48}
+      \strng{authornamehash}{22ba2c7da2772a75d541322953e9be48}
+      \strng{authorfullhash}{22ba2c7da2772a75d541322953e9be48}
+      \strng{authorfullhashraw}{22ba2c7da2772a75d541322953e9be48}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{These are the collected lecture notes for eCHT minicourse on homological stability in spring 2021.}
+      \field{day}{13}
+      \field{month}{5}
+      \field{title}{Homological {{Stability Minicourse}}}
+      \field{urlday}{14}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/Z8SYHVQH/homstab.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.utsc.utoronto.ca/people/kupers/wp-content/uploads/sites/50/homstab.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.utsc.utoronto.ca/people/kupers/wp-content/uploads/sites/50/homstab.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{maazenHomologyStabilityGeneral1979a}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=9ee533de37c171cca16fdc77cf88e422}{%
+           family={Maazen},
+           familyi={M\bibinitperiod},
+           given={Hendrik},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Utrecht University}%
+      }
+      \strng{namehash}{9ee533de37c171cca16fdc77cf88e422}
+      \strng{fullhash}{9ee533de37c171cca16fdc77cf88e422}
+      \strng{fullhashraw}{9ee533de37c171cca16fdc77cf88e422}
+      \strng{bibnamehash}{9ee533de37c171cca16fdc77cf88e422}
+      \strng{authorbibnamehash}{9ee533de37c171cca16fdc77cf88e422}
+      \strng{authornamehash}{9ee533de37c171cca16fdc77cf88e422}
+      \strng{authorfullhash}{9ee533de37c171cca16fdc77cf88e422}
+      \strng{authorfullhashraw}{9ee533de37c171cca16fdc77cf88e422}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This thesis studies the homology stability problem for general linear groups over Euclidean rings and over subrings of the field of rational numbers. Affine linear groups, acting on affine space rather than linear space, are also considered. In order to get stability results one establishes that certain posets of ordered unimodular sequences of vectors are Cohen-Macaulay. The ideas are first illustrated by reproving the Nakaoka stability theorem on homology stability for symmetric groups.}
+      \field{annotation}{Accepted: 2012-04-18T07:56:31Z}
+      \field{day}{1}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{title}{Homology Stability for the General Linear Group}
+      \field{type}{phdthesis}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2024}
+      \field{year}{1979}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/945WVQDI/maazen.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dspace.library.uu.nl/handle/1874/237657
+      \endverb
+      \verb{url}
+      \verb https://dspace.library.uu.nl/handle/1874/237657
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{mayConciseCourseAlgebraic1999}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=11149a42a90779df0bd6b6539568f5ed}{%
+           family={May},
+           familyi={M\bibinitperiod},
+           given={J.\bibnamedelimi P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{11149a42a90779df0bd6b6539568f5ed}
+      \strng{fullhash}{11149a42a90779df0bd6b6539568f5ed}
+      \strng{fullhashraw}{11149a42a90779df0bd6b6539568f5ed}
+      \strng{bibnamehash}{11149a42a90779df0bd6b6539568f5ed}
+      \strng{authorbibnamehash}{11149a42a90779df0bd6b6539568f5ed}
+      \strng{authornamehash}{11149a42a90779df0bd6b6539568f5ed}
+      \strng{authorfullhash}{11149a42a90779df0bd6b6539568f5ed}
+      \strng{authorfullhashraw}{11149a42a90779df0bd6b6539568f5ed}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Algebraic topology is a basic part of modern mathematics, and some knowledge of this area is indispensable for any advanced work relating to geometry, including topology itself, differential geometry, algebraic geometry, and Lie groups. This book provides a detailed treatment of algebraic topology both for teachers of the subject and for advanced graduate students in mathematics either specializing in this area or continuing on to other fields.J. Peter May's approach reflects the enormous internal developments within algebraic topology over the past several decades, most of which are largely unknown to mathematicians in other fields. But he also retains the classical presentations of various topics where appropriate. Most chapters end with problems that further explore and refine the concepts presented. The final four chapters provide sketches of substantial areas of algebraic topology that are normally omitted from introductory texts, and the book concludes with a list of suggested readings for those interested in delving further into the field.}
+      \field{day}{1}
+      \field{isbn}{978-0-226-51183-2}
+      \field{langid}{Inglés}
+      \field{month}{9}
+      \field{pagetotal}{254}
+      \field{title}{A Concise Course in Algebraic Topology}
+      \field{year}{1999}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/TB5AE47F/May - 1999 - A Concise Course in Algebraic Topology.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{mirzaiiHomologyStabilitySymplectic2001}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=374afc015339a562057d5366473d7d8c}{%
+           family={Mirzaii},
+           familyi={M\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8d1be9703754a0cc70320b4bd4335451}{%
+           family={Kallen},
+           familyi={K\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b9a33577a1e40c7b3aca28667de98fc}
+      \strng{fullhash}{9b9a33577a1e40c7b3aca28667de98fc}
+      \strng{fullhashraw}{9b9a33577a1e40c7b3aca28667de98fc}
+      \strng{bibnamehash}{9b9a33577a1e40c7b3aca28667de98fc}
+      \strng{authorbibnamehash}{9b9a33577a1e40c7b3aca28667de98fc}
+      \strng{authornamehash}{9b9a33577a1e40c7b3aca28667de98fc}
+      \strng{authorfullhash}{9b9a33577a1e40c7b3aca28667de98fc}
+      \strng{authorfullhashraw}{9b9a33577a1e40c7b3aca28667de98fc}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper the homology stability for symplectic groups over a ring with finite stable rank is established. First we develop a `nerve theorem' on the homotopy type of a poset in terms of a cover by subposets, where the cover is itself indexed by a poset. We use the nerve theorem to show that a poset of sequences of isotropic vectors is highly connected, as conjectured by Charney in the eighties.}
+      \field{day}{16}
+      \field{journaltitle}{arXiv: K-Theory and Homology}
+      \field{month}{10}
+      \field{title}{Homology Stability for Symplectic Groups}
+      \field{urlday}{3}
+      \field{urlmonth}{9}
+      \field{urlyear}{2024}
+      \field{year}{2001}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/5DK39Y37/Mirzaii y Kallen - 2001 - Homology stability for symplectic groups.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.semanticscholar.org/paper/b656ce74f971b47a3be9a7c074bec9cd9c71866f
+      \endverb
+      \verb{url}
+      \verb https://www.semanticscholar.org/paper/b656ce74f971b47a3be9a7c074bec9cd9c71866f
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{mirzaiiHomologyStabilityUnitary2002a}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=374afc015339a562057d5366473d7d8c}{%
+           family={Mirzaii},
+           familyi={M\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{useprefix=false,hash=319f81ad1ee047fad6e79ec2e8e59c9e}{%
+           family={Kallen},
+           familyi={K\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+      }
+      \strng{namehash}{05ba529b5b450ded32babfb450d998a7}
+      \strng{fullhash}{05ba529b5b450ded32babfb450d998a7}
+      \strng{fullhashraw}{05ba529b5b450ded32babfb450d998a7}
+      \strng{bibnamehash}{05ba529b5b450ded32babfb450d998a7}
+      \strng{authorbibnamehash}{05ba529b5b450ded32babfb450d998a7}
+      \strng{authornamehash}{05ba529b5b450ded32babfb450d998a7}
+      \strng{authorfullhash}{05ba529b5b450ded32babfb450d998a7}
+      \strng{authorfullhashraw}{05ba529b5b450ded32babfb450d998a7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{B. Mirzaii, W. van der Kallen}
+      \field{day}{1}
+      \field{issn}{1431-0635}
+      \field{journaltitle}{Documenta Mathematica}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{title}{Homology Stability for Unitary Groups}
+      \field{volume}{7}
+      \field{year}{2002}
+      \field{dateera}{ce}
+      \field{pages}{143\bibrangedash 166}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.4171/dm/121
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/VFW683ZK/Mirzaii y Kallen - 2002 - Homology stability for unitary groups.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{richterCategoriesHomotopyTheory2020}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=4764cd2e7c5aa7516decdd675b9b3eb7}{%
+           family={Richter},
+           familyi={R\bibinitperiod},
+           given={Birgit},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{4764cd2e7c5aa7516decdd675b9b3eb7}
+      \strng{fullhash}{4764cd2e7c5aa7516decdd675b9b3eb7}
+      \strng{fullhashraw}{4764cd2e7c5aa7516decdd675b9b3eb7}
+      \strng{bibnamehash}{4764cd2e7c5aa7516decdd675b9b3eb7}
+      \strng{authorbibnamehash}{4764cd2e7c5aa7516decdd675b9b3eb7}
+      \strng{authornamehash}{4764cd2e7c5aa7516decdd675b9b3eb7}
+      \strng{authorfullhash}{4764cd2e7c5aa7516decdd675b9b3eb7}
+      \strng{authorfullhashraw}{4764cd2e7c5aa7516decdd675b9b3eb7}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{16}
+      \field{edition}{1}
+      \field{isbn}{978-1-108-85589-1 978-1-108-47962-2}
+      \field{month}{4}
+      \field{title}{From {{Categories}} to {{Homotopy Theory}}}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1017/9781108855891
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/28Z48F8D/Richter - 2020 - From Categories to Homotopy Theory.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{srinivasAlgebraicKTheory1996}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=86c010cda1516a35cf49e0fca675975e}{%
+           family={Srinivas},
+           familyi={S\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=ec5781a5c6cf611eb3227144beebe19d}{%
+           family={Bass},
+           familyi={B\bibinitperiod},
+           given={Hyman},
+           giveni={H\bibinitperiod}}}%
+        {{hash=fafceec97e800edca8f0a655f9d4c5fd}{%
+           family={Oesterlé},
+           familyi={O\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c12d1dd316b89453935b3431c93f79ef}{%
+           family={Weinstein},
+           familyi={W\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser Boston}%
+      }
+      \strng{namehash}{86c010cda1516a35cf49e0fca675975e}
+      \strng{fullhash}{86c010cda1516a35cf49e0fca675975e}
+      \strng{fullhashraw}{86c010cda1516a35cf49e0fca675975e}
+      \strng{bibnamehash}{86c010cda1516a35cf49e0fca675975e}
+      \strng{authorbibnamehash}{86c010cda1516a35cf49e0fca675975e}
+      \strng{authornamehash}{86c010cda1516a35cf49e0fca675975e}
+      \strng{authorfullhash}{86c010cda1516a35cf49e0fca675975e}
+      \strng{authorfullhashraw}{86c010cda1516a35cf49e0fca675975e}
+      \strng{editorbibnamehash}{74e295078e85abaa848ba688d352d2e8}
+      \strng{editornamehash}{74e295078e85abaa848ba688d352d2e8}
+      \strng{editorfullhash}{74e295078e85abaa848ba688d352d2e8}
+      \strng{editorfullhashraw}{74e295078e85abaa848ba688d352d2e8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{editortype}{redactor}
+      \field{isbn}{978-0-8176-4736-0 978-0-8176-4739-1}
+      \field{langid}{english}
+      \field{series}{Progress in {{Mathematics}}}
+      \field{title}{Algebraic {{K-Theory}}}
+      \field{year}{1996}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-0-8176-4739-1
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/DMVGHGPT/Srinivas - 1996 - Algebraic K-Theory.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{suslinStabilityAlgebraicKtheory1982}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=211674751e9bf0e40f9e1c4d45ca2615}{%
+           family={Suslin},
+           familyi={S\bibinitperiod},
+           given={A.\bibnamedelimi A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=99e4645c778a3760bf166d389211e5ea}{%
+           family={Dennis},
+           familyi={D\bibinitperiod},
+           given={R.\bibnamedelimi Keith},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{fullhash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{fullhashraw}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{bibnamehash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{authorbibnamehash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{authornamehash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{authorfullhash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{authorfullhashraw}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{editorbibnamehash}{99e4645c778a3760bf166d389211e5ea}
+      \strng{editornamehash}{99e4645c778a3760bf166d389211e5ea}
+      \strng{editorfullhash}{99e4645c778a3760bf166d389211e5ea}
+      \strng{editorfullhashraw}{99e4645c778a3760bf166d389211e5ea}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Algebraic {{K-Theory}}}
+      \field{isbn}{978-3-540-11965-4 978-3-540-39553-9}
+      \field{langid}{english}
+      \field{title}{Stability in Algebraic {{K-theory}}}
+      \field{volume}{966}
+      \field{year}{1982}
+      \field{dateera}{ce}
+      \field{pages}{304\bibrangedash 333}
+      \range{pages}{30}
+      \verb{doi}
+      \verb 10.1007/BFb0062181
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/ACEER5D3/Suslin - 1982 - Stability in algebraic K-theory.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{suslinEquivalenceKtheories1981c}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=211674751e9bf0e40f9e1c4d45ca2615}{%
+           family={Suslin},
+           familyi={S\bibinitperiod},
+           given={A.A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{fullhash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{fullhashraw}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{bibnamehash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{authorbibnamehash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{authornamehash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{authorfullhash}{211674751e9bf0e40f9e1c4d45ca2615}
+      \strng{authorfullhashraw}{211674751e9bf0e40f9e1c4d45ca2615}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0092-7872}
+      \field{journaltitle}{Communications in Algebra}
+      \field{month}{1}
+      \field{number}{15}
+      \field{title}{On the Equivalence of K-Theories}
+      \field{volume}{9}
+      \field{year}{1981}
+      \field{dateera}{ce}
+      \field{pages}{1559\bibrangedash 1566}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1080/00927878108822666
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/Q72T82QE/Suslin - 1981 - On the equivalence of k-theories.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{wahlHomologicalStabilityTool2022}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=66a0675635bef8e4bf51f2da23422364}{%
+           family={Wahl},
+           familyi={W\bibinitperiod},
+           given={Nathalie},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{66a0675635bef8e4bf51f2da23422364}
+      \strng{fullhash}{66a0675635bef8e4bf51f2da23422364}
+      \strng{fullhashraw}{66a0675635bef8e4bf51f2da23422364}
+      \strng{bibnamehash}{66a0675635bef8e4bf51f2da23422364}
+      \strng{authorbibnamehash}{66a0675635bef8e4bf51f2da23422364}
+      \strng{authornamehash}{66a0675635bef8e4bf51f2da23422364}
+      \strng{authorfullhash}{66a0675635bef8e4bf51f2da23422364}
+      \strng{authorfullhashraw}{66a0675635bef8e4bf51f2da23422364}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Homological stability has shown itself to be a powerful tool for the computation of homology of families of groups such as general linear groups, mapping class groups or automorphisms of free groups. We survey here tools and techniques for proving homological stability theorems and for computing the stable homology, and illustrate the method through the computation of the homology of Higman-Thompson groups.}
+      \field{day}{15}
+      \field{eprintclass}{math}
+      \field{eprinttype}{arXiv}
+      \field{month}{3}
+      \field{pubstate}{prepublished}
+      \field{shorttitle}{Homological Stability}
+      \field{title}{Homological Stability: A Tool for Computations}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2203.07767
+      \endverb
+      \verb{eprint}
+      \verb 2203.07767
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/39AWFBQG/Wahl - 2022 - Homological stability a tool for computations.pdf;/Users/abrahamrojasvega/Zotero/storage/YDTFIHHZ/2203.html
+      \endverb
+      \keyw{Mathematics - Algebraic Topology,Mathematics - Geometric Topology,notion}
+    \endentry
+    \entry{weibelIntroductionHomologicalAlgebra1994}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=748c93da38984ed20cedc796d519b7ad}{%
+           family={Weibel},
+           familyi={W\bibinitperiod},
+           given={Charles\bibnamedelima A.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{fullhash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{fullhashraw}{748c93da38984ed20cedc796d519b7ad}
+      \strng{bibnamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authorbibnamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authornamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authorfullhash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authorfullhashraw}{748c93da38984ed20cedc796d519b7ad}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The landscape of homological algebra has evolved over the last half-century into a fundamental tool for the working mathematician. This book provides a unified account of homological algebra as it exists today. The historical connection with topology, regular local rings, and semi-simple Lie algebras are also described. This book is suitable for second or third year graduate students. The first half of the book takes as its subject the canonical topics in homological algebra: derived functors, Tor and Ext, projective dimensions and spectral sequences. Homology of group and Lie algebras illustrate these topics. Intermingled are less canonical topics, such as the derived inverse limit functor lim1, local cohomology, Galois cohomology, and affine Lie algebras. The last part of the book covers less traditional topics that are a vital part of the modern homological toolkit: simplicial methods, Hochschild and cyclic homology, derived categories and total derived functors. By making these tools more accessible, the book helps to break down the technological barrier between experts and casual users of homological algebra.}
+      \field{day}{29}
+      \field{edition}{1}
+      \field{isbn}{978-0-521-43500-0 978-0-521-55987-4 978-1-139-64413-6}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{title}{An {{Introduction}} to {{Homological Algebra}}}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1017/CBO9781139644136
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/RGTTJ9AE/Weibel - 1994 - An Introduction to Homological Algebra.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+    \entry{weibelKbookIntroductionAlgebraic2013a}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=748c93da38984ed20cedc796d519b7ad}{%
+           family={Weibel},
+           familyi={W\bibinitperiod},
+           given={Charles\bibnamedelima A.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Providence, Rhode Island}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{fullhash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{fullhashraw}{748c93da38984ed20cedc796d519b7ad}
+      \strng{bibnamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authorbibnamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authornamehash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authorfullhash}{748c93da38984ed20cedc796d519b7ad}
+      \strng{authorfullhashraw}{748c93da38984ed20cedc796d519b7ad}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{isbn}{978-0-8218-9132-2}
+      \field{langid}{english}
+      \field{number}{volume 145}
+      \field{pagetotal}{618}
+      \field{series}{Graduate Studies in Mathematics}
+      \field{shorttitle}{The {{K-book}}}
+      \field{title}{The {{K-book}}: An Introduction to Algebraic {{K-theory}}}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/46JUZRAP/Weibel - 2013 - The K-book an introduction to algebraic K-theory.pdf
+      \endverb
+      \keyw{$K$-theory -- General reference works (handbooks dictionaries bibliographies etc.),$K$-theory -- Instructional exposition (textbooks tutorial papers etc.),K-theory,notion}
+    \endentry
+    \entry{wilberdvanderkallenHomologyStabilityLinear1980}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5fe3a4225706a9644881ca45b02401f0}{%
+           family={{Wilberd van der Kallen}},
+           familyi={W\bibinitperiod}}}%
+        {{useprefix=true,hash=4e22be857b1159edbbe521d2728194d7}{%
+           family={Kallen},
+           familyi={K\bibinitperiod},
+           given={Wilberd},
+           giveni={W\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe170aadda90bbc3c499122d8382f497}
+      \strng{fullhash}{fe170aadda90bbc3c499122d8382f497}
+      \strng{fullhashraw}{fe170aadda90bbc3c499122d8382f497}
+      \strng{bibnamehash}{fe170aadda90bbc3c499122d8382f497}
+      \strng{authorbibnamehash}{fe170aadda90bbc3c499122d8382f497}
+      \strng{authornamehash}{fe170aadda90bbc3c499122d8382f497}
+      \strng{authorfullhash}{fe170aadda90bbc3c499122d8382f497}
+      \strng{authorfullhashraw}{fe170aadda90bbc3c499122d8382f497}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{LetR be a commutative finite dimensional noetherian ring or, more generally, an associative ring which satisfies one of Bass' stable range conditions. We describe a modified version of H. Maazen's work [18], yielding stability for the homology of linear groups overR. Applying W.G. Dwyer's arguments (cf. [9]) we also get stability for homology with twisted coefficients. For example,H2(GLn(R), R n ) takes on a stable value whenn becomes large.}
+      \field{annotation}{MAG ID: 1966407048}
+      \field{day}{1}
+      \field{journaltitle}{Inventiones Mathematicae}
+      \field{month}{10}
+      \field{number}{3}
+      \field{title}{Homology {{Stability}} for {{Linear Groups}}}
+      \field{volume}{60}
+      \field{year}{1980}
+      \field{dateera}{ce}
+      \field{pages}{269\bibrangedash 295}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1007/bf01390018
+      \endverb
+      \verb{file}
+      \verb /Users/abrahamrojasvega/Zotero/storage/PB578ZPP/Wilberd van der Kallen y van der Kallen - 1980 - Homology Stability for Linear Groups.pdf
+      \endverb
+      \keyw{notion}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
