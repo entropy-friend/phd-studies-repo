@@ -1,10 +1,3 @@
-\item $G$ has a left-adjoint $F$ if and only if $\operatorname{Hom}_C(X, G-)$ is representable for all $X$ in $C$. The natural isomorphism $\Phi_X: \operatorname{Hom}_D(F X,-) \rightarrow \operatorname{Hom}_C(X, G-)$ yields the adjointness; that is
-$$
-\Phi_{X, Y}: \operatorname{Hom}_{\mathcal{D}}(F X, Y) \rightarrow \operatorname{Hom}_{\mathcal{C}}(X, G Y)
-$$
-is a bijection for all $X$ and $Y$.
-
-
 
 \subsubsection*{Skeleta of categories}
  A category is called \textbf{reduced} if isomorphic objects are identical. A subcategory $\mathcal{S}$ of a category $\mathcal{C}$ is a \textbf{skeleton} if $\mathcal{S}$ is reduced and if the inclusion $\mathcal{S} \hookrightarrow \mathcal{C}$ is an equivalence of categories.
@@ -18,8 +11,16 @@ is a bijection for all $X$ and $Y$.
     \end{enumerate}
 \end{example}
 
-
 \begin{prop}
     Every category has an skeleton
 \end{prop}
 
+
+
+\item Let $\mathcal{C}=$ Fin be a small skeleton of the category of finite sets, let $\mathcal{D}$ be the category of sets, Sets, and let $I$ be the canonical inclusion functor of the subcategory Fin into the category Sets. If $\mathcal{E}$ is an arbitrary cocomplete category, then Theorem 4.1.4 ensures, that you can extend any functor $F$ : Fin $\rightarrow \mathcal{E}$ as a left Kan extension to the category Sets, and you actually have an explicit formula for doing it.
+
+
+%%% notaciones x-object and X- morpshims
+
+
+PARA QUE NECESITO KAN EXTENSION???? Y LA SECCION DE GRUPOIDES
