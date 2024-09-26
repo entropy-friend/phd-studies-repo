@@ -23,15 +23,17 @@ Simplicial complexes are more intuitive, and are the foundation of algebraic top
 
 \section{Simplicial objects in a category}
 
-We consider the finite set $\{0,1, \ldots, n\}$ with its natural ordering $0<1<\ldots<n$ and call this ordered set $[n]$ for all $n \geq 0$. The \textbf{simplicial category}, $\Delta$, has as objects the ordered sets $[n], n \geq 0$, and the morphisms in $\Delta$ are the order-preserving functions, that is, functions $f:[n] \rightarrow[m]$, such that $f(i) \leq f(j)$ for all $i<j$.\\
-Let $\mathcal{C}$ be an arbitrary category. A simplicial object in $\mathcal{C}$ is a contravariant functor from $\Delta$ to $\mathcal{C}$. A cosimplicial object in $\mathcal{C}$ is a covariant functor from $\Delta$ to $\mathcal{C}$.\\
+We consider the finite set $\{0,1, \ldots, n\}$ with its natural ordering $0<1<\ldots<n$ and call this ordered set $[n]$ for all $n \geq 0$. 
+
+The \textbf{simplicial category}, $\Delta$, has as objects the ordered sets $[n], \; n \geq 0$, and the morphisms in $\Delta$ are the order-preserving functions, that is, functions $f:[n] \rightarrow[m]$, such that $f(i) \leq f(j)$ for all $i<j$.\\
+Let $\mathcal{C}$ be an arbitrary category. A \bf{simplicial object} in $\mathcal{C}$ is a contravariant functor from $\Delta$ to $\mathcal{C}$. A cosimplicial object in $\mathcal{C}$ is a covariant functor from $\Delta$ to $\mathcal{C}$.\\
 Simplicial objects in a category $\mathcal{C}$ form a category, where the morphisms are natural transformations of functors. We denote this category by $s \mathcal{C}$, note that \cc can be embedded in $\mathcal{C}$, considering constant simplicial objects.\\
 
 
 
 %The category $\Delta$ is small. As the only order-preserving bijection of the set $[n]$ is the identity map, $\Delta$ has only trivial automorphism groups. Hence, if you take the associated category of isomorphisms, $\operatorname{Iso}(\Delta)$, then this is the discrete category on the objects $[n]$ for $n \geq 0$
 
-How can we describe simplicial objects in an explicit manner? Assume that we have a functor $X: \Delta^{o p} \rightarrow \mathcal{C}$. Then, for every object $[n] \in \Delta$, we have an object $X([n])=: X_n$ in $\mathcal{C}$. As all morphisms in $\Delta$ can be described as a composite of $\delta_i \mathrm{~s}$ and $\sigma_j \mathrm{~s}$, it suffices to know what the maps $X\left(\delta_i\right)=: d_i: X_n \rightarrow X_{n-1}$ and $X\left(\sigma_j\right)=: s_j$ do. Hence, if you want to describe a simplicial object, then you have to understand the sequence of objects $X_0, X_1, \ldots$ and the morphisms $d_i, s_j$ in $\mathcal{C}$. These maps satisfy the dual relations:
+Assume that we have a functor $X: \Delta^{o p} \rightarrow \mathcal{C}$. Then, for every object $[n] \in \Delta$, we have an object $X([n])=: X_n$ in $\mathcal{C}$. As all morphisms in $\Delta$ can be described as a composite of $\delta_i \mathrm{~s}$ and $\sigma_j \mathrm{~s}$, it suffices to know what the maps $X\left(\delta_i\right)=: d_i: X_n \rightarrow X_{n-1}$ and $X\left(\sigma_j\right)=: s_j$ do. Hence, if you want to describe a simplicial object, then you have to understand the sequence of objects $X_0, X_1, \ldots$ and the morphisms $d_i, s_j$ in $\mathcal{C}$. These maps satisfy the dual relations:
 $$
 \begin{aligned}
 & d_i \circ d_j=d_{j-1} \circ d_i, \quad i<j, \\
@@ -47,7 +49,9 @@ $$
 
 Thus a simplicial object can be visualized as a diagram of the form
 $$
-X_0 \stackrel{X_1}{\stackrel{\rightleftarrows}{\rightleftarrows}} X_2 \quad \ldots,
+\begin{tikzcd}
+     X_0 \ar[r] \ar[r, leftarrow, shift left =2] \ar[r, leftarrow, shift right =2] & X_1 \ar[r, leftarrow] \ar[r, leftarrow, shift left =4] \ar[r, leftarrow, shift right =4] \ar[r, shift left =2] \ar[r, shift right =2] & X_2  \cdots
+    \end{tikzcd}
 $$
 where the morphisms $\leftarrow$ correspond to the $d_i \mathrm{~s}$, whereas the morphisms $\rightarrow$ are given by the $s_j \mathrm{~s}$. Note that on $X_n$, you have $n+1$ maps going out to the left and to the right.\\
 The $d_i \mathrm{~s}$ are called \textbf{face} maps and the $s_j \mathrm{~s}$ are called \textbf{degeneracy maps}.
@@ -95,11 +99,13 @@ $$
 \left(d_i(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \delta_i\left(t_0, \ldots, t_n\right)\right), \quad\left(s_j(x),\left(t_0, \ldots, t_n\right)\right) \sim\left(x, \sigma_j\left(t_0, \ldots, t_n\right)\right) .
 $$
 
-REMARK 10.6.2. The geometric realization of a simplicial set $X$ is nothing but the coend of the functor
-$$
-H: \Delta^o \times \Delta \rightarrow \text { Top, }
-$$
-with $H([n],[m])=X_n \times \triangle^m$, using that $[n] \mapsto X_n$ is a contravariant functor from $\Delta$ to Sets and that $[m] \mapsto \triangle^m$ is a covariant functor from the category $\Delta$ to the category Top. Here, we use the embedding of Sets into Top.
+\begin{rema}
+    The geometric realization of a simplicial set $X$ is nothing but the coend of the functor
+    $$
+    H: \Delta^o \times \Delta \rightarrow \text { Top, }
+    $$
+    with $H([n],[m])=X_n \times \triangle^m$, using that $[n] \mapsto X_n$ is a contravariant functor from $\Delta$ to Sets and that $[m] \mapsto \triangle^m$ is a covariant functor from the category $\Delta$ to the category Top. Here, we use the embedding of Sets into Top.
+\end{rema}
 
 If $f: X \rightarrow Y$ is a morphism of simplicial sets, that is, a natural transformation from $X$ to $Y$, then $f$ induces a continuous map of topological spaces
 $$
@@ -123,9 +129,11 @@ An element $\left(y,\left(t_0, \ldots, t_m\right)\right) \in X_m \times \triangl
 \begin{example}
     \begin{enumerate}
         \item The topological 1 -sphere is the quotient space $[0,1] / 0 \sim 1$. If we want to find a simplicial model for the 1-sphere, such that the geometric realization has the desired cell structure, then we should define a simplicial set $\mathbb{S}^1$ with one 0 -simplex, 0 , and one nondegenerate 1 -simplex, 1 . The simplicial identities force the existence of a 1-simplex $s_0(0)$, so we get two 1-simplices. For the cell structure we do not need any further maps, so we just take these simplices and all the resulting elements that are given due to the simplicial structure maps. We then get $\mathbb{S}_n^1 \cong[n]$ with face and degeneracy maps as follows:
-        $$
-        [0] \stackrel{\rightleftarrows}{\rightleftarrows}[1] \underset{\rightleftarrows}{\rightleftarrows}[2] \ldots,
-        $$
+$$
+\begin{tikzcd}
+     {[0]} \ar[r] \ar[r, leftarrow, shift left =2] \ar[r, leftarrow, shift right =2] & {[1]} \ar[r, leftarrow] \ar[r, leftarrow, shift left =4] \ar[r, leftarrow, shift right =4] \ar[r, shift left =2] \ar[r, shift right =2] & {[2]}  \cdots
+    \end{tikzcd}
+$$
         
         The map $s_i:[n] \rightarrow[n+1]$ is the unique monotone injection, whose image does not contain $i+1$, while $d_i:[n] \rightarrow[n-1]$ is given by $d_i(j)=j$ if $j<i, d_i(i)=i$ if $i<n$, and $d_n(n)=0$ and $d_i(j)=j-1$ if $j>i$.
         
@@ -188,8 +196,7 @@ As we do not collapse degenerate simplices, the fat realization of a simplicial 
 
 
 
-\section{Classifying spaces}
-
+\section{Classifying spaces of small categories}
 To any small category, you can associate a topological space that takes the data of the category (objects, morphisms, and composition of morphisms) and translates it into a CW complex. This is done in a two-stage process: First you construct a simplicial set out of your category, and then, you form its geometric realization.
 
 \begin{enumerate}
@@ -209,9 +216,10 @@ To any small category, you can associate a topological space that takes the data
     \item The \textbf{classifying space} of the category $\mathcal{C}$ is the geometric realization of the nerve of \cc: $B \mathcal{C}=|N \mathcal{C}|$.
 \end{enumerate}
 
-You can also interpret the $i$ th face map as omitting the object $C_i$. If $i$ is 0 or $n$, then the morphism next to $C_i$ just dies with the object, whereas for $0<i<n$, deleting the object causes the composition of the adjacent morphisms.\\
+%You can also interpret the $i$ th face map as omitting the object $C_i$. If $i$ is 0 or $n$, then the morphism next to $C_i$ just dies with the object, whereas for $0<i<n$, deleting the object causes the composition of the adjacent morphisms.\\
 
-The objects $C$ of $\mathcal{C}$ give zero cells in $B \mathcal{C}$, and a nonidentity morphism from $C$ to $C^{\prime \prime}$ gives rise to an edge whose endpoints correspond to the objects $C$ and $C^{\prime}$. If $g \circ f$ is a composition of morphisms in $\mathcal{C}$, then in the classifying space, you will find a triangle, with edges corresponding to $f, g$, and $g \circ f$. Threefold compositions give rise to tetrahedra and so on.\\
+The objects $C$ of $\mathcal{C}$ give zero cells in $B \mathcal{C}$, and a nonidentity morphism from $C$ to $C^{\prime \prime}$ gives rise to an edge whose endpoints correspond to the objects $C$ and $C^{\prime}$. If $g \circ f$ is a composition of morphisms in $\mathcal{C}$, then in the classifying space, you will find a triangle, with edges corresponding to $f, g$, and $g \circ f$. Threefold compositions give rise to tetrahedra and so on.
+
 The topological space $B \mathcal{C}$ is always a $\mathrm{CW}$ complex, and a functor $F: \mathcal{C} \rightarrow \mathcal{D}$ induces a continuous and cellular map of topological spaces:
 $
 B F: B \mathcal{C} \rightarrow B \mathcal{D} \text {. }
@@ -223,23 +231,25 @@ Hence, $B$ is a functor from the category cat to the category Top of topological
 \begin{example}
     \begin{enumerate}
         \item If $X$ is a set and $\mathcal{C}$ is the corresponding discrete category, then the classifying space $B C$ is $X$ with the discrete topology.
-        \item If $G$ is a group and we consider the small category $\mathcal{C}_G$ associated with $G$, then the classifying space $B\left(\mathcal{C}_G\right)$ is called the classifying space of the group $G$ and is denoted by $B G$. If the group $G$ is abelian, then the group composition is a group homomorphism, and it induces a functor $\mathcal{C}_G \times \mathcal{C}_G \rightarrow \mathcal{C}_G$. We therefore obtain a map
-        $$
-        B G \times B G \rightarrow B\left(\mathcal{C}_G \times \mathcal{C}_G\right) \rightarrow B\left(\mathcal{C}_G\right)=B G,
-        $$
-        and for abelian groups $G, B G$ is a topological group. For instance, $B \mathbb{Z} \simeq \mathbb{S}^1$.
-        If $G$ is a topological group, then we can implement the topology into the construction of $B G$ by endowing $G^n \times \triangle^n$ with the product topology.
+        \item If $G$ is a group and we consider the small category $\mathcal{C}_G$ associated with $G$, then the classifying space $B\left(\mathcal{C}_G\right)$ is called the classifying space of the group $G$ and is denoted by $B G$. 
         
-        For instance, $B \mathbb{S}^1 \simeq \mathbb{C} P^{\infty}$, and this is an Eilenberg-Mac Lane space of type $(\mathbb{Z}, 2)$, $K(\mathbb{Z}, 2)=\mathbb{C} P^{\infty} \simeq B(B \mathbb{Z})$. In general, if $A$ is a finitely generated abelian group, then the $n$-fold iterated classifying space construction is a model of the Eilenberg-Mac Lane space $K(A, n)$. { why?}
+        If the group $G$ is abelian, we have a new model construction of $BG$. The group composition is a group homomorphism, and it induces a functor $\mathcal{C}_G \times \mathcal{C}_G \rightarrow \mathcal{C}_G$. We therefore obtain a map
+        $
+        B G \times B G \rightarrow B\left(\mathcal{C}_G \times \mathcal{C}_G\right) \rightarrow B\left(\mathcal{C}_G\right)=B G,
+        $
+        and for abelian groups $G, B G$ is a topological group. For instance, $B \mathbb{Z} \simeq \mathbb{S}^1$.
+
+        If $G$ is a topological group, then we can implement the topology into the construction of $B G$ by endowing $G^n \times \triangle^n$ with the product topology.
+        For instance, $B \mathbb{S}^1 \simeq \mathbb{C} P^{\infty}$, and this is an Eilenberg-Mac Lane space of type $(\mathbb{Z}, 2)$, $K(\mathbb{Z}, 2)=\mathbb{C} P^{\infty} \simeq B(B \mathbb{Z})$. In general, if $A$ is a finitely generated abelian group, then the $n$-fold iterated classifying space construction is a model of the Eilenberg-Mac Lane space $K(A, n)$. 
         
         If $G$ is a discrete group, then the homology of the group $G$ (with coefficients in $\mathbb{Z}$ ) is the singular homology $H_*(B G ; \mathbb{Z})$.
-        \item For a monoid, one can build $B\left(\mathcal{C}_M\right)$. We will learn more about this space later (see, for instance, Theorem 13.4.6 and Proposition 13.4.4).
+        %\item For a monoid, one can build $B\left(\mathcal{C}_M\right)$. We will learn more about this space later (see, for instance, Theorem 13.4.6 and Proposition 13.4.4).
         \item Let us consider the category $\Sigma$. This has as objects the natural numbers (including zero), and the only morphisms are automorphisms with $\Sigma([n],[n])=\Sigma_n$. Therefore, the classifying space of $\Sigma$ has one component for every natural number, because the different objects are not connected by morphisms. Thus,
         $$
         B \Sigma=\bigsqcup_{n \geq 0} B \Sigma_n .
         $$
         
-        \item If we consider the poset $[n]$ as a category, then the nerve of $[n]$ is isomorphic to the representable functor $\Delta_n$ and $B[n] \cong \triangle^n$.
+        %\item If we consider the poset $[n]$ as a category, then the nerve of $[n]$ is isomorphic to the representable functor $\Delta_n$ and $B[n] \cong \triangle^n$.
     \end{enumerate}
 \end{example}
 
@@ -249,14 +259,14 @@ Hence, $B$ is a functor from the category cat to the category Top of topological
         \item If $\mathcal{C} \underset{R}{\stackrel{L}{\rightleftarrows}} \mathcal{D}$ is an adjoint pair of functors, then $B C$ is homotopy equivalent to $B \mathcal{D}$. 
         \item In particular, an equivalence of categories gives rise to a homotopy equivalence of classifying spaces.
         \item If a small category \cc has an initial or terminal object, then its classifying space is contractible.
-        \item Let $G$ be a discrete group. We saw that in its translation category, $\mathcal{E}_G$, every object is terminal and initial, and thus, $B \mathcal{E}_G$ is contractible. In fact, $B \mathcal{E}_G$ is a model for the universal space for $G$-bundles, $E G$, and this is, in general, not homeomorphic to a point. For instance. $E \mathbb{Z} / 2 \mathbb{Z}$ is $\mathbb{S}^{\infty}=\operatorname{colim}_n \mathbb{S}^n$.
-        The simplicial structure on $N \mathcal{E}_G$ is as follows: An element in $\left(N \mathcal{E}_G\right)$ is a string
-        $$
-        g_0 \xrightarrow{g_1 g_0^{-1}} g_1 \xrightarrow{g_2 g_1^{-1}} \ldots \xrightarrow{g_q g_{q-1}^{-1}} g_q,
-        $$ but this can be simplified by just remembering the $(q+1)$-tuple of group elements $\left(g_0, \ldots, g_q\right)$. With this identification, the face maps omit a $g_i$, and the degeneracies double a $g_i$.
     \end{enumerate}
 \end{theo}
 
+% %\item Let $G$ be a discrete group. We saw that in its translation category, $\mathcal{E}_G$, every object is terminal and initial, and thus, $B \mathcal{E}_G$ is contractible. In fact, $B \mathcal{E}_G$ is a model for the universal space for $G$-bundles, $E G$, and this is, in general, not homeomorphic to a point. For instance. $E \mathbb{Z} / 2 \mathbb{Z}$ is $\mathbb{S}^{\infty}=\operatorname{colim}_n \mathbb{S}^n$.
+% The simplicial structure on $N \mathcal{E}_G$ is as follows: An element in $\left(N \mathcal{E}_G\right)$ is a string
+% $$
+% g_0 \xrightarrow{g_1 g_0^{-1}} g_1 \xrightarrow{g_2 g_1^{-1}} \ldots \xrightarrow{g_q g_{q-1}^{-1}} g_q,
+% $$ but this can be simplified by just remembering the $(q+1)$-tuple of group elements $\left(g_0, \ldots, g_q\right)$. With this identification, the face maps omit a $g_i$, and the degeneracies double a $g_i$.
 
 
 
@@ -265,7 +275,7 @@ Hence, $B$ is a functor from the category cat to the category Top of topological
 
 
 
-\chapter{Simplicial Complexes}
+\chapter{Simplicial and cellular complexes}
 
 
 \section{(Abstract) simplical complexes}

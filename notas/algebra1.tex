@@ -5,7 +5,7 @@
 \chapter{Category Theory}
 
 \textit{References \cite{adamekAbstractConcreteCategories2004,richterCategoriesHomotopyTheory2020}.}\\ %ritcher
-In general, categories and functors will be denoted with calligraphic letters (except for Gr, Ab, Top, Sets, \dots) and objects with capital letters.\\
+In general, categories and functors will be denoted with calligraphic letters (except for the classical categories Gr, Ab, Top, Sets, \dots) and objects with capital letters.\\
 
 \section{Some facts}  
 
@@ -36,13 +36,13 @@ Let $F: \mathcal{A} \rightarrow \mathcal{B}$ be a functor.
     \item If $F$ is essentially surjective and fully faithful, it is called an \textbf{equivalence of categories}, and \ca and \cb are said to be \textbf{equivalent}.
 \end{enumerate}
 
-Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A \textbf{natural transformation} $\tau: F \rightarrow G$ is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following \textit{natural} condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the diagram
-$
+Let $F, G: \mathcal{A} \rightarrow \mathcal{B}$ be functors. A \textbf{natural transformation} $\tau: F \rightarrow G$ is a function that assigns to each $\mathcal{A}$-object $A$ a $\mathcal{B}$-morphism $\tau_A: F A \rightarrow G A$ in such a way that the following \textit{natural} condition holds: for each A-morphism $A \xrightarrow{f} A^{\prime}$, the following diagram commutes
+$$
 \begin{tikzcd}
 FA \arrow[r, "\tau_A"] \arrow[d, "Ff"'] & GA \arrow[d, "Gf"] \\
 FA' \arrow[r, "\tau_{A'}"'] & GA'
 \end{tikzcd}
-$ commutes.\\
+$$
 A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$, and $F$ and $G$ are said to be \textbf{naturally isomorphic}, denoted by $F \cong G$.
 
 \begin{example}
@@ -503,7 +503,7 @@ is a bijection for all $X$ and $Y$.
 
 \section{Kan extensions}
 
-Kan extensions take a given functor and extend it to a different category. There are two ways of doing that, via colimits and via limits. These extensions don’t have to exist, and even if they exist, they might not have nice properties. But in controlled situations, they are extremely useful and they are actually ubiquitous
+Kan extensions take a given functor and extend it to a different category. There are two ways of doing that, via colimits and via limits. These extensions does not have to exist, and even if they exist, they might not have nice properties. But in controlled situations, they are extremely useful and they are actually ubiquitous.
 
 Let $G: \mathcal{C} \rightarrow \mathcal{D}$ and $F: \mathcal{C} \rightarrow \mathcal{E}$ be functors. The \bf{left Kan extension} of $F$ along $G$ is a pair $(K, \alpha)$, where
 \begin{itemize}
@@ -540,7 +540,7 @@ has a left adjoint, and this adjoint is given by the left Kan extension.
 \end{example}
 
 
-The functor $H$ preserves the left $K a n$ extension $(K, \alpha)$ of $F$ along $G$ if $(H \circ K, H \alpha)$ is a left Kan extension of $H \circ F$ along $G$.
+The functor $H$ preserves the left Kan extension $(K, \alpha)$ of $F$ along $G$ if $(H \circ K, H \alpha)$ is a left Kan extension of $H \circ F$ along $G$.
 
 \begin{theo}
 Let $G: \mathcal{C} \rightarrow \mathcal{D}$ be a functor between small categories. Left adjoint functors $L: \mathcal{E} \rightarrow \mathcal{F}$ preserve left Kan extensions of functors $F: \mathcal{D} \rightarrow \mathcal{E}$.
@@ -665,17 +665,19 @@ A category is a grupoid if all morphisms are isomorphisms.
 
 \chapter{Homological Algebra}
 
-References \cite{richterCategoriesHomotopyTheory2020,weibelKbookIntroductionAlgebraic2013a}
+References \cite{richterCategoriesHomotopyTheory2020,weibelKbookIntroductionAlgebraic2013a} 
+
+
 \section{Abelian Categories}
 
+A \textbf{preaddititve category} is a category $\mathcal{A}$, such that for every pair of objects $A_1, A_2$, there is an abelian group of morphisms from $A_1$ to $A_2$ and the composition of morphisms is a bilinear map.
+\begin{example}
+    A preadditive category with only one object is nothing but a ring. The endomorphisms of that object are an abelian group, and the composition of morphisms defines the multiplicative structure. Thus, a preadditive category can be thought of as a ring with many objects. A group with many objects in this sense is a groupoid, so one might call a preadditive category a ringoid.
+\end{example}
 
+Let $\mathcal{A}$ and $\mathcal{A}^{\prime}$ be preadditive categories. A functor $F: \mathcal{A} \rightarrow \mathcal{A}^{\prime}$ is \textbf{additive} if for any two objects $A_1, A_2$ of $\mathcal{A}$, the map $F: \mathcal{A}\left(A_1, A_2\right) \rightarrow \mathcal{A}^{\prime}\left(F\left(A_1\right), F\left(A_2\right)\right)$ is a group homomorphism.
 
-
-A \textbf{preaddititve category} is a category $\mathcal{A}$, such that for every pair of objects $A_1, A_2$, there is an abelian group of morphisms from $A_1$ to $A_2$ and the composition of morphisms is a bilinear map.\\
-A preadditive category with only one object is nothing but a ring. The endomorphisms of that object are an abelian group, and the composition of morphisms defines the multiplicative structure. Thus, a preadditive category can be thought of as a ring with many objects. A group with many objects in this sense is a groupoid, so one might call a preadditive category a ringoid.\\
-Let $\mathcal{A}$ and $\mathcal{A}^{\prime}$ be preadditive categories. A functor $F: \mathcal{A} \rightarrow \mathcal{A}^{\prime}$ is additive if for any two objects $A_1, A_2$ of $\mathcal{A}$, the map $F: \mathcal{A}\left(A_1, A_2\right) \rightarrow \mathcal{A}^{\prime}\left(F\left(A_1\right), F\left(A_2\right)\right)$ is a group homomorphism.\\
-
-Assume that a category $\mathcal{C}$ has zero morphisms. Then, the kernel of a morphism $f \in \mathcal{C}\left(C_1, C_2\right)$ is the equalizer of the morphisms $f, 0: C_1 \rightarrow C_2$. Dually, the cokernel of a morphism $f \in \mathcal{C}\left(C_1, C_2\right)$ is the coequalizer of the morphisms $f, 0: C_1 \rightarrow C_2$.
+Assume that a category $\mathcal{C}$ has zero morphisms. Then, the \textbf{kernel} of a morphism $f \in \mathcal{C}\left(C_1, C_2\right)$ is the equalizer of the morphisms $f, 0: C_1 \rightarrow C_2$. Dually, the \textbf{cokernel} of a morphism $f \in \mathcal{C}\left(C_1, C_2\right)$ is the coequalizer of the morphisms $f, 0: C_1 \rightarrow C_2$.
 
 \begin{prop}
     \begin{enumerate}
@@ -691,7 +693,7 @@ A preadditive category is called \textbf{additive} if it has all finite biproduc
 A functor between additive categories is additive if and only if it preserves biproducts or just products.
 \end{prop}
 
-A preadditive category is an \textbf{abelian} category if it satisfies the following: 
+A preadditive category is an \textbf{abelian} category if it satisfies the following properties: 
 \begin{itemize}
     \item There exists a zero object in $\mathcal{A}$.
     \item The category $\mathcal{A}$ has finite biproducts.
@@ -701,7 +703,7 @@ A preadditive category is an \textbf{abelian} category if it satisfies the follo
 
 \begin{theo} Let \ca be an abelian category:
 \begin{enumerate}
-    \item a morphism is an isomorphism if and only if it is both a monomorphism and an epimorphism.
+    \item A morphism is an isomorphism if and only if it is both a monomorphism and an epimorphism.
     \item A morphism is a monomorphism if and only if its kernel is zero.
     \item Let $f$ be a morphism. Then, we can factor $f$ as $f=i \circ p$, where $p$ is an epimorphism and $i$ is a monomorphism. Here, $i$ is the kernel of the cokernel of $f$ and $p$ is the cokernel of the kernel of $f$.
     \item A monomorphism is the kernel of its cokernel, and an epimorphism is the cokernel of its kernel.
@@ -712,24 +714,21 @@ A preadditive category is an \textbf{abelian} category if it satisfies the follo
 Let $\mathcal{D}$ be a small category and let $\mathcal{A}$ be abelian. Then, the functor category $[\mathcal{D}, \mathcal{A}]$ is abelian.   
 \end{prop}
 
-In homological algebra one constructs homological invariants of algebraic objects by the following process, or some variant of it:
-
-Let $R$ be a ring and $T$ a covariant additive functor from $R$-modules to abelian groups. Thus the map $\operatorname{Hom}_R(M, N) \rightarrow \operatorname{Hom}_{\mathbf{z}}(T M, T N)$ defined by $T$ is a homomorphism of abelian groups for all $R$-modules $M, N$. For any $R$ module $M$, choose a free (or projective) resolution $\varepsilon: F \rightarrow M$ and consider the chain complex $T F$ of abelian groups obtained by applying $T$ to $F$ termwise. Now $T$, being additive, preserves chain homotopies; so we can apply the uniqueness theorem for resolutions (I.7.5) to deduce that the complex $T F$ is independent, up to canonical homotopy equivalence, of the choice of resolution. Passing to homology, we obtain groups $H_n(T F)$ which depend only on $T$ and $M$ (up to canonical isomorphism).
-
-This construction is of no interest, of course, if $T$ is an exact functor; for then the augmented complex
-$$
+In homological algebra one constructs homological invariants of algebraic objects by the following process, or some variant of it:\\
+Let $R$ be a ring and $T$ a covariant additive functor from $R$-modules to abelian groups. Thus the map $\operatorname{Hom}_R(M, N) \rightarrow \operatorname{Hom}_{\mathbf{z}}(T M, T N)$ defined by $T$ is a homomorphism of abelian groups for all $R$-modules $M, N$. For any $R$ module $M$, choose a free (or projective) resolution $\varepsilon: F \rightarrow M$ and consider the chain complex $T F$ of abelian groups obtained by applying $T$ to $F$ termwise. Now $T$, being additive, preserves chain homotopies; so we can apply the \textit{uniqueness theorem for resolutions} to deduce that the complex $T F$ is independent, up to canonical homotopy equivalence, of the choice of resolution. Passing to homology, we obtain groups $H_n(T F)$ which depend only on $T$ and $M$ (up to canonical isomorphism).\\
+This construction is of no interest, of course, if $T$ is an exact functor, for then the augmented complex
+$
 \cdots \rightarrow T F_1 \rightarrow T F_0 \rightarrow T M \rightarrow 0
-$$
+$
 is acyclic, so that $H_n(T F)=0$ for $n>0$ and $H_0(T F)=T M$. Thus we can regard the groups $H_n(T F)$ in the general case as a measure of the failure of $T$ to be exact.
 
 \section{Chain complexes}
 
-Here are some important constructions on chain complexes. A chain complex $B$ is called a subcomplex of $C$ if each $B_n$ is a submodule of $C_n$ and the differential on $B$ is the restriction of the differential on $C$, that is, when the inclusions $i_n: B_n \subseteq C_n$ constitute a chain map $B \rightarrow C$. In this case we can assemble the quotient modules $C_n / B_n$ into a chain complex
+Here are some important constructions on chain complexes. A chain complex $B$ is called a \textbf{subcomplex} of $C$ if each $B_n$ is a submodule of $C_n$ and the differential on $B$ is the restriction of the differential on $C$, that is, when the inclusions $i_n: B_n \subseteq C_n$ constitute a chain map $B \rightarrow C$. In this case we can assemble the quotient modules $C_n / B_n$ into a chain complex
 $$
 \cdots \rightarrow C_{n+1} / B_{n+1} \xrightarrow{d} C_n / B_n \xrightarrow{d} C_{n-1} / B_{n-1} \xrightarrow{d} \cdots
 $$
-denoted $C / B$ and called the quotient complex. If $f: B \rightarrow C$ is a chain map, the kernels $\left\{\operatorname{ker}\left(f_n\right)\right\}$ assemble to form a subcomplex of $B$ denoted $\operatorname{ker}(f)$, and the cokernels \{coker $\left.\left(f_n\right)\right\}$ assemble to form a quotient complex of $C$ denoted $\operatorname{coker}(f)$.\\
-Suppose that $\mathcal{A}=\mathrm{Ch}$ and $f$ is a chain map. Show that the complex $\operatorname{ker}(f)$ is a kernel of $f$ and that $\operatorname{coker}(f)$ is a cokernel of $f$.
+denoted $C / B$ and called the quotient complex. If $f: B \rightarrow C$ is a chain map, the kernels $\left\{\operatorname{ker}\left(f_n\right)\right\}$ assemble to form a subcomplex of $B$ denoted $\operatorname{ker}(f)$, and the cokernels \{coker $\left.\left(f_n\right)\right\}$ assemble to form a quotient complex of $C$ denoted $\operatorname{coker}(f)$. \textit{This definitions coincides with the usual one on Ch}.\\
 
 \begin{theo}
 The category $\operatorname{Ch}=\mathbf{C h}(\mathcal{A})$ of chain complexes is an abelian category.   
@@ -740,7 +739,7 @@ $$
 \left(\tau_{\geq n} C\right)_i= \begin{cases}0 & \text { if } i<n \\ Z_n & \text { if } i=n \\ C_i & \text { if } i>n .\end{cases}
 $$
 
-Clearly $H_i\left(\tau_{\geq n} C\right)=0$ for $i<n$ and $H_i\left(\tau_{\geq n} C\right)=H_i(C)$ for $i \geq n$. The complex $\tau_{\geq n} C$ is called the (good) truncation of $C$ below $n$, and the quotient complex $\tau_{<n} C=C /\left(\tau_{\geq n} C\right)$ is called the (good) truncation of $C$ above $n$; $H_i\left(\tau_{<n} C\right)$ is $H_i(C)$ for $i<n$ and 0 for $i \geq n$.\\
+Clearly $H_i\left(\tau_{\geq n} C\right)=0$ for $i<n$ and $H_i\left(\tau_{\geq n} C\right)=H_i(C)$ for $i \geq n$. The complex $\tau_{\geq n} C$ is called the \bf{(good) truncation of $C$ below $n$}, and the quotient complex $\tau_{<n} C=C /\left(\tau_{\geq n} C\right)$ is called the \bf{(good) truncation of $C$ above $n$}; $H_i\left(\tau_{<n} C\right)$ is $H_i(C)$ for $i<n$ and 0 for $i \geq n$.\\
 
 If $C$ is a complex and $p$ an integer, we form a new complex $C[p]$ as follows:
 $$
@@ -779,7 +778,7 @@ $$
 
 \begin{prop}The following are proved first for chain complexes of $R$-modules, but they hold in any abelian category, by the Freyd-Mitchell embedding theorem.
     \begin{enumerate}
-      \item[3-lemma] Consider the conmutative diagram of $R-$modules
+      \item (3 Lemma) Consider the conmutative diagram of $R-$modules
        \begin{center}
          \begin{tikzcd}
             & A' \ar[r] \ar[d, "f"] & B' \ar[r] \ar[d, "g"] & C' \ar[r] \ar[d, "h"] & 0 \\
@@ -797,7 +796,7 @@ $$
        
        Moreover, if $A^{\prime} \rightarrow B^{\prime}$ is monic, then so is $\operatorname{ker}(f) \rightarrow \operatorname{ker}(g)$, and if $B \rightarrow C$ is onto, then so is coker $(f) \rightarrow$ coker $(g)$.
   
-       \item[5-lemma] In any commutative diagram
+       \item \bf{5-lemma} In any commutative diagram
        \begin{center}
         \begin{tikzcd}
             A' \ar[r] \ar[d, "a\simeq"] & B' \ar[r] \ar[d, "b\simeq"] & C' \ar[r] \ar[d, "c\simeq"] & D' \ar[r] \ar[d,"d\simeq"] & E' \ar[d,"e\simeq"] \\
@@ -810,14 +809,14 @@ $$
   
   
   \begin{theo}
-      Let $0 \rightarrow A . \xrightarrow{f} B . \xrightarrow{g} C . \rightarrow 0$ be a short exact sequence of chain complexes. Then there are natural maps $\partial: H_n(C) \rightarrow H_{n-1}(A)$, called connecting homomorphisms, such that
+      Let $0 \rightarrow A . \xrightarrow{f} B . \xrightarrow{g} C . \rightarrow 0$ be a short exact sequence of chain complexes. Then there are natural maps $\partial: H_n(C) \rightarrow H_{n-1}(A)$, called \bf{connecting homomorphisms}, such that
       $$
       \cdots \xrightarrow{g} H_{n+1}(C) \xrightarrow{\partial} H_n(A) \xrightarrow{f} H_n(B) \xrightarrow{g} H_n(C) \xrightarrow{\partial} H_{n-1}(A) \xrightarrow{f} \cdots
       $$
       is an exact sequence. The long exact sequence is a functor from $\mathcal{S}$ to $\mathcal{L}$. That is, for every short exact sequence there is a long exact sequence, and for every map (*) of short exact sequences there is a commutative ladder diagram
       \end{theo}
       
-      When one computes with modules, it is useful to be able to push elements around. By decoding the above proof, we obtain the following formula for the connecting homomorphism: Let $z \in H_n(C)$, and represent it by a cycle $c \in C_n$. Lift the cycle to $b \in B_n$ and apply $d$. The element $d b$ of $B_{n-1}$ actually belongs to the submodule $Z_{n-1}(A)$ and represents $\partial(z) \in H_{n-1}(A)$.\\
+      When one computes with modules, it is useful to be able to push elements around. By decoding the above proof, we obtain the following formula for the connecting homomorphism: Let $z \in H_n(C)$, and represent it by a cycle $c \in C_n$. Lift the cycle to $b \in B_n$ and apply $d$. The element $d b$ of $B_{n-1}$ actually belongs to the submodule $Z_{n-1}(A)$ and represents $\partial(z) \in H_{n-1}(A)$.
 
 The data of the long exact sequence is sometimes organized into the mnemonic shape
       
@@ -828,10 +827,10 @@ The data of the long exact sequence is sometimes organized into the mnemonic sha
     \end{tikzcd}
 \end{center}
       
-      This is called an exact triangle for obvious reasons. This mnemonic shape is responsible for the term "triangulated category," which we will discuss in Chapter 10. The category $\mathbf{K}$ of chain equivalence classes of complexes and maps (see exercise 1.4.5 in the next section) is an example of a triangulated category.
+      This is called an exact triangle for obvious reasons. This mnemonic shape is responsible for the term "triangulated category," which we will discuss in Chapter 10. The category $\mathbf{K}$ of chain equivalence classes of complexes and maps is an example of a triangulated category.
 
 
-      Now suppose that we are given two chain complexes $C$ and $D$, together with randomly chosen maps $s_n: C_n \rightarrow D_{n+1}$. Let $f_n$ be the map from $C_n$ to $D_n$ defined by the formula $f_n=d_{n+1} s_n+s_{n-1} d_n$.
+      Now suppose that we are given two chain complexes $C$ and $D$, together with randomly chosen maps $s_n: C_n \rightarrow D_{n+1}$. Let $f_n$ be the map from $C_n$ to $D_n$ defined by the formula $$f_n=d_{n+1} s_n+s_{n-1} d_n.$$
       \begin{center}
         \begin{tikzcd}
             C_{n+1} \ar[r, "d"] & C_n \ar[d, "f"] \ar[dl, "s"'] \ar[r,"d"] & C_{n-1} \ar[dl, "s"'] \\
@@ -856,11 +855,11 @@ We say that two chain maps $f$ and $g$ from $C$ to $D$ are chain homotopic if th
     \end{enumerate}
 \end{prop}
 
-\subsection*{Mapping cone}
-Let $f: B . \rightarrow C$ be a map of chain complexes. The mapping cone of $f$ is the chain complex cone $(f)$ whose degree $n$ part is $B_{n-1} \oplus C_n$. In order to match other sign conventions, the differential in cone $(f)$ is given by the formula
-$$
-d(b, c)=(-d(b), d(c)-f(b)), \quad\left(b \in B_{n-1}, c \in C_n\right) .
-$$
+% \subsection*{Mapping cone}
+% Let $f: B . \rightarrow C$ be a map of chain complexes. The mapping cone of $f$ is the chain complex cone $(f)$ whose degree $n$ part is $B_{n-1} \oplus C_n$. In order to match other sign conventions, the differential in cone $(f)$ is given by the formula
+% $$
+% d(b, c)=(-d(b), d(c)-f(b)), \quad\left(b \in B_{n-1}, c \in C_n\right) .
+% $$
 
 
 
@@ -879,16 +878,14 @@ $$
 
 
 \section{Spectral sequences}
-
-
 %adicionar historia 
 
 \subsection{Double complexes}
-A double complex (or bicomplex) in $\mathcal{A}$ is a family $\left\{C_{p, q}\right\}$ of objects of $\mathcal{A}$, together with maps
+A \bf{double complex} (or bicomplex) in $\mathcal{A}$ is a family $\left\{C_{p, q}\right\}$ of objects of $\mathcal{A}$, together with maps
 $$
 d^h: C_{p, q} \rightarrow C_{p-1, q} \quad \text { and } \quad d^v: C_{p, q} \rightarrow C_{p, q-1}
 $$
-such that $d^h \circ d^h=d^v \circ d^v=d^v d^h+d^h d^v=0$. It is useful to picture the bicomplex $C_{\text {.. }}$ as a lattice 
+such that $d^h \circ d^h=d^v \circ d^v=d^v d^h+d^h d^v=0$. It is useful to picture the bicomplex $C_{\cdot,\cdot}$ as a lattice 
 \begin{center}
 \begin{tikzcd}
     & \vdots \arrow[d] & \vdots \arrow[d] & \vdots \arrow[d] & \\
@@ -900,15 +897,14 @@ such that $d^h \circ d^h=d^v \circ d^v=d^v d^h+d^h d^v=0$. It is useful to pictu
 \end{center}
     in which the maps $d^h$ go horizontally, the maps $d^v$ go vertically, and each square anticommutes. Each row $C_{* q}$ and each column $C_{p *}$ is a chain complex.
 
-We say that a double complex $C$ is bounded if $C$ has only finitely many nonzero terms along each diagonal line $p+q=n$, for example, if $C$ is concentrated in the first quadrant of the plane (a first quadrant double complex).\\
+We say that a double complex $C$ is \textbf{bounded} if $C$ has only finitely many nonzero terms along each diagonal line $p+q=n$; for example, if $C$ is concentrated in the first quadrant of the plane (a first quadrant double complex).\\
 Because of the anticommutivity, the maps $d^v$ are not maps in Ch, but chain maps $f_{* q}$ from $C_{* q}$ to $C_{*, q-1}$ can be defined by introducing $\pm$ signs:
 $$
 f_{p, q}=(-1)^p d_{p, q}^v: C_{p, q} \rightarrow C_{p, q-1} .
 $$
+Using this sign trick, we can identify the category of double complexes with the category $\mathbf{C h}(\mathbf{C h})$ of chain complexes in the abelian category $\mathbf{C h}$.
 
-Using this sign trick, we can identify the category of double complexes with the category $\mathbf{C h}(\mathbf{C h})$ of chain complexes in the abelian category $\mathbf{C h}$.\\
-
-To see why the anticommutative condition $d^v d^h+$ $d^h d^v=0$ is useful, define the total complexes $\operatorname{Tot}(C)=\operatorname{Tot}^{\Pi}(C)$ and $\operatorname{Tot}^{\oplus}(C)$ by
+To see why the anticommutative condition $d^v d^h+$ $d^h d^v=0$ is useful, define the \bf{total complexes} $\operatorname{Tot}(C)=\operatorname{Tot}^{\Pi}(C)$ and $\operatorname{Tot}^{\oplus}(C)$ by
 $$
 \operatorname{Tot}^{\Pi}(C)_n=\prod_{p+q=n} C_{p, q} \quad \text { and } \quad \operatorname{Tot}^{\oplus}(C)_n=\bigoplus_{p+q=n} C_{p, q} \text {. }
 $$
@@ -944,7 +940,6 @@ A \textbf{first quadrant} (homology) spectral sequence is one with $E_{p q}^r=0$
 There is a \textbf{category of homology spectral sequences}; a morphism $f: E^{\prime} \rightarrow$ $E$ is a family of maps $f_{p q}^r: E_{p q}^{\prime} \rightarrow E_{p q}^r$ in $\mathcal{A}$ (for $r$ suitably large) with $d^r f^r=$ $f^r d^r$ such that each $f_{p q}^{r+1}$ is the map induced by $f_{p q}^r$ on homology.
 
 \subsubsection{Bounded convergence}
-You could stop after reading this part! Just take a look on the Lerray-Serre spectral sequence.\\
 
 A homology spectral sequence is said to be \textbf{bounded} if for each $n$ there are only finitely many nonzero terms of total degree $n$ in $E_{* *}^a$. If so, then for each $p$ and $q$ there is an $r_0$ such that $E_{p q}^r=$ $E_{p q}^{r+1}$ for all $r \geq r_0$. We write $E_{p q}^{\infty}$ for this stable value of $E_{p q}^r$.\\
 To see this, consider a first quadrant spectral sequence $E^a _{pq}$. If we fix $p$ and $q$, then $E_{p q}^r=E_{p q}^{r+1}$ for all large $r(r>\max \{p, q+1\}$ will do), because the $d^r$ landing in the ( $p, q$ ) spot come from the fourth quadrant, while the $d^r$ leaving $E_{p q}^r$ land in the second quadrant.\\ 
@@ -962,6 +957,7 @@ A (homology) spectral sequence \textbf{collapses at $E^r(r \geq 1)$ } if there i
 If a collapsing spectral sequence converges to $H_*$, we can read the $H_n$ off: $H_n$ is the unique nonzero $E_{p q}^r$ with $p+q=n$. The overwhelming majority of all applications of spectral sequences involve spectral sequences that collapse at $E^1$ or $E^2$.\\
 %mapping cone and spectral sequences exercise 5.4.4!!
 
+You could stop after reading this part! Just take a look on the Lerray-Serre spectral sequence.\\
 
 
 \subsubsection{General case}

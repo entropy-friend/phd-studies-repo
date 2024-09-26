@@ -2374,3 +2374,10 @@
   <bcf:section number="0">
     <bcf:citekey order="1" intorder="1">adamekAbstractConcreteCategories2004</bcf:citekey>
     <bcf:citekey order="1" intorder="2">richterCategoriesHomotopyTheory2020</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">richterCategoriesHomotopyTheory2020</bcf:citekey>
+    <bcf:citekey order="2" intorder="2">weibelKbookIntroductionAlgebraic2013a</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">brownCohomologyGroups1982</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">weibelIntroductionHomologicalAlgebra1994</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">richterCategoriesHomotopyTheory2020</bcf:citekey>
+    <bcf:citekey order="5" intorder="2">goerssSimplicialHomotopyTheory2009</bcf:citekey>
+    <bcf:citekey order="5" intorder="3">hatcherAlgebraicTopology2021</bcf:citekey>
