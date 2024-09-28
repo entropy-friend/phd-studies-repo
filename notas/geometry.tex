@@ -1,5 +1,140 @@
 \part{Topics of Geometry}
 
+References \cite{husemollerFibreBundles1994,mayConciseCourseAlgebraic1999}\\
+
+A \bf{paracompact space} is a topological space in which every open cover has an open refinement that is locally finite. 
+
+\begin{theo}
+Compact spaces, CW-complexes and metrizable spaces are paracompact.
+\end{theo}
+
+Every space in the following will be paracompact.
+
+A \bf{bundle} is a triple $(E, p, B)$, where $p: E \rightarrow B$ is a map. The space $B$ is called the \bf{base space}, the space $E$ is called the \bf{total space}, and the map $p$ is called the \bf{projection of the bundle}. For each $b \in B$, the space $p^{-1}(b)$ is called the \bf{fibre} of the bundle over $b \in B$.\\ Bundle form a category, denoted by Bun. The subcategory of bundles over $B$ is denoted by Bun$_B$
+
+Let $(E, p, B)$ and $\left(E^{\prime}, p^{\prime}, B^{\prime}\right)$ be two bundles. A bundle mor$\operatorname{phism}(u, f):(E, p, B) \rightarrow\left(E^{\prime}, p^{\prime}, B^{\prime}\right)$ is a pair of maps $u: E \rightarrow E^{\prime}$ and $f: B \rightarrow B^{\prime}$ such that $p^{\prime} u=f p$.
+
+Let $\xi=(E, p, B)$ be a bundle, and let $f: B_1 \rightarrow B$ be a map. The induced bundle of $\xi$ under $f$, denoted $f^*(\xi)$, has as base space $B_1$, as total space $E_1$ which is the subspace of all pairs $\left(b_1, x\right) \in B_1 \times E$ with $f\left(b_1\right)=p(x)$, and as projection $p_1$ the map $\left(b_1, x\right) \mapsto b_1$. \textit{The induced bundle is the pullback on Bun}.\\
+
+\chapter{Fibre bundles over paracompact spaces}
+
+
+Let $G$ be a topological group. 
+Every $G$-space $X$ determines a bundle $\alpha(X)=(X, \pi, X / G)$. If $h: X \rightarrow Y$ is a $G$-space morphism, we have $h(x G) \subset h(x) G$ for each $x \in X$. The \bf{quotient map of $h$} is the map $f$ : $X / G \rightarrow Y \bmod G$, where $f(x G)=h(x) G$. Let $\alpha(h)$ denote the bundle morphism $(h, f): \alpha(X) \rightarrow \alpha(Y)$.
+
+A bundle $(X, p, B)$ is called a \bf{$G$-bundle} provided $(X, p, B)$ and $\alpha(X)$ are isomorphic for some $G$-space structure on $X$ by an isomorphism $(1, f): \alpha(X) \rightarrow(X, p, B)$, where $f: X \bmod G \rightarrow B$ is a homeomorphism.\\
+
+Let $X$ be a free $G-$space. Let $X^*$ be the subspace of all $(x, x s) \in X \times X$, where $x \in X, s \in G$ for a free $G$-space $X$. There is a function $\tau: X^* \rightarrow G$ such that $x \tau\left(x, x^{\prime}\right)=x^{\prime}$ for all $\left(x, x^{\prime}\right) \in X^*$. \\
+A $G$-space $X$ is called \bf{principal} provided $X$ is a free $G$-space with a continuous $\tau$. A \bf{principal $G$-bundle} is a $G$-bundle $(X, p, B)$, where $X$ is a principal $G$-space.\\
+Principal $G-$bundles form a category, denoted by Bun$(G)$. The subcategory of principal $G-$bundles over $B$ is denoted by Bun$_B(G)$.
+
+\begin{example}
+    \begin{enumerate}
+        \item The product principal $G$-bundle, $B\times G$.
+        \item Let $G$ be a closed subgroup of a topological group $\Gamma$. Then $G$ acts on the right of $\Gamma$ by multiplication. The base space of the corresponding principal $G$-bundle is the space of left cosets $\Gamma / G$. 
+        \item Let $S^{\boldsymbol{n}}$ be the $\mathbb{Z}_2$-space with action given by the relation $x( \pm 1)= \pm x$. Then $\left(S^n\right)^*$ is the subspace of $(x, \pm x) \in S^n \times S^n$. This principal $Z_2$-space defines a principal $Z_{2}-$ bundle with base space $R P^n$.
+    \end{enumerate}
+\end{example}
+
+\begin{prop}
+    \begin{enumerate}
+        \item Let $\xi=(X, p, B)$ be a principal $G$-bundle. Then $\xi$ is a bundle with fibre $G$.
+        \item Morphism on Bun$_B(G)$ are isomorphisms.
+        \item $f^*: \operatorname{Bun}_B(G) \rightarrow \operatorname{Bun}_{B_1}(G)$ is a functor.
+    \end{enumerate}
+
+\end{prop}
+
+Let $\xi=(X, p, B)$ be a principal $G$-bundle, and let $F$ be a left $G$-space. The relation $(x, y) s=\left(x s, s^{-1} y\right)$ defines a right $G$-space structure on $X \times F$. Let $X_F$ denote the quotient space $(X \times F) \bmod G$, and let $p_F: X_F \rightarrow B$ be the factorization of the composition of $X \times F \xrightarrow{p_X} X \xrightarrow{p} B$ by the projection $X \times F \rightarrow X_F$. Explicitly, we have $p_F((x, y) G)=p(x)$ for $(x, y) \in X \times F$.\\
+The bundle $\left(X_F, p_F, B\right)$, denoted $\xi[F]$, is called the \bf{fibre bundle over $B$ with fibre $F$} (viewed as a $G$-space) and \bf{associated principal bundle $\xi$}. The group $G$ is called the \bf{structure group} of the fibre bundle $\xi[F]$.
+
+In general, the total space of $\xi[F]$ reflects the "twist" in the topology of the total space $X$ and the "twist" in the action of $G$ on $F$. In the next proposition we prove that $\xi[F]$ is a bundle with fibre $F$.\\
+
+Let $(u, f):(X, p, B) \rightarrow\left(X^{\prime}, p^{\prime}, B^{\prime}\right)$ be a principal bundle morphism, and let $F$ be a left $G$-space. The morphism $(u, f)$ defines a $G$-morphism $u \times 1_F: X \times F \rightarrow$ $X^{\prime} \times F$, and by passing to quotients, we have a map $u_F: X_F \rightarrow X_F^{\prime}$ such that $\left(u_F, f\right): \xi[F] \rightarrow \xi^{\prime}[F]$, where $\xi=(X, p, B)$ and $\xi^{\prime}=\left(X^{\prime}, p^{\prime}, B^{\prime}\right)$.
+A \bf{fibre bundle morphism} from $\xi[F]$ to $\xi^{\prime}[F]$ is a bundle morphism of the form $\left(u_F, f\right): \xi[F] \rightarrow \xi^{\prime}[F]$, where $(u, f): \xi \rightarrow \xi^{\prime}$ is a principal bundle morphism. If $B=B^{\prime}$ and $f=1_B$, then $u_F: \xi[F] \rightarrow \xi^{\prime}[F]$ is called a fibre bundle morphism over $B$.\\
+
+Let $\xi$ be the product principal $G$-bundle $(B \times G, p, B)$. For each left $G$-space $F$, the fibre bundle $\xi[F]=(Y, q, B)$ is $B$-isomorphic over $B$ to the product bundle $(B \times F, p, B)$. Let $g: Y \rightarrow B \times F$ be defined by $g((b, s, y) G)=(b, s y)$. Then $g$ is a $B$-isomorphism.
+
+Two principal $G$-bundles $\xi$ and $\eta$ over $B$ are locally isomorphic provided each $b \in B$ has an open neighborhood $U$ such that $\xi \mid U$ and $\eta \mid U$ are $U$-isomorphic (as principal bundles). Two fibre bundles $\xi[F]$ and $\eta[F]$ are locally isomorphic provided $\xi$ and $\eta$ are locally isomorphic.\\
+A principal $G$-bundle $\xi$ over $B$ is trivial or locally trivial provided $\xi$ is a principal $G$-bundle that is isomorphic or locally isomorphic to the product principal $G$-bundle. A fibre bundle $\xi[F]$ is trivial or locally trivial provided $\xi$ is trivial or locally trivial, respectively.
+
+\begin{prop}
+
+Let $\xi[F]=\times\left(X_F, p_F, B\right)$ be the fibre bundle with associated principal $G$-bundle $\xi=(X, p, B)$ and fibre $F$. For each $b \in B$, the fibre $F$ is homeomorphic to $p_F^{-1}(b)$.
+
+\end{prop}
+
+
+Let $\xi=(X, p, B)$ be a principal $G$-bundle, and let $H$ be a closed subgroup of $G$. Then the relation on $X$ defined by the action of the group $H$ is compatible with the projection $p: X \rightarrow B$. Therefore, there is a bundle $\xi \bmod H=$ $(X \bmod H, q, B)$, where $q$ is the result of factoring $p$ by the canonical map $X \rightarrow X \bmod H$.
+
+\begin{theo}[Restriction of structure group]
+    Let $\xi=(X, p, B)$ be a principal $G$-bundle, and let $H$ be a closed subgroup of $G$. Then there is a canonical B-isomorphism of bundles $\xi \bmod H \rightarrow$ $\xi[G \bmod H]$, where the fibre $G \bmod H$ is the homogeneous space of right cosets of $H$ in $G$.
+\end{theo}
+
+
+
+\section{Classifying space of a group}
+
+For each paracompact space $B$, let $k_G(B)$ denote the set of isomorphism classes of principal $G$-bundles over $B$. Let $\{\xi\}$ denote the isomorphism class of the principal $G$-bundle $\xi$ over $B$. For a homotopy class $[f]: X \rightarrow Y$ we define a function $k_G([f]): k_G(Y) \rightarrow k_G(X)$ by the relation $k_G([f])\{\xi\}= \left\{f^*(\xi)\right\}$.
+Let $\mathbf{H}$ denote the category of all spaces and homotopy classes of maps.
+
+\begin{theo}
+    \begin{enumerate}
+        \item $k_G$ are well defined functions.
+        \item The collection of functions $k_G: \mathbf{H} \rightarrow$ Set is a cofunctor.
+        \item If $f: X \rightarrow Y$ is a homotopy equivalence, $k_G([f]): k_G(Y) \rightarrow$ $k_G(X)$ is a bijection.
+        \item If $X$ is contractible, each numerable principal $G$-bundle over $X$ is trivial.
+    \end{enumerate}
+\end{theo}
+
+Let $\omega=\left(E_0, p_0, B_0\right)$ be a fixed principal $G$-bundle. For each space $X$ we define $$\phi_\omega(X):\left[X, B_0\right] \rightarrow k_G(X) \quad \text{ defined by } \quad \phi_\omega(X)[u]=\left\{u^*(\omega)\right\}$$.
+
+\begin{prop}
+    
+     $\phi_\omega:\left[-, B_0\right] \rightarrow k_G$ are functions and they define a natural transformation $\mathbf{H} \rightarrow$ Set.
+\end{prop}
+
+
+A principal G-bundle $\omega=\left(E_0, p_0, B_0\right)$ is \bf{universal} provided $\omega$ is numerable and $\phi_\omega:\left[-, B_0\right] \rightarrow k_G$ is an isomorphism. The space $B_0$ is called a \bf{classifying space} of $G$.
+
+\begin{theo}
+    A principal $G$-bundle $\omega=\left(E_0, p_0, B_0\right)$, where $B_0$ paracompact, is universal if and only if the following are true.
+    \begin{enumerate}
+        \item For each numerable principal $G$-bundle $\xi$ over $X$ there exists a map $f$ : $X \rightarrow B_0$ such that $\xi$ and $f^*(\omega)$ are isomorphic over $X$.
+        \item If $f, g: X \rightarrow B_0$ are two maps such that $f^*(\omega)$ and $g^*(\omega)$ are isomorphic over $X$, then $f$ and $g$ are homotopic.
+    \end{enumerate}
+This is also equivalent that $X$ is contractible.
+\end{theo}
+
+
+\begin{theo}[Milnor]
+    Let $G$ be a topological group. Then a classifying space $B_0$ of $G$ exists. (always paracompact??)
+\end{theo}
+
+%CORREGIR
+
+Let $H$ be a closed subgroup of $G$, let $\omega_H=\left(Y_0, q_0, B_H\right)$ be a universal bundle for $H$, and let $\omega_G=\left(X_0, p_0, B_G\right)$ be a universal bundle for $G$, which is a numerable principal $G$-bundle over $B_H$. By the classification theorem 4(12.2), there is a principal $G$-bundle morphism $\left(h_0, f_0\right): \omega_H[G] \rightarrow$ $\omega_G$, where $f_0^*\left(\omega_G\right)$ and $\omega_H[G]$ are isomorphic over $B_H$.
+
+\begin{theo}
+    With the above notations, let $\xi=(X, p, B)$ be a numerable principal $G$-bundle over $B$ with classifying map $f: B \rightarrow B_G$; that is, $f^*\left(\omega_G\right)$ and $\xi$ are $B$-isomorphic. Then the restrictions $\eta=(Y, q, B)$ of $\xi$ are in bijective correspondence with homotopy classes of maps $g: B \rightarrow B_H$ such that $f_0 g$ and $f$ are homotopic. We have the following diagram:
+    
+\end{theo}
+
+
+\section{Classical groups}
+
+%   INCLUIR ATLAS
+
+The \bf{orthogonal group} in $k$ dimensions, denoted $O(k)$, is the subgroup of $u \in \mathbf{G L}(k, \mathbf{R})$ such that $(u(x) \mid u(y))=(x \mid y)$ for each $x, y \in \mathbf{R}^k$. The \bf{unitary group} in $k$ dimensions, denoted $U(k)$, is the subgroup of $u \in \mathbf{G L}(k, \mathbf{C})$ such that $(u(x) \mid u(y))=(x \mid y)$ for each $x, y \in \mathbf{C}^k$. The \bf{symplectic group} in $k$ dimensions, denoted $S p(k)$, is the subgroup of $u \in \mathbf{G L}(k, \mathbf{H})$ such that $(u(x) \mid u(y))=(x \mid y)$ for each $x, y \in \mathbf{H}^k$.\\
+These groups are closed and bounded subsets of the space of matrices. Therefore, they are compact (topological) groups. 
+
+The \bf{special orthogonal group} in $k$ dimensions, denoted $S O(k)$, is the closed subgroup of $u \in O(k)$ with det $u=+1$. The \bf{special unitary group} in $k$ dimensions, denoted $S U(k)$, is the closed subgroup of $u \in U(k)$ with det $u=+1$. The \bf{special symplectic group} in $k$ dimensions, denoted $S p(k)$, is the closed subgroup of $u \in S p(k)$ with det $u=+1$.\\
+These groups and the previous ones are referred to as the \bf{classical groups.}
+
+\begin{theo}
+    Let $\xi$ be a vector bundle over $B$ paracompact. Then $\xi$ has an atlas whose transition functors $\left\{g_{i, j}\right\}$ have their values in $O(n)$, the real case with $F=\mathbf{R} ; U(n)$, the complex case with $F=\mathbf{C}$; and $S p(n)$, the quaternionic case with $F=\mathbf{H}$.   
+\end{theo}
+
 \chapter{Smooth and complex manifolds}
 
 

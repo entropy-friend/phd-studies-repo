@@ -479,9 +479,9 @@ Recall that we constructed $B G$ as the geometric realisation of the nerve of a 
 
 \section{Acyclic spaces and acyclic groups}
 
-References \cite{karoubiContemporaryDevelopmentsAlgebraic2003}
+References \cite{karoubiContemporaryDevelopmentsAlgebraic2003,srinivasAlgebraicKTheory1996,weibelKbookIntroductionAlgebraic2013a}.\\
 
- We call a \textbf{topological space $E$ acyclic} if it has the homology of a point.
+ We call a topological space $E$ \textbf{acyclic} if it has the homology of a point.
 
 \begin{lemm}
     Let $E$ be an acyclic space. Then $E$ is connected, its fundamental group $G=\pi_1(E)$ is a perfect group, and $H_2(G ; \mathbb{Z})=0$.
@@ -489,7 +489,6 @@ References \cite{karoubiContemporaryDevelopmentsAlgebraic2003}
 \begin{proof}
     
 $E$ must be connected, as $H_0(E)=\mathbb{Z}$. Since $G^{ab} =G /[G, G]=H_1(E ; \mathbb{Z})=0$, we have $G$ is perfect. To calculate $H_2(G)$, note that $H_1(\tilde{E} ; \mathbb{Z})=$ 0. Moreover, the homotopy fiber of the canonical map $E \rightarrow B G$ is homotopy equivalent to $\tilde{E}$. In fact, the Serre spectral sequence for this homotopy fibration is $E_{p q}^2=H_p\left(G ; H_q(\tilde{E} ; \mathbb{Z})\right) \Rightarrow H_{p+q}(E ; \mathbb{Z})$ and the conclusion that $H_2(G ; \mathbb{Z})=0$ follows from the associated exact sequence of low degree terms:
-\end{proof}
 
 $$
 H_2(E ; \mathbb{Z}) \rightarrow H_2(G ; \mathbb{Z}) \xrightarrow{d^2} H_1(\tilde{E} ; \mathbb{Z})^G \rightarrow H_1(E ; \mathbb{Z}) \rightarrow H_1(G ; \mathbb{Z})
@@ -500,6 +499,8 @@ $$
 
 Let $X$ and $Y$ be based connected CW complexes. A \textbf{map} $f: X \rightarrow Y$ is called \textbf{acyclic} if the homotopy fiber $F(f)$ of $f$ is acyclic (has the homology of a point).\\
 This implies that $F(f)$ is connected and $\pi_1 F(f)$ is a perfect group.
+\end{proof}
+
 From the exact sequence $\pi_1 F(f) \rightarrow \pi_1(X) \rightarrow \pi_1(Y) \rightarrow \pi_0 F(f)$ we also have that $\pi_1(X) \rightarrow \pi_1(Y)$ is onto, and its kernel $P$ is a perfect normal subgroup of $\pi_1(X)$.\\
 
 Let $P$ be a perfect normal subgroup of $\pi_1(X)$, where $X$ is a based connected CW complex. An acyclic map $f: X \rightarrow Y$ is called a \textbf{+-construction} on $X$ relative to $P$ if $P$ is the kernel of $\pi_1(X) \rightarrow \pi_1(Y)$.
