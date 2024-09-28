@@ -353,32 +353,56 @@ Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $
 
 \chapter{Homotopy theory}
 
-References: \cite{mayConciseCourseAlgebraic1999}
+References: \cite{mayConciseCourseAlgebraic1999}\\
 
-Let $I^n$ be the $n$-dimensional unit cube, the product of $n$ copies of the interval $[0,1]$. The boundary $\partial I^n$ of $I^n$ is the subspace consisting of points with at least one coordinate equal to 0 or 1 . For a space $X$ with basepoint $x_0 \in X$, define $\pi_n\left(X, x_0\right)$ to be the set of homotopy classes of maps $f:\left(I^n, \partial I^n\right) \rightarrow\left(X, x_0\right)$, where homotopies $f_t$ are required to satisfy $f_t\left(\partial I^n\right)=x_0$ for all $t$. The definition extends to the case $n=0$ by taking $I^0$ to be a point and $\partial I^0$ to be empty, so $\pi_0\left(X, x_0\right)$ is just the set of path-components of $X$.
+A \bf{homotopy} $h: p \simeq q$ between maps $p, q: X \longrightarrow Y$ is a continuous map $h: X \times I \longrightarrow Y$ such that $h(x, 0)=p(x)$ and $h(x, 1)=q(x)$, where $I$ is the unit interval $[0,1]$.\\
+A $\operatorname{map} f: X \longrightarrow Y$ is a \textbf{homotopy equivalence} if there is a map $g: Y \longrightarrow X$ such that both $g \circ f \simeq \mathrm{id}$ and $f \circ g \simeq \mathrm{id}$.\\
+$h \text{Top}_0$ denotes the category of pointed topological spaces, with morphisms the based homotopy classes of based maps. Its isomorphisms are the based homotopy equivalences.\\
 
-When $n \geq 2$, a sum operation in $\pi_n\left(X, x_0\right)$, generalizing the composition operation in $\pi_1$, is defined by
+ The boundary $\partial I^n$ is the subspace consisting of points with at least one coordinate equal to 0 or 1 . For a space $X$ with basepoint $x_0 \in X$, define $\pi_n\left(X, x_0\right)$ to be the set of homotopy classes of maps $f:\left(I^n, \partial I^n\right) \rightarrow\left(X, x_0\right)$, where homotopies $f_t$ are required to satisfy $f_t\left(\partial I^n\right)=x_0$ for all $t$.\\
+ The definition extends to the case $n=0$ by taking $I^0$ to be a point and $\partial I^0$ to be empty, so $\pi_0\left(X, x_0\right)$ is just the set of path-components of $X$.
+
+When $n \geq 1$, a sum operation in $\pi_n\left(X, x_0\right)$ is defined by
 $$
 (f+g)\left(s_1, s_2, \cdots, s_n\right)= \begin{cases}f\left(2 s_1, s_2, \cdots, s_n\right), & s_1 \in[0,1 / 2] \\ g\left(2 s_1-1, s_2, \cdots, s_n\right), & s_1 \in[1 / 2,1]\end{cases}
 $$
-
-It is evident that this sum is well-defined on homotopy classes. Since only the first coordinate is involved in the sum operation, the same arguments as for $\pi_1$ show that $\pi_n\left(X, x_0\right)$ is a group, with identity element the constant map sending $I^n$ to $x_0$ and with inverses given by $-f\left(s_1, s_2, \cdots, s_n\right)=f\left(1-s_1, s_2, \cdots, s_n\right)$.
+\textit{which defines a group structure, with identity element the constant map sending $I^n$ to $x_0$ and with inverses given by $-f\left(s_1, s_2, \cdots, s_n\right)=f\left(1-s_1, s_2, \cdots, s_n\right)$.}
 
 
 \begin{prop}
     If $n \geq 2$, then $\pi_n\left(X, x_0\right)$ is abelian.
 \end{prop}
 
+$\pi_1(X,x_0)$ is called the \bf{fundamental group} of $X$ with base point $x_0$. If $X$ is path-connected, then $\pi_1(X,x_0)$ is independent of the choice of base point $x_0$. Many important facts are known about this group. For instance, it indcues a functor from Top$_0$ to Gr, which factors through a functor $h\text{Top}_0 \rightarrow $Gr.
 
-\section{Fundamental group and covering spaces}
+%% incluir antes que las categorias topologicas son topologicas son completas y cocompletas, y conexion con equzalizadores y colimites
+
+
+\section{Fundamental groupoid and covering spaces}
 %estamos solo usando estos resultados... deberiamos dar mejores definiciones
 
-A \textbf{grupoid} is a category in which every morphism is invertible. A group can be viewed as a grupoid with just one object. We have the category of grupois, where morphism are the functors.\\
+
+
 The \textbf{fundamental groupoid} $\Pi_1(X)$ of a space $X$ is the grupoid whose objects are the points of $X$ and whose morphisms are the homotopy classes of paths in $X$ with fixed endpoints. Then, $\Pi_1$ is a functor Top$\rightarrow$Grd.\\
 
-\begin{theo}[Van Kampen]
-Let $X$ be path connected and choose a basepoint $x \in X$. Let $\mathscr{O}$ be a cover of $X$ by path connected open subsets such that the intersection of finitely many subsets in $\mathscr{O}$ is again in $\mathscr{O}$ and $x$ is in each $U \in \mathscr{O}$. Regard $\mathscr{O}$ as a category whose morphisms are the inclusions of subsets and observe that the functor $\pi_1(-, x)$, restricted to the spaces and maps in $\mathcal{O}$, gives a diagram
+\begin{theo}[grupoid version]
+Let $\mathscr{O}=\{U\}$ be a cover of a space $X$ by path connected open subsets such that the intersection of finitely many subsets in $\mathscr{O}$ is again in $\mathscr{O}$. Regard $\mathscr{O}$ as a category whose morphisms are the inclusions of subsets and observe that the functor $\Pi$, restricted to the spaces and maps in $\mathscr{O}$, gives a diagram
 
+$$
+\Pi \mid \mathscr{O}: \mathscr{O} \longrightarrow \mathscr{G} \mathscr{P}
+$$
+
+of groupoids. The groupoid $\Pi(X)$ is the colimit of this diagram. In symbols,
+
+$$
+\Pi(X) \cong \operatorname{colim}_{U \in \mathscr{O}} \Pi(U)
+$$
+
+\end{theo}
+
+\begin{theo}[Van Kampen]
+    Let $X$ be path connected and choose a basepoint $x \in X$. Let $\mathscr{O}$ be a cover of $X$ by path connected open subsets such that the intersection of finitely many subsets in $\mathscr{O}$ is again in $\mathscr{O}$ and $x$ is in each $U \in \mathscr{O}$. Regard $\mathscr{O}$ as a category whose morphisms are the inclusions of subsets and observe that the functor $\pi_1(-, x)$, restricted to the spaces and maps in $\mathcal{O}$, gives a diagram
+    
     $$
     \pi_1 \mid \mathscr{O}: \mathscr{O} \longrightarrow \mathscr{G}
     $$
@@ -388,7 +412,7 @@ Let $X$ be path connected and choose a basepoint $x \in X$. Let $\mathscr{O}$ be
     $$
     \pi_1(X, x) \cong \operatorname{colim}_{U \in \mathscr{O}} \pi_1(U, x)
     $$
-        
+    
 \end{theo}
 
 \begin{coro}
@@ -398,6 +422,10 @@ Let $X$ be path connected and choose a basepoint $x \in X$. Let $\mathscr{O}$ be
         \item Let $X=U \cup V$, where $U, V$, and $U \cap V$ are path connected open neighborhoods of the basepoint of $X$ and $V$ is simply connected. Then $\pi_1(U) \longrightarrow$ $\pi_1(X)$ is an epimorphism whose kernel is the smallest normal subgroup of $\pi_1(U)$ that contains the image of $\pi_1(U \cap V)$.
     \end{enumerate}
 \end{coro}
+
+A space $X$ is said to be \bf{locally path connected} if for any $x \in X$ and any neighborhood $U$ of $x$, there is a smaller neighborhood V of $x$ each of whose points can be connected to $x$ by a path in $U$. Equivalently, the topology of $X$ have a basis consisting of path connected open sets. If $X$ is connected and locally path connected, then it is path connected. Throughout this section, we assume that all given spaces are connected and locally path connected.\\
+
+A map $p: E \longrightarrow B$ is a covering space if it is surjective and if each point $b \in B$ has an open neighborhood $V$ such that each component of $p^{-1}(V)$ is open in $E$ and is mapped homeomorphically onto $V$ by $p$. We call $E$ the \bf{total space}, $B$ the \bf{base space}, and $F_b=p^{-1}(b)$ a \bf{fiber of the covering} $p$.
 
 
 
