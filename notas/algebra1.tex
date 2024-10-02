@@ -878,7 +878,32 @@ We say that two chain maps $f$ and $g$ from $C$ to $D$ are chain homotopic if th
 
 
 \section{Spectral sequences}
-%adicionar historia 
+
+References \cite{weibelIntroductionHomologicalAlgebra1994,cohen}
+
+
+A spectral sequence is the algebraic machinery for studying sequences of long exact sequences that are interelated in a particular way. For instance, we can study a filtration of a chain complex $C_*$ by subcomplexes,
+$$
+0=F_0\left(C_*\right) \hookrightarrow F_1\left(C_*\right) \hookrightarrow \cdots \hookrightarrow F_k\left(C_*\right) \hookrightarrow F_{k+1}\left(C_*\right) \hookrightarrow \cdots \hookrightarrow C_*=\bigcup_k F_k\left(C_*\right)
+$$
+Let $D_*^k$ be the subquotient complex $D_*^k=F_k\left(C_*\right) / F_{k-1}\left(C_*\right)$ and so for each $k$ there is a long exact sequence in homology
+$$
+\longrightarrow H_{q+1}\left(D_*^k\right) \longrightarrow H_q\left(F_{k-1}\left(C_*\right)\right) \longrightarrow H_q\left(F_k\left(C_*\right)\right) \longrightarrow H_q\left(D_*^k\right) \longrightarrow \cdots
+$$
+By putting these long exact sequences together, in principle one should be able to use information about $\oplus_k H_*\left(D_*^k\right)$ in order to obtain information about
+$$
+H_*\left(C_*\right)=\underset{k}{\lim } H_*\left(F_k\left(C_*\right)\right)
+$$
+A spectral sequence is the bookkeeping device that allows one to do this.
+
+
+
+
+
+
+
+
+
 
 \subsection{Double complexes}
 A \bf{double complex} (or bicomplex) in $\mathcal{A}$ is a family $\left\{C_{p, q}\right\}$ of objects of $\mathcal{A}$, together with maps
@@ -937,7 +962,177 @@ A \textbf{homology spectral sequence } (starting with $E^a$ ) in an abelian cate
 ($E_{p q}^{r+1}$ is a subquotient of $E_{p q}^r$). The total degree of the term $E_{p q}^r$ is $n=p+q$; the terms of total degree $n$ lie on a line of slope -1 , and each differential $d_{p q}^r$ decreases the total degree by one.\\
 A \textbf{first quadrant} (homology) spectral sequence is one with $E_{p q}^r=0$ unless $p \geq 0$ and $q \geq 0$.\\
 
-There is a \textbf{category of homology spectral sequences}; a morphism $f: E^{\prime} \rightarrow$ $E$ is a family of maps $f_{p q}^r: E_{p q}^{\prime} \rightarrow E_{p q}^r$ in $\mathcal{A}$ (for $r$ suitably large) with $d^r f^r=$ $f^r d^r$ such that each $f_{p q}^{r+1}$ is the map induced by $f_{p q}^r$ on homology.
+\begin{figure}
+    \centering
+
+
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,722); %set diagram left start at 0, and has height of 722
+    
+    %Shape: Circle [id:dp4266897237946641] 
+    \draw   (75.02,105) .. controls (72.26,105.01) and (70.01,102.78) .. (70,100.02) .. controls (69.99,97.26) and (72.22,95.01) .. (74.98,95) .. controls (77.74,94.99) and (79.99,97.22) .. (80,99.98) .. controls (80.01,102.74) and (77.78,104.99) .. (75.02,105) -- cycle ;
+    %Shape: Circle [id:dp21243284552909902] 
+    \draw   (135,104.98) .. controls (132.24,104.99) and (129.99,102.76) .. (129.98,100) .. controls (129.97,97.24) and (132.2,94.99) .. (134.97,94.98) .. controls (137.73,94.97) and (139.97,97.2) .. (139.98,99.97) .. controls (139.99,102.73) and (137.76,104.97) .. (135,104.98) -- cycle ;
+    %Shape: Circle [id:dp1121940024781991] 
+    \draw   (195,104.98) .. controls (192.24,104.99) and (189.99,102.76) .. (189.98,100) .. controls (189.97,97.24) and (192.2,94.99) .. (194.97,94.98) .. controls (197.73,94.97) and (199.97,97.2) .. (199.98,99.97) .. controls (199.99,102.73) and (197.76,104.97) .. (195,104.98) -- cycle ;
+    %Shape: Circle [id:dp03369431999743655] 
+    \draw   (255,104.98) .. controls (252.24,104.99) and (249.99,102.76) .. (249.98,100) .. controls (249.97,97.24) and (252.2,94.99) .. (254.97,94.98) .. controls (257.73,94.97) and (259.97,97.2) .. (259.98,99.97) .. controls (259.99,102.73) and (257.76,104.97) .. (255,104.98) -- cycle ;
+    %Shape: Circle [id:dp42374483173520405] 
+    \draw   (315,104.98) .. controls (312.24,104.99) and (309.99,102.76) .. (309.98,100) .. controls (309.97,97.24) and (312.2,94.99) .. (314.97,94.98) .. controls (317.73,94.97) and (319.97,97.2) .. (319.98,99.97) .. controls (319.99,102.73) and (317.76,104.97) .. (315,104.98) -- cycle ;
+    %Shape: Circle [id:dp929688933276159] 
+    \draw   (75.03,165) .. controls (72.27,165.01) and (70.03,162.78) .. (70.02,160.02) .. controls (70.01,157.26) and (72.24,155.01) .. (75,155) .. controls (77.76,154.99) and (80.01,157.22) .. (80.02,159.98) .. controls (80.03,162.74) and (77.8,164.99) .. (75.03,165) -- cycle ;
+    %Shape: Circle [id:dp06285342706484032] 
+    \draw   (135.02,164.98) .. controls (132.26,164.99) and (130.01,162.76) .. (130,160) .. controls (129.99,157.24) and (132.22,154.99) .. (134.98,154.98) .. controls (137.74,154.97) and (139.99,157.2) .. (140,159.97) .. controls (140.01,162.73) and (137.78,164.97) .. (135.02,164.98) -- cycle ;
+    %Shape: Circle [id:dp16743059497867363] 
+    \draw   (195.02,164.98) .. controls (192.26,164.99) and (190.01,162.76) .. (190,160) .. controls (189.99,157.24) and (192.22,154.99) .. (194.98,154.98) .. controls (197.74,154.97) and (199.99,157.2) .. (200,159.97) .. controls (200.01,162.73) and (197.78,164.97) .. (195.02,164.98) -- cycle ;
+    %Shape: Circle [id:dp36542937714360957] 
+    \draw   (255.02,164.98) .. controls (252.26,164.99) and (250.01,162.76) .. (250,160) .. controls (249.99,157.24) and (252.22,154.99) .. (254.98,154.98) .. controls (257.74,154.97) and (259.99,157.2) .. (260,159.97) .. controls (260.01,162.73) and (257.78,164.97) .. (255.02,164.98) -- cycle ;
+    %Shape: Circle [id:dp6038261663592559] 
+    \draw   (315.02,164.98) .. controls (312.26,164.99) and (310.01,162.76) .. (310,160) .. controls (309.99,157.24) and (312.22,154.99) .. (314.98,154.98) .. controls (317.74,154.97) and (319.99,157.2) .. (320,159.97) .. controls (320.01,162.73) and (317.78,164.97) .. (315.02,164.98) -- cycle ;
+    %Shape: Circle [id:dp6241943304358233] 
+    \draw   (75.03,225) .. controls (72.27,225.01) and (70.03,222.78) .. (70.02,220.02) .. controls (70.01,217.26) and (72.24,215.01) .. (75,215) .. controls (77.76,214.99) and (80.01,217.22) .. (80.02,219.98) .. controls (80.03,222.74) and (77.8,224.99) .. (75.03,225) -- cycle ;
+    %Shape: Circle [id:dp023236749364964338] 
+    \draw   (135.02,224.98) .. controls (132.26,224.99) and (130.01,222.76) .. (130,220) .. controls (129.99,217.24) and (132.22,214.99) .. (134.98,214.98) .. controls (137.74,214.97) and (139.99,217.2) .. (140,219.97) .. controls (140.01,222.73) and (137.78,224.97) .. (135.02,224.98) -- cycle ;
+    %Shape: Circle [id:dp36880988253650215] 
+    \draw   (195.02,224.98) .. controls (192.26,224.99) and (190.01,222.76) .. (190,220) .. controls (189.99,217.24) and (192.22,214.99) .. (194.98,214.98) .. controls (197.74,214.97) and (199.99,217.2) .. (200,219.97) .. controls (200.01,222.73) and (197.78,224.97) .. (195.02,224.98) -- cycle ;
+    %Shape: Circle [id:dp3351303968902207] 
+    \draw   (255.02,224.98) .. controls (252.26,224.99) and (250.01,222.76) .. (250,220) .. controls (249.99,217.24) and (252.22,214.99) .. (254.98,214.98) .. controls (257.74,214.97) and (259.99,217.2) .. (260,219.97) .. controls (260.01,222.73) and (257.78,224.97) .. (255.02,224.98) -- cycle ;
+    %Shape: Circle [id:dp4955586419456143] 
+    \draw   (315.02,224.98) .. controls (312.26,224.99) and (310.01,222.76) .. (310,220) .. controls (309.99,217.24) and (312.22,214.99) .. (314.98,214.98) .. controls (317.74,214.97) and (319.99,217.2) .. (320,219.97) .. controls (320.01,222.73) and (317.78,224.97) .. (315.02,224.98) -- cycle ;
+    %Shape: Circle [id:dp6522413670397201] 
+    \draw   (75.03,285) .. controls (72.27,285.01) and (70.03,282.78) .. (70.02,280.02) .. controls (70.01,277.26) and (72.24,275.01) .. (75,275) .. controls (77.76,274.99) and (80.01,277.22) .. (80.02,279.98) .. controls (80.03,282.74) and (77.8,284.99) .. (75.03,285) -- cycle ;
+    %Shape: Circle [id:dp35576468556246343] 
+    \draw   (135.02,284.98) .. controls (132.26,284.99) and (130.01,282.76) .. (130,280) .. controls (129.99,277.24) and (132.22,274.99) .. (134.98,274.98) .. controls (137.74,274.97) and (139.99,277.2) .. (140,279.97) .. controls (140.01,282.73) and (137.78,284.97) .. (135.02,284.98) -- cycle ;
+    %Shape: Circle [id:dp6007059503264247] 
+    \draw   (195.02,284.98) .. controls (192.26,284.99) and (190.01,282.76) .. (190,280) .. controls (189.99,277.24) and (192.22,274.99) .. (194.98,274.98) .. controls (197.74,274.97) and (199.99,277.2) .. (200,279.97) .. controls (200.01,282.73) and (197.78,284.97) .. (195.02,284.98) -- cycle ;
+    %Shape: Circle [id:dp37483501945609743] 
+    \draw   (255.02,284.98) .. controls (252.26,284.99) and (250.01,282.76) .. (250,280) .. controls (249.99,277.24) and (252.22,274.99) .. (254.98,274.98) .. controls (257.74,274.97) and (259.99,277.2) .. (260,279.97) .. controls (260.01,282.73) and (257.78,284.97) .. (255.02,284.98) -- cycle ;
+    %Shape: Circle [id:dp031933000616092166] 
+    \draw   (315.02,284.98) .. controls (312.26,284.99) and (310.01,282.76) .. (310,280) .. controls (309.99,277.24) and (312.22,274.99) .. (314.98,274.98) .. controls (317.74,274.97) and (319.99,277.2) .. (320,279.97) .. controls (320.01,282.73) and (317.78,284.97) .. (315.02,284.98) -- cycle ;
+    %Shape: Circle [id:dp6716130562985475] 
+    \draw   (75.03,345) .. controls (72.27,345.01) and (70.03,342.78) .. (70.02,340.02) .. controls (70.01,337.26) and (72.24,335.01) .. (75,335) .. controls (77.76,334.99) and (80.01,337.22) .. (80.02,339.98) .. controls (80.03,342.74) and (77.8,344.99) .. (75.03,345) -- cycle ;
+    %Shape: Circle [id:dp8715199531009215] 
+    \draw   (135.02,344.98) .. controls (132.26,344.99) and (130.01,342.76) .. (130,340) .. controls (129.99,337.24) and (132.22,334.99) .. (134.98,334.98) .. controls (137.74,334.97) and (139.99,337.2) .. (140,339.97) .. controls (140.01,342.73) and (137.78,344.97) .. (135.02,344.98) -- cycle ;
+    %Shape: Circle [id:dp173129730314039] 
+    \draw   (195.02,344.98) .. controls (192.26,344.99) and (190.01,342.76) .. (190,340) .. controls (189.99,337.24) and (192.22,334.99) .. (194.98,334.98) .. controls (197.74,334.97) and (199.99,337.2) .. (200,339.97) .. controls (200.01,342.73) and (197.78,344.97) .. (195.02,344.98) -- cycle ;
+    %Shape: Circle [id:dp009814893702278393] 
+    \draw   (255.02,344.98) .. controls (252.26,344.99) and (250.01,342.76) .. (250,340) .. controls (249.99,337.24) and (252.22,334.99) .. (254.98,334.98) .. controls (257.74,334.97) and (259.99,337.2) .. (260,339.97) .. controls (260.01,342.73) and (257.78,344.97) .. (255.02,344.98) -- cycle ;
+    %Shape: Circle [id:dp25088631700583985] 
+    \draw   (315.02,344.98) .. controls (312.26,344.99) and (310.01,342.76) .. (310,340) .. controls (309.99,337.24) and (312.22,334.99) .. (314.98,334.98) .. controls (317.74,334.97) and (319.99,337.2) .. (320,339.97) .. controls (320.01,342.73) and (317.78,344.97) .. (315.02,344.98) -- cycle ;
+    %Shape: Axis 2D [id:dp5312763907764603] 
+    \draw  (41.03,342.28) -- (381.03,342.28)(75.03,48) -- (75.03,374.98) (374.03,337.28) -- (381.03,342.28) -- (374.03,347.28) (70.03,55) -- (75.03,48) -- (80.03,55)  ;
+    %Shape: Circle [id:dp710928389895353] 
+    \draw   (553.98,110.02) .. controls (551.22,110.03) and (548.97,107.8) .. (548.97,105.03) .. controls (548.96,102.27) and (551.19,100.03) .. (553.95,100.02) .. controls (556.71,100.01) and (558.96,102.24) .. (558.97,105) .. controls (558.97,107.76) and (556.74,110.01) .. (553.98,110.02) -- cycle ;
+    %Shape: Circle [id:dp3176355719811016] 
+    \draw   (613.97,110) .. controls (611.2,110.01) and (608.96,107.78) .. (608.95,105.02) .. controls (608.94,102.26) and (611.17,100.01) .. (613.93,100) .. controls (616.69,99.99) and (618.94,102.22) .. (618.95,104.98) .. controls (618.96,107.74) and (616.73,109.99) .. (613.97,110) -- cycle ;
+    %Shape: Circle [id:dp3259866226783882] 
+    \draw   (673.97,110) .. controls (671.2,110.01) and (668.96,107.78) .. (668.95,105.02) .. controls (668.94,102.26) and (671.17,100.01) .. (673.93,100) .. controls (676.69,99.99) and (678.94,102.22) .. (678.95,104.98) .. controls (678.96,107.74) and (676.73,109.99) .. (673.97,110) -- cycle ;
+    %Shape: Circle [id:dp5147394211208863] 
+    \draw   (733.97,110) .. controls (731.2,110.01) and (728.96,107.78) .. (728.95,105.02) .. controls (728.94,102.26) and (731.17,100.01) .. (733.93,100) .. controls (736.69,99.99) and (738.94,102.22) .. (738.95,104.98) .. controls (738.96,107.74) and (736.73,109.99) .. (733.97,110) -- cycle ;
+    %Shape: Circle [id:dp23145851018270502] 
+    \draw   (793.97,110) .. controls (791.2,110.01) and (788.96,107.78) .. (788.95,105.02) .. controls (788.94,102.26) and (791.17,100.01) .. (793.93,100) .. controls (796.69,99.99) and (798.94,102.22) .. (798.95,104.98) .. controls (798.96,107.74) and (796.73,109.99) .. (793.97,110) -- cycle ;
+    %Shape: Circle [id:dp9375931907888719] 
+    \draw   (554,170.02) .. controls (551.24,170.03) and (548.99,167.8) .. (548.98,165.03) .. controls (548.97,162.27) and (551.2,160.03) .. (553.97,160.02) .. controls (556.73,160.01) and (558.97,162.24) .. (558.98,165) .. controls (558.99,167.76) and (556.76,170.01) .. (554,170.02) -- cycle ;
+    %Shape: Circle [id:dp02207041636329654] 
+    \draw   (613.98,170) .. controls (611.22,170.01) and (608.97,167.78) .. (608.97,165.02) .. controls (608.96,162.26) and (611.19,160.01) .. (613.95,160) .. controls (616.71,159.99) and (618.96,162.22) .. (618.97,164.98) .. controls (618.97,167.74) and (616.74,169.99) .. (613.98,170) -- cycle ;
+    %Shape: Circle [id:dp3467806733782305] 
+    \draw   (673.98,170) .. controls (671.22,170.01) and (668.97,167.78) .. (668.97,165.02) .. controls (668.96,162.26) and (671.19,160.01) .. (673.95,160) .. controls (676.71,159.99) and (678.96,162.22) .. (678.97,164.98) .. controls (678.97,167.74) and (676.74,169.99) .. (673.98,170) -- cycle ;
+    %Shape: Circle [id:dp14292807542315533] 
+    \draw   (733.98,170) .. controls (731.22,170.01) and (728.97,167.78) .. (728.97,165.02) .. controls (728.96,162.26) and (731.19,160.01) .. (733.95,160) .. controls (736.71,159.99) and (738.96,162.22) .. (738.97,164.98) .. controls (738.97,167.74) and (736.74,169.99) .. (733.98,170) -- cycle ;
+    %Shape: Circle [id:dp673487111283906] 
+    \draw   (793.98,170) .. controls (791.22,170.01) and (788.97,167.78) .. (788.97,165.02) .. controls (788.96,162.26) and (791.19,160.01) .. (793.95,160) .. controls (796.71,159.99) and (798.96,162.22) .. (798.97,164.98) .. controls (798.97,167.74) and (796.74,169.99) .. (793.98,170) -- cycle ;
+    %Shape: Circle [id:dp06416624559062312] 
+    \draw   (554,230.02) .. controls (551.24,230.03) and (548.99,227.8) .. (548.98,225.03) .. controls (548.97,222.27) and (551.2,220.03) .. (553.97,220.02) .. controls (556.73,220.01) and (558.97,222.24) .. (558.98,225) .. controls (558.99,227.76) and (556.76,230.01) .. (554,230.02) -- cycle ;
+    %Shape: Circle [id:dp6307300465695588] 
+    \draw   (613.98,230) .. controls (611.22,230.01) and (608.97,227.78) .. (608.97,225.02) .. controls (608.96,222.26) and (611.19,220.01) .. (613.95,220) .. controls (616.71,219.99) and (618.96,222.22) .. (618.97,224.98) .. controls (618.97,227.74) and (616.74,229.99) .. (613.98,230) -- cycle ;
+    %Shape: Circle [id:dp08524010691121786] 
+    \draw   (673.98,230) .. controls (671.22,230.01) and (668.97,227.78) .. (668.97,225.02) .. controls (668.96,222.26) and (671.19,220.01) .. (673.95,220) .. controls (676.71,219.99) and (678.96,222.22) .. (678.97,224.98) .. controls (678.97,227.74) and (676.74,229.99) .. (673.98,230) -- cycle ;
+    %Shape: Circle [id:dp5621602892375971] 
+    \draw   (733.98,230) .. controls (731.22,230.01) and (728.97,227.78) .. (728.97,225.02) .. controls (728.96,222.26) and (731.19,220.01) .. (733.95,220) .. controls (736.71,219.99) and (738.96,222.22) .. (738.97,224.98) .. controls (738.97,227.74) and (736.74,229.99) .. (733.98,230) -- cycle ;
+    %Shape: Circle [id:dp9353039279710524] 
+    \draw   (793.98,230) .. controls (791.22,230.01) and (788.97,227.78) .. (788.97,225.02) .. controls (788.96,222.26) and (791.19,220.01) .. (793.95,220) .. controls (796.71,219.99) and (798.96,222.22) .. (798.97,224.98) .. controls (798.97,227.74) and (796.74,229.99) .. (793.98,230) -- cycle ;
+    %Shape: Circle [id:dp5507320336575935] 
+    \draw   (554,290.02) .. controls (551.24,290.03) and (548.99,287.8) .. (548.98,285.03) .. controls (548.97,282.27) and (551.2,280.03) .. (553.97,280.02) .. controls (556.73,280.01) and (558.97,282.24) .. (558.98,285) .. controls (558.99,287.76) and (556.76,290.01) .. (554,290.02) -- cycle ;
+    %Shape: Circle [id:dp4523095042243699] 
+    \draw   (613.98,290) .. controls (611.22,290.01) and (608.97,287.78) .. (608.97,285.02) .. controls (608.96,282.26) and (611.19,280.01) .. (613.95,280) .. controls (616.71,279.99) and (618.96,282.22) .. (618.97,284.98) .. controls (618.97,287.74) and (616.74,289.99) .. (613.98,290) -- cycle ;
+    %Shape: Circle [id:dp06125859355644436] 
+    \draw   (673.98,290) .. controls (671.22,290.01) and (668.97,287.78) .. (668.97,285.02) .. controls (668.96,282.26) and (671.19,280.01) .. (673.95,280) .. controls (676.71,279.99) and (678.96,282.22) .. (678.97,284.98) .. controls (678.97,287.74) and (676.74,289.99) .. (673.98,290) -- cycle ;
+    %Shape: Circle [id:dp4815281940551307] 
+    \draw   (733.98,290) .. controls (731.22,290.01) and (728.97,287.78) .. (728.97,285.02) .. controls (728.96,282.26) and (731.19,280.01) .. (733.95,280) .. controls (736.71,279.99) and (738.96,282.22) .. (738.97,284.98) .. controls (738.97,287.74) and (736.74,289.99) .. (733.98,290) -- cycle ;
+    %Shape: Circle [id:dp7856072243294682] 
+    \draw   (793.98,290) .. controls (791.22,290.01) and (788.97,287.78) .. (788.97,285.02) .. controls (788.96,282.26) and (791.19,280.01) .. (793.95,280) .. controls (796.71,279.99) and (798.96,282.22) .. (798.97,284.98) .. controls (798.97,287.74) and (796.74,289.99) .. (793.98,290) -- cycle ;
+    %Shape: Circle [id:dp8154588161590131] 
+    \draw   (554,350.02) .. controls (551.24,350.03) and (548.99,347.8) .. (548.98,345.03) .. controls (548.97,342.27) and (551.2,340.03) .. (553.97,340.02) .. controls (556.73,340.01) and (558.97,342.24) .. (558.98,345) .. controls (558.99,347.76) and (556.76,350.01) .. (554,350.02) -- cycle ;
+    %Shape: Circle [id:dp10771086552348696] 
+    \draw   (613.98,350) .. controls (611.22,350.01) and (608.97,347.78) .. (608.97,345.02) .. controls (608.96,342.26) and (611.19,340.01) .. (613.95,340) .. controls (616.71,339.99) and (618.96,342.22) .. (618.97,344.98) .. controls (618.97,347.74) and (616.74,349.99) .. (613.98,350) -- cycle ;
+    %Shape: Circle [id:dp23425510172154118] 
+    \draw   (673.98,350) .. controls (671.22,350.01) and (668.97,347.78) .. (668.97,345.02) .. controls (668.96,342.26) and (671.19,340.01) .. (673.95,340) .. controls (676.71,339.99) and (678.96,342.22) .. (678.97,344.98) .. controls (678.97,347.74) and (676.74,349.99) .. (673.98,350) -- cycle ;
+    %Shape: Circle [id:dp8278159849860861] 
+    \draw   (733.98,350) .. controls (731.22,350.01) and (728.97,347.78) .. (728.97,345.02) .. controls (728.96,342.26) and (731.19,340.01) .. (733.95,340) .. controls (736.71,339.99) and (738.96,342.22) .. (738.97,344.98) .. controls (738.97,347.74) and (736.74,349.99) .. (733.98,350) -- cycle ;
+    %Shape: Circle [id:dp8853027091802028] 
+    \draw   (793.98,350) .. controls (791.22,350.01) and (788.97,347.78) .. (788.97,345.02) .. controls (788.96,342.26) and (791.19,340.01) .. (793.95,340) .. controls (796.71,339.99) and (798.96,342.22) .. (798.97,344.98) .. controls (798.97,347.74) and (796.74,349.99) .. (793.98,350) -- cycle ;
+    %Shape: Axis 2D [id:dp6032520025857421] 
+    \draw  (520,343) -- (860,343)(554,10) -- (554,380) (853,338) -- (860,343) -- (853,348) (549,17) -- (554,10) -- (559,17)  ;
+    %Straight Lines [id:da785524365210303] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (134.98,99.98) -- (253.89,278.32) ;
+    \draw [shift={(255,279.98)}, rotate = 236.31] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da6690802767816856] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (134.98,159.98) -- (253.89,338.32) ;
+    \draw [shift={(255,339.98)}, rotate = 236.31] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da8728335334812608] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (194.98,159.98) -- (313.89,338.32) ;
+    \draw [shift={(315,339.98)}, rotate = 236.31] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da35483773693673626] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (194.98,99.98) -- (313.89,278.32) ;
+    \draw [shift={(315,279.98)}, rotate = 236.31] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da12487629487109653] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (553.97,45.02) -- (732.77,283.4) ;
+    \draw [shift={(733.97,285)}, rotate = 233.13] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Shape: Circle [id:dp6992072206020716] 
+    \draw   (555.03,50.02) .. controls (552.27,50.03) and (550.03,47.8) .. (550.02,45.03) .. controls (550.01,42.27) and (552.24,40.03) .. (555,40.02) .. controls (557.76,40.01) and (560.01,42.24) .. (560.02,45) .. controls (560.03,47.76) and (557.8,50.01) .. (555.03,50.02) -- cycle ;
+    %Straight Lines [id:da8466985373644896] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (553.97,105.02) -- (732.77,343.4) ;
+    \draw [shift={(733.97,345)}, rotate = 233.13] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da8657860948269241] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (613.97,165) -- (792.77,403.38) ;
+    \draw [shift={(793.97,404.98)}, rotate = 233.13] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Straight Lines [id:da6057260631851047] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (613.97,45.02) -- (792.77,283.4) ;
+    \draw [shift={(793.97,285)}, rotate = 233.13] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Shape: Circle [id:dp13215988211910135] 
+    \draw   (613.98,50.02) .. controls (611.22,50.03) and (608.97,47.8) .. (608.97,45.03) .. controls (608.96,42.27) and (611.19,40.03) .. (613.95,40.02) .. controls (616.71,40.01) and (618.96,42.24) .. (618.97,45) .. controls (618.97,47.76) and (616.74,50.01) .. (613.98,50.02) -- cycle ;
+    %Shape: Circle [id:dp024155588166657527] 
+    \draw   (675.02,50) .. controls (672.26,50.01) and (670.01,47.78) .. (670,45.02) .. controls (669.99,42.26) and (672.22,40.01) .. (674.98,40) .. controls (677.74,39.99) and (679.99,42.22) .. (680,44.98) .. controls (680.01,47.74) and (677.78,49.99) .. (675.02,50) -- cycle ;
+    %Shape: Circle [id:dp32371319961886247] 
+    \draw   (735.02,50) .. controls (732.26,50.01) and (730.01,47.78) .. (730,45.02) .. controls (729.99,42.26) and (732.22,40.01) .. (734.98,40) .. controls (737.74,39.99) and (739.99,42.22) .. (740,44.98) .. controls (740.01,47.74) and (737.78,49.99) .. (735.02,50) -- cycle ;
+    %Shape: Circle [id:dp08187917829768343] 
+    \draw   (795.02,50) .. controls (792.26,50.01) and (790.01,47.78) .. (790,45.02) .. controls (789.99,42.26) and (792.22,40.01) .. (794.98,40) .. controls (797.74,39.99) and (799.99,42.22) .. (800,44.98) .. controls (800.01,47.74) and (797.78,49.99) .. (795.02,50) -- cycle ;
+    %Straight Lines [id:da6068589813776775] 
+    \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (613.97,105.02) -- (792.77,343.4) ;
+    \draw [shift={(793.97,345)}, rotate = 233.13] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+    %Right Arrow [id:dp32527154048889395] 
+    \draw   (360,219.98) -- (493,219.98) -- (493,214.98) -- (520,224.98) -- (493,234.98) -- (493,229.98) -- (360,229.98) -- cycle ;
+    
+    
+    % Text Node
+    \draw (241,287.38) node [anchor=north west][inner sep=0.75pt]    {$E{_{p}^{r}}_{,}{}_{q}$};
+    % Text Node
+    \draw (114,73.38) node [anchor=north west][inner sep=0.75pt]    {$E_{p-r,q+r-1}^{r}$};
+    % Text Node
+    \draw (721,291.4) node [anchor=north west][inner sep=0.75pt]    {$E_{p,q}^{r+1} \ \simeq H\left( E_{\bullet ,\bullet }^{r}\right) \ $};
+    % Text Node
+    \draw (521,22.4) node [anchor=north west][inner sep=0.75pt]    {$E{_{p-r-1,q-r}^{r+1}}{}$};
+    % Text Node
+    \draw (419,187.38) node [anchor=north west][inner sep=0.75pt]    {$H$};
+    
+    
+    \end{tikzpicture}
+    \end{figure}
+    
+
+%There is a \textbf{category of homology spectral sequences}; a morphism $f: E^{\prime} \rightarrow$ $E$ is a family of maps $f_{p q}^r: E_{p q}^{\prime} \rightarrow E_{p q}^r$ in $\mathcal{A}$ (for $r$ suitably large) with $d^r f^r=$ $f^r d^r$ such that each $f_{p q}^{r+1}$ is the map induced by $f_{p q}^r$ on homology.
 
 \subsubsection{Bounded convergence}
 

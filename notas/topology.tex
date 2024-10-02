@@ -1,19 +1,227 @@
 \part{Topics of Algebraic Topology}
 
+
+
+
+\chapter{Ordinary homology}
+
+
+
+\section{CW-complexes}
+
+They can be defined in an inductive way:
+
+\begin{enumerate}
+    \item Start with a discrete set $X^0$, whose points are regarded as 0 -cells.
+    \item Inductively, form the $\boldsymbol{n}$-skeleton $X^n$ from $X^{n-1}$ by attaching $n$-cells $e_\alpha^n$ via maps $\varphi_\alpha: S^{n-1} \rightarrow X^{n-1}$. This means that $X^n$ is the quotient space of the disjoint union $X^{n-1} \amalg_\alpha D_\alpha^n$ of $X^{n-1}$ with a collection of $n$-disks $D_\alpha^n$ under the identifications $x \sim \varphi_\alpha(x)$ for $x \in \partial D_\alpha^n$. Thus as a set, $X^n=X^{n-1} \amalg_\alpha e_\alpha^n$ where each $e_\alpha^n$ is an open $n$-disk.
+    \item One can either stop this inductive process at a finite stage, setting $X=X^n$ for some $n<\infty$, or one can continue indefinitely, setting $X=\cup_n X^n$. In the latter case $X$ is given the weak topology: A set $A \subset X$ is open (or closed) iff $A \cap X^n$ is open (or closed) in $X^n$ for each $n$.
+    
+\end{enumerate}
+
+Note that a subspace is closed in $X$ iff it meets each $X^n$ in a closed set.
+
+
+\begin{example}
+    \begin{enumerate}
+        \item A 1-dimensional cell complex $X=X^1$ is what is called a graph in algebraic topology. It consists of vertices (the 0 -cells) to which edges (the 1-cells) are attached. The two ends of an edge can be attached to the same vertex.
+        \item The sphere $S^n$ has the structure of a cell complex with just two cells, $e^0$ and $e^n$, the $n$-cell being attached by the constant map $S^{n-1} \rightarrow e^0$. This is equivalent to regarding $S^n$ as the quotient space $D^n / \partial D^n$.
+        \item \textbf{Real projective $\boldsymbol{n}$-space $\mathbb{R} \mathrm{P}^n$.} It is equivalent to the quotient space of a hemisphere $D^n$ with antipodal points of $\partial D^n$ identified. Since $\partial D^n$ with antipodal points identified is just $\mathbb{R P} \mathrm{P}^{n-1}$, we see that $\mathbb{R} \mathrm{P}^n$ is obtained from $\mathbb{R} \mathrm{P}^{n-1}$ by attaching an $n$-cell, with the quotient projection $S^{n-1} \rightarrow \mathbb{R} P^{n-1}$ as the attaching map. It follows by induction on $n$ that $\mathbb{R P}^n$ has a cell complex structure $e^0 \cup e^1 \cup \cdots \cup e^n$ with one cell $e^i$ in each dimension $i \leq n$.\\
+        The infinite union $\mathbb{R} P^{\infty}=U_n \mathbb{R} P^n$ becomes a cell complex with one cell in each dimension. We can view $\mathbb{R} P^{\infty}$ as the space of lines through the origin in $\mathbb{R}^{\infty}=\bigcup_n \mathbb{R}^n$.
+        
+        \item \textbf{Complex projective space $\mathbb{C} P^n$.} It is equivalent to the quotient of the unit sphere $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with $v \sim \lambda v$ for $|\lambda|=1$. \\
+        It is also possible to obtain $\mathbb{C P}^n$ as a quotient space of the disk $D^{2 n}$ under the identifications $v \sim \lambda v$ for $v \in \partial D^{2 n}$, in the following way. The vectors in $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with last coordinate real and nonnegative are precisely the vectors of the form $\left(w, \sqrt{1-|w|^2}\right) \in \mathbb{C}^n \times \mathbb{C}$ with $|w| \leq 1$. Such vectors form the graph of the function $w \mapsto \sqrt{1-|w|^2}$. This is a disk $D_{+}^{2 n}$ bounded by the sphere $S^{2 n-1} \subset S^{2 n+1}$ consisting of vectors $(w, 0) \in \mathbb{C}^n \times \mathbb{C}$ with $|w|=1$. Each vector in $S^{2 n+1}$ is equivalent under the identifications $v \sim \lambda v$ to a vector in $D_{+}^{2 n}$, and the latter vector is unique if its last coordinate is nonzero. If the last coordinate is zero, we have just the identifications $v \sim \lambda v$ for $v \in S^{2 n-1}$.\\
+        It follows that $\mathbb{P}^n$ is obtained from $\mathbb{C} \mathrm{P}^{n-1}$ by attaching a cell $e^{2 n}$ via the quotient map $S^{2 n-1} \rightarrow \mathbb{C P}^{n-1}$. So by induction on $n$ we obtain a cell structure $\mathbb{C P}^n=e^0 \cup e^2 \cup \cdots \cup e^{2 n}$ with cells only in even dimensions. Similarly, $\mathbb{C P}^{\infty}$ has a cell structure with one cell in each even dimension.
+    \end{enumerate}
+\end{example}
+
+Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $\Phi_\alpha: D_\alpha^n \rightarrow X$ which extends the attaching map $\varphi_\alpha$ and is a homeomorphism from the interior of $D_\alpha^n$ onto $e_\alpha^n$. Namely, we can take $\Phi_\alpha$ to be the composition $D_\alpha^n \hookrightarrow X^{n-1} \coprod_\alpha D_\alpha^n \rightarrow X^n \hookrightarrow X$ where the middle map is the quotient map defining $X^n$. 
+
+
+
+\section{(Abstract) simplical complexes}
+
+A set (of \textbf{vertices}) together with a  family of finite subsets (\textbf{simplexes}) such that every subset of every simplex is a simplex and every subset consisting of a single vertex is a simplex.  
+
+\begin{example}
+    \begin{enumerate}
+        \item The \textbf{standard n-simplex} $\Delta^n$ is the set of all $(n+1)$-tuples $(t_0, \ldots, t_n)$ of non-negative real numbers such that $t_0 + \cdots + t_n = 1$. The standard 0-simplex is a point, the standard 1-simplex is a line segment, the standard 2-simplex is a triangle, and so on.
+
+        \item The \textbf{boundary} of the standard n-simplex $\Delta^n$ is the set of all $(n+1)$-tuples $(t_0, \ldots, t_n)$ of non-negative real numbers such that $t_0 + \cdots + t_n = 1$ and at least one of the $t_i$ is zero. The boundary of the standard 0-simplex is empty, the boundary of the standard 1-simplex is the set of its two endpoints, the boundary of the standard 2-simplex is the set of its three edges, and so on.
+
+        \item (\textbf{Concrete simplicial complexes}) It is subset of $\mathbb{R}^n$ that is a union of standard simplices, that satisfies the previous conditions.
+
+        \item If Y is a subset of the vertex set of a simplicial scheme $S$, then we can introduce on it the induced simplicial scheme structure $ Y \cap S$, by defining the simplexes as the subsets of $ Y $ that are simplexes of $S$.  
+
+        \item Let $X$ be a set and let $\{p(y): y \in Y\}$ be a covering of $X$. Then we can consider two simplicial complexes. 
+        \begin{enumerate}
+            \item The nerve $\operatorname{Nerv}(p)$ of the covering is the simplicial scheme with the vertex set $Y$, and a subset $Z$ of $Y$ is counted as a simplex if the intersection $\underset{Z}{\cap} p(y)$ is non-empty. 
+            \item The simplicial complex $V(p)$ is the simplicial scheme with the vertex set $X$, and a subset $Z$ of $X$ is counted as a simplex if $Z$ is contained in some $p(y)$.
+        \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+\subsection*{Geometric realization}
+
+cellular chain complexes. We define a space $\Gamma X$, called the "geometric realization of the total singular complex of $X, "$ as follows. As a set
+
+$$
+\Gamma X=\coprod_{n \geq 0}\left(S_n X \times \Delta_n\right) /(\sim)
+$$
+
+where the equivalence relation $\sim$ is generated by
+
+$$
+\left(f, \delta_i u\right) \sim\left(d_i(f), u\right) \text { for } f: \Delta_n \longrightarrow X \quad \text { and } \quad u \in \Delta_{n-1}
+$$
+
+and
+
+$$
+\left(f, \sigma_i v\right) \sim\left(s_i(f), v\right) \text { for } f: \Delta_n \longrightarrow X \quad \text { and } \quad v \in \Delta_{n+1}
+$$
+
+
+Topologize $\Gamma X$ by giving
+
+$$
+\coprod_{0 \leq n \leq q}\left(S_n X \times \Delta_n\right) /(\sim)
+$$
+
+the quotient topology and then giving $\Gamma X$ the topology of the union. Define $\gamma$ : $\Gamma X \longrightarrow X$ by
+
+$$
+\gamma|f, u|=f(u) \text { for } f: \Delta_n \longrightarrow X \quad \text { and } \quad u \in \Delta_n
+$$
+
+where $|f, u|$ denotes the equivalence class of $(f, u)$. Now the following two theorems imply that that this construction provides a canonical way of realizing our original construction of homology.
+
+\begin{theo}
+    For any space $X, \Gamma X$ is a $C W$ complex with one $n$-cell for each nondegenerate singular $n$-simplex.
+\end{theo}
+
+
+
+
+
+
+
+\section{Singular homology}
+
+The standard topological $n$-simplex is the subspace
+
+$$
+\Delta_n=\left\{\left(t_0, \ldots, t_n\right) \mid 0 \leq t_i \leq 1, \sum t_i=1\right\}
+$$
+
+of $\mathbb{R}^{n+1}$. There are "face maps"
+
+$$
+\delta_i: \Delta_{n-1} \longrightarrow \Delta_n, \quad 0 \leq i \leq n
+$$
+
+specified by
+
+$$
+\delta_i\left(t_0, \ldots, t_{n-1}\right)=\left(t_0, \ldots, t_{i-1}, 0, t_i, \ldots, t_{n-1}\right)
+$$
+
+and "degeneracy maps"
+
+$$
+\sigma_i: \Delta_{n+1} \longrightarrow \Delta_n, \quad 0 \leq i \leq n
+$$
+
+specified by
+
+$$
+\sigma_i\left(t_0, \ldots, t_{n+1}\right)=\left(t_0, \ldots, t_{i-1}, t_i+t_{i+1}, \ldots, t_{n+1}\right)
+$$
+
+
+For a space $X$, define $S_n X$ to be the set of continuous maps $f: \Delta_n \longrightarrow X$. In particular, regarding a point of $X$ as the map that sends 1 to $x$, we may identify the underlying set of $X$ with $S_0 X$. Define the $i$ th face operator
+
+$$
+d_i: S_n X \longrightarrow S_{n-1} X, \quad 0 \leq i \leq n
+$$
+
+by
+
+$$
+d_i(f)(u)=f\left(\delta_i(u)\right)
+$$
+
+where $u \in \Delta_{n-1}$, and define the $i$ th degeneracy operator
+
+$$
+s_i: S_n X \longrightarrow S_{n+1} X, \quad 0 \leq i \leq n
+$$
+
+by
+
+$$
+s_i(f)(v)=f\left(\sigma_i(v)\right)
+$$
+
+where $v \in \Delta_{n+1}$. The following identities are easily checked:
+
+$$
+\begin{gathered}
+d_i \circ d_j=d_{j-1} \circ d_i \text { if } i<j \\
+d_i \circ s_j= \begin{cases}s_{j-1} \circ d_i & \text { if } i<j \\
+\text { id } & \text { if } i=j \text { or } i=j+1 \\
+s_j \circ d_{i-1} & \text { if } i>j+1 \\
+s_i \circ s_j=s_{j+1} \circ s_i \text { if } i \leq j .\end{cases}
+\end{gathered}
+$$
+
+A map $f: \Delta_n \longrightarrow X$ is called a singular $n$-simplex. It is said to be nondegenerate if it is not of the form $s_i(g)$ for any $i$ and $g$. Let $C_n(X)$ be the free Abelian group generated by the nondegenerate $n$-simplexes, and think of $C_n(X)$ as the quotient of the free Abelian group generated by all singular $n$-simplexes by the subgroup generated by the degenerate $n$-simplexes. Define
+
+$$
+d=\sum_{i=0}^n(-1)^i d_i: C_n(X) \longrightarrow C_{n-1}(X)
+$$
+
+
+The identities ensure that $C_*(X)$ is then a well defined chain complex. In fact,
+
+$$
+d \circ d=\sum_{i=0}^{n-1} \sum_{j=0}^n(-1)^{i+j} d_i \circ d_j
+$$
+
+and, for $i<j$, the $(i, j)$ th and $(j-1, i)$ th summands add to zero. This gives that $d \circ d=0$ before quotienting out the degenerate simplexes, and the degenerate simplexes span a subcomplex.
+
+The singular homology of $X$ is usually defined in terms of this chain complex:
+
+$$
+H_*(X ; \pi)=H_*\left(C_*(X) \otimes \pi\right)
+$$
+
+
+
+
+
+
+
+
+
 \chapter{Simpliciality and Classifying Spaces}
-References \cite{richterCategoriesHomotopyTheory2020,goerssSimplicialHomotopyTheory2009,hatcherAlgebraicTopology2021}. \\
+References \cite{richterCategoriesHomotopyTheory2020,goerssSimplicialHomotopyTheory2009,hatcherAlgebraicTopology2021,mayConciseCourseAlgebraic1999}. \\
+
+
+A simplicial set $K_*$ is a sequence of sets $K_n, n \geq 0$, connected by face and degeneracy operators $d_i: K_n \longrightarrow K_{n-1}$ and $s_i: K_n \longrightarrow K_{n+1}, 0 \leq i \leq n$, that satisfy the commutation relations that we displayed for the total singular complex $S_* X=\left\{S_n X\right\}$ of a space $X$. Thus $S_*$ is a functor from spaces to simplicial sets.
+
+We may define the geometric realization $\left|K_*\right|$ of general simplicial sets exactly as we defined the geometric realization $\Gamma X=\left|S_* X\right|$ of the total singular complex of a topological space. In fact, the total singular complex and geometric realization functors are adjoint.\\
 
 Simplicial sets were originally used to give precise and convenient descriptions of classifying spaces of groups. This idea was vastly extended by Grothendieck's idea of considering classifying spaces of categories, and in particular by Quillen's work of algebraic K-theory. In this work, which earned him a Fields Medal, Quillen developed surprisingly efficient methods for manipulating infinite simplicial sets. These methods were used in other areas on the border between algebraic geometry and topology. For instance, the André-Quillen homology of a ring is a "non-abelian homology", defined and studied in this way.
 
 Both the algebraic K-theory and the André-Quillen homology are defined using algebraic data to write down a simplicial set, and then taking the homotopy groups of this simplicial set.
 
-Simplicial methods are often useful when one wants to prove that a space is a loop space. The basic idea is that if $G$ is a group with classifying space $B G$, then $G$ is homotopy equivalent to the loop space $\Omega B G$. If $B G$ itself is a group, we can iterate the procedure, and $G$ is homotopy equivalent to the double loop space $\Omega^2 B(B G)$. In case $G$ is an abelian group, we can actually iterate this infinitely many times, and obtain that $G$ is an infinite loop space.
+% Simplicial methods are often useful when one wants to prove that a space is a loop space. The basic idea is that if $G$ is a group with classifying space $B G$, then $G$ is homotopy equivalent to the loop space $\Omega B G$. If $B G$ itself is a group, we can iterate the procedure, and $G$ is homotopy equivalent to the double loop space $\Omega^2 B(B G)$. In case $G$ is an abelian group, we can actually iterate this infinitely many times, and obtain that $G$ is an infinite loop space.
 
-Even if $X$ is not an ab elian group, it can happen that it has a composition which is sufficiently commutative so that one can use the above idea to prove that $X$ is an infinite loop space. In this way, one can prove that the algebraic $K$-theory of a ring, considered as a topological space, is an infinite loop space.
+% Even if $X$ is not an abelian group, it can happen that it has a composition which is sufficiently commutative so that one can use the above idea to prove that $X$ is an infinite loop space. In this way, one can prove that the algebraic $K$-theory of a ring, considered as a topological space, is an infinite loop space.
 
 In recent years, simplicial sets have been used in higher category theory and derived algebraic geometry. Quasi-categories can be thought of as categories in which the composition of morphisms is defined only up to homotopy, and information about the composition of higher homotopies is also retained. Quasi-categories are defined as simplicial sets satisfying one additional condition, the weak Kan condition.
 
-As $\mathcal{C}$ is an arbitrary category, we can consider simplicial $R$-modules, simplicial sets, simplicial rings, simplicial topological spaces, and many more. Simplicial sets are particularly important because they model topological spaces (see 10.6.1). Simplicial objects in an abelian category $\mathcal{A}$ model non-negatively graded chain complexes over $\mathcal{A}$. The famous Dold-Kan correspondence (see Theorem 10.11.2) is an equivalence of categories between $s \mathcal{A}$ and $\mathrm{Ch}_{\geq 0}(\mathcal{A})$.
+As $\mathcal{C}$ is an arbitrary category, we can consider simplicial $R$-modules, simplicial sets, simplicial rings, simplicial topological spaces, and many more. Simplicial sets are particularly important because they model topological spaces. Simplicial objects in an abelian category $\mathcal{A}$ model non-negatively graded chain complexes over $\mathcal{A}$. 
 
 \begin{theo}
 The normalized chain complex is part of an equivalence of categories between the simplicial objects in $\mathcal{A}$ and the non-negatively graded chain complexes over $\mathcal{A}$.   
@@ -275,111 +483,69 @@ Hence, $B$ is a functor from the category cat to the category Top of topological
 
 
 
-\chapter{Simplicial and cellular complexes}
-
-
-\section{(Abstract) simplical complexes}
-
-A set (of \textbf{vertices}) together with a  family of finite subsets (\textbf{simplexes}) such that every subset of every simplex is a simplex and every subset consisting of a single vertex is a simplex.  
-
-\begin{example}
-    \begin{enumerate}
-        \item The \textbf{standard n-simplex} $\Delta^n$ is the set of all $(n+1)$-tuples $(t_0, \ldots, t_n)$ of non-negative real numbers such that $t_0 + \cdots + t_n = 1$. The standard 0-simplex is a point, the standard 1-simplex is a line segment, the standard 2-simplex is a triangle, and so on.
-
-        \item The \textbf{boundary} of the standard n-simplex $\Delta^n$ is the set of all $(n+1)$-tuples $(t_0, \ldots, t_n)$ of non-negative real numbers such that $t_0 + \cdots + t_n = 1$ and at least one of the $t_i$ is zero. The boundary of the standard 0-simplex is empty, the boundary of the standard 1-simplex is the set of its two endpoints, the boundary of the standard 2-simplex is the set of its three edges, and so on.
-
-        \item (\textbf{Concrete simplicial complexes}) It is subset of $\mathbb{R}^n$ that is a union of standard simplices, that satisfies the previous conditions.
-
-        \item If Y is a subset of the vertex set of a simplicial scheme $S$, then we can introduce on it the induced simplicial scheme structure $ Y \cap S$, by defining the simplexes as the subsets of $ Y $ that are simplexes of $S$.  
-
-        \item Let $X$ be a set and let $\{p(y): y \in Y\}$ be a covering of $X$. Then we can consider two simplicial complexes. 
-        \begin{enumerate}
-            \item The nerve $\operatorname{Nerv}(p)$ of the covering is the simplicial scheme with the vertex set $Y$, and a subset $Z$ of $Y$ is counted as a simplex if the intersection $\underset{Z}{\cap} p(y)$ is non-empty. 
-            \item The simplicial complex $V(p)$ is the simplicial scheme with the vertex set $X$, and a subset $Z$ of $X$ is counted as a simplex if $Z$ is contained in some $p(y)$.
-        \end{enumerate}
-    \end{enumerate}
-\end{example}
-
-\subsection*{Geometric realization}
-
-The construction goes as follows. First, define $|K|$ as a subset of $[0,1]^S$ consisting of functions $t: S \rightarrow[0,1]$ satisfying the two conditions: $\square$
-$$
-\begin{aligned}
-& \left\{s \in S: t_s>0\right\} \in K \\
-& \sum_{s \in S} t_s=1
-\end{aligned}
-$$
-
-Now think of the set of elements of $[0,1]^S$ with finite support as the direct limit of $[0,1]^A$ where $A$ ranges over finite subsets of $S$, and give that direct limit the induced topology. Now give $|K|$ the subspace topology. \textit{It is always Hausdorff}. We will identify an abstract simplicial complex with its geometric realization.
-
-
-
-
-
-
-
-
-
-\section{CW-complexes}
-
-They can be defined in an inductive way:
-
-\begin{enumerate}
-    \item Start with a discrete set $X^0$, whose points are regarded as 0 -cells.
-    \item Inductively, form the $\boldsymbol{n}$-skeleton $X^n$ from $X^{n-1}$ by attaching $n$-cells $e_\alpha^n$ via maps $\varphi_\alpha: S^{n-1} \rightarrow X^{n-1}$. This means that $X^n$ is the quotient space of the disjoint union $X^{n-1} \amalg_\alpha D_\alpha^n$ of $X^{n-1}$ with a collection of $n$-disks $D_\alpha^n$ under the identifications $x \sim \varphi_\alpha(x)$ for $x \in \partial D_\alpha^n$. Thus as a set, $X^n=X^{n-1} \amalg_\alpha e_\alpha^n$ where each $e_\alpha^n$ is an open $n$-disk.
-    \item One can either stop this inductive process at a finite stage, setting $X=X^n$ for some $n<\infty$, or one can continue indefinitely, setting $X=\cup_n X^n$. In the latter case $X$ is given the weak topology: A set $A \subset X$ is open (or closed) iff $A \cap X^n$ is open (or closed) in $X^n$ for each $n$.
-    
-\end{enumerate}
-
-\begin{example}
-    \begin{enumerate}
-        \item A 1-dimensional cell complex $X=X^1$ is what is called a graph in algebraic topology. It consists of vertices (the 0 -cells) to which edges (the 1-cells) are attached. The two ends of an edge can be attached to the same vertex.
-        \item The sphere $S^n$ has the structure of a cell complex with just two cells, $e^0$ and $e^n$, the $n$-cell being attached by the constant map $S^{n-1} \rightarrow e^0$. This is equivalent to regarding $S^n$ as the quotient space $D^n / \partial D^n$.
-        \item \textbf{Real projective $\boldsymbol{n}$-space $\mathbb{R} \mathrm{P}^n$.} It is equivalent to the quotient space of a hemisphere $D^n$ with antipodal points of $\partial D^n$ identified. Since $\partial D^n$ with antipodal points identified is just $\mathbb{R P} \mathrm{P}^{n-1}$, we see that $\mathbb{R} \mathrm{P}^n$ is obtained from $\mathbb{R} \mathrm{P}^{n-1}$ by attaching an $n$-cell, with the quotient projection $S^{n-1} \rightarrow \mathbb{R} P^{n-1}$ as the attaching map. It follows by induction on $n$ that $\mathbb{R P}^n$ has a cell complex structure $e^0 \cup e^1 \cup \cdots \cup e^n$ with one cell $e^i$ in each dimension $i \leq n$.\\
-        The infinite union $\mathbb{R} P^{\infty}=U_n \mathbb{R} P^n$ becomes a cell complex with one cell in each dimension. We can view $\mathbb{R} P^{\infty}$ as the space of lines through the origin in $\mathbb{R}^{\infty}=\bigcup_n \mathbb{R}^n$.
-        
-        \item \textbf{Complex projective space $\mathbb{C} P^n$.} It is equivalent to the quotient of the unit sphere $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with $v \sim \lambda v$ for $|\lambda|=1$. \\
-        It is also possible to obtain $\mathbb{C P}^n$ as a quotient space of the disk $D^{2 n}$ under the identifications $v \sim \lambda v$ for $v \in \partial D^{2 n}$, in the following way. The vectors in $S^{2 n+1} \subset \mathbb{C}^{n+1}$ with last coordinate real and nonnegative are precisely the vectors of the form $\left(w, \sqrt{1-|w|^2}\right) \in \mathbb{C}^n \times \mathbb{C}$ with $|w| \leq 1$. Such vectors form the graph of the function $w \mapsto \sqrt{1-|w|^2}$. This is a disk $D_{+}^{2 n}$ bounded by the sphere $S^{2 n-1} \subset S^{2 n+1}$ consisting of vectors $(w, 0) \in \mathbb{C}^n \times \mathbb{C}$ with $|w|=1$. Each vector in $S^{2 n+1}$ is equivalent under the identifications $v \sim \lambda v$ to a vector in $D_{+}^{2 n}$, and the latter vector is unique if its last coordinate is nonzero. If the last coordinate is zero, we have just the identifications $v \sim \lambda v$ for $v \in S^{2 n-1}$.\\
-        It follows that $\mathbb{P}^n$ is obtained from $\mathbb{C} \mathrm{P}^{n-1}$ by attaching a cell $e^{2 n}$ via the quotient map $S^{2 n-1} \rightarrow \mathbb{C P}^{n-1}$. So by induction on $n$ we obtain a cell structure $\mathbb{C P}^n=e^0 \cup e^2 \cup \cdots \cup e^{2 n}$ with cells only in even dimensions. Similarly, $\mathbb{C P}^{\infty}$ has a cell structure with one cell in each even dimension.
-    \end{enumerate}
-\end{example}
-
-Each cell $e_\alpha^n$ in a cell complex $X$ has a \textbf{characteristic map} $\Phi_\alpha: D_\alpha^n \rightarrow X$ which extends the attaching map $\varphi_\alpha$ and is a homeomorphism from the interior of $D_\alpha^n$ onto $e_\alpha^n$. Namely, we can take $\Phi_\alpha$ to be the composition $D_\alpha^n \hookrightarrow X^{n-1} \coprod_\alpha D_\alpha^n \rightarrow X^n \hookrightarrow X$ where the middle map is the quotient map defining $X^n$. 
-
-
-
-
-
 
 \chapter{Homotopy theory}
 
-References: \cite{mayConciseCourseAlgebraic1999}\\
+References: \cite{mayConciseCourseAlgebraic1999,cohen}\\
 
+ 
 A \bf{homotopy} $h: p \simeq q$ between maps $p, q: X \longrightarrow Y$ is a continuous map $h: X \times I \longrightarrow Y$ such that $h(x, 0)=p(x)$ and $h(x, 1)=q(x)$, where $I$ is the unit interval $[0,1]$.\\
 A $\operatorname{map} f: X \longrightarrow Y$ is a \textbf{homotopy equivalence} if there is a map $g: Y \longrightarrow X$ such that both $g \circ f \simeq \mathrm{id}$ and $f \circ g \simeq \mathrm{id}$.\\
-$h \text{Top}_0$ denotes the category of pointed topological spaces, with morphisms the based homotopy classes of based maps. Its isomorphisms are the based homotopy equivalences.\\
 
- The boundary $\partial I^n$ is the subspace consisting of points with at least one coordinate equal to 0 or 1 . For a space $X$ with basepoint $x_0 \in X$, define $\pi_n\left(X, x_0\right)$ to be the set of homotopy classes of maps $f:\left(I^n, \partial I^n\right) \rightarrow\left(X, x_0\right)$, where homotopies $f_t$ are required to satisfy $f_t\left(\partial I^n\right)=x_0$ for all $t$.\\
- The definition extends to the case $n=0$ by taking $I^0$ to be a point and $\partial I^0$ to be empty, so $\pi_0\left(X, x_0\right)$ is just the set of path-components of $X$.
+$Top_*$ denotes the \bf{category of pointed topological spaces}, whose objects are pairs $(X,x_0)$, where $X$ is a topological space and $x_0 \in X$ (\bf{basepoint}), with morphisms the continuous functions that preserve the basepoints.\\
+$h \text{Top}_*$ denotes the category of pointed topological spaces, with morphisms the based homotopy classes of based maps. These set of morphisms are denoted by $[X,Y]$. Its isomorphisms are the based homotopy equivalences.\\
+The product in this category is the \bf{smash product} $$X \wedge Y=X \times Y / X \vee Y$$, where $X \vee Y$ is the subspace of $X \times Y$ consisting of pair containing at least on basepoint.
 
-When $n \geq 1$, a sum operation in $\pi_n\left(X, x_0\right)$ is defined by
+For a based space $X$ define its \bf{suspension} $$\Sigma X= X \wedge S^1 = X \times S^1 /\left(\{*\} \times S^1 \cup X \times\{1\}\right)$$
+We define the loop space of $X$ to be $\Omega X=F\left(S^1, X\right)$. Its points are the loops at the basepoint.\\
+Composition of loops defines a multiplication on this set. Explicitly, for $f, g$ : $\Sigma X \longrightarrow Y$, we write
 $$
-(f+g)\left(s_1, s_2, \cdots, s_n\right)= \begin{cases}f\left(2 s_1, s_2, \cdots, s_n\right), & s_1 \in[0,1 / 2] \\ g\left(2 s_1-1, s_2, \cdots, s_n\right), & s_1 \in[1 / 2,1]\end{cases}
+(g+f)(x \wedge t)=(g(x) \cdot f(x))(t)= \begin{cases}f(x \wedge 2 t) & \text { if } 0 \leq t \leq 1 / 2 \\ g(x \wedge(2 t-1)) & \text { if } 1 / 2 \leq t \leq 1\end{cases}
 $$
-\textit{which defines a group structure, with identity element the constant map sending $I^n$ to $x_0$ and with inverses given by $-f\left(s_1, s_2, \cdots, s_n\right)=f\left(1-s_1, s_2, \cdots, s_n\right)$.}
 
+\begin{lemm}
+    \begin{enumerate}
+        \item $[\Sigma X, Y] \cong[X, \Omega Y]$
+        \item $[\Sigma X, Y]$ is a group and $\left[\Sigma^2 X, Y\right]$ is an Abelian group.
+    \end{enumerate}
+\end{lemm}
 
-\begin{prop}
-    If $n \geq 2$, then $\pi_n\left(X, x_0\right)$ is abelian.
-\end{prop}
-
-$\pi_1(X,x_0)$ is called the \bf{fundamental group} of $X$ with base point $x_0$. If $X$ is path-connected, then $\pi_1(X,x_0)$ is independent of the choice of base point $x_0$. Many important facts are known about this group. For instance, it indcues a functor from Top$_0$ to Gr, which factors through a functor $h\text{Top}_0 \rightarrow $Gr.
+For a based topological space $(X,x_0)$, define $$\pi_n\left(X, x_0\right) = [S^n ,X]_*, \quad \text{ for } n\geq 0.$$
+the set of homotopy classes of based maps $S^n \longrightarrow X$. This is a group if $n \geq 1$ and an Abelian group if $n \geq 2$. When $n=0$ and $n=1$, this agrees with our previous definitions. Observe that
+$$
+\pi_n(X)=\pi_{n-1}(\Omega X)=\cdots=\pi_0\left(\Omega^n X\right)
+$$
+$\pi_1(X,x_0)$ is called the \bf{fundamental group} of $X$ with base point $x_0$. If $X$ is path-connected, then $\pi_1(X,x_0)$ is independent of the choice of base point $x_0$. Many important facts are known about this group. For instance, it induces a functor from Top$_0$ to Gr, which factors through a functor $h\text{Top}_0 \rightarrow $Gr.
 
 %% incluir antes que las categorias topologicas son topologicas son completas y cocompletas, y conexion con equzalizadores y colimites
 
+\subsection*{Hurewicz isomorphism}
+A space $X$ is said to be $n$-connected if $\pi_q(X, x)=0$ for $0 \leq q \leq n$ and all $x$.\\
+
+For based spaces $X$, define the \bf{Hurewicz homomorphism}
+$$
+h: \pi_n(X) \longrightarrow \tilde{H}_n(X)
+$$
+by
+$$
+h([f])=f_*\left(i_n\right)
+$$
+where $i_n$ is a generator of $\tilde{H}_n(S^n)$.
+
+\begin{prop}
+    The Hurewicz homomorphism is natural.
+\end{prop}
+
+\begin{theo}[Hurewicz Theorem]
+    If $X$ is $(n-1)$-connected, then the Hurewicz homomorphism $h: \pi_n(X) \longrightarrow \tilde{H}_n(X)$ is an isomorphism for $n \geq 2$. For $n=1$, it is the abelianization homomorphism.
+\end{theo}
+
+This isomorphism is a consequence of the axiomatic definition of homology theory.
+
+
 
 \section{Fundamental groupoid and covering spaces}
-%estamos solo usando estos resultados... deberiamos dar mejores definiciones
+
 
 
 
@@ -437,22 +603,232 @@ A map $p: E \longrightarrow B$ is a covering space if it is surjective and if ea
 % \end{enumerate}
 
 
-
 \section{Eilenberg-Mac Lane spaces}
 
-The $n$th singular cohomology group of a space $X$ with coefficients in an abelian group $A$ is isomorphic to the homotopy classes of maps from $X$ to an Eilenberg-Mac Lane space, denoted by $K(A, n)$ of the homotopy type of a CW space, such that
+\begin{theo}[Construction]
+    \begin{enumerate}
+        \item Let $\pi$ be any group. There is a connected CW complex $K(\pi, 1)$ such that $\pi_1(K(\pi, 1))=\pi$ and $\pi_q(K(\pi, 1))=0$ for $q \neq 1$.
+        
+        \item Let $n \geq 1$ and let $\pi$ be an Abelian group. There is a connected CW complex $K(\pi, n)$ such that $\pi_n(X)=\pi$ and $\pi_q(X)=0$ for $q \neq n$, called the \bf{Eilenberg-Mac Lane spaces}.
+        \item Eilenberg-Mac Lane spaces are unique up to homotopy equivalence.
+    \end{enumerate}
+\end{theo}
+
+There is a beautiful construction of the Eilenberg-Mac Lane spaces for discrete abelian topological groups. We define the "classifying spaces" and "universal bundles" associated to topological groups $G$.
+
+
+We define a map $p_*: E_*(G) \longrightarrow B_*(G)$ of simplicial topological spaces. Let $E_n(G)=G^{n+1}$ and $B_n(G)=G^n$, and let $p_n: G^{n+1} \longrightarrow G^n$ be the projection on the first $n$ coordinates. The faces and degeneracies are defined on $E_n(G)$ by
+
 $$
-\pi_i K(A, n)= \begin{cases}A, & \text { if } i=n \\ 0, & \text { otherwise }\end{cases}
+d_i\left(g_1, \ldots, g_{n+1}\right)=\left\{\begin{array}{l}
+\left(g_2, \ldots, g_{n+1}\right) \quad \text { if } i=0 \\
+\left(g_1, \ldots, g_{i-1}, g_i g_{i+1}, g_{i+2}, \ldots, g_{n+1}\right) \text { if } 1 \leq i \leq n
+\end{array}\right.
 $$
 
-The $K(A, n)$ are infinite loop spaces, and hence, the set of homotopy classes of maps $[X, K(A, n)]$ is actually an abelian group for all $n \geq 0$ and
-$$
-H^n(X ; A) \cong[X, K(A, n)]
-$$
-is an isomorphism of abelian groups that is natural in the space $X$. Thus the functor $X \mapsto$ $H^n(X ; A)$ is representable. A cohomology operation $\varphi_{(A, n),(B, m)}: H^n(X ; A) \rightarrow H^m(X ; B)$, which is natural in $X$, can hence be identified with a natural transformation between the functors $X \mapsto[X, K(A, n)]$ and $X \mapsto[X, K(B, m)]$, and these in turn are in bijection with $[K(A, n), K(B, m)] \cong H^m(K(A, n) ; B)$. Here, we actually get an isomorphism of abelian groups!! As $K(A, n)$ doesn't have nontrivial cohomology groups below degree $n$ (due to the Hurewicz theorem), these operations are trivial for $m<n$. For $A=B=\mathbb{F}_p$, a prime field, the collection of all such cohomology operations constitutes the Steenrod algebra.
+and
 
-More generally, Brown's representability theorem states that every generalized cohomology theory can be represented by an Omega spectrum ([Ad74], [Sw75, chapter 9]).
+$$
+s_i\left(g_1, \ldots, g_{n+1}\right)=\left(g_1, \ldots, g_{i-1}, e, g_i, \ldots, g_{n+1}\right) \text { if } 0 \leq i \leq n
+$$
 
+
+The faces and degeneracies on $B_n(G)$ are defined in the same way, except that the last coordinate $g_{n+1}$ is omitted and the last face operation $d_n$ takes the form
+
+$$
+d_n\left(g_1, \ldots, g_n\right)=\left(g_1, \ldots, g_{n-1}\right)
+$$
+
+
+Certainly $p_*$ is a map of simplicial spaces. If we let $G$ act from the right on $E_n(G)$ by multiplication on the last coordinate,
+
+$$
+\left(g_1, \ldots, g_n, g_{n+1}\right) g=\left(g_1, \ldots, g_n, g_{n+1} g\right)
+$$
+
+then $E_*(G)$ is a simplicial $G$-space. That is, the action of $G$ commutes with the face and degeneracy maps. We may view $B_n(G)$ as the orbit space $E_n(G) / G$. We define
+
+$$
+E(G)=\left|E_*(G)\right|, \quad B(G)=\left|B_*(G)\right|, \quad \text { and } \quad p=\left|p_*(G)\right|: E(G) \longrightarrow B(G)
+$$
+
+
+Then $E(G)$ inherits a free right action by $G$, and $B(G)$ is the orbit space $E(G) / G$. The space $B G$ is called the classifying space of $G$.
+
+The space $E(G)$ is the union of the images $E(G)^n$ of the spaces $\bigsqcup_{m \leq n} G^{m+1} \times$ $\Delta_m$, and
+
+$$
+E(G)^n-E(G)^{n-1}=\left(G^n-W\right) \times G \times\left(\Delta_n-\partial \Delta_n\right)
+$$
+
+where $W \subset G^n$ is the "fat wedge" consisting of those points at least one of whose coordinates is the identity element $e$. Similarly, we have subspaces $B(G)^n$ such that
+
+$$
+B(G)^n-B(G)^{n-1}=\left(G^n-W\right) \times\left(\Delta_n-\partial \Delta_n\right)
+$$
+
+
+The map $p$ restricts to the projection between these subspaces. Intuitively, it looks as if $p$ should be a bundle with fiber $G$, and this is indeed the case if the identity element of $G$ is a nondegenerate basepoint. This condition is enough to ensure local triviality as we glue together over the filtration $\left\{B(G)^n\right\}$. It is less intuitive, but true, that the space $E(G)$ is contractible. By the long exact homotopy sequence, these facts imply that
+
+$$
+\pi_{q+1}(B G) \cong \pi_q(G)
+$$
+
+for all $q \geq 0$.
+For topological groups $G$ and $H$, the obvious shuffle homeomorphisms
+
+$$
+(G \times H)^n \cong G^n \times H^n
+$$
+
+specify isomorphisms of simplicial spaces
+
+$$
+E_*(G \times H) \cong E_*(G) \times E_*(H) \quad \text { and } \quad B_*(G \times H) \cong B_*(G) \times B_*(H)
+$$
+
+that are compatible with the projections. Since geometric realization commutes with products, we conclude that $B(G \times H)$ is homeomorphic to $B(G) \times B(H)$. Thus $B$ is a product-preserving functor on the category of topological groups.
+
+Now suppose that $G$ is a commutative topological group. Then its multiplication $G \times G \longrightarrow G$ and inverse map $G \longrightarrow G$ are homomorphisms. We conclude that $B(G)$ and $E(G)$ are again commutative topological groups. The multiplication on $B(G)$ is determined by the multiplication on $G$ as the composite
+
+$$
+B(G) \times B(G) \cong B(G \times G) \longrightarrow B(G)
+$$
+
+
+Moreover, the map $p: E(G) \longrightarrow B(G)$ and the inclusion of $G$ in $E(G)$ as the fiber over the basepoint (the unique point in $\left.B_0(G)\right)$ are homomorphisms. This allows us to iterate the construction, setting $B^0(G)=G$ and $B^n(G)=B\left(B^{n-1}(G)\right)$ for $n \geq 1$. Specializing to a discrete Abelian group $\pi$, we define
+
+$$
+K(\pi, n)=B^n(\pi)
+$$
+
+
+As promised, we have
+
+$$
+\pi_q(K(\pi, n))=\pi_{q-1}(K(\pi, n-1))=\cdots=\pi_{q-n}(K(\pi, 0))= \begin{cases}\pi & \text { if } q=n \\ 0 & \text { if } q \neq n\end{cases}
+$$
+
+
+
+
+% The $n$th singular cohomology group of a space $X$ with coefficients in an abelian group $A$ is isomorphic to the homotopy classes of maps from $X$ to an Eilenberg-Mac Lane space, denoted by $K(A, n)$ of the homotopy type of a CW space, such that
+% $$
+% \pi_i K(A, n)= \begin{cases}A, & \text { if } i=n \\ 0, & \text { otherwise }\end{cases}
+% $$
+
+% The $K(A, n)$ are infinite loop spaces, and hence, the set of homotopy classes of maps $[X, K(A, n)]$ is actually an abelian group for all $n \geq 0$ and
+% $$
+% H^n(X ; A) \cong[X, K(A, n)]
+% $$
+% is an isomorphism of abelian groups that is natural in the space $X$. Thus the functor $X \mapsto$ $H^n(X ; A)$ is representable. A cohomology operation $\varphi_{(A, n),(B, m)}: H^n(X ; A) \rightarrow H^m(X ; B)$, which is natural in $X$, can hence be identified with a natural transformation between the functors $X \mapsto[X, K(A, n)]$ and $X \mapsto[X, K(B, m)]$, and these in turn are in bijection with $[K(A, n), K(B, m)] \cong H^m(K(A, n) ; B)$. Here, we actually get an isomorphism of abelian groups!! As $K(A, n)$ doesn't have nontrivial cohomology groups below degree $n$ (due to the Hurewicz theorem), these operations are trivial for $m<n$. For $A=B=\mathbb{F}_p$, a prime field, the collection of all such cohomology operations constitutes the Steenrod algebra.
+
+%More generally, Brown's representability theorem states that every generalized cohomology theory can be represented by an Omega spectrum ([Ad74], [Sw75, chapter 9]).
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Fibrations}
+
+A surjective map $p: E \longrightarrow B$ is a \bf{(Hurewicz) fibration} if it satisfies the \bf{covering homotopy property} (CHP). This means that if $h \circ i_0=p \circ f$ in the diagram
+\begin{center}
+    \begin{tikzcd}
+        Y \ar[r,"f"] \ar[d ,"i_0"] & E \ar[d,"p"]\\
+        Y \times I \ar[r,"h"] \ar[ru,"\tilde{h}", dashrightarrow]  & B
+    \end{tikzcd}
+\end{center}    
+then there exists $\tilde{h}$ that makes the diagram commute.
+
+\begin{prop}
+\begin{enumerate}
+    \item If $p: E \longrightarrow B$ is a covering, then $p$ is a fibration with a unique path lifting function $s$. In this case $$p_* : \pi_1(B, b) \stackrel{\cong}{\longrightarrow} \pi_1(E, s(b))$$
+    \item Every bundle is a fibration.
+    \item $\pi_n (X \times Y) \simeq \pi _n (X) \rightarrow \pi_n (Y)$.
+    \item $\pi_n (S^n) \simeq \mathbb{Z}$. If $i<n$, then $\pi_i\left(S^n\right)=0$.
+    \item If $X$ is the colimit of a sequence of inclusions $X_i \longrightarrow X_{i+1}$ of based spaces, then the natural map
+    $$
+    \operatorname{colim}_i \pi_n\left(X_i\right) \longrightarrow \pi_n(X)
+    $$
+    is an isomorphism for each $n$.
+    \item For path connected spaces, change of basepoint determines a natural isomorphism on homotopy groups.
+    \item Homotopy equivalences of spaces induce isomorphisms on homotopy groups.
+\end{enumerate}
+\end{prop}
+
+\begin{theo}[Homotopy long exact sequence of a fibration]
+    Let $p: E \longrightarrow B$ be a fibration with fiber $F$. Then there is a long exact sequence of homotopy groups
+    $$
+    \cdots \longrightarrow \pi_{n+1}(F) \longrightarrow \pi_n(E) \longrightarrow \pi_n(B) \longrightarrow \pi_n(F) \longrightarrow \cdots
+    $$
+    
+\end{theo}
+
+
+\section{Serre-Leray spectral sequence}
+
+\begin{theo}
+    Theorem 4.28. Let $p: E \rightarrow B$ be a fibration with fiber $F$. Assume that $F$ is connected and $B$ is simply connected. Then there are chain complexes $C_*(E)$ and $C_*(B)$ computing the homology of $E$ and $B$ respectively, and a filtation of $C_*(E)$ leading to a spectral sequence converging to $H_*(E)$ with the following properties:
+    \begin{enumerate}
+
+\item $E_2^{r, s}=H_r\left(B ; H_s(F)\right)$
+\item The inclusion of the fiber into the total space induces a homomorphism
+
+$$
+i_*: H_n(F) \rightarrow H_n(E)
+$$
+
+which can be computed as follows:
+
+$$
+i_*: H_n(F)=E_2^{0, n} \rightarrow E_{\infty}^{0, n} \subset H_n(E)
+$$
+
+where $E_2^{0, n} \rightarrow E_{\infty}^{0, n}$ is the projection map which exists because all the differentials $d_j$ are zero on $E_j^{0, n}$.
+
+\item The projection map induces a homomorphism
+
+$$
+p_*: H_n(E) \rightarrow H_n(B)
+$$
+
+which can be computed as follows:
+
+$$
+H_n(E) \rightarrow E_{\infty}^{n, 0} \subset E_2^{n, 0}=H_n(B)
+$$
+
+where $E_{\infty}^{n, 0}$ includes into $E_2^{n, 0}$ as the subspace consisting of those classes on which all differentials are zero. This is well defined because no class in $E_j^{n, 0}$ can be a boundary for any $j$.
+    \end{enumerate}
+\end{theo}
+
+The theorem holds when the base space is not simply connected also, and in the more general context of \textit{Serre fibrations}. Hurewicz theorem can be obtained as a corollary of this theorem.
+
+\begin{theo}[Homology long exact sequence]
+Let $p: E \rightarrow B$ be a fibration with connected fiber $F$, where $B$ is simply connected and $H_i(B)=0$ for $0<i<n$, and $H_i(F)=0$ for $i<i<m$. Then there is an exact sequence
+
+    $$
+    H_{n+m-1}(F) \xrightarrow{i_*} H_{n+m-1}(E) \xrightarrow{p_*} H_{n+m-1}(B) \xrightarrow{\tau} H_{n+m-2}(F) \rightarrow \cdots \rightarrow H_1(E) \rightarrow 0
+    $$
+        
+\end{theo}
+
+\begin{coro}
+    Corollary 4.32. Suppose $X$ and $Y$ are simply connected $C W$ - complexes and $f: X \rightarrow Y$ a continuous map that induces an isomorphism in homology groups,
+
+    $$
+    f_*: H_k(X) \xrightarrow{\cong} H_k(Y) \quad \text { for all } k \geq 0
+    $$
+    
+    
+    Then $f: X \rightarrow Y$ is a homotopy equivalence. 
+\end{coro}
 
 
 
