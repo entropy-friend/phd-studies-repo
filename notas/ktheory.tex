@@ -189,6 +189,97 @@ This $K$ is not functorial, but it is possible to modify the components of this 
     \end{enumerate} 
 \end{prop}
 
+\begin{proof}
+(a) If we replace $B G L(R)^{+}$by its universal cover, and $B G L(R)$ by the induced covering, this does not change the homotopy type of $F(f)$ (see (A.27)); we again use $F(R)$ to denote the homotopy fiber of
+
+    $$
+    \widehat{B G L}(R) \rightarrow \widetilde{B G L}(R)^{+}
+    $$
+    
+    where $\widetilde{B G L}(R)^{+}$is the universal cover of $B G L(R)^{+}$, and $\widehat{B G L}(R)$ is the induced covering of $B G L(R)$, which is just the covering space associated to the subgroup $E(R) \subset G L(R)=\pi_1(B G L(R)$ ) (thus $\widehat{B G L}(R)$ has the homotopy type of $B E(R)$, the Eilenberg-MacLane space with $\left.\pi_1(B E(R)) \cong E(R), \pi_i(B E(R))=0, i \neq 1\right)$.
+    
+    We have a spectral sequence (see (A.27))
+    
+    $$
+    E_{p, q}^2=H_p\left(\widetilde{B G L}(R)^{+}, H_q(F(R), \mathbb{Z})\right) \Longrightarrow H_{p+q}(\widehat{B G L}(R), \mathbb{Z})
+    $$
+    
+    (where the $E^2$-term is the usual homology group with coefficients in $H_q(F(R), \mathbf{Z})$, since the local coefficient system associated to $H_q(F(R), \mathbf{Z})$ is trivial on the simply connected space $\left.\widetilde{B G L}(R)^{+}\right)$. Further, from Proposition (2.3) and Theorem (2.1)(b), the edge homomorphisms
+    
+    $$
+    H_n(\widehat{B G L}(R), \mathbf{Z}) \rightarrow E_{n, 0}^{\infty} \longrightarrow E_{n, 0}^2=H_n\left(\widetilde{B G L}(R)^{+}, \mathbb{Z}\right)
+    $$
+    
+    are isomorphisms, i.e., $E_{n, 0}^2=E_{n, 0}^{\infty}$ and $E_{p, q}^{\infty}=0$ for $q \neq 0$.
+    Now suppose $F(R)$ is not acyclic; since $\widetilde{B G L}(R)^{+}$is simply connected and $\widehat{B G L}(R)$ is connected, $F(R)$ is path connected. Thus if $q$ is the smallest integer such that $\tilde{H}_q(F(R), \mathbf{Z}) \neq 0$, then $q>0$. Then $E_{p, q^{\prime}}^2=E_{p, q^{\prime}}^r=0$ for all $p$, and all $q^{\prime}$ with $0<q^{\prime}<q$. Since $d_r: E_{p, q}^r \longrightarrow E_{p-r, q+r-1}^r$, we see that $E_{0, q}^2 \cong E_{0, q}^{q+1}, E_{0, q}^{q+2} \cong E_{0, q}^{\infty}$, and $E_{0, q}^{q+2}$ is the cokernel of $d_{q+1}: E_{q+1,0}^{q+1} \longrightarrow$ $E_{0, q}^{q+1}$. But $E_{n, 0}^2=E_{n, 0}^{\infty}$, so that $d_{q+1}=0$ also. Hence $E_{0, q}^2=E_{0, q}^{\infty}=0$ as seen above. But on the other hand,
+    
+    $$
+    E_{0, q}^2=H_0\left(B G L(R)^{+}, H_q(F(R), \mathbf{Z}) \neq 0\right.
+    $$
+    
+    as we assumed $H_q(F(R), \mathbb{Z})=\bar{H}_q(F(R), \mathbb{Z}) \neq 0$. This contradiction proves that $F(R)$ is acyclic.  \\
+
+    (b), (c): Let $G=\pi_1(F(R)$ ), and consider the spectral sequence (see (A.28)) for the universal covering $\tilde{F}(R) \longrightarrow F(R)$. This has the form
+
+    $$
+    E_{p, q}^2=H_p\left(G, H_q(\tilde{F}(R), \mathbb{Z})\right) \Longrightarrow H_{p+q}(F(R), \mathbb{Z})
+    $$
+    
+    where by (a) we have $\tilde{H}_n(F(R), \mathbf{Z})=0 \forall n$. Also, $\tilde{F}(R)$ is simply connected, so $H_1(\tilde{F}(R), \mathbb{Z})=0$. This forces
+    
+    $$
+    E_{1,0}^2=E_{1,0}^{\infty}=0, E_{2,0}^2=E_{2,0}^{\infty}=0
+    $$
+    
+    further $E_{3,0}^2 \cong E_{3,0}^3 \xrightarrow{d_3} E_{0,2}^3 \cong E_{0,2}^2$ must be an isomorphism, since the kernel and cokernel are respectively $E_{3,0}^{\infty}=0$ and $E_{0,2}^{\infty}=0$. Thus
+    
+    $$
+    H_1(G, \mathbb{Z})=H_2(G, \mathbb{Z})=0 \text {, and } H_3(G, \mathbb{Z}) \cong H_0\left(G, H_2(\tilde{F}(R))\right.
+    $$
+    
+    
+    The homotopy exact sequence (see (A.18)) for
+    
+    $$
+    F(R) \longrightarrow \widehat{B G L}(R) \longrightarrow \widetilde{B G L}(R)^{+}
+    $$
+    
+    together with
+    
+    $$
+    \begin{aligned}
+    & \pi_i\left(\widetilde{B G L}(R)^{+}\right) \cong \pi_i\left(B G L(R)^{+}\right), \quad i \geq 2 \\
+    & \pi_i(\widehat{B G L}(R))=0, \quad i \geq 2
+    \end{aligned}
+    $$
+    
+    and $\pi_1(B G L(R))=E(R)$ yields isomorphisms
+    
+    $$
+    \pi_{i+1}\left(B G L(R)^{+}\right) \cong \pi_i(F(R)), \quad i \geq 2
+    $$
+    
+    and an exact sequence
+    \begin{center}
+        \begin{tikzcd}
+         0 \ar[r] & \pi_2(BGL(R)^+) \ar[r] & \pi_1(F(R)) \ar[r] \ar[d,equal] & E(R) \ar[r] & 0\\
+         & & G & &
+        \end{tikzcd}
+    \end{center}
+
+
+    By Lemma (A.26), the conjugation action of $G$ on itself is trivial on $\operatorname{ker}(G \longrightarrow E(R))$, and $G$ acts trivially on $\pi_i(F(R)), i \geq 2$ (i.e., $F(R)$ is simple in dimensions $i \geq 2$ ). Thus the above exact sequence (*) is a central extension of $E(R)$, such that $H_1(G, \mathbb{Z})=H_2(G, \mathbb{Z})=0$, i.e., by Proposition (1.10) is isomorphic to the universal central extension
+    
+    $$
+    0 \longrightarrow K_2(R) \longrightarrow S t(R) \longrightarrow E(R) \longrightarrow 0
+    $$
+    
+    
+    In particular $G \cong S t(R)$.
+
+
+\end{proof}
+
 
 \begin{coro}
 $\pi_i\left(B G L(R)^{+}\right) \cong K_i(R), i=1,2$, and
