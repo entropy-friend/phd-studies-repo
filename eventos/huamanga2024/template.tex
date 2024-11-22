@@ -1,0 +1,116 @@
+%------------------------------------------------------------------------
+%  Template    
+%------------------------------------------------------------------------
+
+% This file will be compiled by a computer program.
+% Please do not change preamble (before II. COMMANDS ENTERED BY THE AUTHOR  ).
+
+% Este archivo será procesado automaticamente por un programa.
+% Por favor no altere nada en el preamble (hasta II. COMMANDS ENTERED BY THE AUTHOR  ).
+
+
+%------------------------
+%  I. PREAMBLE        
+%-----------------------
+
+% I.1 Class of document
+\documentclass[11pt,a4paper]{article}
+
+% I.2 Language
+\usepackage[spanish, english]{babel}
+
+% I.3 Encodings
+\usepackage[utf8]{inputenc} % UTF8 encodings 
+\usepackage[T1]{fontenc} 
+\usepackage{newtxtext} 
+
+% I.4 AMS-LaTeX      
+\usepackage{amsmath} % it's include amsfonts amstext, amsgen, amsbsy, amsopn too.
+\usepackage{amssymb} % it's include amsfonts too
+\usepackage{amsthm}
+\usepackage{amscd} 
+
+%
+\usepackage{lipsum}
+
+% I.5 Page layout
+\usepackage[margin=3cm]{geometry}
+
+% I.6 Title and Abstract customization
+\renewenvironment{abstract}{%
+	\section*{\abstractname}}
+	{} 
+\usepackage[affil-it]{authblk}
+
+% I.7 Title and author information
+\title{Una invitación a la Estabilidad Homológica}
+\author[1]{Abraham Rojas Vega \thanks{abraham.rojas@usp.br} }
+%\author[2]{Autor }
+%\author[3]{Autor }
+\affil[1]{Instituto de Ciências Matemáticas e de Computação, Universidade de São Paulo, Brasil}
+%\affil[2]{Institución del autor }
+%\affil[3]{Institución del autor }
+%
+
+\date{} %Please, do not change -  POR FAVOR, NO MODIFICAR - .
+
+% Others
+
+\usepackage[backref=page]{hyperref}
+%--------------------------------------------------------------------------
+%  II. COMMANDS ENTERED BY THE AUTHOR        
+%--------------------------------------------------------------------------
+
+% Please, include ONLY the COMMANDS that will be used in the abstract, if necessary.
+
+% Por favor, incluya SOLO los COMANDOS que se utilizarán en el resumen, en caso sea necesario. 
+
+\usepackage{url}
+
+%--------------------------------------------------------------------------
+%  III. DOCUMENT       
+%--------------------------------------------------------------------------                                     
+\pagenumbering{gobble}
+
+\begin{document}
+
+%The main language of the text is English. If the abstract will be written in Spanish, please uncomment the following command:
+
+% El idioma principal del texto es English. Si el resumen será escrito en español, por favor, descomentar el siguiente comando:
+
+
+%---------
+\selectlanguage{spanish}
+%---------
+
+\begin{flushleft}
+\bfseries\footnotesize VI International Meeting in Mathematical Sciences\\
+Ayacucho, Perú\\
+December 10--12, 2024
+\end{flushleft}
+
+{\let\newpage\relax\maketitle}
+
+\begin{abstract}
+
+	La estabilidad homológica ha demostrado ser una herramienta poderosa para el cálculo de la homología de grupos, como en los grupos lineales generales, los grupos de clases de mapeo o los automorfismos de grupos libres. La estabilidad de $\operatorname{GL}(n)$ es fundamental para el cálculo de los $K-$grupos de orden superior de anillos. La estabilidad homológica tiene aplicaciones en teoría de representación, geometría algebraica y otras áreas. En esta charla, daremos una introducción a la estabilidad homológica y discutiremos algunas de sus aplicaciones, enfocándonos en la $K-$teoría algebraica.
+
+\end{abstract}
+
+\begin{thebibliography}{99}
+
+\bibitem{label1}{Suslin, A. A.}, {\em Stability in algebraic K-theory}. Algebraic K-theory 966, 304-333, 1982.
+
+\bibitem{label2}{Kupers, A.}, {\em Homological Stability Minicourse}. Disponible en \url{https://www.utsc.utoronto.ca/people/kupers/wp-content/uploads/sites/50/homstab.pdf}.
+
+
+
+\end{thebibliography}
+
+
+
+\end{document}
+
+
+
+

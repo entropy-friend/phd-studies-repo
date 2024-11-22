@@ -46,19 +46,16 @@ $$
 A natural transformation $F \xrightarrow{\tau} G$ whose components $\tau_A$ are isomorphisms is called a \textbf{natural isomorphism} from $F$ to $G$, and $F$ and $G$ are said to be \textbf{naturally isomorphic}, denoted by $F \cong G$.
 
 \begin{example}
-    Consider the $n$-th singular homology group of a pair of spaces $(X, A)$. The long exact sequence of the pair contains the group morphisms
-$$
-\delta: H_n(X, A) \rightarrow H_{n-1}(A) .
-$$
-\noindent
-This forms a natural transformation between $(X, A) \mapsto H_n(X, A)$ and $(X, A) \mapsto$ $H_{n-1}(A)$, both being from the category of pairs of topological spaces to the category of abelian groups. \\
-
-
-
     \begin{enumerate}
+        \item     Consider the $n$-th singular homology group of a pair of topological spaces $(X, A)$. The long exact sequence of the pair contains the group morphisms
+        $$
+        \delta: H_n(X, A) \rightarrow H_{n-1}(A) .
+        $$
+        \noindent
+        This forms a natural transformation between $(X, A) \mapsto H_n(X, A)$ and $(X, A) \mapsto$ $H_{n-1}(A)$, both being from the category of pairs of topological spaces to the category of abelian groups.
         %\item Let $U: \operatorname{Gr} \rightarrow \operatorname{Set} $ be the forgetful functor, and let $S: \operatorname{Grp} \rightarrow$ Set be the "squaring-functor", defined by $S(G \xrightarrow{f} H)=G^2 \xrightarrow{f^2} H^2$. For each group $G$, its multiplication is a function $\tau_G: G^2 \rightarrow G$. The family $\tau=\left(\tau_G\right)$ is a natural transformation from $S$ to $U$. The naturality condition simply means that $f(x \cdot y)=f(x) \cdot f(y)$ for any group homomorphism $G \xrightarrow{f} H$ and any $x, y \in G$. Thus "multiplication" in groups can be regarded as a natural transformation. Similar for other structures.
         %\item Let $(\,\hat{} \,):$ Vec $\rightarrow$ Vec be the second-dual functor for vector spaces, then $\tau_V: V \rightarrow \hat{\hat{V}}$, defined by $\left(\tau_V(x)\right)(f)=f(x)$, yield a natural transformation $i d{ }_{\mathrm{Vec}} \xrightarrow{\tau}(\,\hat{}\,)$. It becomes a natural isomorphism when restricted to finite-dimensional vector spaces.
-        \item The assignment of the Hurewicz homomorphism $\pi_n(X) \rightarrow H_n(X)$ to each topological space $X$ is a natural transformation.
+        \item The assignment of the Hurewicz homomorphism $\pi_n(X) \rightarrow H_n(X)$ to each topological space $X$ is a natural transformation between the functors $\pi_n$ and $H_n$.
         \item If $B \xrightarrow{f} C$ is an $\mathcal{A}$-morphism, then
         $
         \operatorname{hom}_{\mathcal{A}}(C,-) \xrightarrow{\tau_f} \operatorname{hom}_{\mathcal{A}}(B,-),
@@ -81,62 +78,19 @@ This forms a natural transformation between $(X, A) \mapsto H_n(X, A)$ and $(X, 
 \section{Limits and colimits}
 
 An object $P$ in a category $\mathcal{C}$ is called \textbf{projective} if, for every epimorphism $f: M \rightarrow Q$ in $\mathcal{C}$ and every $p: P \rightarrow Q$, there is a $\xi \in \operatorname{Hom}(P, M)$ with $f \circ \xi=p$, called the \textbf{lift} of $p$ to $M$.\\
-Dually, an object $I$ in a category $\mathcal{C}$ is called \textbf{injective} if for every monomorphism $f: U \rightarrow M$ in $\mathcal{C}$ and every $j: U \rightarrow I$, there is a $\zeta \in \operatorname{Hom}(M, I)$ with $\zeta \circ f=j$, called and \textbf{extension} of $j$ to $M$.\\
-\medspace
+Dually, an object $I$ in a category $\mathcal{C}$ is called \textbf{injective} if for every monomorphism $f: U \rightarrow M$ in $\mathcal{C}$ and every $j: U \rightarrow I$, there is a $\zeta \in \operatorname{Hom}(M, I)$ with $\zeta \circ f=j$, called and \textbf{extension} of $j$ to $M$.
+\begin{center}
+    \begin{tikzcd}
+        & M \arrow[d, two heads, "f"] \\
+        P \arrow[ur, "\xi", dashed] \arrow[r, "p"'] & Q
+    \end{tikzcd}  \hspace{4cm}
+    \begin{tikzcd}
+        & M \arrow[d, hookleftarrow, "f"] \\
+        I \arrow[ur, "\eta", dashleftarrow] \arrow[r,leftarrow, "j"'] & U
+    \end{tikzcd}
+\end{center}
+%set default line width to 0.75pt        
 
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-%uncomment if require: 
-\path (0,81); %set diagram left start at 0, and has height of 81
-
-
-% Text Node
-\draw (132,62) node [anchor=north east] [inner sep=0.75pt]   [align=left] {P};
-% Text Node
-\draw (169.99,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {Q};
-% Text Node
-\draw (169.99,19) node [anchor=south west] [inner sep=0.75pt]   [align=left] {M};
-% Text Node
-\draw (139,32) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle \xi $};
-% Text Node
-\draw (319,32) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle \varsigma $};
-% Text Node
-\draw (181,32) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle f$};
-% Text Node
-\draw (359,38) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle f$};
-% Text Node
-\draw (142.6,55.6) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle p$};
-% Text Node
-\draw (336.78,55.6) node [anchor=north] [inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle j$};
-% Text Node
-\draw (310.99,62) node [anchor=north east] [inner sep=0.75pt]   [align=left] {P};
-% Text Node
-\draw (348.98,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {U};
-% Text Node
-\draw (348.98,19) node [anchor=south west] [inner sep=0.75pt]   [align=left] {M};
-% Connection
-\draw    (176.89,23) -- (176.59,58) ;
-\draw [shift={(176.59,58)}, rotate = 270.49] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (17.64,-3.29) .. controls (13.66,-1.4) and (10.02,-0.3) .. (6.71,0) .. controls (10.02,0.3) and (13.66,1.4) .. (17.64,3.29)(10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-% Connection
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (135,60.07) -- (165.69,24.2) ;
-\draw [shift={(166.99,22.68)}, rotate = 130.56] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-% Connection
-\draw    (135,70) -- (164.99,70) ;
-\draw [shift={(166.99,70)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-% Connection
-\draw    (315.99,70) -- (345.98,70) ;
-\draw [shift={(313.99,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-% Connection
-\draw    (355.32,50) -- (355.75,25) ;
-\draw [shift={(355.78,23)}, rotate = 90.97] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw [shift={(355.32,50)}, rotate = 270.97] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
-% Connection
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (345.98,22.68) -- (315.29,58.55) ;
-\draw [shift={(313.99,60.07)}, rotate = 310.56] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-
-\end{tikzpicture}
 
 %$\mathcal{C}$ with $[0], \mathcal{C} *[0]$, has 0 as a terminal object and that $[0] * \mathcal{C}$ has 0 as an initial object. The category $\mathcal{C} *[0]$ is the \textbf{inductive cone} with base $\mathcal{C}$, and [0]* $\mathcal{C}$ is the \textbf{projective cone} with base $\mathcal{C}$.
 

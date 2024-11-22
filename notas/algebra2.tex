@@ -12,9 +12,9 @@ Let G be a finitely generated abelian group.
         \mathrm{G} \cong \mathbf{Z}_{m_1} \oplus \cdots \oplus \mathbf{Z}_{m_t} \oplus \mathrm{F}
         $$
         with F free abelian;
-        \item either G is free abelian or there is a list of positive integers $\mathrm{p}_1{ }^{s_1}, \ldots, \mathrm{p}_{\mathrm{k}}{ }^{8 k}$, which is unique except for the order of its members, such that $\mathrm{p}_1, \ldots, \mathrm{p}_{\mathrm{k}}$ are (not necessarily distinct) primes, $\mathrm{s}_1, \ldots, \mathrm{s}_{\mathrm{k}}$ are (not necessarily distinct) positive integers and
+        \item either G is free abelian or there is a list of positive integers $\mathrm{p}_1^{s_1}, \ldots, \mathrm{p}_{\mathrm{k}}^{s_ k}$, which is unique except for the order of its members, such that $\mathrm{p}_1, \ldots, \mathrm{p}_{\mathrm{k}}$ are (not necessarily distinct) primes, $\mathrm{s}_1, \ldots, \mathrm{s}_{\mathrm{k}}$ are (not necessarily distinct) positive integers and
         $$
-        \mathrm{G} \cong \mathrm{Z}_{\mathrm{p} 1} \mathrm{st}^1 \oplus \ldots \oplus \mathrm{Z}_{\mathrm{pk}} \mathrm{sk}_{\mathrm{k}} \oplus \mathrm{F}
+        \mathrm{G} \cong \mathrm{Z}_{\mathrm{p}_1} {\mathrm{s}_1} \oplus \ldots \oplus \mathrm{Z}_{\mathrm{p}_k} \mathrm{s}_k \oplus \mathrm{F}
         $$
         with F free abelian.
     \end{enumerate}
@@ -24,36 +24,34 @@ Let G be a finitely generated abelian group.
 
 \section{Actions}
 
-\cite{brownCohomologyGroups1982} An action of a group G on a set S is a function $\mathrm{G} \times \mathrm{S} \rightarrow \mathrm{S}$ (usually denoted by $(\mathrm{g}, \mathrm{x}) \mapsto \mathrm{gx}$ ) such that for all $\mathrm{x} \varepsilon \mathrm{S}$ and $\mathrm{g}_1, \mathrm{~g}_2 \in \mathrm{G}$ :
+\cite{brownCohomologyGroups1982} An action of a group G on a set S is a function $\mathrm{G} \times \mathrm{S} \rightarrow \mathrm{S}$ (usually denoted by $(\mathrm{g}, \mathrm{x}) \mapsto \mathrm{gx}$ ) such that for all $\mathrm{x} \in \mathrm{S}$ and $\mathrm{g}_1, \mathrm{~g}_2 \in \mathrm{G}$ :
 $$
 \mathrm{ex}=\mathrm{x} \quad \text { and } \quad\left(\mathrm{g}_1 \mathrm{~g}_2\right) \mathrm{x}=\mathrm{g}_1\left(\mathrm{~g}_2 \mathrm{x}\right) .
 $$
 
-When such an action is given, we say that G acts on the set S. $Gx$ denotes the orbit of $x$ and $G_x$ denotes its stabilizer (or isotropy group).
+When such an action is given, we say that G acts on the set S.  The {\bfseries orbit of $x\in X$} is $Gx = \{ gx \, | \, g\in G \}$ and its {\bfseries stabilizer} (or isotropy group) is $G_x = \{ g\in G \, | \, gx = x \}$.
 
 
 
 \begin{theo}
     \begin{enumerate}
         \item Orbits have cardinality equal to the index of the corresponding stabilizer.
-        \item The number of elements in the conjugacy class of $\mathrm{x} \varepsilon \mathrm{G}$ is $\left[\mathrm{G}: \mathrm{C}_{\mathrm{G}}(\mathrm{x})\right]$, which divides $|\mathrm{G}|$;
-        \item (\textbf{Class equation}) if $\overline{\mathrm{x}}_1, \ldots, \overline{\mathrm{x}}_{\mathrm{n}}\left(\mathrm{x}_{\mathrm{i}} \in \mathrm{G}\right)$ are the distinct conjugacy classes of G , then $$
+        \item The number of elements in the conjugacy class of $\mathrm{x} \in \mathrm{G}$ is $\left[\mathrm{G}: \mathrm{C}_{\mathrm{G}}(\mathrm{x})\right]$, which divides $|\mathrm{G}|$;
+        \item (\textbf{Class equation}) If $\overline{\mathrm{x}}_1, \ldots, \overline{\mathrm{x}}_{\mathrm{n}}\left(\mathrm{x}_{\mathrm{i}} \in \mathrm{G}\right)$ are the distinct conjugacy classes of G , then $$
 |\mathrm{G}|=\sum_{i=1}^n\left[\mathrm{G}: \mathrm{C}_{\mathrm{G}}\left(\mathrm{x}_{\mathrm{i}}\right)\right]
 $$ In particular, we can take $G$ acting on itself by conjugation, so that the conjugacy classes are the orbits of this action.
-\item the number of subgroups of G conjugate to K is $\left[\mathrm{G}: \mathrm{N}_{\mathrm{G}}(\mathrm{K})\right]$, which divides $|\mathrm{G}|$.
+\item The number of subgroups of G conjugate to K is $\left[\mathrm{G}: \mathrm{N}_{\mathrm{G}}(\mathrm{K})\right]$, which divides $|\mathrm{G}|$.
 \end{enumerate}
 \end{theo}
 
-Let $G$ and $H$ be groups and $\theta: H \rightarrow$ Aut $G$ a homomorphism. Let $G \times_\theta H$ be the set $G \times H$ with the following binary operation: $(g, h)\left(g^{\prime}, h^{\prime}\right)=\left(g\left[\theta(h)\left(g^{\prime}\right)\right], h h^{\prime}\right)$. Show that $G \times_\theta H$ is a group with identity element $(e, e)$ and $(g, h)^{-1}=$ $\left(\theta\left(h^{-1}\right)\left(g^{-1}\right), h^{-1}\right) . G \times_\theta H$ is called the semidirect product of $G$ and $H$.
+Let $G$ and $H$ be groups and $\theta: H \rightarrow$ Aut $G$ a homomorphism. Let $G \times_\theta H$ be the set $G \times H$ with the following binary operation: $(g, h)\left(g^{\prime}, h^{\prime}\right)=\left(g\left[\theta(h)\left(g^{\prime}\right)\right], h h^{\prime}\right)$. Show that $G \times_\theta H$ is a group with identity element $(e, e)$ and $(g, h)^{-1}=$ $\left(\theta\left(h^{-1}\right)\left(g^{-1}\right), h^{-1}\right) . G \times_\theta H$ is called the {\bfseries } of $G$ and $H$.
 
+\paragraph*{Group rings}
 
-
-
-\paragraph*{Group Ring}
-
-Let $G$ be a group, written multiplicatively. Let $\mathbb{Z} G$ be the free $\mathbb{Z}$-module generated by the elements of $G$. The multiplication in $G$ extends uniquely to a $\mathbb{Z}$-bilinear product $\mathbb{Z G} \times \mathbb{Z G} \rightarrow \mathbb{Z G}$; this makes $\mathbb{Z G}$ a ring, called the \textbf{integral group ring} of $G$.
+Let $G$ be a (multiplicative) group. Let $\mathbb{Z} G$ be the free $\mathbb{Z}$-module generated by the elements of $G$. The multiplication in $G$ extends uniquely to a $\mathbb{Z}$-bilinear product $\mathbb{Z G} \times \mathbb{Z G} \rightarrow \mathbb{Z G}$; this makes $\mathbb{Z G}$ a ring, called the \textbf{(integral) group ring} of $G$.
 
 Note that $G$ is a subgroup of the group $(\mathbb{Z} G)^*$ of units of $\mathbb{Z G}$ 
+
 \begin{theo}[Universal property]
 Given a ring $R$ and a group homomorphism $f: G \rightarrow R^*$, there is a unique extension of $f$ to a ring homomorphism $\mathbb{Z G} \rightarrow R$. Thus we have the "adjunction formula"
     $$
@@ -407,23 +405,22 @@ If $G_1, \ldots, G_n$ are subgroups of $G$, there exists a fuctorial spectral se
 
 \chapter{Rings (with identity)}
 
-Let R be a ring and S a nonempty subset of R that is closed under the operations of addition and multiplication in R . If S is itself a ring under these operations then S is called a subring of R . A subring I of a ring R is a \textbf{left ideal} provided
-$$
-\mathrm{r} \varepsilon \mathrm{R} \text { and } \mathrm{x} \in \mathrm{I} \quad \Rightarrow \quad \mathrm{rx} \in \mathrm{I} \text {; }
-$$
-
+Let $R$ be a ring and $S$ a nonempty subset of $R$ that is closed under the operations of addition and multiplication in $R$ . If $S$ is itself a ring under these operations then $S$ is called a subring of $R$ . A subring I of a ring R is a \textbf{left ideal} provided that
+$
+\mathrm{r} \in \mathrm{R} \text { and } \mathrm{x} \in \mathrm{I}$ implies $  \mathrm{rx} \in \mathrm{I} 
+$.
 I is a \textbf{right ideal} provided
-$$
-\mathrm{r} \varepsilon \mathrm{R} \text { and } \mathrm{x} \in \mathrm{I} \quad \Rightarrow \quad \mathrm{xr} \varepsilon \mathrm{I} \text {; }
-$$
+$
+\mathrm{r} \in \mathrm{R} \text { and } \mathrm{x} \in \mathrm{I}$ implies $  \mathrm{xr} \in \mathrm{I}
+$.
 
 I is an \textbf{ideal} if it is both a left and right ideal. Note that proper ideals does not contain any unit. We denote by $(X)$ the ideal generated by the subset $X$ of R , i.e., the smallest ideal containing X.
 \begin{theo}
     \begin{enumerate}
         \item (a) $=\left\{\sum_{i=1}^n \mathrm{r}_{\mathrm{j}} \mathrm{as}_{\mathrm{i}} \mid \mathrm{r}_{\mathrm{i}}, \mathrm{s}_{\mathrm{i}} \in \mathrm{R} ; n \in \mathbf{N}^*\right\}$ (principal ideal).
         \item If a is in the center of R , then $\mathrm{Ra}=(\mathrm{a})=\mathrm{aR}$.
-        \item If X is in the center of R , then the ideal $(\mathrm{X})$ consists of all finite sums $\mathrm{r}_1 \mathrm{a}_1+\cdots+\mathrm{r}_{\mathrm{n}} \mathrm{a}_{\mathrm{n}}\left(\mathrm{n} \in \mathbf{N}^* ; \mathrm{r}_{\mathrm{i}} \in \mathrm{R} ; \mathrm{a}_{\mathrm{i}} \varepsilon \mathrm{X}\right)$.
-        \item for ideals, multiplication and addition are distributive and associative.
+        \item If X is in the center of R , then the ideal $(\mathrm{X})$ consists of all finite sums $$\mathrm{r}_1 \mathrm{a}_1+\cdots+\mathrm{r}_{\mathrm{n}} \mathrm{a}_{\mathrm{n}}\left(\mathrm{n} \in \mathbf{N}^* ; \mathrm{r}_{\mathrm{i}} \in \mathrm{R} ; \mathrm{a}_{\mathrm{i}} \in \mathrm{X}\right).$$
+        \item For ideals, multiplication and addition are distributive and associative.
     \end{enumerate}
 \end{theo}
 
@@ -433,9 +430,9 @@ $$
 \mathrm{AB} \subset \mathrm{P} \Rightarrow \mathrm{A} \subset \mathrm{P} \text { or } \mathrm{B} \subset \mathrm{P} \text {. }
 $$
 \begin{theo}
-If P is an ideal in a ring R such that $\mathrm{P} \neq \mathrm{R}$ and for all $\mathrm{a}, \mathrm{b} \varepsilon \mathbf{R}$
+If P is an ideal in a ring R such that $\mathrm{P} \neq \mathrm{R}$ and for all $\mathrm{a}, \mathrm{b} \in \mathbf{R}$
 $$
-\mathrm{ab} \varepsilon \mathrm{P} \Rightarrow \mathrm{a} \varepsilon \mathrm{P} \text { or } \mathrm{b} \varepsilon \mathrm{P} \text {, }
+\mathrm{ab} \in \mathrm{P} \Rightarrow \mathrm{a} \in \mathrm{P} \text { or } \mathrm{b} \in \mathrm{P} \text {, }
 $$
 then P is prime. Conversely if P is prime and R is commutative, then P satisfies condition (1).
 \end{theo}
@@ -453,14 +450,16 @@ An ideal [resp. left ideal] M in a ring R is said to be \textbf{maximal} if $\ma
 
 %\subsection*{Localization and tensor products}
 
-%A nonempty subset S of a ring R is multiplicative provided that $ a, b \in S \Rightarrow a b \varepsilon S .$
+%A nonempty subset S of a ring R is multiplicative provided that $ a, b \in S \Rightarrow a b \in S .$
 
 
 
 
 \section{Modules}
 
-Let $I$ be a left ideal of the ring $R, A$ an $R$-module and $S$ a nonempty subset of $A$. Then $I S=\left\{\sum_{i=1}^n r_i a_i \mid r_i \in I ; a_i \varepsilon S ; n \in \mathbf{N}^*\right\}$ is a submodule of $A$ (Exercise 3). Similarly if $a \in A$, then $I a=\{r a \mid r \in I\}$ is a submodule of $A$. We will consider just unitary modules.\\
+Every module we consider are unitary, i.e., the action of the neutral multiplicative element is trivial on the module
+
+Let $I$ be a left ideal of the ring $R, A$ an $R$-module and $S$ a nonempty subset of $A$. Then $$I S=\left\{\sum_{i=1}^n r_i a_i \mid r_i \in I ; a_i \in S ; n \in \mathbf{N}^*\right\}$$ is a submodule of $A$. Similarly if $a \in A$, then $I a=\{r a \mid r \in I\}$ is a submodule of $A$. 
 
 If X is a subset of a module A over a ring R , then the intersection of all submodules of A containing X is called the submodule generated by X (or spanned by X). We have $$(A)=R X=\left\{\sum_{i=1}^s r_i a_i \mid s \in N^* ; a_i \in X ; r_i \in R\right\}$$
 
@@ -469,51 +468,165 @@ If X is a subset of a module A over a ring R , then the intersection of all subm
         \item F has a nonempty basis;
         \item F is the internal direct sum of a family of cyclic R -modules, each of which is isomorphic as a left $\mathbf{R}$-module to $\mathbf{R}$;
         \item F is R -module isomorphic to a direct sum of copies of the left R -module R ;
-        \item there exists a nonempty set X and a function $\iota: \mathrm{X} \rightarrow \mathrm{F}$ with the following property: given any unitary R -module A and function $\mathrm{f}: \mathrm{X} \rightarrow \mathrm{A}$, there exists a unique R -module homomorphism $\overline{\mathrm{f}}: \mathrm{F} \rightarrow \mathrm{A}$ such that $\overline{\mathrm{f}} \iota=\mathrm{f}$. In other words, F is a free object in the category of unitary R -modules.
+        \item There exists a nonempty set X and a function $\iota: \mathrm{X} \rightarrow \mathrm{F}$ with the following property: given any unitary R -module A and function $\mathrm{f}: \mathrm{X} \rightarrow \mathrm{A}$, there exists a unique R -module homomorphism $\overline{\mathrm{f}}: \mathrm{F} \rightarrow \mathrm{A}$ such that $\overline{\mathrm{f}} \iota=\mathrm{f}$. In other words, F is a free object in the category of unitary R -modules.
     \end{enumerate}
 \end{theo}
 
 \begin{theo}
-        Let R be a ring with identity and F a free R -module with an infinite basis X. Then every basis of F has the same cardinality as X.
+        Let R be a ring with identity and F a free R-module with an infinite basis X. Then every basis of F has the same cardinality as X.
 \end{theo}
 
-Let R be a ring with identity such that for every free R -module F , any two bases of F have the same cardinality. Then R is said to have the \textbf{invariant dimension} property and the cardinal number of any basis of F is called the dimension (or rank) of F over R. \\
-Note that, in this case, two modules are isomorphic if and only if they have the same rank.\\
+Let R be a ring with identity such that for every free R-module F, any two bases of F have the same cardinality. Then R is said to have the \textbf{invariant dimension property} and the cardinal number of any basis of F is called the dimension (or rank) of F over R. 
+
+Note that, in this case, two free modules are isomorphic if and only if they have the same rank. Also, $R$ does not satisfy the invariant dimension property iff $R^n \simeq R^m$ for $n\neq m$ \\
 
 \begin{theo} For ring with identity:
     \begin{enumerate}
         \item Every lineary independent subset of a vector space over a division ring can be extended to a basis.
         \item Every division ring has the invariant dimension property.
-        \item Every conmutative ring has the invariant dimension property.
+        \item Any finite-dimensional algebra over a division ring has the invariant dimension property.
+        \item Every conmutative ring (and so group rings) has the invariant dimension property.
     \end{enumerate}
     \end{theo}
 
-\subsection*{Linear Algebra}
+\begin{example}
+    $\operatorname{End}_F(F^\infty)$ does not have the invariant dimension property.
+\end{example}
 
-If R is a ring, then the set of all $\mathrm{n} \times \mathrm{m}$ matrices over R forms an $\mathrm{R}-\mathrm{R}$ bimodule under addition, with the $\mathrm{n} \times \mathrm{m}$ zero matrix as the additive identity. Multiplication of matrices, when defined, is associative and distributive over addition. For each $\mathrm{n}>0$, Mat R is a ring. If R has an identity, so does Mat R (namely the identity matrix $\mathrm{I}_{\mathrm{n}}$ ).
+
+If R is a ring, for each $\mathrm{n}>0$, $\operatorname{Mat}_n R$ is a ring. We denote the identity matrix by $I_n$.
+
+If M has a ﬁxed ordered basis, we call M a based free module and deﬁne the {\bfseries rank} of the based free module M to be the cardinality of its given basis. If $R$ has the invariant dimension property, then the rank of a free module is constant.
+\begin{theo}
+    Homomorphisms between based free modules are naturally identiﬁed with
+    matrices over R.
+\end{theo}
+
+An $R$-module $P$ is called {\bfseries stably free} if $P \oplus R^m \cong R^n$ for some $m$ and $n$.\\
+By the fundamental theorem of Linear algebra, the kernel of any surjective linear map $\sigma: R^n \rightarrow R^m$ is a stably free module (split on finite dimension).
+
+\begin{lemm}
+    \begin{enumerate}
+    \item If $P\oplus R^m \simeq R ^ \infty$ then $P \simeq R^\infty$.
+    \item Free and stably free modules are projective.
+    \end{enumerate}
+\end{lemm}
+
+When are stably free modules free? The most important special case, at least for inductive purposes, is when $m=1$, i.e., $P \oplus R \cong R^n$.
+
+A row vector $\sigma = (r_1, \ldots, r_n)$ in $R$ is called \textbf{unimodular} if they generate $R^n$. The following condition are equivalent:
+\begin{itemize}
+    \item $\sigma$ is unimodular.
+    \item $R^n \cong P \oplus R$, where $\sigma$ is identified with the projection $R^n \rightarrow R$ and $P=\operatorname{ker}(\sigma)$.
+    \item $1=r_1 s_1+\cdots+r_n s_n$ for some $s_i \in R$.
+\end{itemize}
+Note that $P$ is a free module if and only if $\sigma$ may be completed to an invertible transformation.
+
+We say that a ring $R$ satisfies condition $(S_n)$ (\bf{stable base condition on dimension $n$}) if for every unimodular row $\left(r_0, r_1, \ldots, r_n\right)$ in $R^{n+1}$, there is a unimodular vector $\left(r_1^{\prime}, \ldots, r_n^{\prime}\right)$ in $R^n$ with $r_i^{\prime}=r_i-r_0 t_i$ for some $t_1, \ldots, t_n$ in $R$.\\
+The {\bfseries stable range} of $R, \operatorname{sr}(R)$, is defined to be the smallest $n$ such that $R$ satisfies condition $\left(S_n\right)$.
+
+\begin{prop}
+    \begin{enumerate}
+        \item (Vaserstein) $\left(S_n\right)$ holds for all $n \geq \operatorname{sr}(R)$.
+        \item If $\operatorname{sr}(R)=n$ then all stably free projective modules of rank $\geq n$ are free.
+        \item $\operatorname{sr}(R)=1$ for every artinian ring $R$, and stably free projective modules are free over artinian rings.
+        \item If $I$ is an ideal of $R$, then $\operatorname{sr}(R) \geq \operatorname{sr}(R / I)$.
+        \item (Veldkamp) If $\operatorname{sr}(R)=n$ for some $n$ then $R$ has the invariant dimension property.
+    \end{enumerate}
+\end{prop}
+
+We will focus most of our attention on the category $\mathbf{P}(R)$ of finitely generated projective $R$-modules; the morphisms are the $R$-module maps. Since the direct sum of projectives is projective, $\mathbf{P}(R)$ is an additive category. We may regard $\mathbf{P}$ as a covariant functor on rings, since if $R \rightarrow S$ is a ring map, then up to coherence there is an additive functor $\mathbf{P}(R) \rightarrow \mathbf{P}(S)$ sending $P$ to $P \otimes_R S$. (Formally, there is an additive functor $\mathbf{P}^{\prime}(R) \rightarrow \mathbf{P}(S)$ and an equivalence $\mathbf{P}^{\prime}(R) \rightarrow \mathbf{P}(R)$; see Ex. 2.16.)
+
+\begin{lemm}[Some properties of projective modules]
+ \begin{enumerate}
+    \item A module is projective [generated by $n$ elements] if and only if it is a direct summand of a free module [of rank $n$].
+    \item Every ﬁnitely generated projective R-module arises from an idempotent element in a matrix ring $M_n(R)$.
+    \item If $R$ is a principal ideal domain, then every projective module is free.
+If $R$ is a local ring, then every finitely generated projective $R$-module $P$ is free of rank $\operatorname{dim}_{R / \mathrm{m}}(P / \mathrm{m} P)$. 
+ \end{enumerate}   
+\end{lemm}
+
+
+\subsubsection{Some results for conmutative rings}
+
+\begin{theo}[Bass' Cancelation Theorem]
+    If $R$ is a conmutative noetherian ring of Krull dimension d, or more generally, if $\operatorname{SpecMax} (R)$ is a finite union of spaces of dimension $\leq d$, then $sr(R) \leq d+1$
+\end{theo}
 
 \begin{theo}
-Let R be a ring with identity. Let E be a free left R -module with a finite basis of n elements and F a free left R -module with a finite basis of m elements. Let M be the left R -module of all $\mathrm{n} \times \mathrm{m}$ matrices over R . Then there is an isomorphism of abelian groups:
-$$
-\operatorname{Hom}_{\mathrm{R}}(\mathrm{E}, \mathrm{F}) \cong \mathrm{M} .
-$$
-If R is commutative this is an isomorphism of left R -modules.
+Let $R$ be a $d-$dimensional commutative noetherian ring. Then every stably free $R$-module of rank $>d$ is a free module. Equivalently, every unimodular row of length $n \geq d+2$ may be completed to an invertible matrix.
 \end{theo}
+
+Let $R$ be a commutative ring. The {\bfseries rank of a finitely generated $R$-module $M$ at a prime ideal $p$}, $\operatorname{rank}_\mathfrak{p}(M)$ is the minimal number of generators of $M_p$.
+
+\begin{lemm}
+ Let $R$ be a commutative ring, $P$ a finitely generated projective $R$-module, the functions $\operatorname{rank} P: \operatorname{Spec}(R) \rightarrow \mathbb{N}, \mathbb{Z}$ are continuous.
+\end{lemm}
+
+If a module $M$ is not projective, $\operatorname{rank}(M)$ need not be a continuous function on $\operatorname{Spec}(R)$, as the example $R=\mathbb{Z}, M=\mathbb{Z} / p$ shows.
+
+We say that $P$ has constant $\operatorname{rank} n$ if $n=\operatorname{rank}_p(P)$ is independent of $p$. \\
+If $\operatorname{Spec}(R)$ is topologically connected, every finitely generated projective $R$-module has constant rank.
+
+We say that two $R$-modules $M, M^{\prime}$ are {\bfseries stably isomorphic} if $M \oplus R^m \cong M^{\prime} \oplus R^m$ for some $m \geq 0$.
+
+\begin{theo}[Bass-Serre cancellation]
+    Theorem 2.3 (Bass-Serre cancellation). Let $R$ be a $d-$dimensional commutative noetherian ring, and let $P$ be a projective $R$-module of constant rank $n>d$.
+    \begin{enumerate}
+        \item (Serre) $P \cong P_0 \oplus R^{n-d}$ for some projective $R$-module $P_0$ of constant rank d.
+        \item (Bass) If $P$ is stably isomorphic to $P^{\prime}$, then $P \cong P^{\prime}$.
+        \item (Bass) For all $M, M^{\prime}$, if $P \oplus M$ is stably isomorphic to $M^{\prime}$, then $P \oplus M \cong M^{\prime}$.
+    \end{enumerate} 
+\end{theo}
+
+\subsubsection{Milnor squares}
+
+It is sometimes useful to be able to build projective modules by patching free modules. The following data suffices. Suppose that $s_1, \ldots, s_c \in R$ form a unimodular row, i.e., $s_1 R+\cdots+s_c R=R$. Then $\operatorname{Spec}(R)$ is covered by the open sets $D\left(s_i\right) \cong \operatorname{Spec}\left(R\left[\frac{1}{s_i}\right]\right)$. Suppose we are given $g_{i j} \in G L_n\left(R\left[\frac{1}{s_i s_j}\right]\right)$ with $g_{i i}=1$ and $g_{i j} g_{j k}=g_{i k}$ in $G L_n\left(R\left[\frac{1}{s_i s_j s_k}\right]\right)$ for every $i, j, k$. Then
+$$
+P=\left\{\left(x_1, \ldots, x_c\right) \in \prod_{i=1}^c\left(R\left[\frac{1}{s_i}\right]\right)^n: g_{i j}\left(x_j\right)=x_i \text { in } R\left[\frac{1}{s_i s_j}\right]^n \text { for all } i, j\right\}
+$$
+is a finitely generated projective $R$-module by , because each $P\left[\frac{1}{s_i}\right]$ is isomorphic to $R\left[\frac{1}{s_i}\right]^n$.\\
+
+Another type of patching arises from an ideal $I$ in $R$ and a ring map $f: R \rightarrow S$ such that $I$ is mapped isomorphically onto an ideal of $S$, which we also call $I$. In this case $R$ is the "pullback" of $S$ and $R / I$ :
+$$
+R=\{(\bar{r}, s) \in(R / I) \times S: \bar{f}(\bar{r})=s \text { modulo } I\}
+$$
+the square \begin{tikzcd}
+    R \arrow{r}{f} \arrow{d}{} & S \arrow{d}{} \\
+    R / I \arrow{r}{\bar{f}} & S / I
+\end{tikzcd} is called a {\bfseries Milnor square}.
+\begin{example}[Conductor square]
+ This arises when $R$ is commutative and $S$ is a finite extension of $R$ with the same total ring of fractions. ( $S$ is often the integral closure of $R$.) The ideal $I$ is chosen to be the conductor ideal, i.e., the largest ideal of $S$ contained in $R$, which is just $I=\{x \in R: x S \subset R\}=\operatorname{ann}_R(S / R)$. If $S$ is reduced, then $I$ cannot lie in any minimal prime of $R$ or $S$, so the rings $R / I$ and $S / I$ have lower Krull dimension.
+\end{example}
+
+Given a Milnor square, we can construct an $R$-module $M=\left(M_1, g, M_2\right)$ from the following "descent data": an $S$-module $M_1$, an $R / I$-module $M_2$, and an $S / I$-module isomorphism $g: M_2 \otimes_{R / I} S / I \cong M_1 / I M_1$. In fact $M$ is the kernel of the $R$-module map
+$$
+M_1 \times M_2 \rightarrow M_1 / I M_1, \quad\left(m_1, m_2\right) \mapsto \bar{m}_1-g\left(\bar{f}\left(m_2\right)\right) .
+$$
+We call $M$ the $R$-module obtained by patching $M_1$ and $M_2$ together along $g$.
+An important special case is when we patch $S^n$ and $(R / I)^n$ together along a matrix $g \in G L_n(S / I)$. For example, $R$ is obtained by patching $S$ and $R / I$ together along $g=1$. We will return to this point when we study $K_1(R)$ and $K_0(R)$.
+\begin{theo}
+    In a Milnor square;
+    \begin{enumerate}
+        \item If $P$ is obtained by patching together a finitely generated projective $S$-module $P_1$ and a finitely generated projective $R / I$-module $P_2$, then $P$ is a finitely generated projective $R$-module.
+        \item $P \otimes_R S \cong P_1$ and $P / I P \cong P_2$.
+        \item Every finitely generated projective $R$-module arises in this way.
+        \item If $P$ is obtained by patching free modules along $g \in G L_n(S / I)$ and $Q$ is obtained by patching free modules along $g^{-1}$, then $P \oplus Q \cong R^{2 n}$.
+    \end{enumerate} 
+\end{theo}
+
+\subsubsection{Deternimant and elementary matrices}
 
 \begin{theo}[Existence of determinant]
 Let $(R, \mathcal{M})$ be a (possibly non-commutative) local ring. There is a well-defined determinant homomorphism $\det: GL(R) \rightarrow \overline{R}^*$, where $\bar{R}^*=\left(R^*\right)^{a b}$, satisfying:
-
 \begin{enumerate}
-    \item $\operatorname{det}(A B)=\operatorname{det} A \cdot \operatorname{det} B$
-    \item $\operatorname{det} A=1$ for all $A \in E(R)$
+    \item $\operatorname{det}(A B)=\operatorname{det} A \cdot \operatorname{det} B$,
+    \item $\operatorname{det} A=1$ for all $A \in E(R)$,
     \item the composite $R^*=G L_1(R) \longrightarrow G L(R) \xrightarrow{\text { det }} \bar{R}^*$ is the natural quotient map.
 \end{enumerate}
-
 \end{theo}
 
-
 Let $E_n(R)$ be the subgroup of \textbf{elementary matrices}, defined to be the group generated by the matrices $e_{i j}^{(n)}(\lambda), 1 \leq i \neq j \leq n, \lambda \in R$, where $e_{i j}^{(n)}(\lambda)$ is the unipotent matrix whose only non-trivial off-diagonal entry is $\lambda$ in the $(i, j)$ th position. Thus, if $i<j$, then $e_{i j}^{(n)}(\lambda)$ has the form 
-
 \[
 e_{ij}^{(n)}(\lambda) =
 \begin{pmatrix}
@@ -525,16 +638,14 @@ e_{ij}^{(n)}(\lambda) =
 0 & 0 & \cdots & 0 & \cdots & 0 & 1
 \end{pmatrix}
 \]
-
 Let $G L_n(R) \hookrightarrow G L_{n+1}(R)$ by
-$$
+$
 A \longmapsto\left[\begin{array}{ll}
 A & 0 \\
 0 & 1
 \end{array}\right]
-$$
+$
 and let $G L(R)=\lim _{\rightarrow} G L_n(R)$. Similarly, let $E(R)=\lim _{\rightarrow} E_n(R)$. Since $e_{i j}^{(n)}(\lambda) \longmapsto e_{i j}^{(n+1)}(\lambda)$ under $E_n(R) \hookrightarrow E_{n+1}(R)$, we obtain matrices $e_{i j}(\lambda)$ $\in E(R)$ as the common image of all the $e_{i j}^{(n)}(\lambda)$ for $n \geq i, j$, and $E(R)$ is the subgroup of $G L(R)$ generated by the $e_{i j}(\lambda)$. The $e_{i j}(\lambda)$ satisfy the following identities:
-
 \begin{enumerate}
     \item $e_{i j}(\lambda) \cdot e_{i j}(\mu)=e_{i j}(\lambda+\mu), \forall \lambda, \mu \in R$
     \item $\left[e_{i j}(\lambda), e_{k \ell}(\mu)\right]=1$ for $j \neq k, i \neq \ell$
@@ -548,5 +659,5 @@ and let $G L(R)=\lim _{\rightarrow} G L_n(R)$. Similarly, let $E(R)=\lim _{\righ
     \end{enumerate}
 \end{lemm}
 
-
+\subsection{The Picard group of conmutative rings}
 
