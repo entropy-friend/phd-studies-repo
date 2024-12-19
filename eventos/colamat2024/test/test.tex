@@ -1,0 +1,275 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{whale}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+
+\title{A Comprehensive Introduction to Simplicial Sets}
+\subtitle{From Foundations to Applications}
+\author{Based on Work by Emily Riehl}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% SECTION 1: INTRODUCTION
+\section{Introduction}
+
+\begin{frame}{What Are Simplicial Sets?}
+  \begin{itemize}
+    \item Simplicial sets generalize simplicial complexes.
+    \item Provide a combinatorial framework for:
+      \begin{itemize}
+        \item Algebraic topology
+        \item Higher category theory
+      \end{itemize}
+    \item Key features:
+      \begin{itemize}
+        \item Flexibility in modeling homotopy types
+        \item Strong categorical properties
+        \item Applications in modern mathematics
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Historical Context}
+  \begin{itemize}
+    \item Originated in algebraic topology (1940s-50s)
+    \item Developed to model homotopy theory
+    \item Key milestones:
+      \begin{itemize}
+        \item Simplicial objects (Eilenberg-Zilber)
+        \item Kan complexes (1950s)
+        \item Quillen model categories (1960s)
+        \item Higher category theory (2000s)
+      \end{itemize}
+    \item Modern applications in derived geometry and higher topos theory
+  \end{itemize}
+\end{frame}
+
+\section{Category Theory Prerequisites}
+
+\begin{frame}{Category Theory Basics}
+  \begin{itemize}
+    \item A category \(\mathcal{C}\) consists of:
+      \begin{itemize}
+        \item Objects \(\text{ob }\mathcal{C}\)
+        \item Morphisms \(\text{mor }\mathcal{C}\)
+        \item Composition \((f \circ g)\) and identities
+      \end{itemize}
+    \item Functors: \(F: \mathcal{C} \to \mathcal{D}\)
+    \item Natural transformations: \(\alpha: F \Rightarrow G\)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Yoneda Lemma}
+  \begin{theorem}[Yoneda Lemma]
+    For any small category \(\mathcal{C}\), object \(c \in \mathcal{C}\), and functor \(F: \mathcal{C}^{op} \to \mathbf{Set}\):
+    \[
+    \text{Nat}(\mathcal{C}(-, c), F) \cong Fc
+    \]
+  \end{theorem}
+  \begin{itemize}
+    \item Yoneda embedding:
+      \[
+      y: \mathcal{C} \to \mathbf{Set}^{\mathcal{C}^{op}}, \quad c \mapsto \mathcal{C}(-, c)
+      \]
+    \item Full and faithful functor
+    \item Foundation for simplicial sets
+  \end{itemize}
+\end{frame}
+
+\section{The Simplex Category}
+
+\begin{frame}{The Category \(\Delta\)}
+  \begin{definition}
+    \(\Delta\) is the category whose:
+    \begin{itemize}
+      \item Objects are finite, non-empty, totally ordered sets
+        \[
+        [n] = \{0, 1, \ldots, n\}
+        \]
+      \item Morphisms are order-preserving maps
+    \end{itemize}
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Structure of \(\Delta\)}
+  \begin{itemize}
+    \item Generating morphisms:
+      \begin{itemize}
+        \item Coface maps \(d_i: [n-1] \to [n]\)
+        \item Codegeneracy maps \(s_i: [n+1] \to [n]\)
+      \end{itemize}
+    \item Relations among morphisms:
+      \[
+      d_jd_i = d_id_{j-1}, \quad i < j
+      \]
+      \[
+      s_js_i = s_is_{j+1}, \quad i \leq j
+      \]
+      \[
+      s_jd_i = \begin{cases} 
+        1 & i = j, j+1 \\
+        d_is_{j-1} & i < j \\
+        d_{i-1}s_j & i > j+1
+      \end{cases}
+      \]
+  \end{itemize}
+\end{frame}
+
+\section{Simplicial Sets}
+
+\begin{frame}{Definition of Simplicial Sets}
+  \begin{definition}
+    A simplicial set is a functor:
+    \[
+    X: \Delta^{op} \to \mathbf{Set}
+    \]
+  \end{definition}
+  \begin{itemize}
+    \item Equivalent to:
+      \begin{itemize}
+        \item Sets \(X_n\) for \(n \geq 0\)
+        \item Face maps \(d_i: X_n \to X_{n-1}\)
+        \item Degeneracy maps \(s_i: X_n \to X_{n+1}\)
+        \item Satisfying dual relations to \(\Delta\)
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Key Properties of Simplicial Sets}
+  \begin{itemize}
+    \item \(X_n\): Set of \(n\)-simplices
+    \item Face maps \(d_i\):
+      \[
+      d_i(x) = \text{remove the } i\text{-th vertex of } x
+      \]
+    \item Degeneracy maps \(s_i\):
+      \[
+      s_i(x) = \text{collapse edge between } i \text{ and } i+1
+      \]
+    \item Degenerate simplices: images of degeneracy maps
+    \item Non-degenerate simplices: not degenerate
+  \end{itemize}
+\end{frame}
+
+\section{Examples of Simplicial Sets}
+
+\begin{frame}{Standard Simplex \(\Delta^n\)}
+  \begin{itemize}
+    \item Represented functor:
+      \[
+      \Delta^n = \Delta(-, [n])
+      \]
+    \item \(k\)-simplices:
+      \[
+      (\Delta^n)_k = \Delta([k], [n])
+      \]
+    \item Unique non-degenerate \(n\)-simplex: identity map
+    \item Non-degenerate \(k\)-simplices: injective maps \([k] \to [n]\)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Nerve of a Category}
+  \begin{itemize}
+    \item For category \(\mathcal{C}\), the nerve \(N\mathcal{C}\):
+      \begin{itemize}
+        \item \(N\mathcal{C}_0 = \text{ob }\mathcal{C}\)
+        \item \(N\mathcal{C}_1 = \text{mor }\mathcal{C}\)
+        \item \(N\mathcal{C}_2 = \{f, g \mid \text{cod}(f) = \text{dom}(g)\}\)
+      \end{itemize}
+    \item Face maps:
+      \begin{itemize}
+        \item \(d_0, d_2\): drop outer arrows
+        \item \(d_1\): compose inner arrows
+      \end{itemize}
+    \item Degeneracy maps: insert identity morphisms
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Singular Complex}
+  \begin{itemize}
+    \item For topological space \(Y\), the singular complex \(SY\):
+      \[
+      (SY)_n = \text{Top}(\Delta^n, Y)
+      \]
+    \item \(n\)-simplices are continuous maps from \(\Delta^n\) to \(Y\)
+    \item Face and degeneracy maps defined by precomposition
+  \end{itemize}
+\end{frame}
+
+\section{Kan Complexes and Quasi-Categories}
+
+\begin{frame}{Kan Complexes}
+  \begin{definition}
+    A Kan complex is a simplicial set \(X\) where every horn has a filler:
+    \[
+    \Lambda^n_k \to X \quad \text{extends to} \quad \Delta^n \to X
+    \]
+  \end{definition}
+  \begin{itemize}
+    \item Models for homotopy types
+    \item Example: Singular complex \(SY\) of a space \(Y\)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Quasi-Categories}
+  \begin{definition}
+    A quasi-category is a simplicial set where every inner horn has a filler.
+  \end{definition}
+  \begin{itemize}
+    \item Models for (\(\infty, 1\))-categories
+    \item Example: Nerve of any ordinary category
+  \end{itemize}
+\end{frame}
+
+\section{Applications}
+
+\begin{frame}{Applications in Algebraic Topology}
+  \begin{itemize}
+    \item Singular homology:
+      \[
+      H_n(X) = H_n(S_*X)
+      \]
+    \item Classifying spaces via nerve functor
+    \item Homotopy theory: Kan complexes as models
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Applications in Higher Category Theory}
+  \begin{itemize}
+    \item (\(\infty, 1\))-categories as quasi-categories
+    \item Higher categorical limits and colimits
+    \item Derived functors and higher topos theory
+  \end{itemize}
+\end{frame}
+
+\section{Further Reading}
+
+\begin{frame}{Recommended Texts}
+  \begin{itemize}
+    \item Classical References:
+      \begin{itemize}
+        \item May: "Simplicial Objects in Algebraic Topology"
+        \item Gabriel-Zisman: "Calculus of Fractions and Homotopy Theory"
+      \end{itemize}
+    \item Modern Developments:
+      \begin{itemize}
+        \item Lurie: "Higher Topos Theory"
+        \item Goerss-Jardine: "Simplicial Homotopy Theory"
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\end{document}

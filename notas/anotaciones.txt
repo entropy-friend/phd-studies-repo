@@ -1,2 +1,3 @@
 - colocar toerema de swan entre porjectivos y vector bundles
 - ver 2.16
+- mas sobre determinantes y matrices elementares

@@ -1,5 +1,10 @@
 \part{Topics of Geometry}
 
+
+\chapter{Fibre bundles over paracompact spaces}
+
+\section{Bundles}
+
 References \cite{husemollerFibreBundles1994,mayConciseCourseAlgebraic1999}\\
 
 A \bf{paracompact space} is a topological space in which every open cover has an open refinement that is locally finite. 
@@ -16,8 +21,7 @@ Let $(E, p, B)$ and $\left(E^{\prime}, p^{\prime}, B^{\prime}\right)$ be two bun
 
 Let $\xi=(E, p, B)$ be a bundle, and let $f: B_1 \rightarrow B$ be a map. The induced bundle of $\xi$ under $f$, denoted $f^*(\xi)$, has as base space $B_1$, as total space $E_1$ which is the subspace of all pairs $\left(b_1, x\right) \in B_1 \times E$ with $f\left(b_1\right)=p(x)$, and as projection $p_1$ the map $\left(b_1, x\right) \mapsto b_1$. \textit{The induced bundle is the pullback on Bun}.\\
 
-\chapter{Fibre bundles over paracompact spaces}
-
+\section{Fibre bundles}
 
 Let $G$ be a topological group. 
 Every $G$-space $X$ determines a bundle $\alpha(X)=(X, \pi, X / G)$. If $h: X \rightarrow Y$ is a $G$-space morphism, we have $h(x G) \subset h(x) G$ for each $x \in X$. The \bf{quotient map of $h$} is the map $f$ : $X / G \rightarrow Y \bmod G$, where $f(x G)=h(x) G$. Let $\alpha(h)$ denote the bundle morphism $(h, f): \alpha(X) \rightarrow \alpha(Y)$.
@@ -121,8 +125,8 @@ Let $H$ be a closed subgroup of $G$, let $\omega_H=\left(Y_0, q_0, B_H\right)$ b
 \end{theo}
 
 
-\section{Classical groups}
-
+\section{Vector bundles}
+A {\bfseries vector bundle} over $X$ is a locally trivial family of vector spaces $\eta: E \rightarrow X$,i .e., $x \in X$ has a neighborhood $U$ such that $\eta|U: E| U \rightarrow U$ is trivial.
 %   INCLUIR ATLAS
 
 The \bf{orthogonal group} in $k$ dimensions, denoted $O(k)$, is the subgroup of $u \in \mathbf{G L}(k, \mathbf{R})$ such that $(u(x) \mid u(y))=(x \mid y)$ for each $x, y \in \mathbf{R}^k$. The \bf{unitary group} in $k$ dimensions, denoted $U(k)$, is the subgroup of $u \in \mathbf{G L}(k, \mathbf{C})$ such that $(u(x) \mid u(y))=(x \mid y)$ for each $x, y \in \mathbf{C}^k$. The \bf{symplectic group} in $k$ dimensions, denoted $S p(k)$, is the subgroup of $u \in \mathbf{G L}(k, \mathbf{H})$ such that $(u(x) \mid u(y))=(x \mid y)$ for each $x, y \in \mathbf{H}^k$.\\
@@ -134,6 +138,22 @@ These groups and the previous ones are referred to as the \bf{classical groups.}
 \begin{theo}
     Let $\xi$ be a vector bundle over $B$ paracompact. Then $\xi$ has an atlas whose transition functors $\left\{g_{i, j}\right\}$ have their values in $O(n)$, the real case with $F=\mathbf{R} ; U(n)$, the complex case with $F=\mathbf{C}$; and $S p(n)$, the quaternionic case with $F=\mathbf{H}$.   
 \end{theo}
+
+
+\section{Characteristic classes}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \chapter{Smooth and complex manifolds}
 
