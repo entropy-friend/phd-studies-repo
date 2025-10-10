@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}  % Reduce font size to 10pt
+\usepackage[a4paper, total={6in, 8in}]{geometry}  % Reduce margins
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{authblk}  % To manage author affiliations correctly
+\usepackage[usenames]{xcolor}
+\usepackage{lastpage}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amsfonts,amscd}
+\usepackage{empheq}
+\usepackage{latexsym}
+\usepackage{graphicx,graphics,epsfig}
+\usepackage{hyperref}
+
+\usepackage{dsfont}
+
+\urlstyle{same}
+
+\renewcommand{\baselinestretch}{1.0}  % Tighten line spacing
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\makeatletter
+\global\let\@jointwith\relax
+\global\let\@affiliation\relax
+% Redefine the \jointwith and \affiliation commands
+\def\jointwith#1{\gdef\@jointwith{(Joint work with #1)}}
+\def\affiliation#1{\gdef\@affiliation{#1}}
+
+\newcommand{\Keywords}[1]{\par\noindent{\bfseries Keywords}: #1}
+\newcommand{\MSC}[1]{\par\noindent{\bfseries MSC}: #1}
+
+\renewcommand\maketitle{\par
+  \begingroup
+    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+    \long\def\@makefntext##1{\parindent 1em\noindent
+            \hb@xt@1.8em{%
+                \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
+    \if@twocolumn
+      \ifnum \col@number=\@ne
+        \@maketitle
+      \else
+        \twocolumn[\@maketitle]%
+      \fi
+    \else
+      \newpage
+      \global\@topnum\z@
+      \@maketitle
+    \fi
+    \thispagestyle{plain}\@thanks
+  \endgroup
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\@jointwith\relax
+  \global\let\@affiliation\relax
+  \global\let\maketitle\relax
+  \global\let\@maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+    {\LARGE \@title \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author \\
+        {\sc\small \@affiliation} \\
+        {\small \@jointwith}
+      \end{tabular}\par}%
+    \vskip 1em%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\makeatother
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\begin{document}
+
+\title{Bloch-Wigner sequence and linear groups over finite rings}
+\author{Abraham Rojas Vega}
+\affiliation{Universidade de São Paulo}
+\jointwith{Behrooz Mirzaii}
+\maketitle
+
+The Bloch-Wigner exact sequence is an important result in K-theory that connects the third homology group of $\operatorname{SL}_2(\mathbb{C})$ with the Bloch group, which encodes information about scissor congruences of polyhedra in hyperbolic geometry. These concepts provide deep insights into the interplay between algebra, geometry, and topology. 
+
+Hutchinson, Mirzaii, and Pérez have extended the Bloch-Wigner sequence to other classes of commutative rings, like local rings \cite{hut2013,tesiselvis}.
+In this work, we apply these results to study the low-dimensional homology groups of $\operatorname{SL}_2$ over finite commutative rings. We also discuss other achievements in the area that have been obtained using these methods.
+
+\vline
+
+\Keywords{Bloch group, Finite rings,}
+
+\begin{thebibliography}{99}
+\bibitem{hut2013}
+\textsc{Hutchinson, K.}, A Bloch-Wigner sequence for SL2, \textit{Journal of K-Theory} \textbf{12}(2013), No.~1, 15--68.
+\bibitem{tesiselvis}
+\textsc{Torres Pérez, E.}, Scissors Congruence Group and the Third Homology of SL2, \textit{Tese de doutorado, Universidade de São Paulo} (2024)
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,438 @@
+\documentclass[a0]{sciposter}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{textcomp} % for registred symbol
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lipsum}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel,decorations.pathmorphing}
+
+
+\newtheorem{dfn}{Definition}
+\newtheorem{lem}{Lemma}
+\newtheorem{prp}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\theoremstyle{definition}
+\newtheorem{question}{Question}
+\newtheorem{problem}{Problem}
+\newtheorem{rem}{Remark}
+\newtheorem{exa}{Example}
+%\newtheorem{sub}{Subsection}
+
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand{\EE}{\mathcal{E}}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\GG}{\mathcal{G}}
+\newcommand{\RR}{\mathcal{R}}
+\newcommand{\WW}{\mathcal{W}}
+\newcommand{\II}{\mathcal{I}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\RP}{\mathcal{RP}}
+\newcommand{\RB}{\mathcal{RB}}
+\renewcommand{\SS}{\mathcal{S}}
+
+\newcommand{\ppp}{\mathfrak{p}}
+\newcommand{\mmm}{\mathfrak{m}}
+
+\renewcommand{\aa}{{A^\times}}
+\newcommand{\tors}{{{\rm Tor}_1^{\z}}}
+\newcommand{\half}{{\Big[\frac{1}{2}\Big]}}
+\newcommand{\third}{{\Big[\frac{1}{3}\Big]}}
+\newcommand{\pth}{{\Big[ \frac{1}{p} \Big]}}
+
+\newcommand{\mt}{\mapsto}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\se}{\subseteq}
+\newcommand{\arr}{\rightarrow}
+\newcommand{\larr}{\longrightarrow}
+\newcommand{\harr}{\hookrightarrow}
+\newcommand{\two}{\twoheadrightarrow}
+\newcommand{\Lan}{\langle \! \langle}
+\newcommand{\Ran}{\rangle \! \rangle}
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\D}{{\rm D}}
+\newcommand{\M}{{\rm M}}
+\newcommand{\Bb}{{\rm B}}
+\newcommand{\Tt}{{\rm T}}
+\newcommand{\Nn}{{\rm N}}
+\newcommand{\Ee}{{\rm E}}
+\newcommand{\GE}{{\rm GE}}
+\newcommand{\GW}{{\rm GW}}
+\newcommand{\MW}{{\rm MW}}
+\newcommand{\GL}{{\rm GL}}
+\newcommand{\SL}{{\rm SL}}
+\newcommand{\GM}{{\rm GM}}
+\newcommand{\SM}{{\rm SM}}
+\newcommand{\ab}{{\rm ab}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\im}{{\rm im}}
+\newcommand{\Ind}{{\rm Ind}}
+\newcommand{\Hom}{{\rm Hom}}
+\newcommand{\Tot}{{\rm Tot}}
+\newcommand{\inc}{{\rm inc}}
+\newcommand{\ind}{{\rm ind}}
+\newcommand{\sign}{{\rm sign}}
+\newcommand{\diag}{{\rm diag}}
+\newcommand{\rank}{{\rm rank}}
+\newcommand{\stabe}{{\rm Stab}}
+\renewcommand{\char}{{\rm char}}
+\newcommand{\coker}{{\rm coker}}
+
+
+
+\newtheorem{theorem}{Theorem}[]
+\newtheorem{corollary}{Corolário}[]
+\newtheorem{proposition}{Proposition}[]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[]
+\newtheorem{remark}{Remark}[]
+\newcommand{\midsepremove}{\aboverulesep = 0mm \belowrulesep = 0mm}
+\midsepremove
+\newcommand{\midsepdefault}{\aboverulesep = 0.605mm \belowrulesep = 0.984mm}
+\midsepdefault
+
+\newcommand{\divi}{\textrm{div}}
+
+% titulo do trabalho
+\title{Bloch-Wigner sequence and linear groups over finite rings}
+
+% nome dos autores
+\author{ \LARGE Abraham Rojas Vega \\ \large Joint work with Behrooz Mirzaii }
+
+% nome e endereço da Instituição
+\institute 
+{ICMC-USP}
+
+% e-mail dos autores (em ordem)
+\email{{abraham.rojas,bmirzaii}{@usp.br}}
+
+
+% exibe os logos (esquerda e direita) 
+\leftlogo[1]{img/LOGOICMCRGB.png}
+% \rightlogo[1.1]{img/LOGO - funding agency.png}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+
+\begin{document}
+
+\conference{International Conference on Finite Fields and Their Applications 2025 (Fq16)}
+
+\maketitle
+
+\newcommand{\mycaption}{%
+\ifx \@captype \@undefined \@latex@error {\noexpand \caption outside float}\@ehd \expandafter \@gobble \else \refstepcounter \@captype \expandafter \@firstofone \fi {\@dblarg {\@caption \@captype }}%
+}%
+
+%%% Begin of Multicols-Enviroment
+\begin{multicols}{2}
+
+%%% Os nomes das seções são apenas uma sugestão. Fique à vontade para modificar conforme sua necessidade.
+
+\begin{abstract}
+The Bloch-Wigner exact sequence is an important result in K-theory that connects the third homology group of $\operatorname{SL}_2(\mathbb{C})$ with the Bloch group, which encodes information about scissors congruences of polyhedra in hyperbolic geometry. These concepts provide deep insights into the interplay between algebra, geometry, and topology. 
+
+Hutchinson, Coronado, Mirzaii and Pérez have extended the Bloch-Wigner sequence to local rings \cite{hut2013,tesiselvis}.
+In this work, we apply these results to study the low-dimensional homology groups of $\operatorname{SL}_2$ over finite commutative rings. We also discuss other achievements in the area that have been obtained using these methods.
+\end{abstract}
+
+
+\section{The complex of unimodular vectors}
+
+Let $A$ be a commutative ring.
+Let $\D_n(A)$ be the subgroup of $\GL_n(A)$ generated by diagonal matrices. Let $\GE_n(A)$ 
+be the subgroup of $\GL_n(A)$  generated by $\D_n(A)$ and $\Ee_n(A)$. 
+A ring $A$ is called a \textbf{$\GE_n$-ring} if 
+\[
+\GE_n(A)=\GL_n(A).
+\]
+A ring $A$ is called a \textbf{$\GE$-ring}, if it is a $\GE_n$-ring for any $n$ 
+
+\begin{prp} Semilocal rings and Euclidean domains are $\GE$-rings. In particular,
+finite rings are $\GE$-rings.
+\end{prp}
+
+    
+A vector ${\begin{pmatrix} {u_1} \\ {u_2} \end{pmatrix}}\in A^2$ is said to be 
+{\it unimodular} if there exists a vector ${\begin{pmatrix} {v_1} \\ {v_2} \end{pmatrix}}$ 
+such that $\begin{pmatrix} {u_1} & {v_1} \\ {u_2} & {v_2} \end{pmatrix}\in \GL_2(A)$. 
+For any $v\in A^{2}-\{0\}$, let $\lan{ v}\ran := \{a{ v}: a\in A\}$. 
+
+Let $X_n(A^2)$ be the free abelian group generated by the set of $(n+1)$-tuples 
+$(\lan{ v_0}\ran, \dots, \lan{ v_n}\ran)$, such that every ${ v_i} \in A^2$ is unimodular and 
+$({ v_i}, { v_j}) \in \GL_2(A)$ for $i\neq j$. \\
+$X_n(A^2)$ is as a left $\GL_2(A)$-module 
+by the coordinate-wise action.
+Note that $\SL_2(A)$ acts transitively on the generators of $X_0(A^2)$ and $X_1(A^2)$.
+ 
+Let us define the $l$-th differential operator
+$
+\partial_l : X_l(A^2) \arr X_{l-1}(A^2), \ \ l\ge 1,
+$
+as an alternating sum of face operators. Let 
+$\partial_{0} $ be the augmentation map.
+Hence we have the complex
+\[
+X_\bullet(A^2)\arr \z: \  \cdots \larr  X_2(A^2) \overset{\partial_2}{\larr} X_1(A^2) 
+\overset{\partial_1}{\larr} X_0(A^2) \arr \z \arr 0.
+\]
+
+\begin{thm}[Hutchinson]\label{GE2C}
+Let $A$ be a commutative ring.
+\par {\rm (i)} $X_\bullet(A^2) \arr \z$ is exact in dimension $<1$ if and only if $A$ is a $\GE_2$-ring.
+\par {\rm (ii)} If $A$ is local, then $X_\bullet(A^2)\arr \z$ is exact in dimension $< 2$.
+\par {\rm (iii)} If $A$ is local, then $X_\bullet(A^2) \arr \z$ is exact in dimension $i < |A/\mmm_A|$.
+\end{thm} 
+
+
+We denote 
+\[
+\Bb(A)=\bigg\{\begin{pmatrix}
+a & b\\
+0 & a^{-1}
+\end{pmatrix}:a\in \aa, b\in A\bigg\},
+\ \ \ \ 
+\Tt(A)=\bigg\{\begin{pmatrix}
+a & 0\\
+0 & a^{-1}
+\end{pmatrix}:a\in \aa\bigg\}.
+\]
+The homologies of these matrices groups are related to the spectral sequence \ref{spectral} which computes $H_*(\SL_2(A),\z)$. The map $\Bb(A) \arr \Tt(A)$, given by 
+$\begin{pmatrix} a & b \\ 0 & a^{-1} \end{pmatrix} \mapsto \begin{pmatrix} a & 0 \\ 0 & a^{-1} \end{pmatrix}$,
+induces the split extension of abelian groups
+\begin{equation*}\label{s-e}
+1 \arr \Nn(A) \arr \Bb(A) \arr \Tt(A) \arr 1,
+\end{equation*}
+where $\Tt(A)\simeq A^\times$ and $\Nn(A) \simeq A$.
+
+Motivated by the classical Bloch-Wigner sequence, we consider the square class group
+$$\GG_A:=\aa/(\aa)^2.$$
+The element of $\GG_A$ represented by $a \in A^{\times}$ is denoted by $\langle a\rangle$. We set $\langle\langle a\rangle\rangle:=\langle a\rangle-1 \in \GG_A$.\\
+Let $\WW_A$ be the set of $a \in A^{\times}$such that $1-a \in A^{\times}$. Thus
+$$
+\WW_A:=\left\{a \in A: a(1-a) \in A^{\times}\right\} .
+$$
+
+Let $A$ be a $\GE_2 -$ring. Consider the exact sequence $0 \arr Z_1(A^2) \overset{\inc}{\arr} X_1(A^2) \overset{\partial_1}{\arr} X_0(A^2) \arr \z \arr 0$. Removing the first term and tensoring by the bar resolution over $\SL_2(A)$, we obtain the double complex
+\[
+D_{\bullet,\bullet}: 0 \arr F_\bullet \otimes_{\SL_2(A)} Z_1(A^2) 
+\overset{\id_{F_\bullet}\otimes\inc}{-\!\!\!-\!\!\!-\!\!\!\larr} 
+F_\bullet \otimes_{\SL_2(A)}X_1(A^2)  \overset{\id_{F_\bullet}\otimes\partial_1}{-\!\!\!-\!\!\!-\!\!\!\larr} 
+F_\bullet \otimes_{\SL_2(A)}X_0(A^2)  \arr 0,
+\]
+This gives us the first quadrant spectral sequence
+\begin{equation}\label{spectral}
+E^1_{p,q}=
+\begin{cases}
+H_q(\SL_2(A),X_p(A^2)) & \text{if } p=0,1\\
+H_q(\SL_2(A),Z_1(A^2)) & \text{if } p=2\\
+0 & \text{if } p>2
+\end{cases}
+\Longrightarrow H_{p+q}(\SL_2(A),\z).
+\end{equation}
+
+
+% \begin{prp}\label{X}
+% \begin{enumerate}
+%     \item $X_0\left(A^2\right) \simeq \operatorname{Ind}_{B(A)}^{\operatorname{SL}_2(A)} \mathbb{Z}, \quad X_1\left(A^2\right) \simeq \operatorname{Ind}_{T(A)}^{\operatorname{SL}_2(A)} \mathbb{Z}$.
+%     \item $X_2\left(A^2\right)_{\mathrm{SL}_2(A)} \simeq \mathbb{Z}\left[\mathcal{G}_A\right]$, $\bar{\partial}_1: \mathbb{Z} \rightarrow \mathbb{Z}$ is trivial and $\bar{\partial}_2: \mathbb{Z} \rightarrow \mathbb{Z}$ is the augmentation map.
+%     \item Thus $X_3\left(A^2\right)_{\mathrm{SL}_2(A)}$ is the free $\mathbb{Z}\left[\mathcal{G}_A\right]$-module generated by the symbols $[x], x \in \mathcal{W}_A$, and $\bar{\partial}_3: \mathbb{Z} \rightarrow \mathbb{Z}$ is given by $ [x] \mapsto \Lan x \Ran \Lan 1-x \Ran $.
+%     \item $X_4\left(A^2\right)_{\mathrm{SL}_2(A)}$ is the free $\mathbb{Z}\left[\mathcal{G}_A\right]$-module generated by the symbols $[x, y], x, y, x / y \in \mathcal{W}_A$, and
+% $$
+% \bar{\partial}_4([x, y])=[x]-[y]+\langle x\rangle\left[\frac{y}{x}\right]-\left\langle x^{-1}-1\right\rangle\left[\frac{1-x^{-1}}{1-y^{-1}}\right]+\langle 1-x\rangle\left[\frac{1-x}{1-y}\right] .
+% $$
+% \end{enumerate}
+% \end{prp}
+
+After studying the lower terms of the spectral sequence \ref{spectral}, we obtain 
+
+\begin{thm}\label{H2IA}
+For any $\GE_2$-ring $A$ we have the exact sequence
+$$H_2(\Bb(A),\z)\twoheadrightarrow  H_2(\SL_2(A), \z) \arr I(A) \overset{d_{2,0}^2}{\larr} \GG_A\oplus A_\aa 
+\arr H_1(\SL_2(A),\z) \arr 0.$$
+\end{thm}
+
+
+
+\section{The refined Bloch group}
+
+From now on, assume that $|k| \geq 4 $ and that $H_2(\Bb(A),\z)= H_2(\Tt(A),\z)$.
+
+Let $\overline{\RP}(A)$ be the quotient of the free $\GG_A$-module generated by the symbols $[x], x \in \WW_A$ over the subgroup generated by the elements
+$$
+[x]-[y]+\langle x\rangle\left[\frac{y}{x}\right]-\left\langle x^{-1}-1\right\rangle\left[\frac{1-x^{-1}}{1-y^{-1}}\right]+\langle 1-x\rangle\left[\frac{1-x}{1-y}\right], \quad x, y, x / y \in \WW_A .
+$$
+It is called the \textit{refined scissors congruence group}. Consider the map $\lambda: \overline{\RP}(A) \arr \mathbb{Z}\left[\GG_A\right]$ given by
+$
+[x] \mapsto -\langle\langle x\rangle\rangle\langle\langle 1-x\rangle\rangle.
+$
+Let $\overline{\RP}_1(A)$ be the kernel of this map.
+
+\begin{theorem}
+For any $\GE_2$-ring $A$ with the above properties, we have the commutative diagram
+  \begin{center}
+    \begin{tikzcd}
+        \RP_1 (A) \arrow[r,"\lambda_1"] \ar[d]
+            & \displaystyle \frac{\aa \wedge \aa}{\aa \wedge \mu_2(A)} \ar[d] \\
+        \mathcal{P}(A) \ar[r]
+            & (\aa \wedge \aa) \oplus S^2_\z(A)
+    \end{tikzcd}
+\end{center}
+where $S_{\mathbb{Z}}^2(A):=\left(A^{\times} \otimes A^{\times}\right) /\left\langle a \otimes b+b \otimes a: a, b \in A^{\times}\right\rangle$. Moreover, the vertical map on the right is given by $a \wedge b \mapsto(2 a \wedge b, 2(a \otimes b))$ and the bottom horizontal map is given by $[a] \mapsto(a \wedge(1-a),-a \otimes(1-a))$. 
+\end{theorem}
+The kernel of the map $\lambda_1$ is called the \textit{refined Bloch group} and is denoted by $\mathcal{RB} (A)$.
+
+
+
+
+
+
+
+
+
+
+
+\section{Applications to finite rings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+% \begin{theorem}[Shoda,1930]\label{theorem:shoda}
+% Let $n=p_1^{e_1} \cdots p_k^{e_k}$ be the prime decomposition of $n$. Then any commutative
+% ring of order $n$ is the product of rings of orders ${p}_1^{e_1}, \ldots, p_{{k}}^{e_k}$. 
+% \end{theorem}
+
+Finite commutative rings are Noetherian and Artinian, then products of local rings. So we focus on commutative finite local rings, which have order a power of a prime.
+
+Let $A$ be a finite commutative local ring. It will be important to understand 
+the structure of the group of units of $A$, denoted by $A^\times$. 
+
+\begin{proposition}
+Let $A$ be a local ring with maximal ideal $\mmm_A$ and let $k:=A/\mmm_A$ with $\char k =p$. Then $1+\mmm_A$ is a $p$-group in $A^\times$. Moreover $k^\times \simeq  \aa / (1+\mmm_A)$ and
+\[
+\aa \simeq k^\times \oplus (1+\mmm_A).
+\]
+\end{proposition}
+
+\begin{cor}
+If $\char(k)$ is odd, then $\GG_A\simeq \GG_k\simeq \z/2.$
+\end{cor}
+
+In this part we compute $H_2(\SL_2(A),\z)$ for finite local rings $A$. 
+
+\begin{prp} \label{exceptions}
+By the Künneth formula,
+$ H_2 (\aa,\z) \simeq H_2 (1 +\mmm_A,\z) $.
+If $ H_2(B(A)) = H_2(T(A)) $, which happens for finite values of $|k|$, then 
+\begin{equation*}\label{eqh2h2}
+  H_2(B(A),\z) = H_2(1 +\mmm_A, \z).  
+\end{equation*}
+\end{prp}
+
+ The augmentation ideal of $\z[\GG_A]$ is $\II (A) = \z[ \overline{-1} - \overline{1} ]$. Let $a \in \WW _A $, since $\lan a \ran \in \z_2$, it is easy to see that 
+\begin{equation*} \label{eq:2}
+\Lan a \Ran \Lan 1-a \Ran = 
+\begin{cases} 
+    2 (\overline{1} - \overline{-1}) & \text{if } \lan x \ran = \lan 1-x \ran = \overline{-1} \\
+0 & \text{otherwise } \\ 
+\end{cases}
+\end{equation*}
+It can be shown that $d^2_{20}: \z_2 \rightarrow \z_2$ is the identity, so its kernel vanish, then Theorem 2 give us a surjective map $ H_2(B(A)) \longrightarrow H_2 (\SL_2 (A))  $.
+
+\begin{thm}\label{generalimpar} If $|k|$ is not exceptional, then there is a surjective map
+    $$H_2(1+\mmm_A ,\z) \longrightarrow H_2(\SL_2(A),\z).$$
+\end{thm}
+In particular, when $1+ \mmm_A$ is cylic, as in the case of fields or $\z_{p^r} $, we obtain the classical result $H_2(\SL_2(A))=0$. The other cases and the study of the third homology will appear in a paper in preparation by the authors. 
+
+\section{Other applications}
+
+In \cite{tesiselvis}, Pérez extends the Bloch-Wigner sequence to local rings. We present two cases:
+
+\begin{thm} Let A be a local domain of characteristic 2, where its residue field has more than $64$ elements. Then we have the refined Bloch-Wigner exact sequence
+$$
+0 \rightarrow \operatorname{Tor}_1^{\z}(\mu(A), \mu(A)) \rightarrow H_3\left(S L_2(A), \mathbb{Z}\right) \rightarrow \mathcal{RB}(A) \rightarrow 0 .
+$$
+\end{thm}
+
+\begin{thm}
+Let $A$ be a conmutative local ring of characteristic $p \geq 3$, such that $H_i(\Tt(A),\z) = H_i(\Bb(A),\z)$ for $i=2,3$. Then we have the exact sequence $$H_3\left(S M_2(A), \mathbb{Z}\right) \rightarrow H_3\left(S L_2(A), \mathbb{Z}\right) \rightarrow \mathcal{RB}(A) \rightarrow 0. $$
+\end{thm}
+
+Other results obtained using these methods are:
+\begin{itemize}
+    \item Mirzaii and Pérez studied the low dimensional homologies of projective linear and projective special linear groups \cite{uno,dos}. For that, appropiate spectral sequences are constructed. They also show that $K_i(A) [\frac{1}{2}]  \sim H_i(\operatorname{PGL}_2 (A),\z [\frac{1}{2}])$ for $i=2,3$ and mild conditions on $A$. In particular, the abelianization of this groups has been computed.
+    \item Mirzaii and Pérez generalized the construction presented here to study the low dimensional homology of the elementary group for general commutative rings \cite{tres}. As an application they prove a Bloch-Wigner sequence for semilocal rings with mild restrictions.
+\end{itemize}
+\textbf{Acknowledgments:} This study was financed in part by the Coordena\c{c}\~{a}o de Aperfei\c{c}oamento de Pessoal de N\'{i}vel Superior -- Brasil (CAPES) -- Finance Code 001.
+
+
+
+\begin{thebibliography}{9}
+    \bibitem{hut2013}
+    HUTCHINSON, K. \textit{A Bloch–Wigner sequence for SL$_2$}. \textbf{Journal of K-Theory}, v. 12, n. 1, p. 15–68, 2013.
+
+    \bibitem{tesiselvis}
+    PÉREZ, E. T. \textbf{Scissors Congruence Group and the Third Homology of SL\textunderscore{2}}. Tese de doutorado, Universidade de São Paulo, 2024.
+
+    \bibitem{uno}
+    MIRZAI, B.; PÉREZ, E. T. \textit{On the connections between the low dimensional homology groups of SL\textunderscore{2} and PSL\textunderscore{2}}. \textbf{Communications in Algebra}, p. 1-17, 2025.
+
+    \bibitem{dos}
+    MIRZAI, B.; PÉREZ, E. T. \textit{The low dimensional homology of projective linear group of rank two}. \textbf{arXiv}:2405.08950, 2024.
+
+    \bibitem{tres}
+    MIRZAI, B.; PÉREZ, E. T. \textit{The low dimensional homology groups of the elementary group of rank two}. \textbf{arXiv}:2407.17632v2, 2024.
+    % \bibitem{article} SURNAME1, Name1; SURNAME2, Name2. \textit{Article's name}. \textbf{Journal's name}, v. \#volume, n. \#edition, p. \#initial page-\#final page, \#year.
+    % \bibitem{book} SURNAME1, Name1; SURNAME2, Name2. \textbf{Book's name}, \#edition, Publisher's name, \#year.
+
+\end{thebibliography}
+%--End of references-----------------------------------------------------------
+
+\end{multicols}
+
+%     \begin{figure}
+% \centering
+% \label{fig:diag}
+% \begin{tikzcd}
+%    & \overline{\mathcal{RP}_1} \ar[dd,dashrightarrow] \ar[r,hookrightarrow] & \overline{\mathcal{RP}} \ar[dd,dashrightarrow] \ar[rd,"c(\overline{\partial_3})"] & & \overline{GW}(A) \ar[dd,rightsquigarrow] \ar[rd,"c(\overline{\partial_2})"] & & & \\
+%   \ds \bigoplus _{x,y , \ds \frac{x}{y} \in \WW _A} \z [\GG _A][x,y]  \ar[r,"\overline{\partial _{4}}"]  & \ds \bigoplus _{x \in \WW _A} \z [\GG _A][x] \ar[ru,twoheadrightarrow] \ar[rd,"\overline{s(\partial_3)}"]  \ar[rr,"\overline{\partial _{3}}"] & & \z[\GG _A]  \ar[ru,twoheadrightarrow] \ar[rd,"\overline{s(\partial_2)}"']  \ar[rr,"aug"] & & \z \ar[r] & 0 \\
+%   & \mathcal{RP}_1 \ar[r,hookrightarrow] & \mathcal{RP} \ar[ru,"\lambda"] & I(A) 
+%   \ar[r,hookrightarrow] & GW(A) \ar[ru,"\varepsilon"', twoheadrightarrow] & & & \\
+%   & & \mathcal{I}(A) \ar[from=luu,"s(\overline{\partial_3})"',crossing over] \ar[ruu,hookrightarrow] \ar[r,twoheadrightarrow] & \overline{I}(A)\ar[u,rightsquigarrow] &
+% \end{tikzcd}
+% %\caption{This diagram shows the relation between the different homology groups, when $X_\bullet$ is exact in dimension $<4$, but it holds in general with minor modifications. Let $f:A\rightarrow B$ a map between abelian groups, we denote $s(f): A \rightarrow \operatorname{Im} f$, and $c(f): \ds \frac{A}{\ker f} \rightarrow B$ the canonical maps; $\overline{f}$ is the induced map in $0$-homology. Also $\bar{\partial}_4([x, y])=[x]-[y]+\langle x\rangle\left[\frac{y}{x}\right]-\left\langle x^{-1}-1\right\rangle\left[\frac{1-x^{-1}}{1-y^{-1}}\right]+\langle 1-x\rangle\left[\frac{1-x}{1-y}\right]$ and $c(\overline{\partial_3})[x] = - \Lan x \Ran \Lan  1-x \Ran $.}
+%     \end{figure}
+
+
+
+\vfill
+\centering
+\includegraphics[scale = 0.75]{img/logo-capes.png}
+\hspace{3cm}
+\includegraphics[scale = 1.2]{img/logo-cnpq.png}
+\hspace{3cm}
+\includegraphics[scale = 0.4]{img/logo-Fq16.png}
+\hspace{3cm}
+\includegraphics[scale = 0.5]{img/logo-elsevier.png}
+\hspace{3cm}
+\includegraphics[scale = 1]{img/logo-fapesp.png}
+\end{document}

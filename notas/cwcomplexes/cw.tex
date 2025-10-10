@@ -1,0 +1,136 @@
+\documentclass{beamer}
+
+% Language and encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% Math packages
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{changepage} % Added for adjustwidth environment
+
+% Graphics
+\usepackage{graphicx}
+
+% Theme
+\usetheme{Madrid}
+
+% Title info
+\title{Maps between CW Complexes}
+\author{Abraham Rojas Vega}
+\date{\today}
+
+% Custom commands (optional)
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\maketitle
+
+% Content goes here
+
+\begin{frame}{CW Complexes}
+\begin{enumerate}
+    \setlength\itemsep{1.5em}
+    \item Start with a discrete set $X^0$, whose points are regarded as 0-cells.
+    \item Inductively, form the $n$-skeleton $X^n$ from $X^{n-1}$ by attaching $n$-cells $e_\alpha^n$ via maps $\varphi_\alpha: S^{n-1} \rightarrow X^{n-1}$, denoted by $X^n \cup _f X^{n-1}$ \alert{(Categorical Pushout)}
+    \item One can either stop this inductive process at a finite stage, setting $X = X^n$ for some $n < \infty$, or one can continue indefinitely, setting $X = \bigcup_n X^n$ (considering the weak topology).
+\end{enumerate}
+\end{frame}    
+
+\begin{frame}
+“CW” stands for the following two properties shared by any CW-complex: 
+\bigskip
+
+
+\begin{adjustwidth}{1cm}{1cm}
+
+\textbf{C = “closure finiteness”}: a compact subset of a CW-complex intersects the interior of only finitely many cells, hence in particular so does the closure of any cell.
+\medskip
+
+\textbf{W = “weak topology”}: A subset of a CW-complex is open or closed precisely if its intersection with the closure of each cell is open or closed, respectively.
+\end{adjustwidth}
+\bigskip
+
+Whitehead called the interior of the n-disks the “cells”, so that their closure of each cell is the corresponding 
+n-disk. \bigskip
+
+\emph{Why do we care about CW complexes?} 
+
+\end{frame}
+
+\begin{frame}{Good properties}
+    \vfill
+Cell complexes have a very nice mixture of rigidity and flexibility, with enough rigidity to allow many arguments to proceed in a combinatorial cell-by-cell fashion and enough flexibility to allow many natural constructions to be performed on them.
+\vfill
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \setlength\itemsep{1.5em}
+        \item Locally contractible, normal paracompact and compactly generated.
+        \item Nice categorical properties: quotients, products,
+        \item Cellular approximation theorem, that we will see later.
+        \item \textbf{Whitehead's theorem: weak equivalence are homotopy equivalences!}
+        \item Brown's representability theorem: gives necessary and sufficient conditions for a contravariant functor on the homotopy category of pointed connected CW complexes, to the category of sets, to be representable.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Category of CW-complexes}
+
+A map $f: X \rightarrow Y$ between CW complexes is cellular if $f\left(X^n\right) \subset Y^n$ for all $n \geq 0$.\\
+\bigskip
+A homotopy $F: X \times I \rightarrow Y$ is cellular if it is a cellular map with respect to the natural CW complex structure on $X \times I$.\\
+\bigskip
+
+There are similar definitions for pairs.
+
+\end{frame}
+
+\begin{frame}
+
+\begin{block}{Proposition}
+Let $m>n$. Let $U$ be an open subset of $\mathbb{R}^n$ such that the space $\mathrm{cl} U$ is compact. Let $f: \mathrm{cl} U \rightarrow B^m$ be such that $f(\mathrm{fr} U) \subset S^{m-1}$. Then $f$ is homotopic, rel fr $U$, to a map $g$ such that some point of $B^m-S^{m-1}$ is not in the image of $g$.
+
+\end{block}
+
+\bigskip
+
+    \begin{block}{Propostion}
+Let $e_\alpha^n$ be an $n$-cell of the $C W$ complex $X$, and let $z \in \overset{\circ}{e^n _\alpha}$. Then $X^n-\overset{\circ}{e^n _\alpha} $ is a strong deformation retract of $X^n-\{z\}$.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Cellular aproximation theorem}
+    \begin{block}{Theorem}
+Let $f: X \rightarrow Y$ be a map between CW complexes and let $A$ be a subcomplex of $X$ such that $f \mid A: A \rightarrow Y$ is cellular. Then $f$ is homotopic, rel $A$, to a cellular map.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Addendum}
+The homotopy $H: X \times I \rightarrow Y$ obtained in the proof has the property that for each cell $e$ of $X, H(e \times I) \subset C(f(e))$.
+\end{block}
+\bigskip
+\begin{block}{Corollary}
+    Let $X$ be a CW complex; $X$ is path connected iff $X^1$ is path connected.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\vfill
+\centering
+\alert{Now, let's talk about categories!}
+\vfill
+\end{frame}
+
+
+
+
+
+
+
+
+
+\end{document}
